@@ -791,6 +791,14 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <b>Maximum:</b> <span class="m">1 − 1/<i>n</i> = 1</span> hieße <span class="m">1/<i>n</i> = 0</span>, das geht nicht. Also 1 ∉ <i>M</i><sub>1</sub>, <b>kein Maximum</b>.<br>
     Zahlenbeispiel zu <i>c</i> = 0.99: Der Hinweis liefert ein <i>n</i> &gt; 100, etwa <i>n</i> = 101, und <span class="m">1 − 1/101 ≈ 0.9901 &gt; 0.99</span> ✓</p>
   </div>
+  <div class="merke"><span class="lbl">Wie kommt man auf n &gt; 1/(1 − c)?</span><p><b>Man rechnet rückwärts vom Ziel.</b> Das <i>n</i> fällt nicht vom Himmel, man sucht es so:<br>
+  <b>Ziel:</b> ein Element über <i>c</i>, also <span class="m">1 − 1/<i>n</i> &gt; <i>c</i></span>.<br>
+  <b>1. Umstellen:</b> <span class="m">1/<i>n</i></span> auf die rechte Seite und <i>c</i> nach links bringen: <span class="m">1 − <i>c</i> &gt; 1/<i>n</i></span>.<br>
+  <b>2. Nach <i>n</i> auflösen:</b> Mit <i>n</i> multiplizieren gibt <span class="m"><i>n</i>(1 − <i>c</i>) &gt; 1</span>. Wegen <span class="m"><i>c</i> &lt; 1</span> ist <span class="m">1 − <i>c</i> &gt; 0</span>, also darf man durch <span class="m">1 − <i>c</i></span> teilen, ohne dass sich das Zeichen umdreht: <span class="m"><i>n</i> &gt; 1/(1 − <i>c</i>)</span>.<br>
+  <b>3. Gibt es so ein <i>n</i>?</b> Ja, genau dafür ist der Hinweis da: Zu jedem <span class="m"><i>r</i> ∈ ℝ</span> gibt es ein <span class="m"><i>n</i> &gt; <i>r</i></span>. Setz <span class="m"><i>r</i> = 1/(1 − <i>c</i>)</span>.<br>
+  <b>4. Aufschreiben:</b> In der Lösung schreibt man die Schritte dann vorwärts, so wie oben: erst das <i>n</i> wählen, dann zeigen, dass es funktioniert.<br>
+  <b>Zahlenbeispiel:</b> <i>c</i> = 0.99. Dann ist <span class="m">1 − <i>c</i> = 0.01</span> und <span class="m">1/(1 − <i>c</i>) = 100</span>. Also braucht man <i>n</i> &gt; 100, etwa <i>n</i> = 101: <span class="m">1 − 1/101 ≈ 0.9901 &gt; 0.99</span> ✓. Je näher <i>c</i> an 1 liegt, desto größer muss <i>n</i> sein, aber ein passendes <i>n</i> gibt es immer.<br>
+  Bei c) unten geht es genauso: Ziel <span class="m">2/<i>n</i> &lt; <i>c</i></span>, umgestellt <span class="m"><i>n</i> &gt; 2/<i>c</i></span>.</p></div>
   <div class="bsp"><span class="lbl">b) M₂ = {(−1)ⁿ (1 + 1/n) : n ∈ ℕ}</span>
     <p><b>Ausrechnen:</b> Das Vorzeichen springt. Für gerades <i>n</i> kommt <span class="m">1 + 1/<i>n</i></span> heraus, für ungerades <i>n</i> kommt <span class="m">−(1 + 1/<i>n</i>)</span> heraus.</p>
     <div class="tw"><table>
