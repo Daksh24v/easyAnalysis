@@ -825,6 +825,41 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <b>Die Umkehrung gilt nicht:</b> Aus „<i>M</i> hat ein Supremum“ folgt nicht „<i>M</i> hat ein Maximum“. Gegenbeispiel aus a): <span class="m">sup <i>M</i><sub>1</sub> = 1</span>, aber <i>M</i><sub>1</sub> hat kein Maximum, weil 1 ∉ <i>M</i><sub>1</sub>. Genauso hat <i>M</i><sub>3</sub> ein Infimum 0, aber kein Minimum.</p>
   </div>
 
+  <h4 id="aufgabe-3-1">Beispiel: Aufgabe 3.1 aus der Übung (Laufzeit eines Algorithmus)</h4>
+  <p>Ein Algorithmus braucht bei Eingaben der Länge <i>n</i> ≥ 1 höchstens <span class="m"><i>T</i>(<i>n</i>) = 3<i>n</i>² + 5<i>n</i> + 2</span> Schritte. Gesucht ist eine Konstante <i>c</i> mit <span class="m"><i>T</i>(<i>n</i>) ≤ <i>c</i><i>n</i>²</span> für alle <i>n</i>. Dazu betrachtet man die Menge</p>
+  <p class="mb"><i>Q</i> = { <i>T</i>(<i>n</i>)/<i>n</i>² : <i>n</i> ≥ 1 } = { 3 + 5/<i>n</i> + 2/<i>n</i>² : <i>n</i> ≥ 1 }.</p>
+  <p>Die Umformung bekommt man, indem man jeden Summanden einzeln durch <i>n</i>² teilt: <span class="m">3<i>n</i>²/<i>n</i>² = 3</span>, <span class="m">5<i>n</i>/<i>n</i>² = 5/<i>n</i></span>, <span class="m">2/<i>n</i>²</span>.</p>
+  <div class="tw"><table class="cantor">
+    <tr><th>n</th><td>1</td><td>2</td><td>3</td><td>5</td><td>10</td><td>100</td><td>…</td></tr>
+    <tr><th>T(n)/n²</th><td>10</td><td>6</td><td>4.89</td><td>4.08</td><td>3.52</td><td>3.05</td><td>→ 3</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">a) max Q = sup Q = 10, und was das für c bedeutet</span>
+    <p><b>Streng monoton fallend:</b> Wird <i>n</i> größer, werden <span class="m">5/<i>n</i></span> und <span class="m">2/<i>n</i>²</span> beide echt kleiner. Also ist <span class="m">3 + 5/(<i>n</i>+1) + 2/(<i>n</i>+1)² &lt; 3 + 5/<i>n</i> + 2/<i>n</i>²</span> für jedes <i>n</i>.<br>
+    <b>Folgerung:</b> Das erste Element ist das größte. Für <i>n</i> = 1 kommt <span class="m">3 + 5 + 2 = 10</span> heraus, und alle anderen Elemente sind kleiner. Also <b>max <i>Q</i> = 10</b>, und nach Aufgabe 2.5 d) ist dann auch <b>sup <i>Q</i> = 10</b>.<br>
+    <b>Bedeutung für c:</b> <span class="m"><i>T</i>(<i>n</i>) ≤ <i>c</i><i>n</i>²</span> heißt dasselbe wie <span class="m"><i>T</i>(<i>n</i>)/<i>n</i>² ≤ <i>c</i></span>, also: <i>c</i> ist eine obere Schranke von <i>Q</i>. Die kleinste solche Konstante ist das Supremum. Mit <span class="m"><i>c</i> = 10</span> gilt <span class="m"><i>T</i>(<i>n</i>) ≤ 10<i>n</i>²</span> für alle <i>n</i> ≥ 1, und jedes kleinere <i>c</i> scheitert schon bei <i>n</i> = 1.</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) inf Q = 3, aber kein Minimum</span>
+    <p><b>Untere Schranke:</b> <span class="m">5/<i>n</i> + 2/<i>n</i>² &gt; 0</span>, also ist jedes Element <b>echt</b> größer als 3.<br>
+    <b>Keine größere Schranke:</b> Sei <span class="m"><i>c</i> &gt; 3</span>. Wir suchen ein Element unter <i>c</i>, also ein <i>n</i> mit <span class="m">5/<i>n</i> + 2/<i>n</i>² &lt; <i>c</i> − 3</span>. Abschätzen macht es einfacher: Wegen <span class="m"><i>n</i>² ≥ <i>n</i></span> ist <span class="m">2/<i>n</i>² ≤ 2/<i>n</i></span>, also <span class="m">5/<i>n</i> + 2/<i>n</i>² ≤ 7/<i>n</i></span>. Nach dem Hinweis gibt es ein <i>n</i> mit <span class="m"><i>n</i> &gt; 7/(<i>c</i> − 3)</span>. Dann ist <span class="m">7/<i>n</i> &lt; <i>c</i> − 3</span>, und damit liegt <span class="m">3 + 5/<i>n</i> + 2/<i>n</i>² &lt; <i>c</i></span>. Also ist <i>c</i> keine untere Schranke, und <b>inf <i>Q</i> = 3</b>.<br>
+    <b>Kein Minimum:</b> Jedes Element ist echt größer als 3, also 3 ∉ <i>Q</i>.<br>
+    <b>Bedeutung:</b> Für große <i>n</i> ist <span class="m"><i>T</i>(<i>n</i>) ≈ 3<i>n</i>²</span>. Der Term <span class="m">3<i>n</i>²</span> bestimmt die Laufzeit, die anderen werden nebensächlich.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) Das kleinste n₀ mit T(n) ≤ 4n² für alle n ≥ n₀</span>
+    <p><span class="m"><i>T</i>(<i>n</i>) ≤ 4<i>n</i>²</span> heißt <span class="m">3 + 5/<i>n</i> + 2/<i>n</i>² ≤ 4</span>. Wegen a) fallen die Werte, also gilt die Ungleichung ab dem ersten <i>n</i>, für das sie stimmt, für alle größeren <i>n</i> auch. Wir müssen also nur ausprobieren:</p>
+    <div class="tw"><table class="cantor">
+      <tr><th>n</th><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>T(n)</th><td>70</td><td>102</td><td>140</td></tr>
+      <tr><th>4n²</th><td>64</td><td>100</td><td>144</td></tr>
+      <tr><th>T(n) ≤ 4n²?</th><td>nein</td><td>nein</td><td class="diag">ja</td></tr>
+    </table></div>
+    <p>Also <b><i>n</i>₀ = 6</b>. Ohne Probieren: <span class="m">3<i>n</i>² + 5<i>n</i> + 2 ≤ 4<i>n</i>²</span> ist <span class="m"><i>n</i>² − 5<i>n</i> − 2 ≥ 0</span>. Die Nullstellen sind <span class="m">(5 ± √33)/2</span>, die positive liegt bei etwa 5.37. Die erste ganze Zahl darüber ist 6.</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) Ein langsamerer Algorithmus: T′(n) = n³</span>
+    <p>Jetzt ist <span class="m"><i>T</i>′(<i>n</i>)/<i>n</i>² = <i>n</i></span>, also <span class="m"><i>Q</i>′ = {1, 2, 3, …}</span>.<br>
+    <b>Unbeschränkt:</b> Sei <i>C</i> eine beliebige Zahl. Nach dem Hinweis gibt es ein <span class="m"><i>n</i> &gt; <i>C</i></span>, und dieses <i>n</i> ist ein Element von <i>Q</i>′. Also ist keine Zahl eine obere Schranke, und <b>sup <i>Q</i>′ = ∞</b>.<br>
+    <b>Folgerung für c:</b> Es gibt <b>keine</b> Konstante <i>c</i> mit <span class="m"><i>n</i>³ ≤ <i>c</i><i>n</i>²</span> für alle <i>n</i>. Das hieße ja <span class="m"><i>n</i> ≤ <i>c</i></span> für alle <i>n</i>. Der Algorithmus wächst schneller als quadratisch.</p>
+  </div>
+
   <h4>Rechenregeln für Suprema (Satz 2.7)</h4>
   <div class="tw"><table>
     <tr><th>Regel</th><th>Bedingung</th><th>Beispiel</th></tr>
@@ -913,6 +948,45 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <tr><td class="m">ℝ, ∅</td><td>ja</td><td>ja</td><td>die einzigen beiden (Satz 2.11)</td></tr>
   </table></div>
   <div class="falle"><span class="lbl">Falle</span><p>„Abgeschlossen“ ist <b>nicht</b> das Gegenteil von „offen“. Eine Menge kann beides sein (ℝ, ∅) oder keins von beiden ([0,1), ℚ). Es ist wie bei einer Tür, nur dass die Mathematik halboffene Türen erlaubt.</p></div>
+
+  <h4 id="aufgabe-3-2">Beispiel: Aufgabe 3.2 aus der Übung</h4>
+  <p>Welche Mengen sind offen, welche abgeschlossen? Das Vorgehen ist jedes Mal gleich: <b>Erst die Menge als Intervalle schreiben</b>, dann die Randpunkte anschauen und mit der Definition begründen.</p>
+  <div class="bsp"><span class="lbl">a) A = {x ∈ ℝ : |x − 3| &lt; 2}</span>
+    <p><b>Ausschreiben:</b> <span class="m">|<i>x</i> − 3| &lt; 2</span> heißt „Abstand zu 3 kleiner als 2“, also <span class="m">1 &lt; <i>x</i> &lt; 5</span>. Damit ist <span class="m"><i>A</i> = (1, 5)</span>.<br>
+    <b>Offen:</b> Für <span class="m"><i>x</i> ∈ (1, 5)</span> sei <span class="m"><i>r</i> = min(<i>x</i> − 1, 5 − <i>x</i>)</span>, der Abstand zum näheren Rand. Dann liegt <span class="m">(<i>x</i> − <i>r</i>, <i>x</i> + <i>r</i>)</span> ganz in <i>A</i>. Beispiel: <i>x</i> = 4.9 gibt <i>r</i> = 0.1 und (4.8, 5) ⊆ <i>A</i>.<br>
+    <b>Nicht abgeschlossen:</b> Das Komplement <span class="m">(−∞, 1] ∪ [5, ∞)</span> enthält 5, aber jede Umgebung von 5 enthält Zahlen wie 4.99 aus <i>A</i>. Das Komplement ist also nicht offen.<br>
+    <b>Ergebnis: offen, nicht abgeschlossen.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">b) B = {x ∈ ℝ : x² ≥ 4}</span>
+    <p><b>Ausschreiben:</b> <span class="m"><i>x</i>² ≥ 4</span> heißt <span class="m">|<i>x</i>| ≥ 2</span>, also <span class="m"><i>B</i> = (−∞, −2] ∪ [2, ∞)</span>. Achtung, nicht nur <span class="m"><i>x</i> ≥ 2</span>: Auch (−3)² = 9 ≥ 4.<br>
+    <b>Abgeschlossen:</b> Das Komplement ist <span class="m">(−2, 2)</span>, ein offenes Intervall. Also ist <i>B</i> abgeschlossen.<br>
+    <b>Nicht offen:</b> 2 ∈ <i>B</i>, aber jede Umgebung von 2 enthält Zahlen wie 1.99 mit <span class="m">1.99² ≈ 3.96 &lt; 4</span>.<br>
+    <b>Ergebnis: abgeschlossen, nicht offen.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">c) C = (0, 1] ∪ {2}</span>
+    <p><b>Nicht offen:</b> 2 ∈ <i>C</i>, aber jede Umgebung <span class="m">(2 − <i>r</i>, 2 + <i>r</i>)</span> enthält zum Beispiel <span class="m">2 + <i>r</i>/2</span>, und das liegt nicht in <i>C</i>. Ein einzelner Punkt hat nie „Luft“.<br>
+    <b>Nicht abgeschlossen:</b> Das Komplement ist <span class="m">(−∞, 0] ∪ (1, 2) ∪ (2, ∞)</span>. Es enthält 0, aber jede Umgebung von 0 enthält kleine positive Zahlen wie 0.001 ∈ <i>C</i>. Das Komplement ist also nicht offen.<br>
+    <b>Ergebnis: weder offen noch abgeschlossen.</b> Der Punkt {2} allein wäre abgeschlossen. Schuld ist der fehlende Randpunkt 0.</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) D = ℤ</span>
+    <p><b>Nicht offen:</b> 0 ∈ ℤ, aber jede Umgebung <span class="m">(−<i>r</i>, <i>r</i>)</span> enthält die Zahl <span class="m"><i>r</i>/2</span>, und für <i>r</i> ≤ 1 ist das keine ganze Zahl.<br>
+    <b>Abgeschlossen:</b> Das Komplement ist <span class="m">… ∪ (−1, 0) ∪ (0, 1) ∪ (1, 2) ∪ …</span>, also eine Vereinigung offener Intervalle. Eine Vereinigung offener Mengen ist offen.<br>
+    <b>Ergebnis: abgeschlossen, nicht offen.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">e) E = {x ∈ ℝ : 0 &lt; x² &lt; 1}</span>
+    <p><b>Ausschreiben:</b> <span class="m"><i>x</i>² &lt; 1</span> heißt <span class="m">−1 &lt; <i>x</i> &lt; 1</span>, und <span class="m"><i>x</i>² &gt; 0</span> heißt <span class="m"><i>x</i> ≠ 0</span>. Also <span class="m"><i>E</i> = (−1, 0) ∪ (0, 1)</span>.<br>
+    <b>Offen:</b> eine Vereinigung von zwei offenen Intervallen.<br>
+    <b>Nicht abgeschlossen:</b> Das Komplement <span class="m">(−∞, −1] ∪ {0} ∪ [1, ∞)</span> enthält 0, aber jede Umgebung von 0 enthält Zahlen wie 0.01 ∈ <i>E</i>.<br>
+    <b>Ergebnis: offen, nicht abgeschlossen.</b> Das „Loch“ bei 0 macht <i>E</i> nicht abgeschlossen, aber stört die Offenheit nicht.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Menge</th><th>als Intervalle</th><th>offen?</th><th>abgeschlossen?</th></tr>
+    <tr><td><i>A</i></td><td class="m">(1, 5)</td><td>ja</td><td>nein</td></tr>
+    <tr><td><i>B</i></td><td class="m">(−∞, −2] ∪ [2, ∞)</td><td>nein</td><td>ja</td></tr>
+    <tr><td><i>C</i></td><td class="m">(0, 1] ∪ {2}</td><td>nein</td><td>nein</td></tr>
+    <tr><td><i>D</i></td><td class="m">ℤ</td><td>nein</td><td>ja</td></tr>
+    <tr><td><i>E</i></td><td class="m">(−1, 0) ∪ (0, 1)</td><td>ja</td><td>nein</td></tr>
+  </table></div>
 
   <h3 id="k2-4"><span class="sn">2.4</span>Der Vektorraum ℝⁿ</h3>
   <p><span class="m">ℝ<sup><i>n</i></sup></span> besteht aus Listen <span class="m">(<i>x</i><sub>1</sub>, …, <i>x<sub>n</sub></i>)</span> reeller Zahlen; für Informatiker sind das Arrays der Länge <i>n</i>. Addition und Skalierung laufen komponentenweise.</p>
@@ -1017,6 +1091,27 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </div>
   <p><b>Monoton wachsend</b> heißt <span class="m"><i>x<sub>n</sub></i> ≤ <i>x</i><sub><i>n</i>+1</sub></span> für alle <i>n</i>; <b>streng</b> monoton wachsend heißt <span class="m"><i>x<sub>n</sub></i> &lt; <i>x</i><sub><i>n</i>+1</sub></span>. Fallend analog. Eine konstante Folge ist monoton wachsend und monoton fallend, aber nicht streng.</p>
 
+  <h4 id="aufgabe-3-3">Beispiel: Aufgabe 3.3 aus der Übung (Turm von Hanoi)</h4>
+  <p>Beim Turm von Hanoi sei <span class="m"><i>T<sub>n</sub></i></span> die Anzahl der Züge für einen Turm aus <i>n</i> Scheiben. Es gilt <span class="m"><i>T</i><sub>0</sub> = 0</span> und <span class="m"><i>T</i><sub><i>n</i>+1</sub> = 2<i>T<sub>n</sub></i> + 1</span>: Man versetzt die oberen <i>n</i> Scheiben, dann die größte, dann wieder die <i>n</i> Scheiben darauf.</p>
+  <div class="bsp"><span class="lbl">a) T₁ bis T₅</span>
+    <p>Immer „verdoppeln und 1 dazu“: <span class="m"><i>T</i><sub>1</sub> = 2·0 + 1 = 1</span>, <span class="m"><i>T</i><sub>2</sub> = 2·1 + 1 = 3</span>, <span class="m"><i>T</i><sub>3</sub> = 7</span>, <span class="m"><i>T</i><sub>4</sub> = 15</span>, <span class="m"><i>T</i><sub>5</sub> = 31</span>. Das sieht aus wie „Zweierpotenz minus 1“.</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) Induktion: Tₙ = 2ⁿ − 1</span>
+    <p><b>Anfang (n = 0):</b> <span class="m"><i>T</i><sub>0</sub> = 0 = 2<sup>0</sup> − 1</span> ✓<br>
+    <b>Annahme:</b> Für ein <i>n</i> gelte <span class="m"><i>T<sub>n</sub></i> = 2<sup><i>n</i></sup> − 1</span>.<br>
+    <b>Schritt (n → n + 1):</b> Rekursion benutzen, dann die Annahme einsetzen:</p>
+    <p class="mb"><i>T</i><sub><i>n</i>+1</sub> = 2<i>T<sub>n</sub></i> + 1 = 2(2<sup><i>n</i></sup> − 1) + 1 = 2<sup><i>n</i>+1</sup> − 2 + 1 = 2<sup><i>n</i>+1</sup> − 1 ✓</p>
+    <p>Damit gilt die Formel für alle <span class="m"><i>n</i> ∈ ℕ<sub>0</sub></span>. ∎ Für 64 Scheiben sind das <span class="m">2<sup>64</sup> − 1 ≈ 1.8 · 10<sup>19</sup></span> Züge.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) (Tₙ) ist streng monoton wachsend</span>
+    <p>Zu zeigen ist <span class="m"><i>T<sub>n</sub></i> &lt; <i>T</i><sub><i>n</i>+1</sub></span> für alle <i>n</i>. Am einfachsten über die Differenz: <span class="m"><i>T</i><sub><i>n</i>+1</sub> − <i>T<sub>n</sub></i> = (2<sup><i>n</i>+1</sup> − 1) − (2<sup><i>n</i></sup> − 1) = 2<sup><i>n</i></sup> &gt; 0</span>. ∎</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) Drei weitere Folgen (n ∈ ℕ₀)</span>
+    <p><b><span class="m"><i>y<sub>n</sub></i> = 1/(<i>n</i> + 1)</span></b>: 1, 1/2, 1/3, … Größerer Nenner heißt kleinerer Bruch, also <span class="m"><i>y</i><sub><i>n</i>+1</sub> = 1/(<i>n</i> + 2) &lt; 1/(<i>n</i> + 1) = <i>y<sub>n</sub></i></span>. <b>Streng monoton fallend</b> (und damit auch monoton fallend).<br>
+    <b><span class="m"><i>z<sub>n</sub></i> = (−1)<sup><i>n</i></sup></span></b>: 1, −1, 1, −1, … Es ist <span class="m"><i>z</i><sub>0</sub> &gt; <i>z</i><sub>1</sub></span>, aber <span class="m"><i>z</i><sub>1</sub> &lt; <i>z</i><sub>2</sub></span>. Die Folge geht mal runter, mal rauf, also <b>weder wachsend noch fallend</b>. Ein Gegenbeispiel pro Richtung reicht als Begründung.<br>
+    <b><span class="m"><i>w<sub>n</sub></i> = <i>n</i>/(<i>n</i> + 1)</span></b>: 0, 1/2, 2/3, 3/4, … Trick: <span class="m"><i>w<sub>n</sub></i> = 1 − 1/(<i>n</i> + 1)</span>. Da <span class="m">1/(<i>n</i> + 1)</span> streng fällt, wächst <span class="m"><i>w<sub>n</sub></i></span> streng. <b>Streng monoton wachsend.</b></p>
+  </div>
+
   <h3 id="k3-2"><span class="sn">3.2</span>Der Grenzwert</h3>
   <div class="def"><div class="tag">Definition 3.3 · Grenzwert</div>
     <p class="formal"><span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, falls es zu jedem <span class="m">ε &gt; 0</span> ein <i>N</i> gibt, sodass <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>.</p>
@@ -1036,6 +1131,25 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Beispiel: (−1)ⁿ hat keinen Grenzwert</span>
     <p>Die Folge springt −1, 1, −1, 1, … Wähle ε = 1. Für jeden Kandidaten <i>x</i> ist der Abstand zu 1 oder der zu −1 mindestens 1, denn die beiden Punkte liegen 2 auseinander. Also liegen unendlich viele Glieder außerhalb des Streifens, das Spiel ist für ε = 1 verloren.</p>
   </div>
+  <h4 id="aufgabe-3-4">Beispiel: Aufgabe 3.4 aus der Übung</h4>
+  <p>Hier wird genau das Muster von eben benutzt: Abstand ausrechnen, dann <i>N</i> passend wählen. Der Hinweis „zu jedem <span class="m"><i>r</i> ∈ ℝ</span> gibt es ein <span class="m"><i>N</i> ∈ ℕ</span> mit <span class="m"><i>N</i> &gt; <i>r</i></span>“ sorgt dafür, dass das gewählte <i>N</i> auch existiert.</p>
+  <div class="bsp"><span class="lbl">a) xₙ = (2n + 1)/(n + 1) → 2</span>
+    <p><b>Abstand ausrechnen:</b> Auf einen Bruch bringen:</p>
+    <p class="mb">|<i>x<sub>n</sub></i> − 2| = |(2<i>n</i> + 1 − 2(<i>n</i> + 1))/(<i>n</i> + 1)| = |−1/(<i>n</i> + 1)| = 1/(<i>n</i> + 1).</p>
+    <p><b>Rückwärts rechnen:</b> Wir wollen <span class="m">1/(<i>n</i> + 1) &lt; ε</span>, also <span class="m"><i>n</i> + 1 &gt; 1/ε</span>. Das gilt sicher, wenn <span class="m"><i>n</i> &gt; 1/ε</span>.<br>
+    <b>Beweis:</b> Sei ε &gt; 0. Nach dem Hinweis gibt es ein <span class="m"><i>N</i> &gt; 1/ε</span>. Für alle <span class="m"><i>n</i> ≥ <i>N</i></span> ist dann <span class="m"><i>n</i> + 1 &gt; <i>N</i> &gt; 1/ε</span>, also <span class="m">|<i>x<sub>n</sub></i> − 2| = 1/(<i>n</i> + 1) &lt; ε</span>. ∎<br>
+    <b>N in Abhängigkeit von ε:</b> jede natürliche Zahl <span class="m"><i>N</i> &gt; 1/ε</span>, zum Beispiel <span class="m"><i>N</i> = ⌊1/ε⌋ + 1</span>.<br>
+    <b>Probe:</b> ε = 0.01 gibt <i>N</i> = 101. Dann ist <span class="m"><i>x</i><sub>101</sub> = 203/102 ≈ 1.990</span>, der Abstand zu 2 ist <span class="m">1/102 ≈ 0.0098 &lt; 0.01</span> ✓</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) Bisektion: ℓₙ = 2⁻ⁿ → 0</span>
+    <p><b>Abstand:</b> <span class="m">|ℓ<sub><i>n</i></sub> − 0| = 1/2<sup><i>n</i></sup></span>. Mit 2<sup><i>n</i></sup> lässt sich schlecht nach <i>n</i> auflösen, deshalb kommt der Hinweis <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span> ins Spiel. Er gibt für <i>n</i> ≥ 1 die einfachere Abschätzung <span class="m">1/2<sup><i>n</i></sup> &lt; 1/<i>n</i></span>.<br>
+    <b>Beweis:</b> Sei ε &gt; 0. Wähle ein <span class="m"><i>N</i> ≥ 1</span> mit <span class="m"><i>N</i> &gt; 1/ε</span>. Für alle <span class="m"><i>n</i> ≥ <i>N</i></span> gilt</p>
+    <p class="mb">|ℓ<sub><i>n</i></sub> − 0| = 1/2<sup><i>n</i></sup> &lt; 1/<i>n</i> ≤ 1/<i>N</i> &lt; ε. ∎</p>
+    <p><b>Kleinstes N mit ℓₙ &lt; 10⁻⁶ für alle n ≥ N:</b> <span class="m">2<sup>−<i>n</i></sup> &lt; 10<sup>−6</sup></span> heißt <span class="m">2<sup><i>n</i></sup> &gt; 1 000 000</span>. Es ist <span class="m">2<sup>19</sup> = 524 288</span> (zu klein) und <span class="m">2<sup>20</sup> = 1 048 576</span> (passt). Weil ℓ<sub><i>n</i></sub> fällt, bleibt es ab da unter 10<sup>−6</sup>. Also <b><i>N</i> = 20</b>.<br>
+    Nach 20 Halbierungen ist das Suchintervall also kürzer als ein Millionstel.</p>
+  </div>
+  <div class="falle"><span class="lbl">Falle: das N aus dem Beweis muss nicht das kleinste sein</span><p>Der Beweis in b) liefert für ε = 10<sup>−6</sup> das Ergebnis <span class="m"><i>N</i> &gt; 1 000 000</span>, obwohl schon <i>N</i> = 20 reicht. Das ist kein Fehler. Für Konvergenz braucht man nur <b>irgendein</b> <i>N</i>, das funktioniert. Wenn die Aufgabe nach dem <b>kleinsten</b> <i>N</i> fragt, musst du genau rechnen statt grob abschätzen.</p></div>
+
   <div class="def"><div class="tag">Satz 3.4 · Eindeutigkeit</div>
     <p class="formal">Jede reelle Folge hat höchstens einen Grenzwert.</p>
     <p class="plain"><b>Auf Deutsch:</b> Wäre <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, dann wäre <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> für jedes ε. Ein fester Abstand, der kleiner als jede positive Zahl ist, muss 0 sein.</p>
@@ -1126,6 +1240,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Übung</span><p>Für beschränkte Folgen sind diese drei Aussagen gleichwertig: (1) die Folge konvergiert, (2) sie hat genau einen Häufungspunkt, (3) limsup = liminf. Das folgt direkt aus Satz 3.12.</p></div>
 
   <div class="quiz"><div class="qh">Selbst testen</div>
+    <details><summary>Ab welchem n ist 2⁻ⁿ kleiner als 0.001?</summary><div class="ans"><p>Gesucht ist 2<sup><i>n</i></sup> &gt; 1000. Es ist 2<sup>9</sup> = 512 und 2<sup>10</sup> = 1024, also ab <i>n</i> = 10. Weil 2<sup>−<i>n</i></sup> fällt, bleibt es danach darunter.</p></div></details>
     <details><summary>Zeige mit ε-N: (2n + 1)/n → 2.</summary><div class="ans"><p><span class="m">|(2<i>n</i>+1)/<i>n</i> − 2| = 1/<i>n</i></span>. Zu ε &gt; 0 wähle <i>N</i> &gt; 1/ε, dann ist der Abstand für <i>n</i> ≥ <i>N</i> kleiner als ε.</p></div></details>
     <details><summary>Bestimme limsup und liminf von xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Gerade <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Ungerade <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. Also limsup = 1, liminf = −1, die Folge konvergiert nicht.</p></div></details>
     <details><summary>Wahr oder falsch: Jede monotone Folge konvergiert.</summary><div class="ans"><p>Falsch. Es braucht zusätzlich Beschränktheit. Gegenbeispiel: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> ist monoton wachsend und geht gegen +∞.</p></div></details>
