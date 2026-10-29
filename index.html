@@ -71,6 +71,11 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 .toc .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 4px; }
 .toc .brand span { color: var(--accent); }
 .toc .src { font-size: 12.5px; color: var(--muted); margin: 0 0 22px; line-height: 1.4; }
+.lang { display: inline-flex; flex: none; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--card); font-family: var(--f-display); font-size: 12.5px; font-weight: 700; }
+.lang button { font: inherit; letter-spacing: 0.04em; color: var(--muted); background: none; border: 0; padding: 4px 11px; cursor: pointer; }
+.lang button:hover { color: var(--accent); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: var(--card); }
+.toc .lang { display: flex; width: max-content; margin: -8px 0 14px; }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc > ol > li { margin-bottom: 14px; }
 .toc a { color: inherit; text-decoration: none; }
@@ -245,6 +250,8 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   }
   .mobilebar a { flex: none; text-decoration: none; color: var(--muted); padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); }
   .mobilebar a.on { color: var(--accent); border-color: var(--accent); }
+  .mobilebar .lang { font-size: 13px; }
+  .mobilebar .lang button { padding: 5px 10px; }
   header.hero { padding-top: 28px; }
   h3, h4, [id^="mono-"], [id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 64px; }
   section.chapter { scroll-margin-top: 50px; }
@@ -264,65 +271,66 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
 </style>
 
 <div class="shell">
-<nav class="toc" aria-label="Inhalt">
+<nav class="toc" aria-label="Inhalt" data-en-aria-label="Contents">
   <div class="brand"><a href="#top">Easy <span>Analysis</span></a></div>
   <p class="src" data-en="My own explanations for an analysis lecture">Eigene Erklärungen zu einer Analysis-Vorlesung</p>
+  <div class="lang" role="group" aria-label="Sprache" data-en-aria-label="Language"><button type="button" data-lang="de" lang="de" title="Deutsch" aria-pressed="true">DE</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button></div>
   <a class="fblink" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
   <ol>
-    <li><a class="ch" href="#k1"><span class="num">1</span>Mengenterminologie</a>
+    <li><a class="ch" href="#k1"><span class="num">1</span><span data-en="Set terminology">Mengenterminologie</span></a>
       <div class="secs">
-        <a href="#k1-1">Mengen &amp; Schreibweisen</a>
-        <a href="#k1-2">Mengenoperationen</a>
-        <a href="#rechenregeln">Rechenregeln für Mengen</a>
-        <a href="#k1-3">Abbildungen</a>
-        <a href="#k1-4">Kardinalität</a>
-        <a href="#k1-5">Abzählbar &amp; Cantor</a>
-        <a href="#ueberabzaehlbar">Endlich, abzählbar, überabzählbar</a>
+        <a href="#k1-1" data-en="Sets &amp; notation">Mengen &amp; Schreibweisen</a>
+        <a href="#k1-2" data-en="Set operations">Mengenoperationen</a>
+        <a href="#rechenregeln" data-en="Rules for sets">Rechenregeln für Mengen</a>
+        <a href="#k1-3" data-en="Maps">Abbildungen</a>
+        <a href="#k1-4" data-en="Cardinality">Kardinalität</a>
+        <a href="#k1-5" data-en="Countable &amp; Cantor">Abzählbar &amp; Cantor</a>
+        <a href="#ueberabzaehlbar" data-en="Finite, countable, uncountable">Endlich, abzählbar, überabzählbar</a>
       </div></li>
-    <li><a class="ch" href="#k2"><span class="num">2</span>Reelle Zahlen &amp; Vektoren</a>
+    <li><a class="ch" href="#k2"><span class="num">2</span><span data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span></a>
       <div class="secs">
-        <a href="#k2-1">Körper &amp; Anordnung</a>
-        <a href="#intervalle">Intervalle &amp; Klammern</a>
-        <a href="#k2-2">Schranken &amp; Supremum</a>
-        <a href="#maxminsup">Max, Min, Inf, Sup</a>
-        <a href="#k2-3">Offen &amp; abgeschlossen</a>
-        <a href="#k2-4">Der Raum ℝⁿ</a>
-        <a href="#k2-5">Drei Ungleichungen</a>
-        <a href="#k2-6">Komplexe Zahlen</a>
+        <a href="#k2-1" data-en="Fields &amp; order">Körper &amp; Anordnung</a>
+        <a href="#intervalle" data-en="Intervals &amp; brackets">Intervalle &amp; Klammern</a>
+        <a href="#k2-2" data-en="Bounds &amp; supremum">Schranken &amp; Supremum</a>
+        <a href="#maxminsup" data-en="Max, min, inf, sup">Max, Min, Inf, Sup</a>
+        <a href="#k2-3" data-en="Open &amp; closed">Offen &amp; abgeschlossen</a>
+        <a href="#k2-4" data-en="The space ℝⁿ">Der Raum ℝⁿ</a>
+        <a href="#k2-5" data-en="Three inequalities">Drei Ungleichungen</a>
+        <a href="#k2-6" data-en="Complex numbers">Komplexe Zahlen</a>
       </div></li>
-    <li><a class="ch" href="#k3"><span class="num">3</span>Folgen</a>
+    <li><a class="ch" href="#k3"><span class="num">3</span><span data-en="Sequences">Folgen</span></a>
       <div class="secs">
-        <a href="#k3-1">Was ist eine Folge?</a>
-        <a href="#monotonie">Monotonie</a>
-        <a href="#k3-2">Der Grenzwert</a>
-        <a href="#k3-3">Werkzeuge für Grenzwerte</a>
-        <a href="#k3-4">Monotone Folgen</a>
-        <a href="#k3-5">limsup, liminf &amp; Häufungspunkte</a>
-        <a href="#k3-6">Cauchy-Kriterium</a>
+        <a href="#k3-1" data-en="What is a sequence?">Was ist eine Folge?</a>
+        <a href="#monotonie" data-en="Monotonicity">Monotonie</a>
+        <a href="#k3-2" data-en="The limit">Der Grenzwert</a>
+        <a href="#k3-3" data-en="Tools for limits">Werkzeuge für Grenzwerte</a>
+        <a href="#k3-4" data-en="Monotone sequences">Monotone Folgen</a>
+        <a href="#k3-5" data-en="limsup, liminf &amp; accumulation points">limsup, liminf &amp; Häufungspunkte</a>
+        <a href="#k3-6" data-en="Cauchy criterion">Cauchy-Kriterium</a>
       </div></li>
-    <li class="topic"><a class="ch" href="#monotonie"><span class="num">↗</span>Monotonie</a>
+    <li class="topic"><a class="ch" href="#monotonie"><span class="num">↗</span><span data-en="Monotonicity">Monotonie</span></a>
       <div class="secs">
-        <a href="#mono-def">Definition: wachsend &amp; fallend</a>
-        <a href="#mono-nicht">Nicht monoton</a>
-        <a href="#mono-rezept">Rezept: Monotonie prüfen</a>
-        <a href="#mono-bsp">Fünf Beispiele</a>
-        <a href="#mono-vorlage">Vorlage zum Aufschreiben</a>
-        <a href="#aufgabe-3-3">Übung: Turm von Hanoi</a>
-        <a href="#mono-fallen">Typische Fallen</a>
+        <a href="#mono-def" data-en="Definition: increasing &amp; decreasing">Definition: wachsend &amp; fallend</a>
+        <a href="#mono-nicht" data-en="Not monotone">Nicht monoton</a>
+        <a href="#mono-rezept" data-en="Recipe: checking monotonicity">Rezept: Monotonie prüfen</a>
+        <a href="#mono-bsp" data-en="Five examples">Fünf Beispiele</a>
+        <a href="#mono-vorlage" data-en="Template for writing it down">Vorlage zum Aufschreiben</a>
+        <a href="#aufgabe-3-3" data-en="Exercise: Tower of Hanoi">Übung: Turm von Hanoi</a>
+        <a href="#mono-fallen" data-en="Typical pitfalls">Typische Fallen</a>
       </div></li>
-    <li class="topic"><a class="ch" href="#defs"><span class="num">§</span>Alle Definitionen</a>
+    <li class="topic"><a class="ch" href="#defs"><span class="num">§</span><span data-en="All definitions">Alle Definitionen</span></a>
       <div class="secs">
-        <a href="#defs-k1">Kapitel 1: Mengen</a>
-        <a href="#defs-k2">Kapitel 2: Reelle Zahlen</a>
-        <a href="#defs-k3">Kapitel 3: Folgen</a>
+        <a href="#defs-k1" data-en="Chapter 1: Sets">Kapitel 1: Mengen</a>
+        <a href="#defs-k2" data-en="Chapter 2: Real numbers">Kapitel 2: Reelle Zahlen</a>
+        <a href="#defs-k3" data-en="Chapter 3: Sequences">Kapitel 3: Folgen</a>
       </div></li>
     <li class="topic"><a class="ch" href="#feedback"><span class="num">✉</span><span data-en="Feedback">Feedback</span></a></li>
   </ol>
 </nav>
 
 <main>
-  <div class="mobilebar" aria-label="Kapitel">
-    <a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1">1 · Mengen</a><a href="#k2">2 · Reelle Zahlen</a><a href="#k3">3 · Folgen</a><a href="#monotonie">↗ Monotonie</a><a href="#defs">§ Definitionen</a>
+  <div class="mobilebar" aria-label="Kapitel" data-en-aria-label="Chapters">
+    <div class="lang" role="group" aria-label="Sprache" data-en-aria-label="Language"><button type="button" data-lang="de" lang="de" title="Deutsch" aria-pressed="true">DE</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button></div><a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1" data-en="1 · Sets">1 · Mengen</a><a href="#k2" data-en="2 · Real numbers">2 · Reelle Zahlen</a><a href="#k3" data-en="3 · Sequences">3 · Folgen</a><a href="#monotonie" data-en="↗ Monotonicity">↗ Monotonie</a><a href="#defs" data-en="§ Definitions">§ Definitionen</a>
   </div>
 
   <header class="hero" id="top">
@@ -333,7 +341,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
       <a class="btnlink primary" href="#k1"><span data-en="Get started">Los geht’s</span> ↓</a>
       <a class="btnlink ghost" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
     </div>
-    <nav class="dash" aria-label="Übersicht">
+    <nav class="dash" aria-label="Übersicht" data-en-aria-label="Overview">
       <a href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span><span class="td" data-en="Notation, operations, maps, countable and uncountable">Schreibweisen, Operationen, Abbildungen, abzählbar und überabzählbar</span></a>
       <a href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span><span class="td" data-en="Supremum, intervals, ℝⁿ, inequalities, complex numbers">Supremum, Intervalle, ℝⁿ, Ungleichungen, komplexe Zahlen</span></a>
       <a href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span><span class="td" data-en="Limits, tools, limsup and liminf, Cauchy">Grenzwerte, Werkzeuge, limsup und liminf, Cauchy</span></a>
@@ -350,6 +358,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <a class="down" href="#k1" data-en="Scroll down to the chapters ↓">Runterscrollen zu den Kapiteln ↓</a>
   </header>
 
+<div id="content">
 <!-- =================================================================== KAPITEL 1 -->
 <section class="chapter" id="k1">
   <div class="chhead"><div class="chnum">1</div><div><h2>Mengenterminologie</h2></div></div>
@@ -1517,6 +1526,1177 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </div>
 </section>
 
+</div>
+<template id="content-en">
+<!-- =================================================================== CHAPTER 1 -->
+<section class="chapter" id="k1">
+  <div class="chhead"><div class="chnum">1</div><div><h2>Set terminology</h2></div></div>
+  <div class="tldr"><div class="lbl">The essentials in three sentences</div>
+    <ul>
+      <li>A set is a “bag” full of elements; order and repetition do not matter.</li>
+      <li>A function assigns to each element on the left <b>exactly one</b> element on the right. Injective means “no two arrows hit the same target”, surjective means “every target gets hit”.</li>
+      <li>Two sets have the “same size” if you can pair them up perfectly with a bijection. That way you see: ℕ, ℤ and ℚ have the same size, ℝ is strictly bigger.</li>
+    </ul>
+  </div>
+
+  <h3 id="k1-1"><span class="sn">1.1</span>Sets and how to write them</h3>
+  <p>A set collects objects. <span class="m"><i>x</i> ∈ <i>A</i></span> is read “<i>x</i> is an element of <i>A</i>”, <span class="m"><i>x</i> ∉ <i>A</i></span> means “<i>x</i> is not in <i>A</i>”.</p>
+  <div class="tw"><table>
+    <tr><th>Notation</th><th>Example</th><th>When it is handy</th></tr>
+    <tr><td>Listing</td><td><span class="m"><i>A</i> = {1, 2, 3}</span></td><td>small, finite sets</td></tr>
+    <tr><td>Describing</td><td><span class="m"><i>A</i> = </span>{all integers}</td><td>when everyone understands it</td></tr>
+    <tr><td>Condition</td><td><span class="m"><i>A</i> = {<i>x</i> : <i>x</i>² = 9}</span></td><td>the precise standard form</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">Example</span>
+    <p><span class="m">{<i>x</i> ∈ ℝ : <i>x</i>² = 9} = {−3, 3}</span>. Read: “all real <i>x</i> for which <i>x</i>² = 9 holds”. The colon means “such that”. Also <span class="m">{1, 2, 2, 3} = {3, 1, 2}</span>, because order and duplicates do not matter.</p>
+  </div>
+
+  <h4>The important number sets</h4>
+  <div class="tw"><table>
+    <tr><th>Symbol</th><th>Name</th><th>Contents</th></tr>
+    <tr><td class="m">∅ = {}</td><td>empty set</td><td>nothing at all</td></tr>
+    <tr><td class="m">ℕ</td><td>natural numbers</td><td>0, 1, 2, 3, … <b>(here including 0!)</b></td></tr>
+    <tr><td class="m">ℕ<sub>+</sub></td><td>positive natural numbers</td><td>1, 2, 3, …</td></tr>
+    <tr><td class="m">ℤ</td><td>integers</td><td>…, −2, −1, 0, 1, 2, …</td></tr>
+    <tr><td class="m">ℚ</td><td>rational numbers</td><td>fractions <span class="m"><i>p</i>/<i>q</i></span> with <span class="m"><i>p</i>, <i>q</i> ∈ ℤ, <i>q</i> ≠ 0</span></td></tr>
+    <tr><td class="m">ℝ</td><td>real numbers</td><td>the whole number line, incl. √2, π, e</td></tr>
+  </table></div>
+
+  <div class="def"><div class="tag">Definition 1.1 · Subset</div>
+    <p class="formal"><span class="m"><i>B</i> ⊆ <i>A</i></span> if <span class="m"><i>x</i> ∈ <i>A</i></span> for all <span class="m"><i>x</i> ∈ <i>B</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Everything that is in <i>B</i> is also in <i>A</i>. <i>B</i> is a “piece” of <i>A</i>.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember</span><p><span class="m">∅ ⊆ ℕ ⊆ ℤ ⊆ ℚ ⊆ ℝ</span>. The empty set is a subset of <b>every</b> set, because there is no element in ∅ that could violate the condition.</p></div>
+
+  <h3 id="k1-2"><span class="sn">1.2</span>Set operations</h3>
+  <p>All examples in this table use <span class="m"><i>A</i> = {1, 2, 3}</span> and <span class="m"><i>B</i> = {3, 4}</span>.</p>
+  <div class="tw"><table>
+    <tr><th>Operation</th><th>Definition</th><th>Spoken</th><th>Example</th></tr>
+    <tr><td>Union</td><td class="m"><i>A</i> ∪ <i>B</i> = {<i>x</i> : <i>x</i> ∈ <i>A</i> or <i>x</i> ∈ <i>B</i>}</td><td>everything from both</td><td class="m">{1, 2, 3, 4}</td></tr>
+    <tr><td>Intersection</td><td class="m"><i>A</i> ∩ <i>B</i> = {<i>x</i> : <i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>}</td><td>only what they share</td><td class="m">{3}</td></tr>
+    <tr><td>Difference</td><td class="m"><i>A</i> \ <i>B</i> = {<i>x</i> : <i>x</i> ∈ <i>A</i>, <i>x</i> ∉ <i>B</i>}</td><td>A without B</td><td class="m">{1, 2}</td></tr>
+    <tr><td>Product</td><td class="m"><i>A</i> × <i>B</i> = {(<i>x</i>, <i>y</i>) : <i>x</i> ∈ <i>A</i>, <i>y</i> ∈ <i>B</i>}</td><td>all pairs</td><td class="m">{(1,3), (1,4), (2,3), (2,4), (3,3), (3,4)}</td></tr>
+    <tr><td>Power set</td><td class="m">𝒫(<i>B</i>) = {<i>C</i> : <i>C</i> ⊆ <i>B</i>}</td><td>all subsets</td><td class="m">{∅, {3}, {4}, {3, 4}}</td></tr>
+  </table></div>
+  <div class="merke"><span class="lbl">Remember</span><p>If <i>A</i> has exactly <i>n</i> elements, then <span class="m"><i>A</i> × <i>B</i></span> has exactly <span class="m"><i>n</i> · <i>m</i></span> and <span class="m">𝒫(<i>A</i>)</span> exactly <span class="m">2<sup><i>n</i></sup></span> elements. For each element you decide “in or out”, which gives 2 · 2 · … · 2 possibilities. Computer scientists know these as bit strings of length <i>n</i>.</p></div>
+  <div class="falle"><span class="lbl">Careful, easy to mix up</span><p>Intersection and difference look similar. Distinguish <span class="m"><i>A</i> ∩ <i>B</i></span> (intersection) from <span class="m"><i>A</i> \ <i>B</i></span> (difference).</p></div>
+
+  <h4 id="rechenregeln">Rules for computing with sets</h4>
+  <p>Sets follow computation rules just like numbers, for example a distributive law. They are all proven with the same trick: <b>Every set operation is really a logical word.</b> Instead of computing with sets, you compute with statements about a single element <i>x</i>.</p>
+  <div class="tw"><table>
+    <tr><th>Sets</th><th>means for an element <i>x</i></th><th>Logic</th></tr>
+    <tr><td class="m"><i>x</i> ∈ <i>A</i> ∪ <i>B</i></td><td><span class="m"><i>x</i> ∈ <i>A</i></span> <b>or</b> <span class="m"><i>x</i> ∈ <i>B</i></span> (or both)</td><td class="m">∨</td></tr>
+    <tr><td class="m"><i>x</i> ∈ <i>A</i> ∩ <i>B</i></td><td><span class="m"><i>x</i> ∈ <i>A</i></span> <b>and</b> <span class="m"><i>x</i> ∈ <i>B</i></span></td><td class="m">∧</td></tr>
+    <tr><td class="m"><i>x</i> ∈ <i>A</i> \ <i>B</i></td><td><span class="m"><i>x</i> ∈ <i>A</i></span> <b>and not</b> <span class="m"><i>x</i> ∈ <i>B</i></span>, i.e. <span class="m"><i>x</i> ∉ <i>B</i></span></td><td class="m">∧ ¬</td></tr>
+    <tr><td class="m"><i>x</i> ∈ <i>A</i><sup>c</sup></td><td><b>not</b> <span class="m"><i>x</i> ∈ <i>A</i></span>, i.e. <span class="m"><i>x</i> ∉ <i>A</i></span> (relative to a universal set <i>G</i>)</td><td class="m">¬</td></tr>
+    <tr><td class="m"><i>A</i> ⊆ <i>B</i></td><td><b>if</b> <span class="m"><i>x</i> ∈ <i>A</i></span>, <b>then</b> <span class="m"><i>x</i> ∈ <i>B</i></span></td><td class="m">⇒</td></tr>
+    <tr><td class="m"><i>A</i> = <i>B</i></td><td><span class="m"><i>x</i> ∈ <i>A</i></span> <b>if and only if</b> <span class="m"><i>x</i> ∈ <i>B</i></span></td><td class="m">⇔</td></tr>
+  </table></div>
+  <div class="falle"><span class="lbl">Careful</span><p>In mathematics “or” is always the <b>inclusive</b> or. <span class="m"><i>x</i> ∈ <i>A</i> ∪ <i>B</i></span> also holds when <i>x</i> lies in both sets. An “either … or” is never meant.</p></div>
+
+  <p>The most important rules at a glance. The examples use <span class="m"><i>A</i> = {1, 2, 3}</span>, <span class="m"><i>B</i> = {3, 4}</span>, <span class="m"><i>C</i> = {2, 3, 5}</span> and, for complements, the universal set <span class="m"><i>G</i> = {1, 2, 3, 4, 5, 6}</span>.</p>
+  <div class="tw"><table class="regeln">
+    <tr><th>Rule</th><th>Formula</th><th>Example</th></tr>
+    <tr><td>Commutative</td><td class="m"><i>A</i> ∪ <i>B</i> = <i>B</i> ∪ <i>A</i><br><i>A</i> ∩ <i>B</i> = <i>B</i> ∩ <i>A</i></td><td>Order does not matter: both times <span class="m">{1, 2, 3, 4}</span> or <span class="m">{3}</span>.</td></tr>
+    <tr><td>Associative</td><td class="m"><i>A</i> ∪ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> ∪ <i>B</i>) ∪ <i>C</i><br><i>A</i> ∩ (<i>B</i> ∩ <i>C</i>) = (<i>A</i> ∩ <i>B</i>) ∩ <i>C</i></td><td><span class="m">{1, 2, 3} ∪ {2, 3, 4, 5} = {1, 2, 3, 4} ∪ {2, 3, 5} = {1, 2, 3, 4, 5}</span>. You may drop the brackets.</td></tr>
+    <tr><td>Distributive</td><td class="m"><i>A</i> ∩ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> ∩ <i>B</i>) ∪ (<i>A</i> ∩ <i>C</i>)<br><i>A</i> ∪ (<i>B</i> ∩ <i>C</i>) = (<i>A</i> ∪ <i>B</i>) ∩ (<i>A</i> ∪ <i>C</i>)</td><td><span class="m">{1, 2, 3} ∩ {2, 3, 4, 5} = {2, 3}</span> and <span class="m">{3} ∪ {2, 3} = {2, 3}</span> ✓</td></tr>
+    <tr><td>De Morgan</td><td class="m">(<i>A</i> ∪ <i>B</i>)<sup>c</sup> = <i>A</i><sup>c</sup> ∩ <i>B</i><sup>c</sup><br>(<i>A</i> ∩ <i>B</i>)<sup>c</sup> = <i>A</i><sup>c</sup> ∪ <i>B</i><sup>c</sup></td><td><span class="m">{1, 2, 3, 4}<sup>c</sup> = {5, 6}</span> and <span class="m">{4, 5, 6} ∩ {1, 2, 5, 6} = {5, 6}</span> ✓</td></tr>
+    <tr><td>De Morgan with difference</td><td class="m"><i>A</i> \ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> \ <i>B</i>) ∩ (<i>A</i> \ <i>C</i>)<br><i>A</i> \ (<i>B</i> ∩ <i>C</i>) = (<i>A</i> \ <i>B</i>) ∪ (<i>A</i> \ <i>C</i>)</td><td><span class="m"><i>A</i> \ {3} = {1, 2}</span> and <span class="m">{1, 2} ∪ {1} = {1, 2}</span> ✓</td></tr>
+    <tr><td>Idempotence</td><td class="m"><i>A</i> ∪ <i>A</i> = <i>A</i>, &nbsp;<i>A</i> ∩ <i>A</i> = <i>A</i></td><td>Uniting a set with itself changes nothing.</td></tr>
+    <tr><td>Absorption</td><td class="m"><i>A</i> ∪ (<i>A</i> ∩ <i>B</i>) = <i>A</i><br><i>A</i> ∩ (<i>A</i> ∪ <i>B</i>) = <i>A</i></td><td><span class="m">{1, 2, 3} ∪ {3} = {1, 2, 3}</span> and <span class="m">{1, 2, 3} ∩ {1, 2, 3, 4} = {1, 2, 3}</span></td></tr>
+    <tr><td>Double complement</td><td class="m">(<i>A</i><sup>c</sup>)<sup>c</sup> = <i>A</i></td><td><span class="m">{4, 5, 6}<sup>c</sup> = {1, 2, 3}</span>. Two “nots” cancel out.</td></tr>
+    <tr><td>Difference as intersection</td><td class="m"><i>A</i> \ <i>B</i> = <i>A</i> ∩ <i>B</i><sup>c</sup></td><td><span class="m">{1, 2, 3} ∩ {1, 2, 5, 6} = {1, 2}</span> ✓</td></tr>
+    <tr><td>Empty set</td><td class="m"><i>A</i> ∪ ∅ = <i>A</i>, &nbsp;<i>A</i> ∩ ∅ = ∅, &nbsp;<i>A</i> \ <i>A</i> = ∅</td><td>∅ behaves like 0 in arithmetic.</td></tr>
+  </table></div>
+  <div class="merke"><span class="lbl">Remember: how to prove any of these rules</span><p>Two sets are equal if <span class="m"><i>M</i> ⊆ <i>N</i></span> and <span class="m"><i>N</i> ⊆ <i>M</i></span>. The fastest way to show both at once is a <b>chain of equivalences</b>: start with <span class="m"><i>x</i> ∈ left side</span>, translate into logic with the table above, rearrange the logic and translate back until you reach <span class="m"><i>x</i> ∈ right side</span>. Every step must be a genuine “⇔”. If you are unsure about a step, show the two directions ⊆ and ⊇ separately.<br>Memory aid for De Morgan: when negating, “and” turns into “or” and vice versa. “Not (rainy and cold)” means “not rainy or not cold”.</p></div>
+
+  <h4>Example: Exercise 2.2 from the problem sheet</h4>
+  <p>Prove the following rules by reducing them to <span class="m"><i>x</i> ∈ <i>A</i></span> or <span class="m"><i>x</i> ∉ <i>A</i></span> and so on.</p>
+  <div class="bsp"><span class="lbl">a) A ∪ (B ∪ C) = (A ∪ B) ∪ C</span>
+    <p>Let <i>x</i> be arbitrary. Then:</p>
+    <p class="mb"><i>x</i> ∈ <i>A</i> ∪ (<i>B</i> ∪ <i>C</i>)<br>⇔ <i>x</i> ∈ <i>A</i> or <i>x</i> ∈ <i>B</i> ∪ <i>C</i><br>⇔ <i>x</i> ∈ <i>A</i> or (<i>x</i> ∈ <i>B</i> or <i>x</i> ∈ <i>C</i>)<br>⇔ (<i>x</i> ∈ <i>A</i> or <i>x</i> ∈ <i>B</i>) or <i>x</i> ∈ <i>C</i><br>⇔ <i>x</i> ∈ <i>A</i> ∪ <i>B</i> or <i>x</i> ∈ <i>C</i><br>⇔ <i>x</i> ∈ (<i>A</i> ∪ <i>B</i>) ∪ <i>C</i></p>
+    <p><b>Why does the middle step hold?</b> Both statements say the same thing: “<i>x</i> lies in <b>at least one</b> of the three sets.” Where the bracket goes does not change that. Formally, this is the associativity of “or”.<br>
+    <b>Result:</b> Since the chain holds for every <i>x</i>, both sides have exactly the same elements, so they are equal. ∎</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</span>
+    <p>Here a <b>case distinction on <i>x</i> ∈ <i>A</i> or <i>x</i> ∉ <i>A</i></b> helps, just as the exercise suggests.</p>
+    <p><b>Case 1: <span class="m"><i>x</i> ∈ <i>A</i></span>.</b> Then <i>x</i> lies in <span class="m"><i>A</i> ∪ (<i>B</i> ∩ <i>C</i>)</span>, because <i>A</i> is part of it. Likewise <i>x</i> lies in <span class="m"><i>A</i> ∪ <i>B</i></span> and in <span class="m"><i>A</i> ∪ <i>C</i></span>, so also in their intersection. Left and right: <i>x</i> is in.</p>
+    <p><b>Case 2: <span class="m"><i>x</i> ∉ <i>A</i></span>.</b> Then <i>A</i> contributes nothing, and what remains is:</p>
+    <p class="mb"><i>x</i> ∈ <i>A</i> ∪ (<i>B</i> ∩ <i>C</i>) ⇔ <i>x</i> ∈ <i>B</i> ∩ <i>C</i> ⇔ <i>x</i> ∈ <i>B</i> and <i>x</i> ∈ <i>C</i><br><i>x</i> ∈ (<i>A</i> ∪ <i>B</i>) ∩ (<i>A</i> ∪ <i>C</i>) ⇔ <i>x</i> ∈ <i>A</i> ∪ <i>B</i> and <i>x</i> ∈ <i>A</i> ∪ <i>C</i> ⇔ <i>x</i> ∈ <i>B</i> and <i>x</i> ∈ <i>C</i></p>
+    <p>So both sides are again the same statement.<br>
+    <b>Result:</b> In every case, <i>x</i> lies on the left exactly when it lies on the right. So the sets are equal. ∎<br>
+    <b>Short version as a chain of equivalences:</b></p>
+    <p class="mb"><i>x</i> ∈ <i>A</i> ∨ (<i>x</i> ∈ <i>B</i> ∧ <i>x</i> ∈ <i>C</i>)<br>⇔ (<i>x</i> ∈ <i>A</i> ∨ <i>x</i> ∈ <i>B</i>) ∧ (<i>x</i> ∈ <i>A</i> ∨ <i>x</i> ∈ <i>C</i>)</p>
+    <p>That is the distributive law of logic: “or” distributes over “and”.</p>
+  </div>
+  <p>If you do not trust the logic, check all 8 possibilities in a <b>truth table</b>. 1 means “<i>x</i> is in”, 0 means “<i>x</i> is not in”. The last two highlighted columns must agree in every row:</p>
+  <div class="tw"><table class="cantor">
+    <tr><th>A</th><th>B</th><th>C</th><th>B ∩ C</th><th>A ∪ (B ∩ C)</th><th>A ∪ B</th><th>A ∪ C</th><th>(A ∪ B) ∩ (A ∪ C)</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="diag">0</td><td>0</td><td>0</td><td class="diag">0</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td>0</td><td class="diag">0</td><td>0</td><td>1</td><td class="diag">0</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td>0</td><td class="diag">0</td><td>1</td><td>0</td><td class="diag">0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td>1</td><td class="diag">1</td><td>1</td><td>1</td><td class="diag">1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td>0</td><td class="diag">1</td><td>1</td><td>1</td><td class="diag">1</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td>0</td><td class="diag">1</td><td>1</td><td>1</td><td class="diag">1</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td>0</td><td class="diag">1</td><td>1</td><td>1</td><td class="diag">1</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td>1</td><td class="diag">1</td><td>1</td><td>1</td><td class="diag">1</td></tr>
+  </table></div>
+  <p>The bottom four rows are case 1 (<i>x</i> ∈ <i>A</i>, everything 1), the top four are case 2. For a written solution the case distinction or the chain of equivalences is enough. The table is a good check.</p>
+  <div class="bsp"><span class="lbl">c) A \ (B ∩ C) = (A \ B) ∪ (A \ C)</span>
+    <p>Let <i>x</i> be arbitrary. Then:</p>
+    <p class="mb"><i>x</i> ∈ <i>A</i> \ (<i>B</i> ∩ <i>C</i>)<br>⇔ <i>x</i> ∈ <i>A</i> and <i>x</i> ∉ <i>B</i> ∩ <i>C</i><br>⇔ <i>x</i> ∈ <i>A</i> and not (<i>x</i> ∈ <i>B</i> and <i>x</i> ∈ <i>C</i>)<br>⇔ <i>x</i> ∈ <i>A</i> and (<i>x</i> ∉ <i>B</i> or <i>x</i> ∉ <i>C</i>) &nbsp;&nbsp;(De Morgan)<br>⇔ (<i>x</i> ∈ <i>A</i> and <i>x</i> ∉ <i>B</i>) or (<i>x</i> ∈ <i>A</i> and <i>x</i> ∉ <i>C</i>) &nbsp;&nbsp;(distributive)<br>⇔ <i>x</i> ∈ <i>A</i> \ <i>B</i> or <i>x</i> ∈ <i>A</i> \ <i>C</i><br>⇔ <i>x</i> ∈ (<i>A</i> \ <i>B</i>) ∪ (<i>A</i> \ <i>C</i>)</p>
+    <p><b>The key step</b> is De Morgan: “<i>x</i> is <b>not in both</b> sets <i>B</i> and <i>C</i>” means “<i>x</i> is missing from <b>at least one</b> of them”. After that you distribute “<i>x</i> ∈ <i>A</i> and …” over both parts.<br>
+    <b>Result:</b> Both sides have the same elements. ∎<br>
+    <b>Check with numbers:</b> <span class="m"><i>A</i> = {1, 2, 3}, <i>B</i> = {3, 4}, <i>C</i> = {2, 3, 5}</span>. Left: <span class="m"><i>A</i> \ {3} = {1, 2}</span>. Right: <span class="m">{1, 2} ∪ {1} = {1, 2}</span> ✓</p>
+  </div>
+  <figure>
+    <svg viewBox="0 0 640 200" role="img" aria-label="Three Venn diagrams with circles A, B, C. On the left A without B is blue, in the middle A without C, on the right both together: all of A except the piece where all three circles overlap, i.e. A without (B intersect C)">
+      <defs>
+        <clipPath id="venn-a"><circle cx="78" cy="68" r="44"/></clipPath>
+        <clipPath id="venn-c"><circle cx="105" cy="112" r="44"/></clipPath>
+      </defs>
+      <g>
+        <circle cx="78" cy="68" r="44" class="f-band"/>
+        <g clip-path="url(#venn-a)"><circle cx="132" cy="68" r="44" class="f-card"/></g>
+        <circle cx="78" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="132" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="105" cy="112" r="44" class="s-ink" stroke-width="1.5"/>
+        <text x="44" y="38" class="mt f-ink">A</text><text x="160" y="38" class="mt f-ink">B</text><text x="102" y="170" class="mt f-ink">C</text>
+        <text x="105" y="194" text-anchor="middle" class="f-mut">A \ B</text>
+      </g>
+      <g transform="translate(213 0)">
+        <circle cx="78" cy="68" r="44" class="f-band"/>
+        <g clip-path="url(#venn-a)"><circle cx="105" cy="112" r="44" class="f-card"/></g>
+        <circle cx="78" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="132" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="105" cy="112" r="44" class="s-ink" stroke-width="1.5"/>
+        <text x="44" y="38" class="mt f-ink">A</text><text x="160" y="38" class="mt f-ink">B</text><text x="102" y="170" class="mt f-ink">C</text>
+        <text x="105" y="194" text-anchor="middle" class="f-mut">A \ C</text>
+      </g>
+      <g transform="translate(426 0)">
+        <circle cx="78" cy="68" r="44" class="f-band"/>
+        <g clip-path="url(#venn-a)"><g clip-path="url(#venn-c)"><circle cx="132" cy="68" r="44" class="f-card"/></g></g>
+        <circle cx="78" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="132" cy="68" r="44" class="s-ink" stroke-width="1.5"/><circle cx="105" cy="112" r="44" class="s-ink" stroke-width="1.5"/>
+        <text x="44" y="38" class="mt f-ink">A</text><text x="160" y="38" class="mt f-ink">B</text><text x="102" y="170" class="mt f-ink">C</text>
+        <text x="105" y="194" text-anchor="middle" class="f-acc" font-weight="700">together = A \ (B ∩ C)</text>
+      </g>
+    </svg>
+    <figcaption>Blue is the set we are looking for in each picture. If you unite the two left pictures, all of <i>A</i> is blue except the small piece in the middle where <i>A</i>, <i>B</i> and <i>C</i> all overlap. That piece is exactly <i>A</i> ∩ (<i>B</i> ∩ <i>C</i>), and <i>A</i> without that piece is <i>A</i> \ (<i>B</i> ∩ <i>C</i>).</figcaption>
+  </figure>
+  <div class="falle"><span class="lbl">Typical pitfalls</span>
+    <ul class="clean">
+      <li><b>An example is not a proof.</b> The check with numbers only shows that the rule holds for these three sets. The proof has to work for an arbitrary <i>x</i> and arbitrary sets.</li>
+      <li><b>Negation flips “and” into “or”.</b> <span class="m"><i>x</i> ∉ <i>B</i> ∩ <i>C</i></span> does <b>not</b> mean “<i>x</i> ∉ <i>B</i> and <i>x</i> ∉ <i>C</i>”, but “<i>x</i> ∉ <i>B</i> or <i>x</i> ∉ <i>C</i>”.</li>
+      <li><b>Difference is not commutative.</b> <span class="m"><i>A</i> \ <i>B</i> = {1, 2}</span>, but <span class="m"><i>B</i> \ <i>A</i> = {4}</span>.</li>
+    </ul>
+  </div>
+
+  <h3 id="k1-3"><span class="sn">1.3</span>Maps: injective, surjective, bijective</h3>
+  <p>A map <span class="m"><i>f</i> : <i>A</i> → <i>B</i></span> is a machine: you put in an element of <i>A</i> and get <b>exactly one</b> element of <i>B</i> out. <i>A</i> is called the domain, <i>B</i> the codomain.</p>
+  <figure>
+    <div class="trio">
+      <div><svg viewBox="0 0 160 150" role="img" aria-label="Injective: every arrow hits a different target, one target stays free">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-acc"/></marker></defs>
+        <ellipse cx="35" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/><ellipse cx="125" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/>
+        <circle cx="35" cy="45" r="4.5" class="f-ink"/><circle cx="35" cy="75" r="4.5" class="f-ink"/><circle cx="35" cy="105" r="4.5" class="f-ink"/>
+        <circle cx="125" cy="35" r="4.5" class="f-ink"/><circle cx="125" cy="62" r="4.5" class="f-ink"/><circle cx="125" cy="89" r="4.5" class="f-ink"/><circle cx="125" cy="116" r="4.5" class="f-red"/>
+        <line x1="40" y1="45" x2="118" y2="36" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="75" x2="118" y2="88" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="105" x2="118" y2="64" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/>
+        <text x="35" y="146" text-anchor="middle" class="f-mut">A</text><text x="125" y="146" text-anchor="middle" class="f-mut">B</text></svg>
+        injective<small>no two arrows on the same target</small></div>
+      <div><svg viewBox="0 0 160 150" role="img" aria-label="Surjective: every target is hit, two arrows share a target">
+        <ellipse cx="35" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/><ellipse cx="125" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/>
+        <circle cx="35" cy="40" r="4.5" class="f-ink"/><circle cx="35" cy="65" r="4.5" class="f-ink"/><circle cx="35" cy="90" r="4.5" class="f-ink"/><circle cx="35" cy="115" r="4.5" class="f-ink"/>
+        <circle cx="125" cy="50" r="4.5" class="f-ink"/><circle cx="125" cy="78" r="4.5" class="f-red"/><circle cx="125" cy="106" r="4.5" class="f-ink"/>
+        <line x1="40" y1="40" x2="118" y2="50" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="65" x2="118" y2="77" class="s-red" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="90" x2="118" y2="79" class="s-red" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="115" x2="118" y2="106" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/>
+        <text x="35" y="146" text-anchor="middle" class="f-mut">A</text><text x="125" y="146" text-anchor="middle" class="f-mut">B</text></svg>
+        surjective<small>every target gets hit</small></div>
+      <div><svg viewBox="0 0 160 150" role="img" aria-label="Bijective: perfect pairing">
+        <ellipse cx="35" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/><ellipse cx="125" cy="75" rx="26" ry="58" class="s-line" stroke-width="1.5"/>
+        <circle cx="35" cy="45" r="4.5" class="f-ink"/><circle cx="35" cy="75" r="4.5" class="f-ink"/><circle cx="35" cy="105" r="4.5" class="f-ink"/>
+        <circle cx="125" cy="45" r="4.5" class="f-ink"/><circle cx="125" cy="75" r="4.5" class="f-ink"/><circle cx="125" cy="105" r="4.5" class="f-ink"/>
+        <line x1="40" y1="45" x2="118" y2="74" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="75" x2="118" y2="104" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/><line x1="40" y1="105" x2="118" y2="47" class="s-acc" stroke-width="1.6" marker-end="url(#ah)"/>
+        <text x="35" y="146" text-anchor="middle" class="f-mut">A</text><text x="125" y="146" text-anchor="middle" class="f-mut">B</text></svg>
+        bijective<small>both: perfect pairing</small></div>
+    </div>
+    <figcaption>Marked in red is what violates the other property: on the left one target stays unused (so not surjective), in the middle two arrows share a target (so not injective).</figcaption>
+  </figure>
+
+  <div class="def"><div class="tag">Definition 1.2 · corrected</div>
+    <p class="formal">A function <span class="m"><i>f</i> : <i>A</i> → <i>B</i></span> is called<br>
+      <b>injective</b> if <span class="m">∀<i>x</i>, <i>y</i> ∈ <i>A</i> : <i>x</i> ≠ <i>y</i> ⇒ <i>f</i>(<i>x</i>) ≠ <i>f</i>(<i>y</i>)</span>,<br>
+      <b>surjective</b> if <span class="m">∀<i>y</i> ∈ <i>B</i> ∃<i>x</i> ∈ <i>A</i> : <i>f</i>(<i>x</i>) = <i>y</i></span>,<br>
+      <b>bijective</b> if <i>f</i> is injective and surjective.</p>
+    <p class="plain"><b>In plain words:</b> Injective means different inputs give different outputs; so from the output you can uniquely recover the input. Surjective means every element of the codomain is actually “reached”. Bijective means both, and then there is an inverse function <span class="m"><i>f</i><sup>−1</sup></span>.</p>
+  </div>
+  <div class="falle"><span class="lbl">Careful, common typo</span><p>Sometimes you read “<span class="m">∀<i>x</i>≠<i>y</i> : <i>f</i>(<i>x</i>) = <i>f</i>(<i>y</i>)</span>” for injective. That is wrong; correct is <span class="m"><i>f</i>(<i>x</i>) <b>≠</b> <i>f</i>(<i>y</i>)</span>. Equivalent and often more practical in proofs: <span class="m"><i>f</i>(<i>x</i>) = <i>f</i>(<i>y</i>)</span> implies <span class="m"><i>x</i> = <i>y</i></span>.</p></div>
+
+  <div class="bsp"><span class="lbl">Example: same formula, different answers</span>
+    <p>Take <span class="m"><i>f</i>(<i>x</i>) = <i>x</i>²</span>. Whether it is injective or surjective depends on <b>which sets</b> you take on the left and right:</p>
+    <ul class="clean">
+      <li><span class="m"><i>f</i> : ℝ → ℝ</span>: not injective, because <span class="m"><i>f</i>(−2) = <i>f</i>(2) = 4</span>. Not surjective, because −1 never comes out.</li>
+      <li><span class="m"><i>f</i> : [0, ∞) → ℝ</span>: injective (no more negative inputs), but still not surjective.</li>
+      <li><span class="m"><i>f</i> : [0, ∞) → [0, ∞)</span>: bijective. The inverse function is <span class="m">√<i>y</i></span>.</li>
+    </ul>
+  </div>
+  <div class="bsp"><span class="lbl">Example</span>
+    <p><span class="m"><i>g</i> : ℕ → ℕ, <i>n</i> ↦ 2<i>n</i></span> is injective (2<i>n</i> = 2<i>m</i> implies <i>n</i> = <i>m</i>), but not surjective, because odd numbers like 3 are never hit.</p>
+  </div>
+
+  <h3 id="k1-4"><span class="sn">1.4</span>Cardinality: when do two sets have the same size?</h3>
+  <p>For finite sets you simply count. For infinite sets that does not work, so you use the idea of <b>pairing up</b>: if you can give every element of <i>A</i> exactly one partner in <i>B</i> and nobody is left over, then <i>A</i> and <i>B</i> have the same size.</p>
+  <div class="def"><div class="tag">Cardinalities</div>
+    <p class="formal"><span class="m">|<i>A</i>| = |<i>B</i>|</span> if there is a bijection <span class="m"><i>A</i> → <i>B</i></span>.<br><span class="m">|<i>A</i>| ≥ |<i>B</i>|</span> if there is a surjection <span class="m"><i>A</i> → <i>B</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> If you can “cover” all elements of <i>B</i> with the elements of <i>A</i>, then <i>A</i> has at least as many elements as <i>B</i>.</p>
+  </div>
+  <div class="def"><div class="tag">Axiom 1.3 · Axiom of choice (in the form used in the lecture)</div>
+    <p class="formal">A surjection <span class="m"><i>A</i> → <i>B</i></span> exists if and only if an injection <span class="m"><i>B</i> → <i>A</i></span> exists.</p>
+    <p class="plain"><b>In plain words:</b> “<i>A</i> covers <i>B</i>” is the same as “<i>B</i> fits into <i>A</i>”. To go from the surjection to the injection you have to choose <b>one</b> preimage for every <i>y</i> ∈ <i>B</i>, for infinitely many <i>y</i> at once. Exactly this choosing is what the axiom allows.</p>
+  </div>
+  <div class="def"><div class="tag">Theorem 1.4 and Theorem 1.5 · Cantor–Bernstein</div>
+    <p class="formal">For all <i>A</i>, <i>B</i>: <span class="m">|<i>A</i>| ≤ |<i>B</i>|</span> or <span class="m">|<i>A</i>| ≥ |<i>B</i>|</span>.<br>If there are injections <span class="m"><i>A</i> → <i>B</i></span> and <span class="m"><i>B</i> → <i>A</i></span>, then there is also a bijection.</p>
+    <p class="plain"><b>In plain words:</b> Sizes can always be compared. And if each set fits into the other, they have the same size. That sounds obvious, but for infinite sets it is a real theorem and very useful: instead of a bijection (often hard to find) two injections are enough.</p>
+  </div>
+
+  <h3 id="k1-5"><span class="sn">1.5</span>Countable, and why ℝ is bigger</h3>
+  <div class="def"><div class="tag">Definition 1.6 · countable</div>
+    <p class="formal"><i>A</i> is called countable if <span class="m">|<i>A</i>| = |ℕ|</span>. One writes <span class="m">|<i>A</i>| = ℵ<sub>0</sub></span> (aleph null).</p>
+    <p class="plain"><b>In plain words:</b> You can write the elements as a list “first, second, third, …” so that every element eventually gets its turn.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: ℤ is countable</span>
+    <p>The naive list 0, 1, 2, 3, … never reaches the negative numbers. The trick is to jump back and forth:</p>
+    <div class="mb">0, 1, −1, 2, −2, 3, −3, …</div>
+    <p>As a formula: <span class="m"><i>f</i>(<i>n</i>) = (<i>n</i>+1)/2</span> for odd <i>n</i> and <span class="m"><i>f</i>(<i>n</i>) = −<i>n</i>/2</span> for even <i>n</i>. That is a bijection <span class="m">ℕ → ℤ</span>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: ℚ is countable</span>
+    <p>Write all fractions <span class="m"><i>p</i>/<i>q</i></span> in a grid (row <i>q</i>, column <i>p</i>) and walk through it along the diagonals: <span class="m">1/1, 2/1, 1/2, 3/1, 2/2, 1/3, …</span>. You skip duplicates like 2/2 = 1/1. Every diagonal is finite, so every fraction eventually gets its turn. Negative fractions are interleaved just like for ℤ. So <span class="m">|ℚ| = ℵ<sub>0</sub></span>, even though ℚ is “dense everywhere”.</p>
+  </div>
+
+  <h4>Cantor's diagonal argument: ℝ is not countable</h4>
+  <p>Proof by contradiction. Suppose someone gives you a complete list of all numbers in [0, 1]. From it you build a number <i>x</i> that is guaranteed <b>not</b> to be on the list: choose the <i>k</i>-th decimal digit of <i>x</i> different from the <i>k</i>-th digit of the <i>k</i>-th number. A concrete rule: <span class="m"><i>d<sub>k</sub></i> = 2</span> if <span class="m"><i>d<sub>kk</sub></i> = 1</span>, otherwise <span class="m"><i>d<sub>k</sub></i> = 1</span>.</p>
+  <div class="tw"><table class="cantor">
+    <tr><td>x₁ = 0.</td><td class="diag">1</td><td>4</td><td>1</td><td>5</td><td>9</td><td>…</td></tr>
+    <tr><td>x₂ = 0.</td><td>2</td><td class="diag">1</td><td>1</td><td>8</td><td>2</td><td>…</td></tr>
+    <tr><td>x₃ = 0.</td><td>3</td><td>3</td><td class="diag">3</td><td>3</td><td>3</td><td>…</td></tr>
+    <tr><td>x₄ = 0.</td><td>5</td><td>0</td><td>0</td><td class="diag">1</td><td>0</td><td>…</td></tr>
+    <tr><td>x₅ = 0.</td><td>7</td><td>7</td><td>7</td><td>7</td><td class="diag">1</td><td>…</td></tr>
+    <tr class="newx"><td>x = 0.</td><td>2</td><td>2</td><td>1</td><td>2</td><td>2</td><td>…</td></tr>
+  </table></div>
+  <p><i>x</i> differs from <span class="m"><i>x</i><sub>1</sub></span> in digit 1, from <span class="m"><i>x</i><sub>2</sub></span> in digit 2 and in general from <span class="m"><i>x<sub>k</sub></i></span> in digit <i>k</i>. So <span class="m"><i>x</i> ≠ <i>x<sub>k</sub></i></span> for all <i>k</i>; the list was not complete after all. Contradiction, so <span class="m">|ℝ| &gt; ℵ<sub>0</sub></span>.</p>
+  <div class="merke"><span class="lbl">Remember</span><p>Why only the digits 1 and 2? Because numbers like 0.0999… = 0.1000… have two decimal representations. Using only 1s and 2s, <i>x</i> can never fall for such a double.</p></div>
+  <div class="falle"><span class="lbl">Careful</span><p>Here “countable” means <b>exactly</b> the same size as ℕ, i.e. countably infinite. Some books also count finite sets as countable. In the exam, the definition from the lecture applies.</p></div>
+
+  <h4 id="ueberabzaehlbar">Finite, countable, uncountable: the three size classes</h4>
+  <p>Every set falls into exactly one of three drawers. The question behind it is always: <b>Can I give the elements numbers 1st, 2nd, 3rd, … so that every element eventually gets a number?</b></p>
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="Three rows: finite, the numbering ends; countable, the numbering goes on forever and reaches every element; uncountable, a continuous line, every list of points leaves gaps">
+      <text x="20" y="34" class="f-ink" font-weight="700">finite</text>
+      <g>
+        <rect x="170" y="16" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="192" y="35" text-anchor="middle" class="f-acc" font-weight="700">1.</text>
+        <rect x="224" y="16" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="246" y="35" text-anchor="middle" class="f-acc" font-weight="700">2.</text>
+        <rect x="278" y="16" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="300" y="35" text-anchor="middle" class="f-acc" font-weight="700">3.</text>
+        <rect x="332" y="16" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="354" y="35" text-anchor="middle" class="f-acc" font-weight="700">4.</text>
+        <text x="392" y="35" class="f-mut">done. The set has 4 elements.</text>
+      </g>
+      <text x="20" y="114" class="f-ink" font-weight="700">countable</text>
+      <g>
+        <rect x="170" y="96" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="192" y="115" text-anchor="middle" class="f-acc" font-weight="700">1.</text>
+        <rect x="224" y="96" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="246" y="115" text-anchor="middle" class="f-acc" font-weight="700">2.</text>
+        <rect x="278" y="96" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="300" y="115" text-anchor="middle" class="f-acc" font-weight="700">3.</text>
+        <rect x="332" y="96" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="354" y="115" text-anchor="middle" class="f-acc" font-weight="700">4.</text>
+        <rect x="386" y="96" width="44" height="28" rx="6" class="f-band s-acc" stroke-width="1.5"/><text x="408" y="115" text-anchor="middle" class="f-acc" font-weight="700">5.</text>
+        <text x="442" y="115" class="f-acc" font-weight="700">… never done,</text>
+        <text x="442" y="134" class="f-mut">but every element</text>
+        <text x="442" y="150" class="f-mut">gets a number</text>
+      </g>
+      <text x="20" y="204" class="f-ink" font-weight="700">uncountable</text>
+      <line x1="170" y1="200" x2="610" y2="200" class="s-ink" stroke-width="5"/>
+      <circle cx="200" cy="200" r="5" class="f-acc"/><circle cx="262" cy="200" r="5" class="f-acc"/><circle cx="318" cy="200" r="5" class="f-acc"/><circle cx="391" cy="200" r="5" class="f-acc"/><circle cx="447" cy="200" r="5" class="f-acc"/><circle cx="530" cy="200" r="5" class="f-acc"/>
+      <text x="200" y="186" text-anchor="middle" class="f-acc" font-size="11">1.</text><text x="262" y="186" text-anchor="middle" class="f-acc" font-size="11">2.</text><text x="318" y="186" text-anchor="middle" class="f-acc" font-size="11">3.</text><text x="391" y="186" text-anchor="middle" class="f-acc" font-size="11">4.</text><text x="447" y="186" text-anchor="middle" class="f-acc" font-size="11">5.</text><text x="530" y="186" text-anchor="middle" class="f-acc" font-size="11">6.</text>
+      <text x="390" y="232" text-anchor="middle" class="f-red">every list of points leaves gaps: the line has “too many” points</text>
+    </svg>
+    <figcaption>Finite: when numbering, you get done. Countable: you never get done, but every single element eventually gets its number. Uncountable: whatever list you make, elements without a number remain (that is what Cantor's diagonal argument above shows).</figcaption>
+  </figure>
+  <div class="tw"><table>
+    <tr><th>Class</th><th>Meaning</th><th>Examples</th></tr>
+    <tr><td><b>finite</b></td><td>You can count the elements and are done at some point.</td><td class="m">∅, {1, 2, 3}, {<i>z</i> ∈ ℤ : |<i>z</i>| ≤ 100}</td></tr>
+    <tr><td><b>countable</b></td><td>Infinite, but can be numbered: there is a bijection <span class="m">ℕ → <i>A</i></span>.</td><td class="m">ℕ, ℤ, ℚ, even numbers, primes</td></tr>
+    <tr><td><b>uncountable</b></td><td>Infinite and cannot be numbered.</td><td class="m">ℝ, [0, 1], (2, 2.001), ℝ \ ℚ, 𝒫(ℕ)</td></tr>
+  </table></div>
+  <div class="merke"><span class="lbl">Remember: how to justify it in the exercises</span><p><b>Finite:</b> list or count all elements.<br><b>Countable:</b> give a numbering, ideally as a formula “the <i>n</i>-th element is …”, i.e. a bijection <span class="m"><i>f</i> : ℕ → <i>A</i></span>. Then briefly say why every element gets its turn exactly once.<br><b>Uncountable:</b> find a known uncountable set inside it, usually an interval. Because if <i>A</i> were countable, every infinite subset of it would be countable too.</p></div>
+  <div class="falle"><span class="lbl">Typical pitfalls</span>
+    <ul class="clean">
+      <li><b>Infinite does not mean uncountable.</b> ℕ, ℤ and ℚ are infinite, but countable.</li>
+      <li><b>The numbering does not have to go by size.</b> For ℤ you number 0, 1, −1, 2, −2, … All that matters is that every element eventually gets its turn.</li>
+      <li><b>“Dense” does not mean uncountable.</b> ℚ lies densely everywhere on the number line and is still countable.</li>
+      <li><b>The length of an interval does not matter.</b> Even <span class="m">[0, 0.001]</span> is uncountable; it has just as many points as all of ℝ. Only <span class="m">[<i>a</i>, <i>a</i>] = {<i>a</i>}</span> is finite.</li>
+      <li><b>Write out the set first.</b> Check whether the elements come from ℕ, ℤ or ℝ. <span class="m">{<i>z</i> ∈ ℤ : |<i>z</i>| ≤ 5}</span> is finite, <span class="m">{<i>x</i> ∈ ℝ : |<i>x</i>| ≤ 5}</span> is uncountable. Same condition, but a different underlying set.</li>
+    </ul>
+  </div>
+
+  <h4>Example: Exercise 2.4 from the problem sheet</h4>
+  <p>Are the following sets finite, countable or uncountable?</p>
+  <div class="bsp"><span class="lbl">a) A = {z ∈ ℤ : z &lt; 10}</span>
+    <p><b>Write it out:</b> <span class="m"><i>A</i> = {9, 8, 7, …, 0, −1, −2, …}</span>, all integers below 10.<br>
+    <b>Infinite:</b> It keeps going downwards, so it is not finite.<br>
+    <b>Numbering:</b> 1st element 9, 2nd element 8, 3rd element 7, and so on. As a formula with ℕ = {0, 1, 2, …}: <span class="m"><i>f</i>(<i>n</i>) = 9 − <i>n</i></span>. Every <span class="m"><i>z</i> &lt; 10</span> gets exactly one number, namely <span class="m"><i>n</i> = 9 − <i>z</i></span>. For <i>z</i> = −5 that is <i>n</i> = 14.<br>
+    <b>Result: countable.</b> Short justification: <i>A</i> is infinite and a subset of the countable set ℤ.</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) B = {all even natural numbers}</span>
+    <p><b>Write it out:</b> <span class="m"><i>B</i> = {0, 2, 4, 6, …}</span>.<br>
+    <b>Numbering:</b> The <i>n</i>-th even number is <span class="m">2<i>n</i></span>, so <span class="m"><i>f</i> : ℕ → <i>B</i>, <i>n</i> ↦ 2<i>n</i></span>. This is injective (2<i>n</i> = 2<i>m</i> implies <i>n</i> = <i>m</i>) and surjective (every even number <i>b</i> is <span class="m"><i>f</i>(<i>b</i>/2)</span>), hence bijective.<br>
+    <b>Result: countable.</b> This is the classic surprising example: there are “just as many” even numbers as natural numbers, even though <i>B</i> contains only every second number.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) C = {x ∈ ℝ : |x| ≤ c} for fixed c &gt; 1</span>
+    <p><b>Write it out:</b> <span class="m">|<i>x</i>| ≤ <i>c</i></span> means <span class="m">−<i>c</i> ≤ <i>x</i> ≤ <i>c</i></span>, so <span class="m"><i>C</i> = [−<i>c</i>, <i>c</i>]</span>, an interval of real numbers. For <i>c</i> = 2 this is [−2, 2].<br>
+    <b>Justification:</b> Since <span class="m"><i>c</i> &gt; 1</span>, <span class="m">[0, 1]</span> lies entirely in <i>C</i>. By Cantor's diagonal argument [0, 1] is uncountable. If <i>C</i> were countable, the infinite subset [0, 1] would be countable too. That is a contradiction.<br>
+    Alternatively, directly: <span class="m"><i>g</i>(<i>t</i>) = −<i>c</i> + 2<i>ct</i></span> is a bijection from [0, 1] to [−<i>c</i>, <i>c</i>], so <span class="m">|<i>C</i>| = |[0, 1]|</span>.<br>
+    <b>Result: uncountable.</b> The condition <i>c</i> &gt; 1 makes the justification convenient. But <i>C</i> would be uncountable for every <i>c</i> &gt; 0.</p>
+  </div>
+
+  <div class="quiz"><div class="qh">Test yourself</div>
+    <details><summary>Is f : ℤ → ℤ, x ↦ x + 1 bijective?</summary><div class="ans"><p>Yes. Injective: <i>x</i>+1 = <i>y</i>+1 implies <i>x</i> = <i>y</i>. Surjective: for every <i>y</i>, <i>x</i> = <i>y</i> − 1 is a preimage. The inverse function is <i>y</i> ↦ <i>y</i> − 1.</p></div></details>
+    <details><summary>How many elements does 𝒫({a, b, c}) have? Write them down.</summary><div class="ans"><p>2³ = 8: ∅, {a}, {b}, {c}, {a,b}, {a,c}, {b,c}, {a,b,c}.</p></div></details>
+    <details><summary>Prove A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C).</summary><div class="ans"><p><i>x</i> ∈ <i>A</i> ∩ (<i>B</i> ∪ <i>C</i>) ⇔ <i>x</i> ∈ <i>A</i> and (<i>x</i> ∈ <i>B</i> or <i>x</i> ∈ <i>C</i>) ⇔ (<i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>B</i>) or (<i>x</i> ∈ <i>A</i> and <i>x</i> ∈ <i>C</i>) ⇔ <i>x</i> ∈ (<i>A</i> ∩ <i>B</i>) ∪ (<i>A</i> ∩ <i>C</i>). The middle step is the distributive law of logic: “and” distributes over “or”.</p></div></details>
+    <details><summary>Is ℕ × ℕ countable?</summary><div class="ans"><p>Yes, with the same diagonal walk as for ℚ: (0,0), (1,0), (0,1), (2,0), (1,1), (0,2), … Every diagonal is finite, so every pair gets its turn.</p></div></details>
+  </div>
+</section>
+
+<!-- =================================================================== CHAPTER 2 -->
+<section class="chapter" id="k2">
+  <div class="chhead"><div class="chnum">2</div><div><h2>Real numbers and vectors</h2></div></div>
+  <div class="tldr"><div class="lbl">The essentials in three sentences</div>
+    <ul>
+      <li>ℝ is an ordered field: you can compute as usual and compare numbers by size.</li>
+      <li>What sets ℝ apart from ℚ is <b>completeness</b>: every set that is bounded above has a least upper bound, the supremum. So the number line has no “holes”.</li>
+      <li>In ℝⁿ you measure lengths with the norm and angles with the dot product. Cauchy–Schwarz and the triangle inequality are the tools you will need all the time.</li>
+    </ul>
+  </div>
+
+  <h3 id="k2-1"><span class="sn">2.1</span>Fields and order</h3>
+  <p>A field is a set in which you can <b>add, subtract, multiply and divide (except by 0)</b>, following the rules from school. The nine axioms of Definition 2.1 are exactly these rules:</p>
+  <div class="tw"><table>
+    <tr><th>No.</th><th>Axiom</th><th>Meaning</th></tr>
+    <tr><td>1, 5</td><td class="m">(<i>x</i>+<i>y</i>)+<i>z</i> = <i>x</i>+(<i>y</i>+<i>z</i>), &nbsp;(<i>xy</i>)<i>z</i> = <i>x</i>(<i>yz</i>)</td><td>associativity: brackets do not matter</td></tr>
+    <tr><td>2, 6</td><td class="m"><i>x</i>+<i>y</i> = <i>y</i>+<i>x</i>, &nbsp;<i>xy</i> = <i>yx</i></td><td>commutativity: order does not matter</td></tr>
+    <tr><td>3, 7</td><td class="m"><i>x</i>+0 = <i>x</i>, &nbsp;<i>x</i>·1 = <i>x</i></td><td>there are neutral elements 0 and 1</td></tr>
+    <tr><td>4</td><td class="m">∀<i>x</i> ∃<i>y</i> : <i>x</i>+<i>y</i> = 0</td><td>every <i>x</i> has a negative −<i>x</i></td></tr>
+    <tr><td>8</td><td class="m">∀<i>x</i> ≠ 0 ∃<i>y</i> : <i>xy</i> = 1</td><td>every <i>x</i> ≠ 0 has a reciprocal 1/<i>x</i></td></tr>
+    <tr><td>9</td><td class="m"><i>x</i>(<i>y</i>+<i>z</i>) = <i>xy</i>+<i>xz</i></td><td>distributive law: multiplying out</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">Example: which ones are fields?</span>
+    <ul class="clean">
+      <li><b>ℕ</b> is not a field: 3 has no negative in ℕ (axiom 4 violated).</li>
+      <li><b>ℤ</b> is not a field: 2 has no reciprocal in ℤ, because 2 · <i>y</i> = 1 has no integer solution (axiom 8 violated).</li>
+      <li><b>ℚ</b> and <b>ℝ</b> are ordered fields.</li>
+      <li><b>ℂ</b> is a field, but cannot be ordered (reason below).</li>
+    </ul>
+  </div>
+  <div class="def"><div class="tag">Ordered field</div>
+    <p class="formal">(1) For every <i>x</i> exactly one holds: <span class="m"><i>x</i> &gt; 0</span>, <span class="m"><i>x</i> &lt; 0</span> or <span class="m"><i>x</i> = 0</span>.<br>(2) <span class="m"><i>x</i>, <i>y</i> &gt; 0 ⇒ <i>x</i>+<i>y</i> &gt; 0</span> and <span class="m"><i>x</i>·<i>y</i> &gt; 0</span>.<br>(3) <span class="m"><i>x</i> &gt; <i>y</i> ⇔ <i>x</i> − <i>y</i> &gt; 0</span>.</p>
+    <p class="plain"><b>In plain words:</b> Every number is positive, negative or zero, and sums and products of positive numbers are positive. “Greater” simply means: the difference is positive. All the familiar rules for inequalities follow from this.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember: why ℂ cannot be ordered</span><p>In every ordered field every square is ≥ 0: for <i>x</i> &gt; 0, <span class="m"><i>x</i>·<i>x</i> &gt; 0</span> by (2), and for <i>x</i> &lt; 0, <span class="m"><i>x</i>² = (−<i>x</i>)² &gt; 0</span>. In particular <span class="m">1 = 1² &gt; 0</span>. But in ℂ we would have <span class="m"><i>i</i>² = −1 &lt; 0</span>. Contradiction.</p></div>
+  <h4 id="intervalle">Intervals: what square and round brackets mean</h4>
+  <p>An interval is a connected piece of the number line, for example “all numbers between 2 and 5”. Only one question remains open: <b>Do the endpoints 2 and 5 themselves belong to it or not?</b> That is exactly what the brackets say, separately for each side.</p>
+  <div class="merke"><span class="lbl">The rule</span><p><b>Square bracket [ ]</b>: the endpoint belongs to it. This corresponds to <span class="m">≤</span>.<br><b>Round bracket ( )</b>: the endpoint does not belong to it. This corresponds to <span class="m">&lt;</span>.<br>Memory aid: the square bracket “holds on to the endpoint” like a hook, the round bracket is soft and lets it go.</p></div>
+  <figure>
+    <svg viewBox="0 0 640 250" role="img" aria-label="Four intervals on the number line: [2,5], (2,5), [2,5) and [2,∞). Filled dots belong to the interval, hollow ones do not.">
+      <g>
+        <text x="20" y="40" class="mt f-ink">[2, 5]</text>
+        <line x1="120" y1="35" x2="620" y2="35" class="s-line" stroke-width="1.5"/>
+        <line x1="220" y1="35" x2="460" y2="35" class="s-acc" stroke-width="5"/>
+        <circle cx="220" cy="35" r="6.5" class="f-acc"/><circle cx="460" cy="35" r="6.5" class="f-acc"/>
+        <text x="500" y="40" class="f-mut">2 ≤ x ≤ 5</text>
+      </g>
+      <g>
+        <text x="20" y="95" class="mt f-ink">(2, 5)</text>
+        <line x1="120" y1="90" x2="620" y2="90" class="s-line" stroke-width="1.5"/>
+        <line x1="220" y1="90" x2="460" y2="90" class="s-acc" stroke-width="5"/>
+        <circle cx="220" cy="90" r="6.5" class="f-card s-acc" stroke-width="2.5"/><circle cx="460" cy="90" r="6.5" class="f-card s-acc" stroke-width="2.5"/>
+        <text x="500" y="95" class="f-mut">2 &lt; x &lt; 5</text>
+      </g>
+      <g>
+        <text x="20" y="150" class="mt f-ink">[2, 5)</text>
+        <line x1="120" y1="145" x2="620" y2="145" class="s-line" stroke-width="1.5"/>
+        <line x1="220" y1="145" x2="460" y2="145" class="s-acc" stroke-width="5"/>
+        <circle cx="220" cy="145" r="6.5" class="f-acc"/><circle cx="460" cy="145" r="6.5" class="f-card s-acc" stroke-width="2.5"/>
+        <text x="500" y="150" class="f-mut">2 ≤ x &lt; 5</text>
+      </g>
+      <g>
+        <text x="20" y="205" class="mt f-ink">[2, ∞)</text>
+        <line x1="120" y1="200" x2="620" y2="200" class="s-line" stroke-width="1.5"/>
+        <line x1="220" y1="200" x2="490" y2="200" class="s-acc" stroke-width="5"/>
+        <line x1="490" y1="200" x2="510" y2="200" class="s-acc" stroke-width="5" stroke-dasharray="4 4"/>
+        <path d="M500,192 L512,200 L500,208" class="s-acc" stroke-width="2.5"/>
+        <circle cx="220" cy="200" r="6.5" class="f-acc"/>
+        <text x="530" y="205" class="f-mut">x ≥ 2</text>
+      </g>
+      <text x="220" y="240" text-anchor="middle" class="f-mut">2</text>
+      <text x="460" y="240" text-anchor="middle" class="f-mut">5</text>
+      <line x1="220" y1="20" x2="220" y2="225" class="s-line" stroke-width="1" stroke-dasharray="2 4"/>
+      <line x1="460" y1="20" x2="460" y2="170" class="s-line" stroke-width="1" stroke-dasharray="2 4"/>
+    </svg>
+    <figcaption>Filled dot: the endpoint belongs to it (square bracket). Hollow dot: it does not (round bracket). Each side is decided separately, which is why there are also mixed intervals like [2, 5).</figcaption>
+  </figure>
+  <div class="tw"><table>
+    <tr><th>Notation</th><th>Meaning</th><th>Contains 2?</th><th>Contains 5?</th><th>Name</th></tr>
+    <tr><td class="m">[2, 5]</td><td class="m">2 ≤ <i>x</i> ≤ 5</td><td>yes</td><td>yes</td><td>closed interval</td></tr>
+    <tr><td class="m">(2, 5)</td><td class="m">2 &lt; <i>x</i> &lt; 5</td><td>no</td><td>no</td><td>open interval</td></tr>
+    <tr><td class="m">[2, 5)</td><td class="m">2 ≤ <i>x</i> &lt; 5</td><td>yes</td><td>no</td><td>half-open</td></tr>
+    <tr><td class="m">(2, 5]</td><td class="m">2 &lt; <i>x</i> ≤ 5</td><td>no</td><td>yes</td><td>half-open</td></tr>
+    <tr><td class="m">[2, ∞)</td><td class="m"><i>x</i> ≥ 2</td><td>yes</td><td>(no upper limit)</td><td>unbounded above</td></tr>
+    <tr><td class="m">(−∞, 2)</td><td class="m"><i>x</i> &lt; 2</td><td>no</td><td>(no lower limit)</td><td>unbounded below</td></tr>
+  </table></div>
+  <div class="merke"><span class="lbl">Remember: always a round bracket at ∞</span><p>∞ is not a real number, just a symbol for “it goes on without limit”. A point that does not exist cannot belong to the set. That is why you write <span class="m">[0, ∞)</span> and never <span class="m">[0, ∞]</span>. So <span class="m">[0, ∞)</span> simply means “all numbers ≥ 0”.</p></div>
+  <div class="bsp"><span class="lbl">Example: is the number inside?</span>
+    <p><span class="m">5 ∈ [2, 5]</span> ✓ &nbsp; <span class="m">5 ∉ [2, 5)</span> &nbsp; <span class="m">4.999 ∈ [2, 5)</span> ✓ &nbsp; <span class="m">2 ∉ (2, 5)</span> &nbsp; <span class="m">2.0001 ∈ (2, 5)</span> ✓<br>Important: <span class="m">(2, 5)</span> still has infinitely many elements, also arbitrarily close to 2. Only 2 itself is missing.</p>
+  </div>
+  <div class="falle"><span class="lbl">Pitfall: (2, 5) is not a point</span><p>The same notation <span class="m">(2, 5)</span> is also used for a pair of numbers or a point in the plane, for example in <span class="m"><i>A</i> × <i>B</i></span> in chapter 1. You can tell what is meant from the context: if we are talking about subsets of ℝ, it is an interval.</p></div>
+
+  <h3 id="k2-2"><span class="sn">2.2</span>Bounds, maximum, supremum</h3>
+  <p>This is the most important concept of this chapter and the reason why analysis works with ℝ instead of ℚ.</p>
+  <div class="def"><div class="tag">Definitions 2.2–2.4</div>
+    <p class="formal"><b>Upper bound</b> of <i>M</i>: any <i>x</i> with <span class="m"><i>y</i> ≤ <i>x</i></span> for all <span class="m"><i>y</i> ∈ <i>M</i></span>.<br>
+      <b>Maximum</b>: an upper bound that itself lies in <i>M</i>.<br>
+      <b>Supremum</b> <span class="m">sup(<i>M</i>)</span>: the <b>least</b> upper bound.</p>
+    <p class="plain"><b>In plain words:</b> An upper bound is a “ceiling” that no element of <i>M</i> bumps into. The supremum is the lowest ceiling that still fits. The maximum is the largest element, if there is one. If there is a maximum, it is also the supremum.</p>
+  </div>
+  <figure>
+    <svg viewBox="0 0 640 120" role="img" aria-label="Number line: the set (0,1), upper bounds from 1 onwards, supremum equals 1">
+      <line x1="20" y1="70" x2="620" y2="70" class="s-line" stroke-width="2"/>
+      <rect x="120" y="62" width="250" height="16" rx="3" class="f-band"/>
+      <line x1="120" y1="70" x2="370" y2="70" class="s-acc" stroke-width="4"/>
+      <circle cx="120" cy="70" r="6" class="f-card s-acc" stroke-width="2"/>
+      <circle cx="370" cy="70" r="6" class="f-card s-acc" stroke-width="2"/>
+      <line x1="370" y1="40" x2="610" y2="40" class="s-red" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="490" y="30" text-anchor="middle" class="f-red">all upper bounds: [1, ∞)</text>
+      <line x1="370" y1="34" x2="370" y2="100" class="s-ink" stroke-width="1.2" stroke-dasharray="2 3"/>
+      <text x="120" y="100" text-anchor="middle" class="f-mut">0</text>
+      <text x="370" y="114" text-anchor="middle" class="f-ink" font-weight="700">sup = 1 (not in M)</text>
+      <text x="245" y="52" text-anchor="middle" class="f-acc" font-weight="700">M = (0, 1)</text>
+    </svg>
+    <figcaption>The set <i>M</i> = (0, 1) has no maximum: for every element, say 0.999, there is a larger one, say 0.9999. The supremum is still 1, the lowest of all ceilings.</figcaption>
+  </figure>
+  <div class="bsp"><span class="lbl">Examples</span>
+    <div class="tw"><table>
+      <tr><th>Set M</th><th>upper bounds</th><th>maximum</th><th>supremum</th></tr>
+      <tr><td class="m">[0, 1]</td><td class="m">[1, ∞)</td><td>1</td><td>1</td></tr>
+      <tr><td class="m">(0, 1)</td><td class="m">[1, ∞)</td><td>does not exist</td><td>1</td></tr>
+      <tr><td class="m">{1 − 1/<i>n</i> : <i>n</i> ∈ ℕ<sub>+</sub>}</td><td class="m">[1, ∞)</td><td>does not exist</td><td>1</td></tr>
+      <tr><td class="m">ℕ</td><td>none</td><td>does not exist</td><td class="m">+∞</td></tr>
+    </table></div>
+  </div>
+  <div class="merke"><span class="lbl">Remember: how to show s = sup(M)</span><p>Always two steps. <b>(a)</b> <i>s</i> is an upper bound: <span class="m"><i>y</i> ≤ <i>s</i></span> for all <span class="m"><i>y</i> ∈ <i>M</i></span>. <b>(b)</b> Nothing smaller works: for every <span class="m">ε &gt; 0</span> there is a <span class="m"><i>y</i> ∈ <i>M</i></span> with <span class="m"><i>y</i> &gt; <i>s</i> − ε</span>.<br>For <span class="m"><i>M</i> = {1 − 1/<i>n</i>}</span>: (a) is clear, and for (b) you take <i>n</i> &gt; 1/ε, then <span class="m">1 − 1/<i>n</i> &gt; 1 − ε</span>.</p></div>
+  <div class="def" id="vollstaendig"><div class="tag">Definition 2.5 and Axiom 2.6 · Completeness</div>
+    <p class="formal"><b>ℝ is complete:</b> If a subset of ℝ has at least one element and an upper bound, then it also has a supremum in ℝ. An ordered field with this property is called complete.</p>
+    <p class="plain"><b>In plain words:</b> There are no holes in ℝ. Wherever a set is “heading”, there is a number.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: ℚ is not complete (exercise)</span>
+    <p>Take <span class="m"><i>M</i> = {<i>x</i> ∈ ℚ : <i>x</i>² &lt; 2}</span>. <i>M</i> is bounded above (e.g. by 2). In ℝ the supremum would be <span class="m">√2</span>, but √2 is irrational. Within ℚ there is no least upper bound: for every rational upper bound you can find an even smaller one that is closer to √2. So ℚ has a hole at √2.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: ℚ is dense in ℝ (exercise)</span>
+    <p>Between two real numbers <i>x</i> &lt; <i>y</i> there is always a fraction. Explicitly: choose <span class="m"><i>n</i> ∈ ℕ</span> with <span class="m">1/<i>n</i> &lt; <i>y</i> − <i>x</i></span> and set <span class="m"><i>z</i> = (⌊<i>nx</i>⌋ + 1)/<i>n</i></span>. Then <span class="m"><i>x</i> &lt; <i>z</i> ≤ <i>x</i> + 1/<i>n</i> &lt; <i>y</i></span>.<br>Numerical example: <i>x</i> = 0.31, <i>y</i> = 0.35. With <i>n</i> = 50 we have 1/50 = 0.02 &lt; 0.04, ⌊15.5⌋ = 15, so <i>z</i> = 16/50 = 0.32.</p>
+  </div>
+  <p>In exactly the same way there are a <b>lower bound</b>, a <b>minimum</b> and an <b>infimum</b> <span class="m">inf(<i>M</i>)</span>, the greatest lower bound.</p>
+  <div class="falle"><span class="lbl">Conventions</span><p>For empty or unbounded sets one agrees: <span class="m">sup(∅) = −∞</span>, <span class="m">sup(<i>M</i>) = +∞</span> if <i>M</i> is unbounded above, <span class="m">inf(∅) = +∞</span>, <span class="m">inf(<i>M</i>) = −∞</span> if unbounded below.</p></div>
+
+  <h4 id="maxminsup">Max, min, inf, sup: the difference</h4>
+  <p>The four concepts come in pairs. <b>Sup and max</b> look upwards, <b>inf and min</b> look downwards. The crucial difference: max and min must be <b>elements of <i>M</i></b>, sup and inf need not be.</p>
+  <div class="tw"><table>
+    <tr><th>Concept</th><th>Meaning</th><th>must lie in M?</th><th>always exists?</th></tr>
+    <tr><td>upper bound</td><td>a number that is ≥ every element of <i>M</i></td><td>no</td><td>only if <i>M</i> is bounded above, and then infinitely many</td></tr>
+    <tr><td><b>Supremum</b> sup <i>M</i></td><td>the <b>least</b> upper bound</td><td>no</td><td>yes, if <i>M</i> is nonempty and bounded above</td></tr>
+    <tr><td><b>Maximum</b> max <i>M</i></td><td>the <b>largest element</b> of <i>M</i></td><td><b>yes</b></td><td>no, e.g. not for (0, 1)</td></tr>
+    <tr><td>lower bound</td><td>a number that is ≤ every element of <i>M</i></td><td>no</td><td>only if <i>M</i> is bounded below</td></tr>
+    <tr><td><b>Infimum</b> inf <i>M</i></td><td>the <b>greatest</b> lower bound</td><td>no</td><td>yes, if <i>M</i> is nonempty and bounded below</td></tr>
+    <tr><td><b>Minimum</b> min <i>M</i></td><td>the <b>smallest element</b> of <i>M</i></td><td><b>yes</b></td><td>no, e.g. not for (0, 1)</td></tr>
+  </table></div>
+  <div class="merke"><span class="lbl">Remember</span><p><b>A max is a sup that lies in <i>M</i>. A min is an inf that lies in <i>M</i>.</b><br>Picture: <i>M</i> is a room. The supremum is the ceiling, hung as low as possible. The maximum is the element that actually touches the ceiling. Sometimes the elements get arbitrarily close to the ceiling without ever touching it. Then there is a supremum, but no maximum.</p></div>
+  <figure>
+    <svg viewBox="0 0 640 175" role="img" aria-label="Two number lines. Top: the interval from 0 to 1 with filled endpoints: min equals inf equals 0, max equals sup equals 1. Bottom: the open interval with hollow endpoints: inf is 0 and sup is 1, but there is no min and no max.">
+      <text x="20" y="54" class="f-ink" font-weight="700">M = [0, 1]</text>
+      <line x1="130" y1="50" x2="620" y2="50" class="s-line" stroke-width="2"/>
+      <line x1="200" y1="50" x2="500" y2="50" class="s-acc" stroke-width="4"/>
+      <circle cx="200" cy="50" r="6" class="f-acc"/>
+      <circle cx="500" cy="50" r="6" class="f-acc"/>
+      <text x="200" y="30" text-anchor="middle" class="mt f-ink">0</text><text x="500" y="30" text-anchor="middle" class="mt f-ink">1</text>
+      <text x="200" y="76" text-anchor="middle" class="f-acc" font-weight="700">min = inf = 0</text>
+      <text x="500" y="76" text-anchor="middle" class="f-acc" font-weight="700">max = sup = 1</text>
+      <text x="20" y="134" class="f-ink" font-weight="700">M = (0, 1)</text>
+      <line x1="130" y1="130" x2="620" y2="130" class="s-line" stroke-width="2"/>
+      <line x1="200" y1="130" x2="500" y2="130" class="s-acc" stroke-width="4"/>
+      <circle cx="200" cy="130" r="6" class="f-card s-acc" stroke-width="2"/>
+      <circle cx="500" cy="130" r="6" class="f-card s-acc" stroke-width="2"/>
+      <text x="200" y="110" text-anchor="middle" class="mt f-ink">0</text><text x="500" y="110" text-anchor="middle" class="mt f-ink">1</text>
+      <text x="200" y="156" text-anchor="middle" class="f-ink">inf = 0, <tspan class="f-red">no min</tspan></text>
+      <text x="500" y="156" text-anchor="middle" class="f-ink">sup = 1, <tspan class="f-red">no max</tspan></text>
+    </svg>
+    <figcaption>Filled dots belong to the set, hollow ones do not. Sup and inf are the same in both cases. Whether max and min exist depends only on whether the endpoints belong to the set.</figcaption>
+  </figure>
+  <div class="merke"><span class="lbl">Recipe: finding and justifying sup, inf, max, min</span><p><b>1. Compute elements.</b> Plug in <i>n</i> = 1, 2, 3, 4 and see where the values are heading. That gives you a guess for sup and inf.<br>
+  <b>2. Show the bound.</b> Show <span class="m"><i>y</i> ≤ <i>s</i></span> for <b>every</b> <span class="m"><i>y</i> ∈ <i>M</i></span>, usually with a simple estimate like <span class="m">1/<i>n</i> ≤ 1</span> or <span class="m">1/<i>n</i> &gt; 0</span>.<br>
+  <b>3. Does <i>s</i> lie in <i>M</i>?</b> If yes, you find an <i>n</i> that gives exactly <i>s</i>. Then <i>s</i> is the maximum, and by part d) below automatically also the supremum. Done.<br>
+  <b>4. If not: nothing smaller is a bound.</b> Take any <span class="m"><i>c</i> &lt; <i>s</i></span> and find an element of <i>M</i> that is larger than <i>c</i>. That is what the hint is for: <b>for every <span class="m"><i>r</i> ∈ ℝ</span> there is an <span class="m"><i>n</i> ∈ ℕ</span> with <span class="m"><i>n</i> &gt; <i>r</i></span>.</b> With it you make <span class="m">1/<i>n</i></span> smaller than any given positive number. Finally say: <i>s</i> ∉ <i>M</i>, so no maximum.<br>
+  For inf and min everything works the same way, just with ≥ instead of ≤ and “smaller than <i>c</i>” instead of “larger than <i>c</i>”.</p></div>
+  <div class="falle"><span class="lbl">Typical pitfalls</span>
+    <ul class="clean">
+      <li><b>“No maximum” does not mean “no supremum”.</b> (0, 1) has no maximum, but sup = 1.</li>
+      <li><b>A value the elements only get close to is not an element.</b> 0.999… equals 1 here and does not belong to (0, 1). There is no “largest element just below 1”.</li>
+      <li><b>The limit is not automatically the supremum.</b> In part b) below the values approach ±1, but sup = 3/2 and inf = −2 are reached right at the beginning.</li>
+      <li><b>Only showing that <i>s</i> is a bound is not enough.</b> 5 is also an upper bound of (0, 1). For the supremum you have to show that no smaller number works.</li>
+    </ul>
+  </div>
+
+  <h4>Example: Exercise 2.5 from the problem sheet</h4>
+  <p>Determine sup, inf, max and min, if they exist, and justify. Since <span class="m">1/0</span> is not defined, <i>n</i> (and <i>m</i>) start at 1 here.</p>
+  <div class="bsp"><span class="lbl">a) M₁ = {1 − 1/n : n ∈ ℕ}</span>
+    <p><b>Compute:</b> <span class="m">0, 1/2, 2/3, 3/4, 4/5, …</span> The values grow and get closer and closer to 1.<br>
+    <b>Minimum:</b> Since <span class="m">1/<i>n</i> ≤ 1</span>, we have <span class="m">1 − 1/<i>n</i> ≥ 0</span> for all <i>n</i>, so 0 is a lower bound. For <i>n</i> = 1, <span class="m">1 − 1 = 0 ∈ <i>M</i><sub>1</sub></span>. So <b>min = inf = 0</b>.<br>
+    <b>Upper bound:</b> <span class="m">1/<i>n</i> &gt; 0</span>, so <span class="m">1 − 1/<i>n</i> &lt; 1</span> for all <i>n</i>.<br>
+    <b>No smaller bound:</b> Let <span class="m"><i>c</i> &lt; 1</span>. By the hint there is an <i>n</i> with <span class="m"><i>n</i> &gt; 1/(1 − <i>c</i>)</span>. Then <span class="m">1/<i>n</i> &lt; 1 − <i>c</i></span>, so <span class="m">1 − 1/<i>n</i> &gt; <i>c</i></span>. The element <span class="m">1 − 1/<i>n</i></span> lies above <i>c</i>, so <i>c</i> is not an upper bound. Hence <b>sup = 1</b>.<br>
+    <b>Maximum:</b> <span class="m">1 − 1/<i>n</i> = 1</span> would mean <span class="m">1/<i>n</i> = 0</span>, which is impossible. So 1 ∉ <i>M</i><sub>1</sub>, <b>no maximum</b>.<br>
+    Numerical example for <i>c</i> = 0.99: the hint gives an <i>n</i> &gt; 100, say <i>n</i> = 101, and <span class="m">1 − 1/101 ≈ 0.9901 &gt; 0.99</span> ✓</p>
+  </div>
+  <div class="merke"><span class="lbl">How do you come up with n &gt; 1/(1 − c)?</span><p><b>You work backwards from the goal.</b> The <i>n</i> does not fall from the sky; you find it like this:<br>
+  <b>Goal:</b> an element above <i>c</i>, i.e. <span class="m">1 − 1/<i>n</i> &gt; <i>c</i></span>.<br>
+  <b>1. Rearrange:</b> move <span class="m">1/<i>n</i></span> to the right and <i>c</i> to the left: <span class="m">1 − <i>c</i> &gt; 1/<i>n</i></span>.<br>
+  <b>2. Solve for <i>n</i>:</b> multiplying by <i>n</i> gives <span class="m"><i>n</i>(1 − <i>c</i>) &gt; 1</span>. Since <span class="m"><i>c</i> &lt; 1</span>, <span class="m">1 − <i>c</i> &gt; 0</span>, so you may divide by <span class="m">1 − <i>c</i></span> without flipping the sign: <span class="m"><i>n</i> &gt; 1/(1 − <i>c</i>)</span>.<br>
+  <b>3. Is there such an <i>n</i>?</b> Yes, that is exactly what the hint is for: for every <span class="m"><i>r</i> ∈ ℝ</span> there is an <span class="m"><i>n</i> &gt; <i>r</i></span>. Set <span class="m"><i>r</i> = 1/(1 − <i>c</i>)</span>.<br>
+  <b>4. Write it down:</b> in the solution you then write the steps forwards, as above: first choose the <i>n</i>, then show that it works.<br>
+  <b>Numerical example:</b> <i>c</i> = 0.99. Then <span class="m">1 − <i>c</i> = 0.01</span> and <span class="m">1/(1 − <i>c</i>) = 100</span>. So you need <i>n</i> &gt; 100, say <i>n</i> = 101: <span class="m">1 − 1/101 ≈ 0.9901 &gt; 0.99</span> ✓. The closer <i>c</i> is to 1, the larger <i>n</i> has to be, but a suitable <i>n</i> always exists.<br>
+  In c) below it works the same way: goal <span class="m">2/<i>n</i> &lt; <i>c</i></span>, rearranged <span class="m"><i>n</i> &gt; 2/<i>c</i></span>.</p></div>
+  <div class="bsp"><span class="lbl">b) M₂ = {(−1)ⁿ (1 + 1/n) : n ∈ ℕ}</span>
+    <p><b>Compute:</b> The sign jumps. For even <i>n</i> you get <span class="m">1 + 1/<i>n</i></span>, for odd <i>n</i> you get <span class="m">−(1 + 1/<i>n</i>)</span>.</p>
+    <div class="tw"><table>
+      <tr><th>n</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>…</th></tr>
+      <tr><td>value</td><td class="m">−2</td><td class="m">3/2</td><td class="m">−4/3</td><td class="m">5/4</td><td class="m">−6/5</td><td class="m">7/6</td><td>→ ±1</td></tr>
+    </table></div>
+    <p>The positive values fall from 3/2 towards 1, the negative ones rise from −2 towards −1.<br>
+    <b>Maximum:</b> For odd <i>n</i> the value is negative, so smaller than 3/2. For even <i>n</i>, <span class="m"><i>n</i> ≥ 2</span>, so <span class="m">1/<i>n</i> ≤ 1/2</span> and <span class="m">1 + 1/<i>n</i> ≤ 3/2</span>. So 3/2 is an upper bound, and it is reached for <i>n</i> = 2. Hence <b>max = sup = 3/2</b>.<br>
+    <b>Minimum:</b> For even <i>n</i> the value is positive, so larger than −2. For odd <i>n</i>, <span class="m">1/<i>n</i> ≤ 1</span>, so <span class="m">−(1 + 1/<i>n</i>) ≥ −2</span>. So −2 is a lower bound, and it is reached for <i>n</i> = 1. Hence <b>min = inf = −2</b>.<br>
+    Here you do not need the hint at all, because both values are attained.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) M₃ = {1/n + 1/m : n, m ∈ ℕ}</span>
+    <p><b>Compute:</b> <i>n</i> and <i>m</i> are independent. <span class="m">1/1 + 1/1 = 2</span>, <span class="m">1/1 + 1/2 = 3/2</span>, <span class="m">1/2 + 1/2 = 1</span>, <span class="m">1/10 + 1/10 = 1/5</span>, … The larger both get, the closer it gets to 0.<br>
+    <b>Maximum:</b> <span class="m">1/<i>n</i> ≤ 1</span> and <span class="m">1/<i>m</i> ≤ 1</span>, so every element is ≤ 2. For <i>n</i> = <i>m</i> = 1 you get exactly 2. Hence <b>max = sup = 2</b>.<br>
+    <b>Lower bound:</b> Both fractions are positive, so every element is &gt; 0.<br>
+    <b>No larger bound:</b> Let <span class="m"><i>c</i> &gt; 0</span>. By the hint there is an <i>n</i> with <span class="m"><i>n</i> &gt; 2/<i>c</i></span>. Take <i>m</i> = <i>n</i>. Then <span class="m">1/<i>n</i> + 1/<i>n</i> = 2/<i>n</i> &lt; <i>c</i></span>. So there is an element below <i>c</i>, and <i>c</i> is not a lower bound. Hence <b>inf = 0</b>.<br>
+    <b>Minimum:</b> A sum of two positive numbers is never 0, so 0 ∉ <i>M</i><sub>3</sub>, <b>no minimum</b>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) If M has a maximum, then sup M = max M</span>
+    <p>Let <span class="m"><i>a</i> = max <i>M</i></span>. For the supremum we have to show two things.<br>
+    <b>(1) <i>a</i> is an upper bound.</b> That is already part of the definition of the maximum: <span class="m"><i>y</i> ≤ <i>a</i></span> for all <span class="m"><i>y</i> ∈ <i>M</i></span>.<br>
+    <b>(2) <i>a</i> is the least upper bound.</b> Let <i>x</i> be any upper bound of <i>M</i>. Since <span class="m"><i>a</i> ∈ <i>M</i></span>, <i>x</i> must also lie above <i>a</i>: <span class="m"><i>a</i> ≤ <i>x</i></span>. So <i>a</i> is less than or equal to every upper bound.<br>
+    From (1) and (2) it follows that <span class="m">sup <i>M</i> = <i>a</i> = max <i>M</i></span>. ∎<br>
+    <b>The converse does not hold:</b> “<i>M</i> has a supremum” does not imply “<i>M</i> has a maximum”. Counterexample from a): <span class="m">sup <i>M</i><sub>1</sub> = 1</span>, but <i>M</i><sub>1</sub> has no maximum, because 1 ∉ <i>M</i><sub>1</sub>. Likewise <i>M</i><sub>3</sub> has an infimum 0, but no minimum.</p>
+  </div>
+
+  <h4 id="aufgabe-3-1">Example: Exercise 3.1 from the problem sheet (running time of an algorithm)</h4>
+  <p>On inputs of length <i>n</i> ≥ 1 an algorithm needs at most <span class="m"><i>T</i>(<i>n</i>) = 3<i>n</i>² + 5<i>n</i> + 2</span> steps. We are looking for a constant <i>c</i> with <span class="m"><i>T</i>(<i>n</i>) ≤ <i>c</i><i>n</i>²</span> for all <i>n</i>. To do so, consider the set</p>
+  <p class="mb"><i>Q</i> = { <i>T</i>(<i>n</i>)/<i>n</i>² : <i>n</i> ≥ 1 } = { 3 + 5/<i>n</i> + 2/<i>n</i>² : <i>n</i> ≥ 1 }.</p>
+  <p>You get the rewritten form by dividing each term separately by <i>n</i>²: <span class="m">3<i>n</i>²/<i>n</i>² = 3</span>, <span class="m">5<i>n</i>/<i>n</i>² = 5/<i>n</i></span>, <span class="m">2/<i>n</i>²</span>.</p>
+  <div class="tw"><table class="cantor">
+    <tr><th>n</th><td>1</td><td>2</td><td>3</td><td>5</td><td>10</td><td>100</td><td>…</td></tr>
+    <tr><th>T(n)/n²</th><td>10</td><td>6</td><td>4.89</td><td>4.08</td><td>3.52</td><td>3.05</td><td>→ 3</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">a) max Q = sup Q = 10, and what that means for c</span>
+    <p><b>Strictly decreasing:</b> As <i>n</i> gets larger, <span class="m">5/<i>n</i></span> and <span class="m">2/<i>n</i>²</span> both get strictly smaller. So <span class="m">3 + 5/(<i>n</i>+1) + 2/(<i>n</i>+1)² &lt; 3 + 5/<i>n</i> + 2/<i>n</i>²</span> for every <i>n</i>.<br>
+    <b>Consequence:</b> The first element is the largest. For <i>n</i> = 1 you get <span class="m">3 + 5 + 2 = 10</span>, and all other elements are smaller. So <b>max <i>Q</i> = 10</b>, and by Exercise 2.5 d) also <b>sup <i>Q</i> = 10</b>.<br>
+    <b>Meaning for c:</b> <span class="m"><i>T</i>(<i>n</i>) ≤ <i>c</i><i>n</i>²</span> means the same as <span class="m"><i>T</i>(<i>n</i>)/<i>n</i>² ≤ <i>c</i></span>, i.e. <i>c</i> is an upper bound of <i>Q</i>. The smallest such constant is the supremum. With <span class="m"><i>c</i> = 10</span> we get <span class="m"><i>T</i>(<i>n</i>) ≤ 10<i>n</i>²</span> for all <i>n</i> ≥ 1, and every smaller <i>c</i> already fails at <i>n</i> = 1.</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) inf Q = 3, but no minimum</span>
+    <p><b>Lower bound:</b> <span class="m">5/<i>n</i> + 2/<i>n</i>² &gt; 0</span>, so every element is <b>strictly</b> larger than 3.<br>
+    <b>No larger bound:</b> Let <span class="m"><i>c</i> &gt; 3</span>. We look for an element below <i>c</i>, i.e. an <i>n</i> with <span class="m">5/<i>n</i> + 2/<i>n</i>² &lt; <i>c</i> − 3</span>. Estimating makes it easier: since <span class="m"><i>n</i>² ≥ <i>n</i></span>, <span class="m">2/<i>n</i>² ≤ 2/<i>n</i></span>, so <span class="m">5/<i>n</i> + 2/<i>n</i>² ≤ 7/<i>n</i></span>. By the hint there is an <i>n</i> with <span class="m"><i>n</i> &gt; 7/(<i>c</i> − 3)</span>. Then <span class="m">7/<i>n</i> &lt; <i>c</i> − 3</span>, and so <span class="m">3 + 5/<i>n</i> + 2/<i>n</i>² &lt; <i>c</i></span>. So <i>c</i> is not a lower bound, and <b>inf <i>Q</i> = 3</b>.<br>
+    <b>No minimum:</b> Every element is strictly larger than 3, so 3 ∉ <i>Q</i>.<br>
+    <b>Meaning:</b> For large <i>n</i>, <span class="m"><i>T</i>(<i>n</i>) ≈ 3<i>n</i>²</span>. The term <span class="m">3<i>n</i>²</span> determines the running time; the others become negligible.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) The smallest n₀ with T(n) ≤ 4n² for all n ≥ n₀</span>
+    <p><span class="m"><i>T</i>(<i>n</i>) ≤ 4<i>n</i>²</span> means <span class="m">3 + 5/<i>n</i> + 2/<i>n</i>² ≤ 4</span>. By a) the values decrease, so once the inequality holds for some <i>n</i>, it holds for all larger <i>n</i> too. So we only need to try:</p>
+    <div class="tw"><table class="cantor">
+      <tr><th>n</th><td>4</td><td>5</td><td>6</td></tr>
+      <tr><th>T(n)</th><td>70</td><td>102</td><td>140</td></tr>
+      <tr><th>4n²</th><td>64</td><td>100</td><td>144</td></tr>
+      <tr><th>T(n) ≤ 4n²?</th><td>no</td><td>no</td><td class="diag">yes</td></tr>
+    </table></div>
+    <p>So <b><i>n</i>₀ = 6</b>. Without trying: <span class="m">3<i>n</i>² + 5<i>n</i> + 2 ≤ 4<i>n</i>²</span> is <span class="m"><i>n</i>² − 5<i>n</i> − 2 ≥ 0</span>. The roots are <span class="m">(5 ± √33)/2</span>, the positive one is about 5.37. The first integer above it is 6.</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) A slower algorithm: T′(n) = n³</span>
+    <p>Now <span class="m"><i>T</i>′(<i>n</i>)/<i>n</i>² = <i>n</i></span>, so <span class="m"><i>Q</i>′ = {1, 2, 3, …}</span>.<br>
+    <b>Unbounded:</b> Let <i>C</i> be any number. By the hint there is an <span class="m"><i>n</i> &gt; <i>C</i></span>, and this <i>n</i> is an element of <i>Q</i>′. So no number is an upper bound, and <b>sup <i>Q</i>′ = ∞</b>.<br>
+    <b>Consequence for c:</b> There is <b>no</b> constant <i>c</i> with <span class="m"><i>n</i>³ ≤ <i>c</i><i>n</i>²</span> for all <i>n</i>. That would mean <span class="m"><i>n</i> ≤ <i>c</i></span> for all <i>n</i>. The algorithm grows faster than quadratically.</p>
+  </div>
+
+  <h4>Rules for suprema (Theorem 2.7)</h4>
+  <div class="tw"><table>
+    <tr><th>Rule</th><th>Condition</th><th>Example</th></tr>
+    <tr><td class="m">sup(<i>A</i>+<i>B</i>) = sup <i>A</i> + sup <i>B</i></td><td>always</td><td><span class="m"><i>A</i> = (0,1), <i>B</i> = {2,3}</span>: <span class="m"><i>A</i>+<i>B</i> = (2,4)</span>, sup = 4 = 1 + 3</td></tr>
+    <tr><td class="m">sup(λ<i>A</i>) = λ sup <i>A</i></td><td class="m">λ ≥ 0</td><td><span class="m">sup(3·(0,1)) = sup (0,3) = 3</span></td></tr>
+    <tr><td class="m">sup(<i>A</i>·<i>B</i>) = sup <i>A</i> · sup <i>B</i></td><td class="m"><i>A</i>, <i>B</i> ⊆ [0, ∞)</td><td>see pitfall below</td></tr>
+    <tr><td class="m"><i>A</i> ⊆ <i>B</i> ⇒ sup <i>A</i> ≤ sup <i>B</i></td><td>always</td><td>more elements can only raise the ceiling</td></tr>
+  </table></div>
+  <div class="falle"><span class="lbl">Pitfall: why the conditions are needed</span><p><b>λ &lt; 0:</b> <span class="m">sup(−1 · [0,1]) = sup [−1,0] = 0</span>, but <span class="m">−1 · sup [0,1] = −1</span>. A negative λ flips the set, and the supremum turns into the infimum. That is exactly where <span class="m">inf(<i>A</i>) = −sup(−<i>A</i>)</span> comes from.<br><b>Negative sets in the product:</b> <span class="m"><i>A</i> = <i>B</i> = {−2, −1}</span>. Then <span class="m">sup <i>A</i> · sup <i>B</i> = (−1)(−1) = 1</span>, but <span class="m"><i>A</i>·<i>B</i> = {4, 2, 1}</span> has supremum 4. </p></div>
+  <div class="falle"><span class="lbl">Careful</span><p>The condition in the product rule is <span class="m"><i>A</i>, <i>B</i> ⊆ [0, ∞)</span>, i.e. <b>all elements of <i>A</i> and <i>B</i> are ≥ 0</b>. The square bracket at 0 means “0 may be included”, the round bracket at ∞ is always there (see <a href="#intervalle">intervals</a>). The counterexample above shows why negative numbers have to be excluded.</p></div>
+  <p><b>Absolute value:</b> <span class="m">|<i>x</i>| = max(<i>x</i>, −<i>x</i>)</span>, i.e. <i>x</i> if <i>x</i> ≥ 0 and −<i>x</i> if <i>x</i> &lt; 0. We have <span class="m">|<i>x</i>| ≥ 0</span>, <span class="m">|<i>x</i>| = 0 ⇔ <i>x</i> = 0</span> and <span class="m">|<i>xy</i>| = |<i>x</i>|·|<i>y</i>|</span>. Geometrically, <span class="m">|<i>x</i> − <i>y</i>|</span> is the <b>distance</b> between <i>x</i> and <i>y</i> on the number line. Keep that picture in your head; it makes chapter 3 much easier.</p>
+
+  <h3 id="k2-3"><span class="sn">2.3</span>Open and closed sets</h3>
+  <div class="def"><div class="tag">Definitions 2.8–2.10</div>
+    <p class="formal">An open interval <span class="m">(<i>a</i>, <i>b</i>)</span> with <span class="m"><i>x</i> ∈ (<i>a</i>, <i>b</i>)</span> is called a <b>neighbourhood</b> of <i>x</i>.<br><i>A</i> ⊆ ℝ is called <b>open</b> if every <span class="m"><i>x</i> ∈ <i>A</i></span> has a neighbourhood <span class="m"><i>I<sub>x</sub></i> ⊆ <i>A</i></span>.<br><i>A</i> is called <b>closed</b> if <span class="m">ℝ \ <i>A</i></span> is open.</p>
+    <p class="plain"><b>In plain words:</b> Open means every point has a little “breathing room” around it that still lies in the set. From every point you can move a little to the left and right without leaving the set. Closed means the complement is open, or intuitively: the set contains its boundary points.</p>
+  </div>
+  <figure>
+    <svg viewBox="0 0 640 130" role="img" aria-label="Open interval with a neighbourhood around a point, half-open interval where the endpoint has no neighbourhood">
+      <text x="20" y="22" class="f-ink" font-weight="700">(0, 1) is open</text>
+      <line x1="20" y1="48" x2="300" y2="48" class="s-line" stroke-width="2"/>
+      <line x1="50" y1="48" x2="270" y2="48" class="s-acc" stroke-width="4"/>
+      <circle cx="50" cy="48" r="5.5" class="f-card s-acc" stroke-width="2"/><circle cx="270" cy="48" r="5.5" class="f-card s-acc" stroke-width="2"/>
+      <rect x="226" y="38" width="36" height="20" rx="10" class="f-mark"/>
+      <circle cx="244" cy="48" r="4" class="f-ink"/>
+      <text x="244" y="80" text-anchor="middle" class="mt f-ink">x</text>
+      <text x="160" y="110" text-anchor="middle" class="f-mut">even close to the edge a neighbourhood still fits</text>
+      <text x="340" y="22" class="f-ink" font-weight="700">[0, 1) is not open</text>
+      <line x1="340" y1="48" x2="620" y2="48" class="s-line" stroke-width="2"/>
+      <line x1="370" y1="48" x2="590" y2="48" class="s-acc" stroke-width="4"/>
+      <circle cx="370" cy="48" r="5.5" class="f-acc"/><circle cx="590" cy="48" r="5.5" class="f-card s-acc" stroke-width="2"/>
+      <rect x="352" y="38" width="36" height="20" rx="10" class="f-mark"/>
+      <circle cx="370" cy="48" r="4" class="f-ink"/>
+      <line x1="352" y1="66" x2="368" y2="66" class="s-red" stroke-width="2.5"/>
+      <text x="370" y="84" text-anchor="middle" class="mt f-ink">0</text>
+      <text x="480" y="110" text-anchor="middle" class="f-red">left of 0 every neighbourhood sticks out</text>
+    </svg>
+    <figcaption>For <i>x</i> ∈ (0, 1) the neighbourhood with radius <span class="m">ε = min(<i>x</i>, 1 − <i>x</i>)</span> works. For the point 0 in [0, 1) this is impossible: every neighbourhood contains negative numbers.</figcaption>
+  </figure>
+  <h4>Step by step: why [2, 5] is closed but not open</h4>
+  <p>We take a concrete interval, <span class="m">[2, 5]</span>. With <i>a</i> = 2 and <i>b</i> = 5 this is exactly the row “<span class="m">[<i>a</i>, <i>b</i>]</span>” in the table further down.</p>
+  <p><b>Step 1: What do we actually have to show?</b> The definition says: <i>A</i> is closed if the complement <span class="m">ℝ \ <i>A</i></span> is open. So we do not check <span class="m">[2, 5]</span> itself at all, but <b>everything that is left</b> when you remove [2, 5] from the number line.</p>
+  <p><b>Step 2: Write down the complement.</b> What is left are all numbers smaller than 2 and all numbers larger than 5:</p>
+  <div class="mb">ℝ \ [2, 5] = (−∞, 2) ∪ (5, ∞)</div>
+  <p>At 2 and 5 there are now <b>round</b> brackets, because 2 and 5 belong to [2, 5] and are therefore <b>not</b> in the complement. The ∪ means “or”: one piece on the left, one piece on the right.</p>
+  <figure>
+    <svg viewBox="0 0 640 170" role="img" aria-label="Number line: [2,5] in grey, the complement on the left and right in blue with hollow endpoints; around 5.3 a small interval fits into the complement">
+      <line x1="20" y1="60" x2="620" y2="60" class="s-line" stroke-width="1.5"/>
+      <line x1="20" y1="60" x2="200" y2="60" class="s-acc" stroke-width="5"/>
+      <line x1="440" y1="60" x2="620" y2="60" class="s-acc" stroke-width="5"/>
+      <line x1="200" y1="60" x2="440" y2="60" class="s-ink" stroke-width="2" stroke-dasharray="3 4"/>
+      <circle cx="200" cy="60" r="6.5" class="f-card s-acc" stroke-width="2.5"/>
+      <circle cx="440" cy="60" r="6.5" class="f-card s-acc" stroke-width="2.5"/>
+      <text x="320" y="44" text-anchor="middle" class="f-mut">[2, 5] is removed</text>
+      <text x="100" y="40" text-anchor="middle" class="f-acc" font-weight="700">(−∞, 2)</text>
+      <text x="540" y="40" text-anchor="middle" class="f-acc" font-weight="700">(5, ∞)</text>
+      <text x="200" y="88" text-anchor="middle" class="f-mut">2</text>
+      <text x="440" y="88" text-anchor="middle" class="f-mut">5</text>
+      <rect x="470" y="104" width="64" height="20" rx="10" class="f-mark"/>
+      <circle cx="502" cy="114" r="4" class="f-ink"/>
+      <line x1="440" y1="114" x2="502" y2="114" class="s-ink" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="502" y="148" text-anchor="middle" class="mt f-ink">x = 5.3</text>
+      <text x="300" y="118" text-anchor="end" class="f-mut">distance to 5 is 0.3, neighbourhood with radius 0.15 →</text>
+    </svg>
+    <figcaption>Blue is the complement. The endpoints 2 and 5 are hollow; they do not belong to the complement. Around every blue point a small yellow interval fits that stays entirely in the blue.</figcaption>
+  </figure>
+  <p><b>Step 3: Is the complement open?</b> Open means: around <b>every</b> point a small open interval fits that stays completely in the set. Take any <i>x</i> from <span class="m">(5, ∞)</span>, say <span class="m"><i>x</i> = 5.3</span>. The distance to 5 is 0.3. Take half of it as the radius: <span class="m">(5.15, 5.45)</span> lies entirely in <span class="m">(5, ∞)</span> ✓. This works for every <i>x</i> &gt; 5, even for <i>x</i> = 5.0001, just with radius 0.00005. In general the radius <span class="m">(<i>x</i> − 5)/2</span> works. Left of 2 it works the same way with radius <span class="m">(2 − <i>x</i>)/2</span>.</p>
+  <p>The key point: the “dangerous” boundary point 5 does not belong to the complement at all. So every point in the complement has a genuine distance to 5, and a small interval always fits into that distance.</p>
+  <p><b>Step 4: Result.</b> The complement <span class="m">(−∞, 2) ∪ (5, ∞)</span> is open. By definition, <span class="m">[2, 5]</span> is therefore <b>closed</b>.</p>
+  <p><b>And why is [2, 5] not open?</b> A single point without “breathing room” is enough. That is the endpoint 2: it belongs to [2, 5], but every interval around 2, no matter how small, sticks out to the left. For example, <span class="m">(1.99, 2.01)</span> contains the number 1.995, and that is not in [2, 5]. So <span class="m">[2, 5]</span> is not open. The same argument works for 5 to the right.</p>
+
+  <h4>Neither open nor closed: [0, 1)</h4>
+  <p>Here one endpoint belongs to the set (the 0) and the other does not (the 1). Both cause trouble:</p>
+  <ul class="clean">
+    <li><b>Not open</b>, because 0 lies in the set and has no breathing room: every interval around 0 contains negative numbers, e.g. −0.001, and those are not in [0, 1).</li>
+    <li><b>Not closed</b>, because the complement <span class="m">(−∞, 0) ∪ [1, ∞)</span> is not open. The 1 lies in the complement (square bracket!), but has no breathing room there: every interval around 1 contains numbers like 0.999, and those belong to [0, 1), so not to the complement.</li>
+  </ul>
+  <div class="merke"><span class="lbl">Memory aid for intervals</span><p>Only look at the endpoints.<br><b>No</b> endpoint belongs to it (only round brackets) ⇒ open.<br><b>All</b> endpoints belong to it (only square brackets; round at ∞ does not count) ⇒ closed.<br><b>Mixed</b> ⇒ neither.<br>This is a rule of thumb for intervals. For more complicated sets like ℚ you have to use the definition.</p></div>
+  <div class="tw"><table>
+    <tr><th>Set</th><th>open?</th><th>closed?</th><th>Why</th></tr>
+    <tr><td class="m">(<i>a</i>, <i>b</i>)</td><td>yes</td><td>no</td><td>endpoints missing, every point has breathing room</td></tr>
+    <tr><td class="m">[<i>a</i>, <i>b</i>]</td><td>no</td><td>yes</td><td>complement <span class="m">(−∞,<i>a</i>) ∪ (<i>b</i>,∞)</span> is open (see step by step above)</td></tr>
+    <tr><td class="m">[<i>a</i>, <i>b</i>)</td><td>no</td><td>no</td><td><i>a</i> has no breathing room, and <i>b</i> is missing</td></tr>
+    <tr><td class="m">{1, 2, 3}</td><td>no</td><td>yes</td><td>finite sets are closed</td></tr>
+    <tr><td class="m">ℚ</td><td>no</td><td>no</td><td>every neighbourhood contains irrational and rational numbers</td></tr>
+    <tr><td class="m">ℝ, ∅</td><td>yes</td><td>yes</td><td>the only two (Theorem 2.11)</td></tr>
+  </table></div>
+  <div class="falle"><span class="lbl">Pitfall</span><p>“Closed” is <b>not</b> the opposite of “open”. A set can be both (ℝ, ∅) or neither ([0,1), ℚ). It is like a door, except that mathematics allows half-open doors.</p></div>
+
+  <h4 id="aufgabe-3-2">Example: Exercise 3.2 from the problem sheet</h4>
+  <p>Which sets are open, which are closed? The procedure is the same every time: <b>first write the set as intervals</b>, then look at the endpoints and justify with the definition.</p>
+  <div class="bsp"><span class="lbl">a) A = {x ∈ ℝ : |x − 3| &lt; 2}</span>
+    <p><b>Write it out:</b> <span class="m">|<i>x</i> − 3| &lt; 2</span> means “distance to 3 less than 2”, i.e. <span class="m">1 &lt; <i>x</i> &lt; 5</span>. So <span class="m"><i>A</i> = (1, 5)</span>.<br>
+    <b>Open:</b> For <span class="m"><i>x</i> ∈ (1, 5)</span> let <span class="m"><i>r</i> = min(<i>x</i> − 1, 5 − <i>x</i>)</span>, the distance to the nearer endpoint. Then <span class="m">(<i>x</i> − <i>r</i>, <i>x</i> + <i>r</i>)</span> lies entirely in <i>A</i>. Example: <i>x</i> = 4.9 gives <i>r</i> = 0.1 and (4.8, 5) ⊆ <i>A</i>.<br>
+    <b>Not closed:</b> The complement <span class="m">(−∞, 1] ∪ [5, ∞)</span> contains 5, but every neighbourhood of 5 contains numbers like 4.99 from <i>A</i>. So the complement is not open.<br>
+    <b>Result: open, not closed.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">b) B = {x ∈ ℝ : x² ≥ 4}</span>
+    <p><b>Write it out:</b> <span class="m"><i>x</i>² ≥ 4</span> means <span class="m">|<i>x</i>| ≥ 2</span>, so <span class="m"><i>B</i> = (−∞, −2] ∪ [2, ∞)</span>. Careful, not just <span class="m"><i>x</i> ≥ 2</span>: (−3)² = 9 ≥ 4 as well.<br>
+    <b>Closed:</b> The complement is <span class="m">(−2, 2)</span>, an open interval. So <i>B</i> is closed.<br>
+    <b>Not open:</b> 2 ∈ <i>B</i>, but every neighbourhood of 2 contains numbers like 1.99 with <span class="m">1.99² ≈ 3.96 &lt; 4</span>.<br>
+    <b>Result: closed, not open.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">c) C = (0, 1] ∪ {2}</span>
+    <p><b>Not open:</b> 2 ∈ <i>C</i>, but every neighbourhood <span class="m">(2 − <i>r</i>, 2 + <i>r</i>)</span> contains, for example, <span class="m">2 + <i>r</i>/2</span>, and that is not in <i>C</i>. A single point never has “breathing room”.<br>
+    <b>Not closed:</b> The complement is <span class="m">(−∞, 0] ∪ (1, 2) ∪ (2, ∞)</span>. It contains 0, but every neighbourhood of 0 contains small positive numbers like 0.001 ∈ <i>C</i>. So the complement is not open.<br>
+    <b>Result: neither open nor closed.</b> The point {2} alone would be closed. The culprit is the missing endpoint 0.</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) D = ℤ</span>
+    <p><b>Not open:</b> 0 ∈ ℤ, but every neighbourhood <span class="m">(−<i>r</i>, <i>r</i>)</span> contains the number <span class="m"><i>r</i>/2</span>, and for <i>r</i> ≤ 1 that is not an integer.<br>
+    <b>Closed:</b> The complement is <span class="m">… ∪ (−1, 0) ∪ (0, 1) ∪ (1, 2) ∪ …</span>, a union of open intervals. A union of open sets is open.<br>
+    <b>Result: closed, not open.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">e) E = {x ∈ ℝ : 0 &lt; x² &lt; 1}</span>
+    <p><b>Write it out:</b> <span class="m"><i>x</i>² &lt; 1</span> means <span class="m">−1 &lt; <i>x</i> &lt; 1</span>, and <span class="m"><i>x</i>² &gt; 0</span> means <span class="m"><i>x</i> ≠ 0</span>. So <span class="m"><i>E</i> = (−1, 0) ∪ (0, 1)</span>.<br>
+    <b>Open:</b> a union of two open intervals.<br>
+    <b>Not closed:</b> The complement <span class="m">(−∞, −1] ∪ {0} ∪ [1, ∞)</span> contains 0, but every neighbourhood of 0 contains numbers like 0.01 ∈ <i>E</i>.<br>
+    <b>Result: open, not closed.</b> The “hole” at 0 makes <i>E</i> not closed, but does not hurt openness.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Set</th><th>as intervals</th><th>open?</th><th>closed?</th></tr>
+    <tr><td><i>A</i></td><td class="m">(1, 5)</td><td>yes</td><td>no</td></tr>
+    <tr><td><i>B</i></td><td class="m">(−∞, −2] ∪ [2, ∞)</td><td>no</td><td>yes</td></tr>
+    <tr><td><i>C</i></td><td class="m">(0, 1] ∪ {2}</td><td>no</td><td>no</td></tr>
+    <tr><td><i>D</i></td><td class="m">ℤ</td><td>no</td><td>yes</td></tr>
+    <tr><td><i>E</i></td><td class="m">(−1, 0) ∪ (0, 1)</td><td>yes</td><td>no</td></tr>
+  </table></div>
+
+  <h3 id="k2-4"><span class="sn">2.4</span>The vector space ℝⁿ</h3>
+  <p><span class="m">ℝ<sup><i>n</i></sup></span> consists of lists <span class="m">(<i>x</i><sub>1</sub>, …, <i>x<sub>n</sub></i>)</span> of real numbers; for computer scientists these are arrays of length <i>n</i>. Addition and scaling work component by component.</p>
+  <div class="def"><div class="tag">Dot product and Euclidean norm</div>
+    <p class="formal"><span class="m">⟨<i>x</i>, <i>y</i>⟩ = <i>x</i> · <i>y</i> = Σ<sub><i>k</i>=1</sub><sup><i>n</i></sup> <i>x<sub>k</sub></i><i>y<sub>k</sub></i></span> &nbsp;&nbsp; <span class="m">‖<i>x</i>‖ = √(<i>x</i> · <i>x</i>) = √(Σ <i>x<sub>k</sub></i>²)</span></p>
+    <p class="plain"><b>In plain words:</b> The dot product multiplies entry by entry and adds up. The norm is the length of the arrow, i.e. Pythagoras in <i>n</i> dimensions. Geometrically, <span class="m"><i>x</i> · <i>y</i> = ‖<i>x</i>‖ ‖<i>y</i>‖ cos θ</span>, where θ is the angle between the vectors. If <span class="m"><i>x</i> · <i>y</i> = 0</span>, they are perpendicular.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example to work through</span>
+    <p><span class="m"><i>x</i> = (1, 2, 2)</span>, <span class="m"><i>y</i> = (3, 0, 4)</span>.<br>
+    <span class="m"><i>x</i> · <i>y</i> = 1·3 + 2·0 + 2·4 = 11</span><br>
+    <span class="m">‖<i>x</i>‖ = √(1 + 4 + 4) = 3</span>, &nbsp; <span class="m">‖<i>y</i>‖ = √(9 + 0 + 16) = 5</span><br>
+    Check with Cauchy–Schwarz: <span class="m">|11| ≤ 3 · 5 = 15</span> ✓. The angle satisfies <span class="m">cos θ = 11/15</span>, so about 43°.</p>
+  </div>
+  <p>The four basic properties say: the dot product is symmetric, you can pull out factors, it is distributive, and <span class="m"><i>x</i> · <i>x</i> ≥ 0</span> with equality only for the zero vector.</p>
+
+  <h3 id="k2-5"><span class="sn">2.5</span>Three inequalities you will always need</h3>
+  <div class="def"><div class="tag">Lemma 2.12 · Cauchy–Schwarz</div>
+    <p class="formal"><span class="m">|⟨<i>x</i>, <i>y</i>⟩| ≤ ‖<i>x</i>‖ · ‖<i>y</i>‖</span>, with equality if and only if one is a multiple of the other.</p>
+    <p class="plain"><b>In plain words:</b> Because <span class="m">|cos θ| ≤ 1</span>, the dot product can never be larger than the product of the lengths. Equality only happens when the vectors lie on one line.</p>
+  </div>
+  <figure>
+    <svg viewBox="0 0 640 230" role="img" aria-label="Decomposition of y into z parallel to x and w perpendicular to x">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-ink"/></marker>
+        <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-acc"/></marker>
+        <marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="f-red"/></marker></defs>
+      <line x1="80" y1="190" x2="560" y2="190" class="s-line" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="80" y1="190" x2="300" y2="190" class="s-ink" stroke-width="2.4" marker-end="url(#ah2)"/>
+      <line x1="80" y1="190" x2="420" y2="40" class="s-ink" stroke-width="2.4" marker-end="url(#ah2)"/>
+      <line x1="80" y1="194" x2="416" y2="194" class="s-acc" stroke-width="3" marker-end="url(#ah3)"/>
+      <line x1="420" y1="190" x2="420" y2="46" class="s-red" stroke-width="2.4" marker-end="url(#ah4)"/>
+      <rect x="408" y="178" width="12" height="12" class="s-mut s-line" stroke-width="1.5"/>
+      <text x="190" y="178" class="mt f-ink">x</text>
+      <text x="230" y="100" class="mt f-ink">y</text>
+      <text x="330" y="216" class="mt f-acc">z = (x·y / x·x) · x</text>
+      <text x="432" y="120" class="mt f-red">w = y − z</text>
+    </svg>
+    <figcaption>The idea of the proof: <i>y</i> is split into a part <i>z</i> in the direction of <i>x</i> (the “shadow” of <i>y</i> on <i>x</i>) and a remainder <i>w</i> that is perpendicular to <i>x</i>. Then <span class="m">‖<i>y</i>‖² = ‖<i>z</i>‖² + ‖<i>w</i>‖² ≥ ‖<i>z</i>‖²</span>: the shadow is never longer than the vector itself. Equality if and only if <i>w</i> = 0.</figcaption>
+  </figure>
+  <div class="def"><div class="tag">Lemma 2.13 · Triangle inequality</div>
+    <p class="formal"><span class="m">‖<i>x</i> + <i>y</i>‖ ≤ ‖<i>x</i>‖ + ‖<i>y</i>‖</span>. In ℝ: <span class="m">|<i>x</i> + <i>y</i>| ≤ |<i>x</i>| + |<i>y</i>|</span>.</p>
+    <p class="plain"><b>In plain words:</b> The direct route is never longer than a detour. Proof in one line: <span class="m">‖<i>x</i>+<i>y</i>‖² = ‖<i>x</i>‖² + 2⟨<i>x</i>,<i>y</i>⟩ + ‖<i>y</i>‖² ≤ ‖<i>x</i>‖² + 2‖<i>x</i>‖‖<i>y</i>‖ + ‖<i>y</i>‖² = (‖<i>x</i>‖ + ‖<i>y</i>‖)²</span>, where Cauchy–Schwarz is used in the middle step.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example and reverse triangle inequality</span>
+    <p><span class="m">|3 + (−5)| = 2 ≤ 3 + 5 = 8</span>. Equality only happens with the same sign (<span class="m"><i>xy</i> ≥ 0</span>).<br>The reverse triangle inequality <span class="m">|<i>x</i> − <i>y</i>| ≥ ||<i>x</i>| − |<i>y</i>||</span> follows like this: <span class="m">|<i>x</i>| = |(<i>x</i> − <i>y</i>) + <i>y</i>| ≤ |<i>x</i> − <i>y</i>| + |<i>y</i>|</span>, so <span class="m">|<i>x</i>| − |<i>y</i>| ≤ |<i>x</i> − <i>y</i>|</span>. Swapping the roles gives the same for <span class="m">|<i>y</i>| − |<i>x</i>|</span>.</p>
+  </div>
+  <div class="def"><div class="tag">Lemma 2.14 · geometric ≤ arithmetic mean</div>
+    <p class="formal">For <span class="m"><i>x</i>, <i>y</i> ≥ 0</span>: <span class="m">√(<i>xy</i>) ≤ (<i>x</i> + <i>y</i>)/2</span>, with equality exactly for <i>x</i> = <i>y</i>.</p>
+    <p class="plain"><b>In plain words:</b> A rectangle with sides <i>x</i> and <i>y</i> has at most the area of a square with the same perimeter. The proof starts with the trick <span class="m">0 ≤ (<i>x</i> − <i>y</i>)²</span>; that becomes <span class="m">4<i>xy</i> ≤ (<i>x</i> + <i>y</i>)²</span>, then take the square root.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example</span><p><i>x</i> = 4, <i>y</i> = 9: <span class="m">√36 = 6 ≤ 6.5 = 13/2</span> ✓. And <i>x</i> = <i>y</i> = 5: <span class="m">√25 = 5 = 10/2</span>, equality.</p></div>
+
+  <h3 id="k2-6"><span class="sn">2.6</span>Complex numbers</h3>
+  <p>A complex number is a point in the plane: <span class="m"><i>z</i> = <i>x</i> + <i>iy</i> ≅ (<i>x</i>, <i>y</i>)</span> with real part <span class="m">Re(<i>z</i>) = <i>x</i></span> and imaginary part <span class="m">Im(<i>z</i>) = <i>y</i></span>. Only one rule is new: <span class="m"><i>i</i>² = −1</span>. Everything else is ordinary multiplying out.</p>
+  <figure>
+    <svg viewBox="0 0 640 260" role="img" aria-label="Complex plane with z = 3 + 2i, its conjugate 3 − 2i and the absolute value as length">
+      <line x1="60" y1="130" x2="600" y2="130" class="s-line" stroke-width="1.5"/>
+      <line x1="200" y1="15" x2="200" y2="245" class="s-line" stroke-width="1.5"/>
+      <text x="590" y="150" class="f-mut" text-anchor="end">Re</text><text x="210" y="28" class="f-mut">Im</text>
+      <line x1="200" y1="130" x2="380" y2="50" class="s-acc" stroke-width="2.4"/>
+      <line x1="200" y1="130" x2="380" y2="210" class="s-red" stroke-width="2" stroke-dasharray="5 4"/>
+      <line x1="380" y1="50" x2="380" y2="210" class="s-line" stroke-width="1.2" stroke-dasharray="3 3"/>
+      <circle cx="380" cy="50" r="5.5" class="f-acc"/><circle cx="380" cy="210" r="5.5" class="f-red"/>
+      <text x="392" y="48" class="mt f-acc">z = 3 + 2i</text>
+      <text x="392" y="216" class="mt f-red">z̄ = 3 − 2i</text>
+      <text x="262" y="74" class="mt f-ink" transform="rotate(-24 262 74)">|z| = √13</text>
+      <text x="380" y="150" class="f-mut" text-anchor="middle">3</text><text x="190" y="54" class="f-mut" text-anchor="end">2</text>
+      <line x1="196" y1="50" x2="204" y2="50" class="s-ink" stroke-width="1.2"/>
+    </svg>
+    <figcaption>Conjugating reflects across the real axis. The absolute value is the distance to the origin, so Pythagoras again: <span class="m">|<i>z</i>| = √(<i>x</i>² + <i>y</i>²)</span>.</figcaption>
+  </figure>
+  <div class="bsp"><span class="lbl">Example to work through</span>
+    <p><span class="m"><i>z</i><sub>1</sub> = 1 + 2<i>i</i></span>, <span class="m"><i>z</i><sub>2</sub> = 3 − <i>i</i></span>.<br>
+    Sum: <span class="m"><i>z</i><sub>1</sub> + <i>z</i><sub>2</sub> = 4 + <i>i</i></span> (component by component).<br>
+    Product: <span class="m">(1 + 2<i>i</i>)(3 − <i>i</i>) = 3 − <i>i</i> + 6<i>i</i> − 2<i>i</i>² = 3 + 5<i>i</i> + 2 = 5 + 5<i>i</i></span>.<br>
+    With the multiplication formula: <span class="m"><i>x</i><sub>1</sub><i>x</i><sub>2</sub> − <i>y</i><sub>1</sub><i>y</i><sub>2</sub> = 3 − (−2) = 5</span> and <span class="m"><i>x</i><sub>1</sub><i>y</i><sub>2</sub> + <i>x</i><sub>2</sub><i>y</i><sub>1</sub> = −1 + 6 = 5</span> ✓.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember</span><p><span class="m"><i>z</i> · <span class="ol"><i>z</i></span> = (<i>x</i> + <i>iy</i>)(<i>x</i> − <i>iy</i>) = <i>x</i>² + <i>y</i>² = |<i>z</i>|²</span>. This is how you divide by complex numbers: multiply numerator and denominator by the conjugate, then the denominator is real. Example: <span class="m">1/(1 + <i>i</i>) = (1 − <i>i</i>)/((1+<i>i</i>)(1−<i>i</i>)) = (1 − <i>i</i>)/2</span>.</p></div>
+
+  <div class="quiz"><div class="qh">Test yourself</div>
+    <details><summary>Find sup, inf, max and min of M = {1/n : n ≥ 1}.</summary><div class="ans"><p>The elements are 1, 1/2, 1/3, … <b>max = sup = 1</b> (for <i>n</i> = 1). All elements are &gt; 0, and for every <i>c</i> &gt; 0 there is an <i>n</i> &gt; 1/<i>c</i>, so 1/<i>n</i> &lt; <i>c</i>. Hence <b>inf = 0</b>. Since 1/<i>n</i> is never 0, there is <b>no minimum</b>.</p></div></details>
+    <details><summary>Find sup, inf, max, min of M = {(−1)ⁿ/n : n ∈ ℕ₊}.</summary><div class="ans"><p>The elements are −1, 1/2, −1/3, 1/4, … The largest element is 1/2, so max = sup = 1/2. The smallest element is −1, so min = inf = −1.</p></div></details>
+    <details><summary>Is (0, 1) ∪ (2, 3) open?</summary><div class="ans"><p>Yes. Every point lies in one of the two open intervals and already has a neighbourhood there. In general, every union of open sets is open.</p></div></details>
+    <details><summary>Compute (2 + i)² and |2 + i|.</summary><div class="ans"><p><span class="m">(2+<i>i</i>)² = 4 + 4<i>i</i> + <i>i</i>² = 3 + 4<i>i</i></span>, and <span class="m">|2 + <i>i</i>| = √5</span>. Check: <span class="m">|3 + 4<i>i</i>| = 5 = (√5)²</span>.</p></div></details>
+  </div>
+</section>
+
+<!-- =================================================================== CHAPTER 3 -->
+<section class="chapter" id="k3">
+  <div class="chhead"><div class="chnum">3</div><div><h2>Sequences</h2></div></div>
+  <div class="tldr"><div class="lbl">The essentials in three sentences</div>
+    <ul>
+      <li>A sequence converges to <i>x</i> if from some index on it stays forever inside every strip around <i>x</i>, no matter how narrow (the ε-<i>N</i> definition).</li>
+      <li>Instead of hunting for ε and <i>N</i> every time, you use tools: limit rules, squeezing, “monotone and bounded ⇒ convergent”.</li>
+      <li>Every bounded sequence has a convergent subsequence (Bolzano–Weierstrass), and you can check convergence without knowing the limit (Cauchy).</li>
+    </ul>
+  </div>
+
+  <h3 id="k3-1"><span class="sn">3.1</span>What is a sequence?</h3>
+  <p>Formally a sequence is a map <span class="m">ℕ → <i>M</i></span>, in practice an infinite list <span class="m"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …</span>. For computer scientists: an infinite array, or a generator that delivers the <i>n</i>-th term on request.</p>
+  <div class="bsp"><span class="lbl">Example: explicit or recursive</span>
+    <p><b>Explicit:</b> <span class="m"><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup></span>, you can compute every term directly.<br><b>Recursive:</b> <span class="m"><i>x</i><sub>0</sub> = 1, <i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span>, every term follows from the previous one. Both describe the same sequence 1, 2, 4, 8, …</p>
+  </div>
+
+  <h4 id="monotonie">Monotonicity: increasing, decreasing, strictly</h4>
+  <p>Monotonicity only asks about the <b>direction</b>: does the sequence go up from term to term, down, or sometimes one way and sometimes the other? Whether it converges plays no role here.</p>
+  <div class="def" id="mono-def"><div class="tag">Definition 3.2 · Monotonicity</div>
+    <p class="formal">A real sequence <span class="m">(<i>a<sub>n</sub></i>)</span> is called<br>
+      <b>monotonically increasing</b> if <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> for all <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>strictly monotonically increasing</b> if <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span> for all <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>monotonically decreasing</b> if <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≤ <i>a<sub>n</sub></i></span> for all <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>strictly monotonically decreasing</b> if <span class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></span> for all <span class="m"><i>n</i> ∈ ℕ</span>.<br>
+      <b>Monotone</b> means: monotonically increasing or monotonically decreasing.</p>
+    <p class="plain"><b>In plain words:</b> You only ever compare <b>two neighbours</b>, a term with its successor. “Monotonically increasing” also allows standing still (≥), “strictly” demands a real change in every step (&gt;). And it has to hold for <b>every</b> <i>n</i>, not just for the first few.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Term</th><th>neighbours: for all n</th><th>equivalent: for all n &lt; m</th><th>Example</th></tr>
+    <tr><td>monotonically increasing</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> ≤ <i>a<sub>m</sub></i></td><td class="m">1, 1, 2, 2, 3, 3, …</td></tr>
+    <tr><td>strictly increasing</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> &lt; <i>a<sub>m</sub></i></td><td class="m">1, 2, 4, 8, …</td></tr>
+    <tr><td>monotonically decreasing</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> ≤ <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> ≥ <i>a<sub>m</sub></i></td><td class="m">5, 5, 4, 4, …</td></tr>
+    <tr><td>strictly decreasing</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> &gt; <i>a<sub>m</sub></i></td><td class="m">1, 1/2, 1/3, …</td></tr>
+  </table></div>
+  <p>The right column follows from the left by chaining the neighbour inequalities: <span class="m"><i>a<sub>n</sub></i> ≤ <i>a</i><sub><i>n</i>+1</sub> ≤ <i>a</i><sub><i>n</i>+2</sub> ≤ … ≤ <i>a<sub>m</sub></i></span>. In exercises you almost always use the left column, because there you only have to compare two terms.</p>
+  <div class="def" id="mono-nicht"><div class="tag">Negation · not monotone</div>
+    <p class="formal"><span class="m">(<i>a<sub>n</sub></i>)</span> is <b>not monotonically increasing</b> if there is an <i>n</i> with <span class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></span>.<br>
+      <span class="m">(<i>a<sub>n</sub></i>)</span> is <b>not monotonically decreasing</b> if there is an <i>m</i> with <span class="m"><i>a</i><sub><i>m</i>+1</sub> &gt; <i>a<sub>m</sub></i></span>.<br>
+      <span class="m">(<i>a<sub>n</sub></i>)</span> is <b>not monotone</b> if both are true.</p>
+    <p class="plain"><b>In plain words:</b> When negating, “for all” becomes “there exists”. So for “not monotone” <b>one</b> step down and <b>one</b> step up are enough.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember</span><p><b>Strictly monotone ⇒ monotone</b>, but not the other way round. &gt; implies ≥.<br>
+    A <b>constant sequence</b> <span class="m"><i>a<sub>n</sub></i> = <i>c</i></span> is monotonically increasing <b>and</b> monotonically decreasing, because <span class="m"><i>c</i> ≥ <i>c</i></span> and <span class="m"><i>c</i> ≤ <i>c</i></span>. It is not strictly monotone, because <span class="m"><i>c</i> &gt; <i>c</i></span> is false.</p></div>
+
+  <div class="merke" id="mono-rezept"><span class="lbl">Recipe: is the sequence (strictly) monotone?</span><p><b>1. Compute a few terms.</b> <span class="m"><i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, <i>a</i><sub>3</sub>, <i>a</i><sub>4</sub></span> show you what to guess. That is not a proof yet.<br>
+    <b>2. Take the difference (standard way).</b> Compute <span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i></span>, simplify as far as possible and determine the sign for <b>every</b> <i>n</i>.<br>
+    &nbsp;&nbsp;&gt; 0 ⇒ strictly increasing, ≥ 0 ⇒ increasing, &lt; 0 ⇒ strictly decreasing, ≤ 0 ⇒ decreasing.<br>
+    <b>3. Take the quotient (often faster with powers and factorials).</b> <b>Only if all terms are positive:</b> compute <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i></span>.<br>
+    &nbsp;&nbsp;&gt; 1 ⇒ strictly increasing, ≥ 1 ⇒ increasing, &lt; 1 ⇒ strictly decreasing, ≤ 1 ⇒ decreasing.<br>
+    <b>4. Recursive sequence.</b> If only <span class="m"><i>a</i><sub><i>n</i>+1</sub> = <i>f</i>(<i>a<sub>n</sub></i>)</span> is given, you often show <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> by induction. Or you first find an explicit formula, as with the <a href="#aufgabe-3-3">Tower of Hanoi</a>.<br>
+    <b>5. Showing it is not monotone.</b> Concrete numbers are enough for this: one step down and one step up, so usually three consecutive terms.</p></div>
+
+  <div class="bsp" id="mono-bsp"><span class="lbl">Example 1: aₙ = 1 − 1/n (n ≥ 1), difference</span>
+    <p><b>Terms:</b> 0, 1/2, 2/3, 3/4, … Guess: strictly increasing.<br>
+    <b>Difference:</b></p>
+    <p class="mb"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = (1 − 1/(<i>n</i>+1)) − (1 − 1/<i>n</i>) = 1/<i>n</i> − 1/(<i>n</i>+1) = ((<i>n</i>+1) − <i>n</i>)/(<i>n</i>(<i>n</i>+1)) = 1/(<i>n</i>(<i>n</i>+1))</p>
+    <p>Numerator 1 and denominator <span class="m"><i>n</i>(<i>n</i>+1)</span> are positive, so the difference is &gt; 0 for all <i>n</i> ≥ 1. <b>Strictly monotonically increasing.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">Example 2: aₙ = 1/n (n ≥ 1), difference</span>
+    <p class="mb"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 1/(<i>n</i>+1) − 1/<i>n</i> = (<i>n</i> − (<i>n</i>+1))/(<i>n</i>(<i>n</i>+1)) = −1/(<i>n</i>(<i>n</i>+1)) &lt; 0</p>
+    <p>The numerator is −1, the denominator positive. <b>Strictly monotonically decreasing.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">Example 3: aₙ = 2ⁿ, quotient</span>
+    <p>All terms are positive, so you may take the quotient: <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i> = 2<sup><i>n</i>+1</sup>/2<sup><i>n</i></sup> = 2 &gt; 1</span>. So <span class="m"><i>a</i><sub><i>n</i>+1</sub> = 2<i>a<sub>n</sub></i> &gt; <i>a<sub>n</sub></i></span>. <b>Strictly monotonically increasing.</b> The difference works too: <span class="m">2<sup><i>n</i>+1</sup> − 2<sup><i>n</i></sup> = 2<sup><i>n</i></sup> &gt; 0</span>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example 4: aₙ = (−1)ⁿ(1 + 1/n) (n ≥ 1), not monotone</span>
+    <p><span class="m"><i>a</i><sub>1</sub> = −2</span>, <span class="m"><i>a</i><sub>2</sub> = 3/2</span>, <span class="m"><i>a</i><sub>3</sub> = −4/3</span>.<br>
+    <span class="m"><i>a</i><sub>2</sub> &gt; <i>a</i><sub>1</sub></span>, so the sequence is <b>not monotonically decreasing</b>.<br>
+    <span class="m"><i>a</i><sub>3</sub> &lt; <i>a</i><sub>2</sub></span>, so it is <b>not monotonically increasing</b>.<br>
+    Hence it is <b>not monotone</b>. You do not need to write more.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example 5: aₙ = 7 (constant)</span>
+    <p><span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 7 − 7 = 0</span>. Both ≥ 0 and ≤ 0 hold, so it is <b>monotonically increasing and monotonically decreasing</b>. Since the difference is never &gt; 0 or &lt; 0, it is <b>not strictly</b> monotone.</p>
+  </div>
+
+  <div class="def" id="mono-vorlage"><div class="tag">Template for writing it down</div>
+    <p class="formal"><b>Claim:</b> The sequence <span class="m">(<i>a<sub>n</sub></i>)</span> with <span class="m"><i>a<sub>n</sub></i> = …</span> is strictly monotonically increasing.<br>
+    <b>Proof:</b> Let <span class="m"><i>n</i> ∈ ℕ</span> be arbitrary. Then<br>
+    &nbsp;&nbsp;<span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = … = … &gt; 0</span>, since … (e.g. numerator and denominator are positive).<br>
+    So <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span> for all <span class="m"><i>n</i> ∈ ℕ</span>, i.e. <span class="m">(<i>a<sub>n</sub></i>)</span> is strictly monotonically increasing. ∎</p>
+    <p class="formal"><b>Claim:</b> The sequence is not monotone.<br>
+    <b>Proof:</b> We have <span class="m"><i>a</i><sub>1</sub> = …</span>, <span class="m"><i>a</i><sub>2</sub> = …</span>, <span class="m"><i>a</i><sub>3</sub> = …</span>. Since <span class="m"><i>a</i><sub>2</sub> &gt; <i>a</i><sub>1</sub></span> it is not monotonically decreasing, since <span class="m"><i>a</i><sub>3</sub> &lt; <i>a</i><sub>2</sub></span> it is not monotonically increasing. ∎</p>
+    <p class="plain"><b>For decreasing:</b> the same template with &lt; 0 instead of &gt; 0. <b>For the quotient:</b> first write down “all <i>a<sub>n</sub></i> &gt; 0”, then <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i> = … &gt; 1</span>, so <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span>.</p>
+  </div>
+  <div class="falle" id="mono-fallen"><span class="lbl">Typical pitfalls</span>
+    <ul class="clean">
+      <li><b>A few terms are not a proof of monotonicity.</b> For “is monotone” you need a computation for all <i>n</i>. Only for “is <b>not</b> monotone” are concrete numbers enough.</li>
+      <li><b>Quotient only for positive terms.</b> For <span class="m"><i>a<sub>n</sub></i> = −2<sup><i>n</i></sup></span> the quotient is 2 &gt; 1, but the sequence −1, −2, −4, … <b>decreases</b>. Multiplying by a negative number flips the inequality.</li>
+      <li><b>Monotone does not mean convergent.</b> 2<sup><i>n</i></sup> is strictly increasing and diverges. Only <b>monotone and bounded</b> gives convergence (<a href="#k3-4">Theorem 3.10</a>).</li>
+      <li><b>Watch the starting index.</b> For <span class="m">1/<i>n</i></span> the sequence starts at <i>n</i> = 1, otherwise you divide by 0.</li>
+    </ul>
+  </div>
+
+
+  <h4 id="aufgabe-3-3">Example: Exercise 3.3 from the problem sheet (Tower of Hanoi)</h4>
+  <p>In the Tower of Hanoi let <span class="m"><i>T<sub>n</sub></i></span> be the number of moves for a tower of <i>n</i> discs. We have <span class="m"><i>T</i><sub>0</sub> = 0</span> and <span class="m"><i>T</i><sub><i>n</i>+1</sub> = 2<i>T<sub>n</sub></i> + 1</span>: you move the top <i>n</i> discs, then the largest one, then the <i>n</i> discs back on top of it.</p>
+  <div class="bsp"><span class="lbl">a) T₁ to T₅</span>
+    <p>Always “double and add 1”: <span class="m"><i>T</i><sub>1</sub> = 2·0 + 1 = 1</span>, <span class="m"><i>T</i><sub>2</sub> = 2·1 + 1 = 3</span>, <span class="m"><i>T</i><sub>3</sub> = 7</span>, <span class="m"><i>T</i><sub>4</sub> = 15</span>, <span class="m"><i>T</i><sub>5</sub> = 31</span>. That looks like “power of two minus 1”.</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) Induction: Tₙ = 2ⁿ − 1</span>
+    <p><b>Base case (n = 0):</b> <span class="m"><i>T</i><sub>0</sub> = 0 = 2<sup>0</sup> − 1</span> ✓<br>
+    <b>Hypothesis:</b> Suppose <span class="m"><i>T<sub>n</sub></i> = 2<sup><i>n</i></sup> − 1</span> holds for some <i>n</i>.<br>
+    <b>Step (n → n + 1):</b> use the recursion, then plug in the hypothesis:</p>
+    <p class="mb"><i>T</i><sub><i>n</i>+1</sub> = 2<i>T<sub>n</sub></i> + 1 = 2(2<sup><i>n</i></sup> − 1) + 1 = 2<sup><i>n</i>+1</sup> − 2 + 1 = 2<sup><i>n</i>+1</sup> − 1 ✓</p>
+    <p>So the formula holds for all <span class="m"><i>n</i> ∈ ℕ<sub>0</sub></span>. ∎ For 64 discs that is <span class="m">2<sup>64</sup> − 1 ≈ 1.8 · 10<sup>19</sup></span> moves.</p>
+  </div>
+  <div class="bsp"><span class="lbl">c) (Tₙ) is strictly monotonically increasing</span>
+    <p>We have to show <span class="m"><i>T<sub>n</sub></i> &lt; <i>T</i><sub><i>n</i>+1</sub></span> for all <i>n</i>. Easiest via the difference: <span class="m"><i>T</i><sub><i>n</i>+1</sub> − <i>T<sub>n</sub></i> = (2<sup><i>n</i>+1</sup> − 1) − (2<sup><i>n</i></sup> − 1) = 2<sup><i>n</i></sup> &gt; 0</span>. ∎</p>
+  </div>
+  <div class="bsp"><span class="lbl">d) Three more sequences (n ∈ ℕ₀)</span>
+    <p><b><span class="m"><i>y<sub>n</sub></i> = 1/(<i>n</i> + 1)</span></b>: 1, 1/2, 1/3, … A larger denominator means a smaller fraction, so <span class="m"><i>y</i><sub><i>n</i>+1</sub> = 1/(<i>n</i> + 2) &lt; 1/(<i>n</i> + 1) = <i>y<sub>n</sub></i></span>. <b>Strictly monotonically decreasing</b> (and hence also monotonically decreasing).<br>
+    <b><span class="m"><i>z<sub>n</sub></i> = (−1)<sup><i>n</i></sup></span></b>: 1, −1, 1, −1, … We have <span class="m"><i>z</i><sub>0</sub> &gt; <i>z</i><sub>1</sub></span>, but <span class="m"><i>z</i><sub>1</sub> &lt; <i>z</i><sub>2</sub></span>. The sequence goes down sometimes and up sometimes, so it is <b>neither increasing nor decreasing</b>. One counterexample per direction is enough as justification.<br>
+    <b><span class="m"><i>w<sub>n</sub></i> = <i>n</i>/(<i>n</i> + 1)</span></b>: 0, 1/2, 2/3, 3/4, … Trick: <span class="m"><i>w<sub>n</sub></i> = 1 − 1/(<i>n</i> + 1)</span>. Since <span class="m">1/(<i>n</i> + 1)</span> strictly decreases, <span class="m"><i>w<sub>n</sub></i></span> strictly increases. <b>Strictly monotonically increasing.</b></p>
+  </div>
+
+  <h3 id="k3-2"><span class="sn">3.2</span>The limit</h3>
+  <div class="def"><div class="tag">Definition 3.3 · Limit</div>
+    <p class="formal"><span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> if for every <span class="m">ε &gt; 0</span> there is an <i>N</i> such that <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Imagine a game. Your opponent picks a strip of width ε around <i>x</i>, as narrow as they like. You then have to name an <i>N</i> from which on <b>all</b> terms of the sequence lie in the strip. If you win this game for every ε, the sequence converges to <i>x</i>. The smaller ε, the larger <i>N</i> usually has to be.</p>
+  </div>
+  <figure>
+    <div class="ctrl"><label for="eps">Choose ε</label><input type="range" id="eps" min="0.04" max="0.6" step="0.01" value="0.2"><output id="epsout">ε = 0.20</output></div>
+    <svg id="epsplot" viewBox="0 0 640 230" role="img" aria-label="Sequence 1/n with an ε-strip around 0"></svg>
+    <div class="readout" id="epsread"></div>
+    <figcaption>The sequence <span class="m"><i>x<sub>n</sub></i> = 1/<i>n</i></span> with limit 0. Drag the slider: the blue strip is <span class="m">(−ε, ε)</span>. From the marked <i>N</i> on, all points stay inside, no matter how narrow you make ε.</figcaption>
+  </figure>
+  <div class="bsp"><span class="lbl">Example, written up properly: 1/n → 0</span>
+    <p>Let ε &gt; 0 be given. Choose <span class="m"><i>N</i> &gt; 1/ε</span>. Then for all <span class="m"><i>n</i> ≥ <i>N</i></span>:</p>
+    <div class="mb">|<i>x<sub>n</sub></i> − 0| = 1/<i>n</i> ≤ 1/<i>N</i> &lt; ε.</div>
+    <p>That is the whole proof. The pattern is always the same: compute the distance <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>|</span> or bound it from above, then choose <i>N</i> so that the bound becomes smaller than ε.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: (−1)ⁿ has no limit</span>
+    <p>The sequence jumps −1, 1, −1, 1, … Choose ε = 1. For every candidate <i>x</i>, the distance to 1 or the distance to −1 is at least 1, because the two points are 2 apart. So infinitely many terms lie outside the strip; the game is lost for ε = 1.</p>
+  </div>
+  <h4 id="aufgabe-3-4">Example: Exercise 3.4 from the problem sheet</h4>
+  <p>Here exactly the pattern from above is used: compute the distance, then choose <i>N</i> to fit. The hint “for every <span class="m"><i>r</i> ∈ ℝ</span> there is an <span class="m"><i>N</i> ∈ ℕ</span> with <span class="m"><i>N</i> &gt; <i>r</i></span>” makes sure that the chosen <i>N</i> actually exists.</p>
+  <div class="bsp"><span class="lbl">a) xₙ = (2n + 1)/(n + 1) → 2</span>
+    <p><b>Compute the distance:</b> bring it to a single fraction:</p>
+    <p class="mb">|<i>x<sub>n</sub></i> − 2| = |(2<i>n</i> + 1 − 2(<i>n</i> + 1))/(<i>n</i> + 1)| = |−1/(<i>n</i> + 1)| = 1/(<i>n</i> + 1).</p>
+    <p><b>Work backwards:</b> We want <span class="m">1/(<i>n</i> + 1) &lt; ε</span>, i.e. <span class="m"><i>n</i> + 1 &gt; 1/ε</span>. That certainly holds if <span class="m"><i>n</i> &gt; 1/ε</span>.<br>
+    <b>Proof:</b> Let ε &gt; 0. By the hint there is an <span class="m"><i>N</i> &gt; 1/ε</span>. For all <span class="m"><i>n</i> ≥ <i>N</i></span> we then have <span class="m"><i>n</i> + 1 &gt; <i>N</i> &gt; 1/ε</span>, so <span class="m">|<i>x<sub>n</sub></i> − 2| = 1/(<i>n</i> + 1) &lt; ε</span>. ∎<br>
+    <b>N depending on ε:</b> any natural number <span class="m"><i>N</i> &gt; 1/ε</span>, for example <span class="m"><i>N</i> = ⌊1/ε⌋ + 1</span>.<br>
+    <b>Check:</b> ε = 0.01 gives <i>N</i> = 101. Then <span class="m"><i>x</i><sub>101</sub> = 203/102 ≈ 1.990</span>, the distance to 2 is <span class="m">1/102 ≈ 0.0098 &lt; 0.01</span> ✓</p>
+  </div>
+  <div class="bsp"><span class="lbl">b) Bisection: ℓₙ = 2⁻ⁿ → 0</span>
+    <p><b>Distance:</b> <span class="m">|ℓ<sub><i>n</i></sub> − 0| = 1/2<sup><i>n</i></sup></span>. It is awkward to solve 2<sup><i>n</i></sup> for <i>n</i>, which is why the hint <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span> comes into play. For <i>n</i> ≥ 1 it gives the simpler bound <span class="m">1/2<sup><i>n</i></sup> &lt; 1/<i>n</i></span>.<br>
+    <b>Proof:</b> Let ε &gt; 0. Choose an <span class="m"><i>N</i> ≥ 1</span> with <span class="m"><i>N</i> &gt; 1/ε</span>. For all <span class="m"><i>n</i> ≥ <i>N</i></span>:</p>
+    <p class="mb">|ℓ<sub><i>n</i></sub> − 0| = 1/2<sup><i>n</i></sup> &lt; 1/<i>n</i> ≤ 1/<i>N</i> &lt; ε. ∎</p>
+    <p><b>Smallest N with ℓₙ &lt; 10⁻⁶ for all n ≥ N:</b> <span class="m">2<sup>−<i>n</i></sup> &lt; 10<sup>−6</sup></span> means <span class="m">2<sup><i>n</i></sup> &gt; 1 000 000</span>. We have <span class="m">2<sup>19</sup> = 524 288</span> (too small) and <span class="m">2<sup>20</sup> = 1 048 576</span> (fits). Since ℓ<sub><i>n</i></sub> decreases, it stays below 10<sup>−6</sup> from then on. So <b><i>N</i> = 20</b>.<br>
+    So after 20 halvings the search interval is shorter than one millionth.</p>
+  </div>
+  <div class="falle"><span class="lbl">Pitfall: the N from the proof need not be the smallest</span><p>For ε = 10<sup>−6</sup> the proof in b) gives <span class="m"><i>N</i> &gt; 1 000 000</span>, although <i>N</i> = 20 is already enough. That is not a mistake. For convergence you only need <b>some</b> <i>N</i> that works. If the exercise asks for the <b>smallest</b> <i>N</i>, you have to compute exactly instead of estimating roughly.</p></div>
+
+  <div class="def"><div class="tag">Theorem 3.4 · Uniqueness</div>
+    <p class="formal">Every real sequence has at most one limit.</p>
+    <p class="plain"><b>In plain words:</b> If <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, then <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> for every ε. A fixed distance that is smaller than every positive number has to be 0.</p>
+  </div>
+
+  <h3 id="k3-3"><span class="sn">3.3</span>Tools for limits</h3>
+  <div class="def"><div class="tag">Lemma 3.5 · Inequalities are preserved</div>
+    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span>, then <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
+  </div>
+  <div class="falle"><span class="lbl">Pitfall</span><p>In the limit <b>&lt;</b> only becomes <b>≤</b>. An example: <span class="m">1/<i>n</i>² &lt; 1/<i>n</i></span> for <i>n</i> ≥ 2, but both limits are 0.</p></div>
+  <div class="def"><div class="tag">Theorem 3.6 · Squeeze theorem (“sandwich”)</div>
+    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, then also <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> If a sequence is squeezed between two sequences that head for the same target, it has no choice and must go along.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example</span>
+    <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. We hardly know the sine, but it lies between −1 and 1. So <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, both sides go to 0, hence <span class="m"><i>w<sub>n</sub></i> → 0</span>. A more complicated example works the same way: a huge denominator like <span class="m">137<i>n</i><sup>17</sup></span> makes the fraction smaller than 1/<i>n</i>.</p>
+  </div>
+  <div class="def" id="def37"><div class="tag">Definition 3.7 and Theorem 3.8 · Divergence and boundedness</div>
+    <p class="formal"><span class="m"><i>x<sub>n</sub></i> → +∞</span> if for every <i>C</i> &gt; 0 there is an <i>N</i> with <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>Bounded means: there is a <i>K</i> with <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> for all <i>n</i>. <b>Every convergent sequence is bounded.</b></p>
+    <p class="plain"><b>In plain words:</b> “Towards infinity” means the sequence exceeds every bound and stays above it. And convergent sequences cannot break out: from <i>N</i> on, all terms are close to the limit, and before that there are only finitely many.</p>
+  </div>
+  <div class="falle"><span class="lbl">Pitfall</span><p>The converse does not hold: <span class="m">(−1)<sup><i>n</i></sup></span> is bounded, but does not converge. And “unbounded” does not automatically mean “goes to ∞”: 0, 1, 0, 2, 0, 3, … is unbounded, but does not go to ∞, because 0 keeps coming back.</p></div>
+  <div class="def"><div class="tag">Theorem 3.9 · Limit rules</div>
+    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span>, then <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i><i>y<sub>n</sub></i> → <i>ab</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i>/<i>y<sub>n</sub></i> → <i>a</i>/<i>b</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Limits get along with the basic arithmetic operations. You may split a complicated sequence into simple building blocks whose limits you know.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: the standard trick for fractions</span>
+    <p>With polynomials in the numerator and denominator, divide by the highest power of the denominator:</p>
+    <div class="mb">(3<i>n</i>² + <i>n</i>) / (<i>n</i>² + 5) = (3 + 1/<i>n</i>) / (1 + 5/<i>n</i>²) → (3 + 0)/(1 + 0) = 3</div>
+    <p>The limit rules only apply after cancelling, because before that numerator and denominator both go to ∞, and “∞/∞” is not a limit.</p>
+  </div>
+
+  <h3 id="k3-4"><span class="sn">3.4</span>Monotone sequences</h3>
+  <div class="def"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
+    <p class="formal">Every monotonically increasing, bounded sequence converges, namely to <span class="m">sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Monotonically decreasing and bounded converges to the infimum.</p>
+    <p class="plain"><b>In plain words:</b> Whoever only ever goes up but has a ceiling must come to rest somewhere, namely right under the lowest ceiling, the supremum. This uses the completeness of ℝ: in ℚ the theorem would not hold.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: x₍ₙ₊₁₎ = √xₙ</span>
+    <div class="tw"><table class="cantor">
+      <tr><th>n</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>…</td></tr>
+      <tr><th>x₁ = 0.2</th><td>0.200</td><td>0.447</td><td>0.669</td><td>0.818</td><td>0.904</td><td>0.951</td><td>→ 1</td></tr>
+      <tr><th>x₁ = 16</th><td>16</td><td>4</td><td>2</td><td>1.414</td><td>1.189</td><td>1.091</td><td>→ 1</td></tr>
+    </table></div>
+    <p>If you start below 1, the sequence increases monotonically and is bounded by 1. If you start above 1, it decreases monotonically and is bounded below by 1. In both cases it converges by Theorem 3.10. You find the limit <i>x</i> by replacing <span class="m"><i>x<sub>n</sub></i></span> and <span class="m"><i>x</i><sub><i>n</i>+1</sub></span> in the recursion by <i>x</i>: <span class="m"><i>x</i> = √<i>x</i></span>, so <i>x</i> = 0 or <i>x</i> = 1. Since the sequence increases for <i>x</i>₁ = 0.2, it cannot be 0, so it is 1.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember</span><p>The trick “plug the limit into the recursion” works <b>only if you already know that the sequence converges</b>. For <span class="m"><i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span> it gives <i>x</i> = 2<i>x</i>, so <i>x</i> = 0, even though 1, 2, 4, 8, … goes to ∞.</p></div>
+  <h4>Side trip: the Collatz problem</h4>
+  <p>Whether a recursive sequence converges can be extremely hard to tell. The rule: if <i>x<sub>n</sub></i> is even, halve it; if it is odd (and not 1), compute <span class="m">3<i>x<sub>n</sub></i> + 1</span>; at 1 you stop. The conjecture that you land at 1 from every starting value has been unproven since 1937. Try it out:</p>
+  <figure>
+    <div class="ctrl"><label for="collatz">Starting value x₁</label><input type="number" id="collatz" min="1" max="1000000" value="100"><button class="btn" id="collatzgo" type="button">Compute sequence</button></div>
+    <div class="readout" id="collatzread"></div>
+    <div class="chips" id="collatzout"></div>
+    <figcaption>Yellow marks odd terms (that is where 3x + 1 is applied). Try 27: the sequence climbs up to 9232 before it reaches 1.</figcaption>
+  </figure>
+
+  <h3 id="k3-5"><span class="sn">3.5</span>limsup, liminf and accumulation points</h3>
+  <p>Not every bounded sequence converges. But you can still ask: <b>Where does the sequence hang out in the long run?</b> There are three concepts for that.</p>
+  <div class="def"><div class="tag">Definition 3.11 · Subsequence and accumulation point</div>
+    <p class="formal">For indices <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span>, <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> is called a subsequence. <i>x</i> is called an accumulation point of <span class="m">(<i>x<sub>n</sub></i>)</span> if there is a subsequence that converges to <i>x</i>.</p>
+    <p class="plain"><b>In plain words:</b> A subsequence is what you get when you pick infinitely many terms and keep their order. An accumulation point is a place the sequence keeps coming back to, infinitely often and arbitrarily close.</p>
+  </div>
+  <div class="def"><div class="tag">limsup and liminf</div>
+    <p class="formal"><span class="m"><span class="ol"><i>x</i></span><sub><i>n</i></sub> = sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> is monotonically decreasing, <span class="m"><u><i>x</i></u><sub><i>n</i></sub> = inf<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> is monotonically increasing.<br><span class="m">limsup <i>x<sub>n</sub></i> = lim <span class="ol"><i>x</i></span><sub><i>n</i></sub></span>, &nbsp; <span class="m">liminf <i>x<sub>n</sub></i> = lim <u><i>x</i></u><sub><i>n</i></sub></span>.</p>
+    <p class="plain"><b>In plain words:</b> From index <i>n</i> on, look at the whole “tail” of the sequence and take the supremum. As you increase <i>n</i>, early outliers drop out and the upper curve sinks. Where it sinks to is the limsup. Roughly: the largest value the sequence keeps reaching again and again in the long run.</p>
+  </div>
+  <figure>
+    <svg id="lsplot" viewBox="0 0 640 260" role="img" aria-label="Sequence (−1)^n (1 + 1/n) with the curves of sup and inf of the tails"></svg>
+    <figcaption>The sequence <span class="m"><i>x<sub>n</sub></i> = (−1)<sup><i>n</i></sup>(1 + 1/<i>n</i>)</span> jumps between top and bottom. The blue staircase is <span class="m">sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span>; it falls towards limsup = 1. The red staircase is the tail infimum; it rises towards liminf = −1. The accumulation points are exactly +1 and −1.</figcaption>
+  </figure>
+  <div class="def"><div class="tag">Theorem 3.12 · Bolzano–Weierstrass</div>
+    <p class="formal">For a bounded sequence, limsup and liminf are the largest and smallest accumulation point. Moreover: <span class="m"><i>x<sub>n</sub></i> → <i>x</i> ⇔ liminf <i>x<sub>n</sub></i> = limsup <i>x<sub>n</sub></i> = <i>x</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> All accumulation points lie between liminf and limsup, and these two edges are accumulation points themselves. The sequence converges exactly when top and bottom coincide, i.e. when there is only one accumulation point.</p>
+  </div>
+  <div class="merke"><span class="lbl">Corollary: this is the theorem people usually quote</span><p><b>Every bounded real sequence has a convergent subsequence.</b> Because the limsup is an accumulation point, and by definition there is a subsequence converging to it.</p></div>
+  <div class="bsp"><span class="lbl">Example</span>
+    <p>The sequence <span class="m">0, 1/2, 1, 0, 1/4, 1/2, 3/4, 1, 0, 1/8, 2/8, …, 1, …</span> runs from 0 to 1 in ever finer steps. Every number in [0, 1] is approximated arbitrarily well again and again. That is why the set of accumulation points is the whole interval [0, 1], with liminf = 0 and limsup = 1. So a sequence can have infinitely many accumulation points.</p>
+  </div>
+
+  <h3 id="k3-6"><span class="sn">3.6</span>The Cauchy criterion</h3>
+  <div class="def"><div class="tag">Theorem 3.13 · Cauchy criterion</div>
+    <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> converges if and only if for every ε &gt; 0 there is an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x<sub>m</sub></i>| &lt; ε</span> for all <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> The terms of the sequence get arbitrarily close <b>to each other</b>. The special thing: the limit does not appear in the condition at all. So you can prove that a sequence converges without knowing what it converges to.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example</span>
+    <p><span class="m"><i>x<sub>n</sub></i> = 1/<i>n</i></span>: for <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span> we have <span class="m">|1/<i>n</i> − 1/<i>m</i>| ≤ max(1/<i>n</i>, 1/<i>m</i>) &lt; 1/<i>N</i></span>, and that is smaller than ε as soon as <i>N</i> ≥ 1/ε. So the sequence is Cauchy.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember: how it all fits together</span><p>The proof of “Cauchy ⇒ convergent” uses Bolzano–Weierstrass, and that uses the completeness of ℝ. In ℚ it goes wrong: the decimal approximations 1, 1.4, 1.41, 1.414, … of √2 are a Cauchy sequence of rational numbers, but their limit is not rational. The hole in ℚ from chapter 2 shows up again here.</p></div>
+  <div class="bsp"><span class="lbl">Exercise</span><p>For bounded sequences these three statements are equivalent: (1) the sequence converges, (2) it has exactly one accumulation point, (3) limsup = liminf. This follows directly from Theorem 3.12.</p></div>
+
+  <div class="quiz"><div class="qh">Test yourself</div>
+    <details><summary>Is aₙ = n² − 4n (n ∈ ℕ) monotone?</summary><div class="ans"><p>Terms: 0, −3, −4, −3, 0, … Since <i>a</i><sub>1</sub> &lt; <i>a</i><sub>0</sub> it is not monotonically increasing, since <i>a</i><sub>3</sub> &gt; <i>a</i><sub>2</sub> not monotonically decreasing, so <b>not monotone</b>. But the difference <i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 2<i>n</i> − 3 shows: from <i>n</i> = 2 on the sequence is strictly increasing.</p></div></details>
+    <details><summary>From which n on is 2⁻ⁿ smaller than 0.001?</summary><div class="ans"><p>We need 2<sup><i>n</i></sup> &gt; 1000. We have 2<sup>9</sup> = 512 and 2<sup>10</sup> = 1024, so from <i>n</i> = 10 on. Since 2<sup>−<i>n</i></sup> decreases, it stays below afterwards.</p></div></details>
+    <details><summary>Show with ε-N: (2n + 1)/n → 2.</summary><div class="ans"><p><span class="m">|(2<i>n</i>+1)/<i>n</i> − 2| = 1/<i>n</i></span>. For ε &gt; 0 choose <i>N</i> &gt; 1/ε; then the distance is smaller than ε for <i>n</i> ≥ <i>N</i>.</p></div></details>
+    <details><summary>Find limsup and liminf of xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Even <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Odd <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. So limsup = 1, liminf = −1, and the sequence does not converge.</p></div></details>
+    <details><summary>True or false: every monotone sequence converges.</summary><div class="ans"><p>False. It also needs to be bounded. Counterexample: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> is monotonically increasing and goes to +∞.</p></div></details>
+    <details><summary>What does (n² − 4n) / (2n² + 7) converge to?</summary><div class="ans"><p>Divide by <i>n</i>²: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
+  </div>
+</section>
+
+<!-- =================================================================== DEFINITIONS -->
+<section class="chapter" id="defs">
+  <div class="chhead"><div class="chnum">§</div><div><h2>All definitions</h2></div></div>
+  <p>For looking things up while practising: if an exercise says “by Definition 3.1”, you will find it here under the same number. Every box has the formal definition, a short translation into plain words and a link to the detailed explanation with examples.</p>
+  <nav class="djump" aria-label="Definition by number">
+    <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
+    <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-7">3.7</a><a href="#def-3-11">3.11</a>
+  </nav>
+  <p class="dnote">Numbers missing here (such as 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4–3.6, 3.8–3.10, 3.12, 3.13) belong to axioms, theorems and lemmas. You will find them in the chapters above under the same number.</p>
+
+  <h3 id="defs-k1"><span class="sn">1</span>Set terminology</h3>
+  <div class="def" id="def-1-1"><div class="tag">Definition 1.1 · Subset</div>
+    <p class="formal"><i>B</i> is called a subset of <i>A</i>, written <span class="m"><i>B</i> ⊆ <i>A</i></span>, if <span class="m"><i>x</i> ∈ <i>A</i></span> for all <span class="m"><i>x</i> ∈ <i>B</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Everything that is in <i>B</i> is also in <i>A</i>.</p>
+    <p class="more"><a href="#k1-1">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-1-2"><div class="tag">Definition 1.2 · injective, surjective, bijective</div>
+    <p class="formal">A function <span class="m"><i>f</i> : <i>A</i> → <i>B</i></span> is called<br>
+      <b>injective</b> if <span class="m">∀<i>x</i>, <i>y</i> ∈ <i>A</i> : <i>x</i> ≠ <i>y</i> ⇒ <i>f</i>(<i>x</i>) ≠ <i>f</i>(<i>y</i>)</span>,<br>
+      <b>surjective</b> if <span class="m">∀<i>y</i> ∈ <i>B</i> ∃<i>x</i> ∈ <i>A</i> : <i>f</i>(<i>x</i>) = <i>y</i></span>,<br>
+      <b>bijective</b> if <i>f</i> is injective and surjective.<br>
+      <i>f</i> is then also called an injection, surjection or bijection.</p>
+    <p class="plain"><b>In plain words:</b> Injective: different inputs give different outputs. Surjective: every element of <i>B</i> is hit. Bijective: both, i.e. a perfect pairing.</p>
+    <p class="more"><a href="#k1-3">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-1-6"><div class="tag">Definition 1.6 · countable</div>
+    <p class="formal">A set <i>A</i> is called countable if <span class="m">|<i>A</i>| = |ℕ|</span>. One writes <span class="m">|<i>A</i>| = ℵ<sub>0</sub></span>.</p>
+    <p class="plain"><b>In plain words:</b> You can number the elements as a list “first, second, third, …” so that each one eventually gets its turn. ℕ, ℤ and ℚ are countable, ℝ is not.</p>
+    <p class="more"><a href="#k1-5">In detail with examples →</a></p>
+  </div>
+
+  <h3 id="defs-k2"><span class="sn">2</span>Real numbers and vectors</h3>
+  <div class="def" id="def-2-1"><div class="tag">Definition 2.1 · Field, ordered field</div>
+    <p class="formal">A <b>field</b> <span class="m">(<i>F</i>, +, ·)</span> is a set <i>F</i> with two operations + and · such that for all <span class="m"><i>x</i>, <i>y</i>, <i>z</i> ∈ <i>F</i></span>:<br>
+      (1) <span class="m">(<i>x</i>+<i>y</i>)+<i>z</i> = <i>x</i>+(<i>y</i>+<i>z</i>)</span>, (2) <span class="m"><i>x</i>+<i>y</i> = <i>y</i>+<i>x</i></span>, (3) there is <span class="m">0 ∈ <i>F</i></span> with <span class="m"><i>x</i>+0 = <i>x</i></span>, (4) for every <i>x</i> there is <i>y</i> with <span class="m"><i>x</i>+<i>y</i> = 0</span>,<br>
+      (5) <span class="m">(<i>xy</i>)<i>z</i> = <i>x</i>(<i>yz</i>)</span>, (6) <span class="m"><i>xy</i> = <i>yx</i></span>, (7) there is <span class="m">1 ∈ <i>F</i></span> with <span class="m"><i>x</i>·1 = <i>x</i></span>, (8) for every <span class="m"><i>x</i> ≠ 0</span> there is <i>y</i> with <span class="m"><i>xy</i> = 1</span>,<br>
+      (9) <span class="m"><i>x</i>(<i>y</i>+<i>z</i>) = <i>xy</i>+<i>xz</i></span>.<br>
+      It is called <b>ordered</b> if there is a relation &lt; with: (1) for every <i>x</i> exactly one of <span class="m"><i>x</i> &gt; 0</span>, <span class="m"><i>x</i> &lt; 0</span>, <span class="m"><i>x</i> = 0</span> holds; (2) <span class="m"><i>x</i>, <i>y</i> &gt; 0 ⇒ <i>x</i>+<i>y</i> &gt; 0</span> and <span class="m"><i>xy</i> &gt; 0</span>; (3) <span class="m"><i>x</i> &gt; <i>y</i> ⇔ <i>x</i>−<i>y</i> &gt; 0</span>.</p>
+    <p class="plain"><b>In plain words:</b> A field is a world of numbers in which you can compute as at school, including dividing by anything except 0. Ordered means you can additionally say “greater” and “smaller” in a sensible way. ℚ and ℝ are ordered fields, ℂ is a field without an order, ℕ and ℤ are not fields.</p>
+    <p class="more"><a href="#k2-1">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-2"><div class="tag">Definition 2.2 · upper bound, bounded above</div>
+    <p class="formal">A number <i>x</i> is called an upper bound of <span class="m"><i>M</i> ⊆ ℝ</span> if <span class="m"><i>y</i> ≤ <i>x</i></span> for all <span class="m"><i>y</i> ∈ <i>M</i></span>. <i>M</i> is called <b>bounded above</b> if there is a finite upper bound, otherwise <b>unbounded above</b>.</p>
+    <p class="plain"><b>In plain words:</b> An upper bound is a “ceiling” that no element of <i>M</i> sticks out above. Lower bound and “bounded below” work the same way, just with ≥.</p>
+    <p class="more"><a href="#k2-2">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-3"><div class="tag">Definition 2.3 · Maximum</div>
+    <p class="formal"><span class="m"><i>x</i> ∈ ℝ</span> is called the maximum of <span class="m"><i>M</i> ⊆ ℝ</span> if <span class="m"><i>x</i> ∈ <i>M</i></span> and <span class="m"><i>y</i> ≤ <i>x</i></span> for all <span class="m"><i>y</i> ∈ <i>M</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> The largest element, and it must lie in <i>M</i> itself. <span class="m">(0, 1)</span>, for example, has no maximum. The minimum is the counterpart at the bottom.</p>
+    <p class="more"><a href="#maxminsup">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-4"><div class="tag">Definition 2.4 · Supremum</div>
+    <p class="formal"><span class="m"><i>s</i> ∈ ℝ</span> is called the supremum of <span class="m"><i>M</i> ⊆ ℝ</span> if <i>s</i> is an upper bound of <i>M</i> and <span class="m"><i>s</i> ≤ <i>x</i></span> for every upper bound <i>x</i> of <i>M</i>. One writes <span class="m">sup(<i>M</i>)</span>. Convention: <span class="m">sup(∅) = −∞</span> and <span class="m">sup(<i>M</i>) = +∞</span> if <i>M</i> is unbounded above.</p>
+    <p class="plain"><b>In plain words:</b> The least upper bound, i.e. the lowest ceiling that still fits. It is unique and need not lie in <i>M</i>. The infimum <span class="m">inf(<i>M</i>)</span> is the greatest lower bound (with <span class="m">inf(∅) = +∞</span>).</p>
+    <p class="more"><a href="#k2-2">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-5"><div class="tag">Definition 2.5 · complete</div>
+    <p class="formal">An ordered field is called complete if every nonempty subset that is bounded above has a supremum.</p>
+    <p class="plain"><b>In plain words:</b> There are no holes. ℝ is complete (Axiom 2.6), ℚ is not, because for example <span class="m">{<i>x</i> ∈ ℚ : <i>x</i>² &lt; 2}</span> has no supremum in ℚ.</p>
+    <p class="more"><a href="#vollstaendig">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-8"><div class="tag">Definition 2.8 · Neighbourhood</div>
+    <p class="formal">Let <span class="m"><i>x</i> ∈ ℝ</span>. An open interval <span class="m">(<i>a</i>, <i>b</i>)</span> is called a neighbourhood of <i>x</i> if <span class="m"><i>x</i> ∈ (<i>a</i>, <i>b</i>)</span>.</p>
+    <p class="plain"><b>In plain words:</b> A small open piece of the number line around <i>x</i>.</p>
+    <p class="more"><a href="#k2-3">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-9"><div class="tag">Definition 2.9 · open</div>
+    <p class="formal"><span class="m"><i>A</i> ⊆ ℝ</span> is called open if for every <span class="m"><i>x</i> ∈ <i>A</i></span> there is a neighbourhood <span class="m"><i>I<sub>x</sub></i></span> of <i>x</i> with <span class="m"><i>I<sub>x</sub></i> ⊆ <i>A</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Every point of <i>A</i> still has some “breathing room” to the left and right that lies entirely in <i>A</i>. So boundary points do not belong to it.</p>
+    <p class="more"><a href="#k2-3">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-2-10"><div class="tag">Definition 2.10 · closed</div>
+    <p class="formal"><span class="m"><i>A</i> ⊆ ℝ</span> is called closed if <span class="m">ℝ \ <i>A</i></span> is open.</p>
+    <p class="plain"><b>In plain words:</b> The complement is open; intuitively: <i>A</i> contains its boundary points. Careful, “not open” does not mean “closed”: <span class="m">[<i>a</i>, <i>b</i>)</span> is neither.</p>
+    <p class="more"><a href="#k2-3">In detail with examples →</a></p>
+  </div>
+
+  <h3 id="defs-k3"><span class="sn">3</span>Sequences</h3>
+  <div class="def" id="def-3-1"><div class="tag">Definition 3.1 · Sequence</div>
+    <p class="formal">Let <i>M</i> be a set (e.g. <span class="m"><i>M</i> = ℝ</span> or <span class="m">ℝ<sup><i>n</i></sup></span>). A sequence with values in <i>M</i> is a map <span class="m">ℕ<sub>+</sub> → <i>M</i></span> (or <span class="m">ℕ → <i>M</i></span>). One writes <span class="m"><i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, <i>x</i><sub>3</sub>, …</span> or <span class="m"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …</span></p>
+    <p class="plain"><b>In plain words:</b> An infinitely long, numbered list. It can be given explicitly (<span class="m"><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup></span>) or recursively (<span class="m"><i>x</i><sub>0</sub> = 1, <i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span>).</p>
+    <p class="more"><a href="#k3-1">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-2"><div class="tag">Definition 3.2 · monotone</div>
+    <p class="formal">A sequence is called <b>monotonically increasing</b> if <span class="m"><i>x<sub>n</sub></i> ≤ <i>x</i><sub><i>n</i>+1</sub></span> for all <i>n</i>, and <b>strictly monotonically increasing</b> if <span class="m"><i>x<sub>n</sub></i> &lt; <i>x</i><sub><i>n</i>+1</sub></span> for all <i>n</i>. Analogously: <b>(strictly) monotonically decreasing</b> with ≥ or &gt;.</p>
+    <p class="plain"><b>In plain words:</b> You compare each term with its successor. “Monotone” allows standing still, “strictly” demands a real change in every step.</p>
+    <p class="more"><a href="#monotonie">In detail with recipe and examples →</a></p>
+  </div>
+  <div class="def" id="def-3-3"><div class="tag">Definition 3.3 · Limit</div>
+    <p class="formal">Let <span class="m">(<i>x<sub>n</sub></i>)</span> be a real sequence. <span class="m"><i>x</i> ∈ ℝ</span> is called the limit of <span class="m">(<i>x<sub>n</sub></i>)</span> if for every <span class="m">ε &gt; 0</span> there is an <i>N</i> such that <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>. One writes <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> or <span class="m"><i>x</i> = lim<sub><i>n</i>→∞</sub> <i>x<sub>n</sub></i></span> and says <span class="m">(<i>x<sub>n</sub></i>)</span> converges to <i>x</i>.</p>
+    <p class="plain"><b>In plain words:</b> No matter how narrow the strip around <i>x</i> is, from some index <i>N</i> on all terms of the sequence lie inside it.</p>
+    <p class="more"><a href="#k3-2">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-7"><div class="tag">Definition 3.7 · towards ±∞, bounded sequence</div>
+    <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> goes to <span class="m">+∞</span> if for every <span class="m"><i>C</i> &gt; 0</span> there is an <span class="m"><i>N</i> ∈ ℕ</span> with <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>. <span class="m">(<i>x<sub>n</sub></i>)</span> goes to <span class="m">−∞</span> if <span class="m">(−<i>x<sub>n</sub></i>)</span> goes to <span class="m">+∞</span>.<br>
+      A sequence is called <b>bounded</b> if the set <span class="m">{<i>x<sub>n</sub></i> : <i>n</i> ∈ ℕ}</span> is bounded, i.e. there is <span class="m"><i>K</i> &gt; 0</span> with <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> for all <i>n</i>.</p>
+    <p class="plain"><b>In plain words:</b> “Towards +∞” means the sequence overtakes every bound and stays above it. “Bounded” means all terms fit into a fixed strip <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
+    <p class="more"><a href="#def37">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Subsequence, accumulation point</div>
+    <p class="formal">If <span class="m">(<i>x<sub>n</sub></i>)</span> is a real sequence and <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> are natural numbers, then <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> is called a subsequence of <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> is called an <b>accumulation point</b> of <span class="m">(<i>x<sub>n</sub></i>)</span> if there is a subsequence with <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> A subsequence picks infinitely many terms and keeps their order. An accumulation point is a value the sequence keeps coming arbitrarily close to again and again. <span class="m">(−1)<sup><i>n</i></sup></span> has the accumulation points 1 and −1.</p>
+    <p class="more"><a href="#k3-5">In detail with examples →</a></p>
+  </div>
+</section>
+
+</template>
+
   <div class="fb" id="feedback">
     <h2 data-en="Feedback">Feedback</h2>
     <p class="fbnote" data-en="Found a mistake, something unclear, or a wish? Write it here. Your message is not shown publicly, only I can read it.">Fehler gefunden, etwas unklar oder ein Wunsch? Schreib es hier rein. Deine Nachricht wird nicht öffentlich angezeigt, nur ich kann sie lesen.</p>
@@ -1534,8 +2714,8 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </div>
 
   <footer>
-    Eigene Erklärungen und Beispiele zu den Grundlagen der Analysis, Kapitel 1–3. Die Seite ersetzt keine Vorlesung und kein Lehrbuch. Fehler gefunden? Dann bitte melden.<br>
-    © 2026 Daksh Verma. Alle Rechte vorbehalten.
+    <span data-en="My own explanations and examples on the foundations of analysis, chapters 1–3. This page does not replace a lecture or a textbook. Found a mistake? Please let me know.">Eigene Erklärungen und Beispiele zu den Grundlagen der Analysis, Kapitel 1–3. Die Seite ersetzt keine Vorlesung und kein Lehrbuch. Fehler gefunden? Dann bitte melden.</span><br>
+    <span data-en="© 2026 Daksh Verma. All rights reserved.">© 2026 Daksh Verma. Alle Rechte vorbehalten.</span>
   </footer>
 </main>
 </div>
@@ -1551,100 +2731,181 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     return e;
   }
 
-  /* ε-Streifen für 1/n */
-  var epsSvg = document.getElementById("epsplot");
-  var epsIn = document.getElementById("eps");
-  var epsOut = document.getElementById("epsout");
-  var epsRead = document.getElementById("epsread");
-  var NMAX = 30, X0 = 44, DX = 19.2, Y = function (v) { return 196 - (v + 0.1) / 1.15 * 176; };
-  function drawEps() {
-    var eps = parseFloat(epsIn.value);
-    var N = Math.floor(1 / eps) + 1;
-    epsOut.textContent = "ε = " + eps.toFixed(2);
-    while (epsSvg.firstChild) epsSvg.removeChild(epsSvg.firstChild);
-    var top = Y(eps), bot = Math.min(Y(-eps), Y(-0.1));
-    el("rect", { x: 30, y: top, width: 600, height: bot - top, "class": "f-band" }, epsSvg);
-    el("line", { x1: 30, y1: top, x2: 630, y2: top, "class": "s-acc", "stroke-width": 1.2, "stroke-dasharray": "4 3" }, epsSvg);
-    el("line", { x1: 30, y1: Y(0), x2: 630, y2: Y(0), "class": "s-line", "stroke-width": 1.5 }, epsSvg);
-    el("text", { x: 26, y: Y(0) + 4, "text-anchor": "end", "class": "f-mut" }, epsSvg, "0");
-    el("text", { x: 26, y: Y(1) + 4, "text-anchor": "end", "class": "f-mut" }, epsSvg, "1");
-    el("text", { x: 626, y: top - 6, "text-anchor": "end", "class": "f-acc" }, epsSvg, "+ε");
-    if (N <= NMAX) {
-      var nx = X0 + (N - 1) * DX;
-      el("line", { x1: nx, y1: 14, x2: nx, y2: 206, "class": "s-ink", "stroke-width": 1.2, "stroke-dasharray": "3 3" }, epsSvg);
-      el("text", { x: nx + 5, y: 26, "class": "f-ink", "font-weight": 700 }, epsSvg, "N = " + N);
+  /* Texte, die das Skript selbst erzeugt */
+  var TXT = {
+    de: {
+      epsRead: function (N, e) { return "Ab <b>N = " + N + "</b> gilt |1/n − 0| &lt; " + e + " für alle n ≥ N. Rot sind die endlich vielen Glieder davor."; },
+      sup: "sup der Schwänze → limsup = 1", inf: "inf der Schwänze → liminf = −1",
+      cBad: "Bitte eine ganze Zahl zwischen 1 und 1 000 000 eingeben.",
+      cRead: function (s, m) { return "Bei 1 nach <b>" + s + " Schritten</b>, größter Wert unterwegs: <b>" + m + "</b>."; },
+      locale: "de-DE"
+    },
+    en: {
+      epsRead: function (N, e) { return "From <b>N = " + N + "</b> on, |1/n − 0| &lt; " + e + " for all n ≥ N. Red are the finitely many terms before that."; },
+      sup: "sup of the tails → limsup = 1", inf: "inf of the tails → liminf = −1",
+      cBad: "Please enter a whole number between 1 and 1,000,000.",
+      cRead: function (s, m) { return "Reaches 1 after <b>" + s + " steps</b>, largest value along the way: <b>" + m + "</b>."; },
+      locale: "en-US"
     }
-    for (var n = 1; n <= NMAX; n++) {
-      var v = 1 / n, inside = n >= N;
-      el("circle", { cx: X0 + (n - 1) * DX, cy: Y(v), r: 4.2, "class": inside ? "f-acc" : "f-red" }, epsSvg);
-      if (n === 1 || n % 5 === 0) el("text", { x: X0 + (n - 1) * DX, y: 222, "text-anchor": "middle", "class": "f-mut" }, epsSvg, "n=" + n);
+  };
+  var lang = "de", L = TXT.de;
+
+  /* Interaktive Teile im Inhalt; läuft nach jedem Sprachwechsel neu, weil der Inhalt ausgetauscht wird */
+  function initContent() {
+    /* ε-Streifen für 1/n */
+    var epsSvg = document.getElementById("epsplot");
+    var epsIn = document.getElementById("eps");
+    var epsOut = document.getElementById("epsout");
+    var epsRead = document.getElementById("epsread");
+    var NMAX = 30, X0 = 44, DX = 19.2, Y = function (v) { return 196 - (v + 0.1) / 1.15 * 176; };
+    function drawEps() {
+      var eps = parseFloat(epsIn.value);
+      var N = Math.floor(1 / eps) + 1;
+      epsOut.textContent = "ε = " + eps.toFixed(2);
+      while (epsSvg.firstChild) epsSvg.removeChild(epsSvg.firstChild);
+      var top = Y(eps), bot = Math.min(Y(-eps), Y(-0.1));
+      el("rect", { x: 30, y: top, width: 600, height: bot - top, "class": "f-band" }, epsSvg);
+      el("line", { x1: 30, y1: top, x2: 630, y2: top, "class": "s-acc", "stroke-width": 1.2, "stroke-dasharray": "4 3" }, epsSvg);
+      el("line", { x1: 30, y1: Y(0), x2: 630, y2: Y(0), "class": "s-line", "stroke-width": 1.5 }, epsSvg);
+      el("text", { x: 26, y: Y(0) + 4, "text-anchor": "end", "class": "f-mut" }, epsSvg, "0");
+      el("text", { x: 26, y: Y(1) + 4, "text-anchor": "end", "class": "f-mut" }, epsSvg, "1");
+      el("text", { x: 626, y: top - 6, "text-anchor": "end", "class": "f-acc" }, epsSvg, "+ε");
+      if (N <= NMAX) {
+        var nx = X0 + (N - 1) * DX;
+        el("line", { x1: nx, y1: 14, x2: nx, y2: 206, "class": "s-ink", "stroke-width": 1.2, "stroke-dasharray": "3 3" }, epsSvg);
+        el("text", { x: nx + 5, y: 26, "class": "f-ink", "font-weight": 700 }, epsSvg, "N = " + N);
+      }
+      for (var n = 1; n <= NMAX; n++) {
+        var v = 1 / n, inside = n >= N;
+        el("circle", { cx: X0 + (n - 1) * DX, cy: Y(v), r: 4.2, "class": inside ? "f-acc" : "f-red" }, epsSvg);
+        if (n === 1 || n % 5 === 0) el("text", { x: X0 + (n - 1) * DX, y: 222, "text-anchor": "middle", "class": "f-mut" }, epsSvg, "n=" + n);
+      }
+      epsRead.innerHTML = L.epsRead(N, eps.toFixed(2));
     }
-    epsRead.innerHTML = "Ab <b>N = " + N + "</b> gilt |1/n − 0| &lt; " + eps.toFixed(2) + " für alle n ≥ N. Rot sind die endlich vielen Glieder davor.";
-  }
-  epsIn.addEventListener("input", drawEps);
-  drawEps();
+    epsIn.addEventListener("input", drawEps);
+    drawEps();
 
-  /* limsup / liminf */
-  var ls = document.getElementById("lsplot");
-  var M = 28, LX0 = 50, LDX = 20.5;
-  var LY = function (v) { return 130 - v * 52; };
-  function xn(n) { return (n % 2 === 0 ? 1 : -1) * (1 + 1 / n); }
-  el("line", { x1: 40, y1: LY(1), x2: 630, y2: LY(1), "class": "s-acc", "stroke-width": 1, "stroke-dasharray": "4 4" }, ls);
-  el("line", { x1: 40, y1: LY(-1), x2: 630, y2: LY(-1), "class": "s-red", "stroke-width": 1, "stroke-dasharray": "4 4" }, ls);
-  el("line", { x1: 40, y1: LY(0), x2: 630, y2: LY(0), "class": "s-line", "stroke-width": 1.5 }, ls);
-  el("text", { x: 34, y: LY(1) + 4, "text-anchor": "end", "class": "f-acc" }, ls, "1");
-  el("text", { x: 34, y: LY(0) + 4, "text-anchor": "end", "class": "f-mut" }, ls, "0");
-  el("text", { x: 34, y: LY(-1) + 4, "text-anchor": "end", "class": "f-red" }, ls, "−1");
-  var supPath = "", infPath = "";
-  for (var n = 1; n <= M; n++) {
-    var s = -Infinity, i = Infinity;
-    for (var k = n; k < n + 400; k++) { var v = xn(k); if (v > s) s = v; if (v < i) i = v; }
-    var xa = LX0 + (n - 1) * LDX - LDX / 2, xb = xa + LDX;
-    supPath += (n === 1 ? "M" : "L") + xa + "," + LY(s) + " L" + xb + "," + LY(s) + " ";
-    infPath += (n === 1 ? "M" : "L") + xa + "," + LY(i) + " L" + xb + "," + LY(i) + " ";
-  }
-  el("path", { d: supPath, "class": "s-acc", "stroke-width": 2.2 }, ls);
-  el("path", { d: infPath, "class": "s-red", "stroke-width": 2.2 }, ls);
-  for (var n2 = 1; n2 <= M; n2++) {
-    el("circle", { cx: LX0 + (n2 - 1) * LDX, cy: LY(xn(n2)), r: 3.8, "class": "f-ink" }, ls);
-    if (n2 === 1 || n2 % 5 === 0) el("text", { x: LX0 + (n2 - 1) * LDX, y: 254, "text-anchor": "middle", "class": "f-mut" }, ls, "n=" + n2);
-  }
-  el("text", { x: 630, y: LY(1) - 10, "text-anchor": "end", "class": "f-acc", "font-weight": 700 }, ls, "sup der Schwänze → limsup = 1");
-  el("text", { x: 630, y: LY(-1) + 22, "text-anchor": "end", "class": "f-red", "font-weight": 700 }, ls, "inf der Schwänze → liminf = −1");
+    /* limsup / liminf */
+    var ls = document.getElementById("lsplot");
+    var M = 28, LX0 = 50, LDX = 20.5;
+    var LY = function (v) { return 130 - v * 52; };
+    function xn(n) { return (n % 2 === 0 ? 1 : -1) * (1 + 1 / n); }
+    el("line", { x1: 40, y1: LY(1), x2: 630, y2: LY(1), "class": "s-acc", "stroke-width": 1, "stroke-dasharray": "4 4" }, ls);
+    el("line", { x1: 40, y1: LY(-1), x2: 630, y2: LY(-1), "class": "s-red", "stroke-width": 1, "stroke-dasharray": "4 4" }, ls);
+    el("line", { x1: 40, y1: LY(0), x2: 630, y2: LY(0), "class": "s-line", "stroke-width": 1.5 }, ls);
+    el("text", { x: 34, y: LY(1) + 4, "text-anchor": "end", "class": "f-acc" }, ls, "1");
+    el("text", { x: 34, y: LY(0) + 4, "text-anchor": "end", "class": "f-mut" }, ls, "0");
+    el("text", { x: 34, y: LY(-1) + 4, "text-anchor": "end", "class": "f-red" }, ls, "−1");
+    var supPath = "", infPath = "";
+    for (var n = 1; n <= M; n++) {
+      var s = -Infinity, i = Infinity;
+      for (var k = n; k < n + 400; k++) { var v = xn(k); if (v > s) s = v; if (v < i) i = v; }
+      var xa = LX0 + (n - 1) * LDX - LDX / 2, xb = xa + LDX;
+      supPath += (n === 1 ? "M" : "L") + xa + "," + LY(s) + " L" + xb + "," + LY(s) + " ";
+      infPath += (n === 1 ? "M" : "L") + xa + "," + LY(i) + " L" + xb + "," + LY(i) + " ";
+    }
+    el("path", { d: supPath, "class": "s-acc", "stroke-width": 2.2 }, ls);
+    el("path", { d: infPath, "class": "s-red", "stroke-width": 2.2 }, ls);
+    for (var n2 = 1; n2 <= M; n2++) {
+      el("circle", { cx: LX0 + (n2 - 1) * LDX, cy: LY(xn(n2)), r: 3.8, "class": "f-ink" }, ls);
+      if (n2 === 1 || n2 % 5 === 0) el("text", { x: LX0 + (n2 - 1) * LDX, y: 254, "text-anchor": "middle", "class": "f-mut" }, ls, "n=" + n2);
+    }
+    el("text", { x: 630, y: LY(1) - 10, "text-anchor": "end", "class": "f-acc", "font-weight": 700 }, ls, L.sup);
+    el("text", { x: 630, y: LY(-1) + 22, "text-anchor": "end", "class": "f-red", "font-weight": 700 }, ls, L.inf);
 
-  /* Collatz */
-  var cIn = document.getElementById("collatz"), cOut = document.getElementById("collatzout"), cRead = document.getElementById("collatzread");
-  function collatz() {
-    var x = Math.floor(Number(cIn.value));
-    cOut.innerHTML = "";
-    if (!(x >= 1) || x > 1000000) { cRead.textContent = "Bitte eine ganze Zahl zwischen 1 und 1 000 000 eingeben."; return; }
-    var seq = [x], max = x;
-    while (x !== 1 && seq.length < 2000) { x = x % 2 === 0 ? x / 2 : 3 * x + 1; seq.push(x); if (x > max) max = x; }
-    seq.forEach(function (v) {
-      var s = document.createElement("span");
-      s.textContent = v;
-      if (v === 1) s.className = "one"; else if (v % 2 === 1) s.className = "odd";
-      cOut.appendChild(s);
-    });
-    cRead.innerHTML = "Bei 1 nach <b>" + (seq.length - 1) + " Schritten</b>, größter Wert unterwegs: <b>" + max.toLocaleString("de-DE") + "</b>.";
+    /* Collatz */
+    var cIn = document.getElementById("collatz"), cOut = document.getElementById("collatzout"), cRead = document.getElementById("collatzread");
+    function collatz() {
+      var x = Math.floor(Number(cIn.value));
+      cOut.innerHTML = "";
+      if (!(x >= 1) || x > 1000000) { cRead.textContent = L.cBad; return; }
+      var seq = [x], max = x;
+      while (x !== 1 && seq.length < 2000) { x = x % 2 === 0 ? x / 2 : 3 * x + 1; seq.push(x); if (x > max) max = x; }
+      seq.forEach(function (v) {
+        var s = document.createElement("span");
+        s.textContent = v;
+        if (v === 1) s.className = "one"; else if (v % 2 === 1) s.className = "odd";
+        cOut.appendChild(s);
+      });
+      cRead.innerHTML = L.cRead(seq.length - 1, max.toLocaleString(L.locale));
+    }
+    document.getElementById("collatzgo").addEventListener("click", collatz);
+    cIn.addEventListener("keydown", function (e) { if (e.key === "Enter") collatz(); });
+    collatz();
   }
-  document.getElementById("collatzgo").addEventListener("click", collatz);
-  cIn.addEventListener("keydown", function (e) { if (e.key === "Enter") collatz(); });
-  collatz();
 
   /* Navigation: aktiven Abschnitt markieren */
   var links = Array.prototype.slice.call(document.querySelectorAll(".toc .secs a"));
   var mlinks = Array.prototype.slice.call(document.querySelectorAll(".mobilebar a"));
-  var targets = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
   function spy() {
     var cur = 0, best = -Infinity;
-    for (var j = 0; j < targets.length; j++) { var t = targets[j].getBoundingClientRect().top; if (t < 140 && t > best) { best = t; cur = j; } }
+    for (var j = 0; j < links.length; j++) { var tg = document.getElementById(links[j].getAttribute("href").slice(1)); if (!tg) continue; var t = tg.getBoundingClientRect().top; if (t < 140 && t > best) { best = t; cur = j; } }
     links.forEach(function (a, j) { a.classList.toggle("on", j === cur && window.scrollY > 200); });
     var ch = "top", chBest = -Infinity;
     [["k1", "k1"], ["k2", "k2"], ["k3", "k3"], ["monotonie", "monotonie"], ["k3-2", "k3"], ["defs", "defs"], ["feedback", "feedback"]].forEach(function (p) { var t = document.getElementById(p[0]).getBoundingClientRect().top; if (t < 120 && t > chBest) { chBest = t; ch = p[1]; } });
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) ch = "feedback";
     mlinks.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + ch); });
   }
+
+  /* Sprache: Inhalt per Template tauschen, Leisten und Footer per data-en übersetzen */
+  var content = document.getElementById("content");
+  var store = { en: document.getElementById("content-en").content };
+  var deText = new WeakMap();
+  function translateStatic() {
+    Array.prototype.forEach.call(document.querySelectorAll("*"), function (e) {
+      if (content.contains(e)) return;
+      var saved = deText.get(e);
+      Array.prototype.forEach.call(e.attributes, function (at) {
+        if (at.name.indexOf("data-en") !== 0) return;
+        var target = at.name === "data-en" ? null : at.name.slice(8);
+        if (!saved) { saved = {}; deText.set(e, saved); }
+        var key = target || "#html";
+        if (!(key in saved)) saved[key] = target ? e.getAttribute(target) : e.innerHTML;
+        var val = lang === "en" ? at.value : saved[key];
+        if (target) { if (val == null) e.removeAttribute(target); else e.setAttribute(target, val); }
+        else e.innerHTML = val;
+      });
+    });
+  }
+  function setLang(next, save) {
+    if (next !== "de" && next !== "en") next = "de";
+    if (next !== lang) {
+      /* Leseposition merken: der Abschnitt mit id, der gerade oben steht */
+      var anchor = null, anchorTop = 0;
+      if (window.scrollY > 0) {
+        var ids = content.querySelectorAll("[id]"), best = -Infinity;
+        for (var i = 0; i < ids.length; i++) {
+          if (ids[i].closest("svg") && ids[i].tagName.toLowerCase() !== "svg") continue;
+          var r = ids[i].getBoundingClientRect();
+          if (!r.height || r.top > 160 || r.top <= best) continue;
+          best = r.top; anchor = ids[i].id; anchorTop = r.top;
+        }
+      }
+      var frag = document.createDocumentFragment();
+      while (content.firstChild) frag.appendChild(content.firstChild);
+      store[lang] = frag;
+      content.appendChild(store[next]);
+      lang = next; L = TXT[lang];
+      document.documentElement.lang = lang;
+      translateStatic();
+      initContent();
+      if (anchor) { var a = document.getElementById(anchor); if (a) window.scrollTo({ top: window.scrollY + a.getBoundingClientRect().top - anchorTop, behavior: "instant" }); }
+      spy();
+    }
+    Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
+    if (save) { try { localStorage.setItem("lang", lang); } catch (e) {} }
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang"), true); });
+  });
+
+  initContent();
+  var want = null;
+  var m = /[?&]lang=(de|en)\b/.exec(location.search);
+  if (m) want = m[1];
+  else { try { want = localStorage.getItem("lang"); } catch (e) {} }
+  if (want === "en") setLang("en", false);
+
   window.addEventListener("scroll", spy, { passive: true });
   spy();
 })();
