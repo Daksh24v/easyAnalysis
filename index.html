@@ -349,6 +349,13 @@ a.btnlink:hover { transform: translateY(-1px); }
   .m.mw { white-space: normal; }
   header.hero .veil { background: linear-gradient(rgba(9, 9, 11, 0.45), rgba(9, 9, 11, 0.45)), radial-gradient(120% 70% at 30% 45%, rgba(9, 9, 11, 0.6) 0%, rgba(9, 9, 11, 0.2) 100%); }
 }
+
+/* Startseite schlicht: nur Titel in der Mitte, darunter Kacheln mit Überschrift */
+.hero-inner { align-items: center; text-align: center; }
+.hero h1.big { max-width: none; margin: 0 0 44px; }
+.dash { width: 100%; margin: 0 auto; }
+.dash a { align-items: center; justify-content: center; text-align: center; padding: 18px 16px; }
+@media (max-width: 520px) { .dash a { padding: 15px 10px; } .hero h1.big { margin-bottom: 32px; } }
 </style>
 
 <header class="hero" id="top">
@@ -360,20 +367,14 @@ a.btnlink:hover { transform: translateY(-1px); }
     <a class="hfb glass" href="#feedback">✉ <span class="hfbt" data-en="Feedback">Feedback</span></a>
   </div>
   <div class="hero-inner">
-    <div class="badge glass" data-en="Analysis · Chapters 1–3">Analysis · Kapitel 1–3</div>
     <h1 class="big">Easy <em>Analysis</em></h1>
-    <p class="lede" data-en="Every important definition written down cleanly, then what it really means, an example to work through and the typical traps.">Jede wichtige Definition sauber aufgeschrieben, danach was sie wirklich bedeutet, ein Beispiel zum Mitrechnen und die typischen Fallen.</p>
-    <div class="cta">
-      <a class="btnlink primary" href="#k1"><span data-en="Get started">Los geht’s</span> ↓</a>
-      <a class="btnlink ghost" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
-    </div>
     <nav class="dash" aria-label="Übersicht" data-en-aria-label="Overview">
-      <a class="glass" href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span><span class="td" data-en="Notation, operations, maps, countable and uncountable">Schreibweisen, Operationen, Abbildungen, abzählbar und überabzählbar</span></a>
-      <a class="glass" href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span><span class="td" data-en="Supremum, intervals, ℝⁿ, inequalities, complex numbers">Supremum, Intervalle, ℝⁿ, Ungleichungen, komplexe Zahlen</span></a>
-      <a class="glass" href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span><span class="td" data-en="Limits, tools, limsup and liminf, Cauchy">Grenzwerte, Werkzeuge, limsup und liminf, Cauchy</span></a>
-      <a class="glass" href="#monotonie"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="↗ Monotonicity">↗ Monotonie</span><span class="td" data-en="Recipe, five examples and a template to write down">Rezept, fünf Beispiele und eine Vorlage zum Aufschreiben</span></a>
-      <a class="glass" href="#defs"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="§ All definitions">§ Alle Definitionen</span><span class="td" data-en="Every definition by number, at a glance">Jede Definition nach Nummer, auf einen Blick</span></a>
-      <a class="glass fbtile" href="#feedback"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="✉ Feedback">✉ Feedback</span><span class="td" data-en="Mistake, question or wish? Only I can read it.">Fehler, Frage oder Wunsch? Nur ich kann es lesen.</span></a>
+      <a class="glass" href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span></a>
+      <a class="glass" href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span></a>
+      <a class="glass" href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span></a>
+      <a class="glass" href="#monotonie"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="↗ Monotonicity">↗ Monotonie</span></a>
+      <a class="glass" href="#defs"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="§ All definitions">§ Alle Definitionen</span></a>
+      <a class="glass fbtile" href="#feedback"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="✉ Feedback">✉ Feedback</span></a>
     </nav>
   </div>
   <a class="down" href="#k1" data-en="Scroll down to the chapters ↓">Runterscrollen zu den Kapiteln ↓</a>
