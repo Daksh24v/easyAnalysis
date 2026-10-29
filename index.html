@@ -80,6 +80,9 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 .toc .secs a { display: block; font-size: 13.5px; font-weight: 500; color: var(--muted); padding: 3px 0; line-height: 1.35; }
 .toc .secs a:hover, .toc .ch:hover { color: var(--accent); }
 .toc .secs a.on { color: var(--accent); font-weight: 700; }
+[id^="mono-"] { scroll-margin-top: 24px; }
+.toc li.topic { margin-top: 6px; padding-top: 12px; border-top: 1.5px dashed var(--line); }
+.toc li.topic .num { font-size: 16px; }
 .toc a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 .mobilebar { display: none; }
 /* ---------- Main ---------- */
@@ -200,7 +203,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   .mobilebar a { flex: none; text-decoration: none; color: var(--muted); padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); }
   .mobilebar a.on { color: var(--accent); border-color: var(--accent); }
   header.hero { padding-top: 28px; }
-  h3 { scroll-margin-top: 64px; }
+  h3, h4, [id^="mono-"] { scroll-margin-top: 64px; }
   section.chapter { scroll-margin-top: 50px; }
   .chnum { font-size: 56px; }
 }
@@ -247,12 +250,22 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
         <a href="#k3-5">limsup, liminf &amp; Häufungspunkte</a>
         <a href="#k3-6">Cauchy-Kriterium</a>
       </div></li>
+    <li class="topic"><a class="ch" href="#monotonie"><span class="num">↗</span>Monotonie</a>
+      <div class="secs">
+        <a href="#mono-def">Definition: wachsend &amp; fallend</a>
+        <a href="#mono-nicht">Nicht monoton</a>
+        <a href="#mono-rezept">Rezept: Monotonie prüfen</a>
+        <a href="#mono-bsp">Fünf Beispiele</a>
+        <a href="#mono-vorlage">Vorlage zum Aufschreiben</a>
+        <a href="#aufgabe-3-3">Übung: Turm von Hanoi</a>
+        <a href="#mono-fallen">Typische Fallen</a>
+      </div></li>
   </ol>
 </nav>
 
 <main>
   <div class="mobilebar" aria-label="Kapitel">
-    <a href="#top">Start</a><a href="#k1">1 · Mengen</a><a href="#k2">2 · Reelle Zahlen</a><a href="#k3">3 · Folgen</a>
+    <a href="#top">Start</a><a href="#k1">1 · Mengen</a><a href="#k2">2 · Reelle Zahlen</a><a href="#k3">3 · Folgen</a><a href="#monotonie">↗ Monotonie</a>
   </div>
 
   <header class="hero" id="top">
@@ -1093,7 +1106,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
 
   <h4 id="monotonie">Monotonie: wachsend, fallend, streng</h4>
   <p>Monotonie fragt nur nach der <b>Richtung</b>: Geht die Folge von Glied zu Glied nach oben, nach unten oder mal so, mal so? Ob sie konvergiert, spielt dafür keine Rolle.</p>
-  <div class="def"><div class="tag">Definition 3.2 · Monotonie</div>
+  <div class="def" id="mono-def"><div class="tag">Definition 3.2 · Monotonie</div>
     <p class="formal">Eine reelle Folge <span class="m">(<i>a<sub>n</sub></i>)</span> heißt<br>
       <b>monoton wachsend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>,<br>
       <b>streng monoton wachsend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>,<br>
@@ -1110,7 +1123,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <tr><td>streng monoton fallend</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> &gt; <i>a<sub>m</sub></i></td><td class="m">1, 1/2, 1/3, …</td></tr>
   </table></div>
   <p>Die rechte Spalte folgt aus der linken, indem man die Nachbar-Ungleichungen aneinanderhängt: <span class="m"><i>a<sub>n</sub></i> ≤ <i>a</i><sub><i>n</i>+1</sub> ≤ <i>a</i><sub><i>n</i>+2</sub> ≤ … ≤ <i>a<sub>m</sub></i></span>. In Aufgaben benutzt man fast immer die linke Spalte, weil man dort nur zwei Glieder vergleichen muss.</p>
-  <div class="def"><div class="tag">Verneinung · nicht monoton</div>
+  <div class="def" id="mono-nicht"><div class="tag">Verneinung · nicht monoton</div>
     <p class="formal"><span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton wachsend</b>, falls es ein <i>n</i> gibt mit <span class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></span>.<br>
       <span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton fallend</b>, falls es ein <i>m</i> gibt mit <span class="m"><i>a</i><sub><i>m</i>+1</sub> &gt; <i>a<sub>m</sub></i></span>.<br>
       <span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton</b>, falls beides zutrifft.</p>
@@ -1119,7 +1132,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="merke"><span class="lbl">Merke</span><p><b>Streng monoton ⇒ monoton</b>, aber nicht umgekehrt. Aus &gt; folgt ≥.<br>
     Eine <b>konstante Folge</b> <span class="m"><i>a<sub>n</sub></i> = <i>c</i></span> ist monoton wachsend <b>und</b> monoton fallend, denn <span class="m"><i>c</i> ≥ <i>c</i></span> und <span class="m"><i>c</i> ≤ <i>c</i></span>. Streng monoton ist sie nicht, denn <span class="m"><i>c</i> &gt; <i>c</i></span> ist falsch.</p></div>
 
-  <div class="merke"><span class="lbl">Rezept: Ist die Folge (streng) monoton?</span><p><b>1. Ein paar Glieder ausrechnen.</b> <span class="m"><i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, <i>a</i><sub>3</sub>, <i>a</i><sub>4</sub></span> zeigen dir, was du vermuten solltest. Das ist noch kein Beweis.<br>
+  <div class="merke" id="mono-rezept"><span class="lbl">Rezept: Ist die Folge (streng) monoton?</span><p><b>1. Ein paar Glieder ausrechnen.</b> <span class="m"><i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, <i>a</i><sub>3</sub>, <i>a</i><sub>4</sub></span> zeigen dir, was du vermuten solltest. Das ist noch kein Beweis.<br>
     <b>2. Differenz bilden (Standardweg).</b> Rechne <span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i></span> aus, vereinfache so weit wie möglich und bestimme das Vorzeichen für <b>jedes</b> <i>n</i>.<br>
     &nbsp;&nbsp;&gt; 0 ⇒ streng wachsend, ≥ 0 ⇒ wachsend, &lt; 0 ⇒ streng fallend, ≤ 0 ⇒ fallend.<br>
     <b>3. Quotient bilden (bei Potenzen und Fakultäten oft schneller).</b> <b>Nur wenn alle Glieder positiv sind:</b> Rechne <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i></span> aus.<br>
@@ -1127,7 +1140,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <b>4. Rekursive Folge.</b> Wenn nur <span class="m"><i>a</i><sub><i>n</i>+1</sub> = <i>f</i>(<i>a<sub>n</sub></i>)</span> gegeben ist, zeigt man <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> oft per Induktion. Oder man findet erst eine explizite Formel, wie beim <a href="#aufgabe-3-3">Turm von Hanoi</a>.<br>
     <b>5. Nicht monoton zeigen.</b> Dafür reichen konkrete Zahlen: ein Schritt nach unten und ein Schritt nach oben, also meist drei aufeinanderfolgende Glieder.</p></div>
 
-  <div class="bsp"><span class="lbl">Beispiel 1: aₙ = 1 − 1/n (n ≥ 1), Differenz</span>
+  <div class="bsp" id="mono-bsp"><span class="lbl">Beispiel 1: aₙ = 1 − 1/n (n ≥ 1), Differenz</span>
     <p><b>Glieder:</b> 0, 1/2, 2/3, 3/4, … Vermutung: streng wachsend.<br>
     <b>Differenz:</b></p>
     <p class="mb"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = (1 − 1/(<i>n</i>+1)) − (1 − 1/<i>n</i>) = 1/<i>n</i> − 1/(<i>n</i>+1) = ((<i>n</i>+1) − <i>n</i>)/(<i>n</i>(<i>n</i>+1)) = 1/(<i>n</i>(<i>n</i>+1))</p>
@@ -1150,7 +1163,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <p><span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 7 − 7 = 0</span>. Es gilt ≥ 0 und ≤ 0, also <b>monoton wachsend und monoton fallend</b>. Weil die Differenz nie &gt; 0 oder &lt; 0 ist, ist sie <b>nicht streng</b> monoton.</p>
   </div>
 
-  <div class="def"><div class="tag">Vorlage zum Aufschreiben</div>
+  <div class="def" id="mono-vorlage"><div class="tag">Vorlage zum Aufschreiben</div>
     <p class="formal"><b>Behauptung:</b> Die Folge <span class="m">(<i>a<sub>n</sub></i>)</span> mit <span class="m"><i>a<sub>n</sub></i> = …</span> ist streng monoton wachsend.<br>
     <b>Beweis:</b> Sei <span class="m"><i>n</i> ∈ ℕ</span> beliebig. Dann gilt<br>
     &nbsp;&nbsp;<span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = … = … &gt; 0</span>, da … (z. B. Zähler und Nenner positiv).<br>
@@ -1159,7 +1172,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <b>Beweis:</b> Es ist <span class="m"><i>a</i><sub>1</sub> = …</span>, <span class="m"><i>a</i><sub>2</sub> = …</span>, <span class="m"><i>a</i><sub>3</sub> = …</span>. Wegen <span class="m"><i>a</i><sub>2</sub> &gt; <i>a</i><sub>1</sub></span> ist sie nicht monoton fallend, wegen <span class="m"><i>a</i><sub>3</sub> &lt; <i>a</i><sub>2</sub></span> nicht monoton wachsend. ∎</p>
     <p class="plain"><b>Für fallend:</b> dieselbe Vorlage mit &lt; 0 statt &gt; 0. <b>Für den Quotienten:</b> erst „alle <i>a<sub>n</sub></i> &gt; 0“ hinschreiben, dann <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i> = … &gt; 1</span>, also <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span>.</p>
   </div>
-  <div class="falle"><span class="lbl">Typische Fallen</span>
+  <div class="falle" id="mono-fallen"><span class="lbl">Typische Fallen</span>
     <ul class="clean">
       <li><b>Ein paar Glieder sind kein Beweis für Monotonie.</b> Für „ist monoton“ brauchst du eine Rechnung für alle <i>n</i>. Nur für „ist <b>nicht</b> monoton“ reichen konkrete Zahlen.</li>
       <li><b>Quotient nur bei positiven Gliedern.</b> Bei <span class="m"><i>a<sub>n</sub></i> = −2<sup><i>n</i></sup></span> ist der Quotient 2 &gt; 1, aber die Folge −1, −2, −4, … <b>fällt</b>. Beim Multiplizieren mit einer negativen Zahl dreht sich die Ungleichung um.</li>
@@ -1431,11 +1444,11 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   var mlinks = Array.prototype.slice.call(document.querySelectorAll(".mobilebar a"));
   var targets = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); });
   function spy() {
-    var cur = 0;
-    for (var j = 0; j < targets.length; j++) if (targets[j].getBoundingClientRect().top < 140) cur = j;
+    var cur = 0, best = -Infinity;
+    for (var j = 0; j < targets.length; j++) { var t = targets[j].getBoundingClientRect().top; if (t < 140 && t > best) { best = t; cur = j; } }
     links.forEach(function (a, j) { a.classList.toggle("on", j === cur && window.scrollY > 200); });
-    var ch = "top";
-    ["k1", "k2", "k3"].forEach(function (id) { if (document.getElementById(id).getBoundingClientRect().top < 120) ch = id; });
+    var ch = "top", chBest = -Infinity;
+    [["k1", "k1"], ["k2", "k2"], ["k3", "k3"], ["monotonie", "monotonie"], ["k3-2", "k3"]].forEach(function (p) { var t = document.getElementById(p[0]).getBoundingClientRect().top; if (t < 120 && t > chBest) { chBest = t; ch = p[1]; } });
     mlinks.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + ch); });
   }
   window.addEventListener("scroll", spy, { passive: true });
