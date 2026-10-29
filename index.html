@@ -33,15 +33,15 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #0e1320; --grid: rgba(138, 162, 255, 0.05); --card: #151c2d; --ink: #e5e9f3; --muted: #9ba5ba;
-    --line: #273149; --accent: #8fa6ff; --accent-soft: rgba(143, 166, 255, 0.12); --mark: rgba(255, 214, 60, 0.2);
+    --paper: #0a0a0d; --grid: rgba(255, 255, 255, 0.028); --card: #131318; --ink: #ececf1; --muted: #9e9eab;
+    --line: #26262f; --accent: #8fa6ff; --accent-soft: rgba(143, 166, 255, 0.12); --mark: rgba(255, 214, 60, 0.2);
     --red: #ff8d82; --red-soft: rgba(255, 141, 130, 0.1); --green: #63d6a0; --green-soft: rgba(99, 214, 160, 0.1);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #0e1320; --grid: rgba(138, 162, 255, 0.05); --card: #151c2d; --ink: #e5e9f3; --muted: #9ba5ba;
-  --line: #273149; --accent: #8fa6ff; --accent-soft: rgba(143, 166, 255, 0.12); --mark: rgba(255, 214, 60, 0.2);
+  --paper: #0a0a0d; --grid: rgba(255, 255, 255, 0.028); --card: #131318; --ink: #ececf1; --muted: #9e9eab;
+  --line: #26262f; --accent: #8fa6ff; --accent-soft: rgba(143, 166, 255, 0.12); --mark: rgba(255, 214, 60, 0.2);
   --red: #ff8d82; --red-soft: rgba(255, 141, 130, 0.1); --green: #63d6a0; --green-soft: rgba(99, 214, 160, 0.1);
   color-scheme: dark;
 }
@@ -71,11 +71,6 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 .toc .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 4px; }
 .toc .brand span { color: var(--accent); }
 .toc .src { font-size: 12.5px; color: var(--muted); margin: 0 0 22px; line-height: 1.4; }
-.lang { display: inline-flex; flex: none; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--card); font-family: var(--f-display); font-size: 12.5px; font-weight: 700; }
-.lang button { font: inherit; letter-spacing: 0.04em; color: var(--muted); background: none; border: 0; padding: 4px 11px; cursor: pointer; }
-.lang button:hover { color: var(--accent); }
-.lang button[aria-pressed="true"] { background: var(--accent); color: var(--card); }
-.toc .lang { display: flex; width: max-content; margin: -8px 0 14px; }
 .toc ol { list-style: none; margin: 0; padding: 0; }
 .toc > ol > li { margin-bottom: 14px; }
 .toc a { color: inherit; text-decoration: none; }
@@ -100,7 +95,6 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 .mobilebar { display: none; }
 /* ---------- Main ---------- */
 main { min-width: 0; max-width: 720px; }
-header.hero { padding-bottom: 28px; border-bottom: 1.5px solid var(--line); margin-bottom: 8px; }
 .eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(36px, 6vw, 56px); line-height: 1.02; letter-spacing: -0.025em; margin: 10px 0 16px; text-wrap: balance; }
 h1 em { font-style: normal; background: linear-gradient(transparent 58%, var(--mark) 58%, var(--mark) 92%, transparent 92%); }
@@ -112,25 +106,10 @@ h1 em { font-style: normal; background: linear-gradient(transparent 58%, var(--m
 .sw.b { background: var(--card); border: 1.5px solid var(--line); }
 .sw.m { background: var(--mark); }
 .sw.r { background: var(--red-soft); border: 1.5px solid var(--red); }
-/* Startseite: großer Titel, zwei Knöpfe, Kacheln als Übersicht */
-header.hero { min-height: calc(100vh - 80px); min-height: calc(100svh - 80px); display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
-.hero h1.big { font-size: clamp(52px, 11vw, 96px); line-height: 0.95; margin: 12px 0 18px; }
-.hero h1.big em { color: var(--accent); background: none; }
-.hero .cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 30px; }
 a.btnlink { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-display); font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 8px; text-decoration: none; border: 1.5px solid var(--accent); }
 a.btnlink.primary { background: var(--accent); color: var(--card); }
 a.btnlink.ghost { color: var(--accent); background: var(--card); }
 a.btnlink:hover { filter: brightness(1.08); }
-.dash { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 26px; }
-.dash a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 15px; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; color: inherit; text-decoration: none; font-family: var(--f-display); transition: border-color .15s, transform .15s; }
-.dash a:hover { border-color: var(--accent); transform: translateY(-2px); }
-.dash .ti { font-family: var(--f-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; }
-.dash .tt { font-weight: 800; font-size: 17px; line-height: 1.2; }
-.dash .td { font-family: var(--f-body); font-size: 14px; color: var(--muted); line-height: 1.4; }
-.dash a.fbtile { background: var(--accent-soft); border-color: var(--accent); }
-.hero .down { font-family: var(--f-display); font-size: 13.5px; color: var(--muted); margin-top: 22px; text-decoration: none; align-self: flex-start; }
-.hero .down:hover { color: var(--accent); }
-@media (prefers-reduced-motion: reduce) { .dash a { transition: none; } .dash a:hover { transform: none; } }
 .toc .fblink { display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 700; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 999px; padding: 5px 13px; margin: 0 0 22px; background: var(--card); }
 .toc .fblink:hover { background: var(--accent-soft); }
 section.chapter { padding-top: 56px; }
@@ -250,31 +229,160 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   }
   .mobilebar a { flex: none; text-decoration: none; color: var(--muted); padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); }
   .mobilebar a.on { color: var(--accent); border-color: var(--accent); }
-  .mobilebar .lang { font-size: 13px; }
-  .mobilebar .lang button { padding: 5px 10px; }
-  header.hero { padding-top: 28px; }
   h3, h4, [id^="mono-"], [id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 64px; }
   section.chapter { scroll-margin-top: 50px; }
   .chnum { font-size: 56px; }
-  header.hero { min-height: calc(100svh - 60px); }
-  .dash { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #feedback { scroll-margin-top: 64px; }
 }
 @media (max-width: 520px) {
   body { font-size: 16px; }
-  .dash { gap: 10px; }
-  .dash a { padding: 12px 13px; }
-  .dash .td { font-size: 13.5px; }
   .trio { grid-template-columns: minmax(0, 1fr); }
   .trio svg { max-width: 260px; margin: 0 auto; }
 }
+
+/* ---------- Neues Design: Flüssig-Chrom-Startseite, Glas-Leisten, weichere Karten ---------- */
+:root { --radius: 14px; --shadow: 0 1px 2px rgba(23, 32, 58, 0.05), 0 8px 24px -12px rgba(23, 32, 58, 0.14);
+  --chrome-text: linear-gradient(170deg, #4a5677 0%, #17203a 38%, #8a93a8 55%, #2a3456 72%, #17203a 100%); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+  --chrome-text: linear-gradient(170deg, #ffffff 0%, #a1a1aa 40%, #f4f4f5 56%, #71717a 78%, #d4d4d8 100%); } }
+:root[data-theme="dark"] { --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+  --chrome-text: linear-gradient(170deg, #ffffff 0%, #a1a1aa 40%, #f4f4f5 56%, #71717a 78%, #d4d4d8 100%); }
+.chrome-text, .chnum, .toc .brand a { background: var(--chrome-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.toc .brand span { color: inherit; }
+.tldr, .def, figure, .fb, table { box-shadow: var(--shadow); }
+.tldr, .def, figure, .fb { border-radius: var(--radius); }
+details { border-radius: 10px; transition: border-color .15s; }
+details:hover { border-color: var(--accent); }
+body { margin: 0; }
+.shell { padding-block: 48px 96px; }
+
+/* Startseite */
+header.hero {
+  position: relative; isolation: isolate; overflow: hidden; color: #f4f4f5;
+  margin: 12px; margin-top: max(12px, env(safe-area-inset-top, 0px)); border-radius: 28px;
+  min-height: calc(100vh - 24px); min-height: calc(100svh - 24px); box-sizing: border-box;
+  display: flex; flex-direction: column;
+  padding: 20px max(24px, env(safe-area-inset-right, 0px)) 28px max(24px, env(safe-area-inset-left, 0px));
+  background: #09090b radial-gradient(120% 80% at 70% 20%, #3f3f46 0%, #18181b 45%, #09090b 80%);
+  font-family: var(--f-display);
+}
+header.hero canvas.chrome { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; display: block; }
+header.hero .veil { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(90% 70% at 30% 55%, rgba(9, 9, 11, 0.72) 0%, rgba(9, 9, 11, 0.35) 55%, rgba(9, 9, 11, 0.1) 100%), linear-gradient(to top, rgba(9, 9, 11, 0.75), transparent 45%); }
+.hero-top { display: flex; align-items: center; gap: 10px; max-width: 1120px; width: 100%; margin: 0 auto; }
+.hero-top .hbrand { font-weight: 800; font-size: 19px; letter-spacing: -0.01em; color: #fafafa; text-decoration: none; margin-right: auto; }
+.hero-top .hbrand span { color: #a5b4fc; }
+.glass { background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.16); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.hero-top a.hfb { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: #f4f4f5; text-decoration: none; padding: 6px 14px; border-radius: 999px; }
+.hero-top a.hfb:hover, .hero a.btnlink.ghost:hover { background: rgba(255, 255, 255, 0.14); }
+.hero-inner { flex: 1; display: flex; flex-direction: column; justify-content: center; max-width: 1120px; width: 100%; margin: 0 auto; padding: 48px 0 8px; }
+.badge { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #e4e4e7; padding: 6px 13px; border-radius: 999px; }
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #a5b4fc; box-shadow: 0 0 10px #a5b4fc; }
+.hero h1.big { font-size: clamp(56px, 12vw, 132px); line-height: 0.92; letter-spacing: -0.045em; margin: 22px 0 20px; max-width: 12ch;
+  background: linear-gradient(175deg, #ffffff 0%, #e4e4e7 35%, #a1a1aa 62%, #f4f4f5 80%, #d4d4d8 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero h1.big em { font-style: normal; background: linear-gradient(175deg, #e0e7ff 0%, #a5b4fc 45%, #6d7fe8 75%, #c7d2fe 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lede { color: #d4d4d8; font-family: var(--f-body); font-size: clamp(17px, 2vw, 20px); max-width: 52ch; margin: 0 0 26px; }
+.hero .cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 40px; }
+a.btnlink { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-display); font-weight: 700; font-size: 15px; padding: 11px 20px; border-radius: 999px; text-decoration: none; border: 1.5px solid var(--accent); transition: transform .15s, background-color .15s; }
+a.btnlink.primary { background: var(--accent); color: var(--card); }
+a.btnlink.ghost { color: var(--accent); background: var(--card); }
+.hero a.btnlink.primary { background: #fafafa; border-color: #fafafa; color: #09090b; box-shadow: 0 8px 30px -8px rgba(255, 255, 255, 0.45); }
+.hero a.btnlink.ghost { color: #fafafa; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.07); }
+a.btnlink:hover { transform: translateY(-1px); }
+.dash { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 900px; }
+.dash a { display: flex; flex-direction: column; gap: 4px; padding: 15px 17px 16px; border-radius: 16px; color: #f4f4f5; text-decoration: none; transition: border-color .15s, transform .15s, background-color .15s; }
+.dash a:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.12); transform: translateY(-2px); }
+.dash .ti { font-family: var(--f-mono); font-size: 11.5px; color: #a5b4fc; letter-spacing: 0.08em; text-transform: uppercase; }
+.dash .tt { font-weight: 800; font-size: 17px; line-height: 1.2; }
+.dash .td { font-family: var(--f-body); font-size: 14px; color: #c4c4cc; line-height: 1.4; }
+.dash a.fbtile { background: rgba(165, 180, 252, 0.14); border-color: rgba(165, 180, 252, 0.45); }
+.hero .down { font-size: 13.5px; color: #a1a1aa; text-decoration: none; align-self: center; margin-top: 18px; }
+.hero .down:hover { color: #fafafa; }
+.hero a:focus-visible, .hero button:focus-visible { outline: 2px solid #c7d2fe; outline-offset: 2px; }
+.legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; font-family: var(--f-display); font-size: 13.5px; color: var(--muted); background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 12px 16px; box-shadow: var(--shadow); }
+.legend .lt { font-weight: 700; color: var(--ink); }
+.legend .howto { display: contents; }
+@media (prefers-reduced-motion: reduce) { .dash a, a.btnlink { transition: none; } .dash a:hover, a.btnlink:hover { transform: none; } }
+
+/* Sprachwahl als Dropdown */
+.langbtn { display: inline-flex; align-items: center; gap: 8px; flex: none; font-family: var(--f-display); font-size: 14px; font-weight: 600; color: var(--ink);
+  background: color-mix(in srgb, var(--card) 70%, transparent); border: 1.5px solid var(--line); border-radius: 999px; padding: 5px 10px 5px 12px; cursor: pointer;
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06); transition: background-color .15s, border-color .15s; }
+.langbtn:hover { border-color: var(--accent); }
+.langbtn svg.chev { width: 16px; height: 16px; transition: transform .15s; }
+.langbtn[aria-expanded="true"] svg.chev { transform: rotate(180deg); }
+.flag { width: 20px; height: 14px; border-radius: 3px; flex: none; display: block; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12); }
+.hero .langbtn { color: #f4f4f5; background: rgba(23, 23, 27, 0.55); border: 1px solid rgba(255, 255, 255, 0.18); }
+.hero .langbtn:hover { background: rgba(39, 39, 45, 0.75); border-color: rgba(255, 255, 255, 0.32); }
+.toc .langbtn { margin: -8px 0 14px; }
+.langmenu { position: fixed; z-index: 50; width: 192px; padding: 4px; box-sizing: border-box; border-radius: 14px; overflow: hidden;
+  background: color-mix(in srgb, var(--card) 92%, transparent); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+  border: 1.5px solid var(--line); box-shadow: 0 14px 40px -12px rgba(0, 0, 0, 0.35); animation: fade-in .14s ease-out; }
+.langmenu[hidden] { display: none; }
+.langmenu button { display: flex; align-items: center; gap: 9px; width: 100%; font-family: var(--f-display); font-size: 14px; font-weight: 500; text-align: left;
+  color: var(--ink); background: none; border: 0; border-radius: 9px; padding: 8px 10px; cursor: pointer; transition: background-color .12s; }
+.langmenu button:hover, .langmenu button:focus-visible { background: var(--accent-soft); outline: none; }
+.langmenu button .ln { flex: 1; }
+.langmenu button svg.check { width: 16px; height: 16px; color: var(--accent); visibility: hidden; }
+.langmenu button[aria-selected="true"] { font-weight: 700; color: var(--accent); }
+.langmenu button[aria-selected="true"] svg.check { visibility: visible; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(-2px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .langmenu { animation: none; } .langbtn svg.chev { transition: none; } }
+
+@media (max-width: 880px) {
+  header.hero { margin: 0; border-radius: 0 0 26px 26px; min-height: 100vh; min-height: 100svh;
+    padding: max(14px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 22px max(16px, env(safe-area-inset-left, 0px)); }
+  .hero-inner { padding-top: 36px; }
+  .dash { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shell { padding-block: 0 72px; }
+  .mobilebar { background: color-mix(in srgb, var(--paper) 82%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); align-items: center; }
+  .mobilebar .langbtn { padding: 4px 8px 4px 10px; font-size: 13.5px; }
+  .legend { margin-top: 20px; }
+}
+@media (max-width: 520px) {
+  .dash { gap: 9px; }
+  .dash a { padding: 12px 13px; border-radius: 14px; }
+  .dash .td { font-size: 13.5px; }
+  .hero .cta { margin-bottom: 28px; }
+  .hero-top a.hfb .hfbt { display: none; }
+  .mobilebar .langbtn .llabel { display: none; }
+  .m.mw { white-space: normal; }
+  header.hero .veil { background: linear-gradient(rgba(9, 9, 11, 0.45), rgba(9, 9, 11, 0.45)), radial-gradient(120% 70% at 30% 45%, rgba(9, 9, 11, 0.6) 0%, rgba(9, 9, 11, 0.2) 100%); }
+}
 </style>
 
+<header class="hero" id="top">
+  <canvas class="chrome" aria-hidden="true"></canvas>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="hero-top">
+    <a class="hbrand" href="#top">Easy <span>Analysis</span></a>
+    <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <a class="hfb glass" href="#feedback">✉ <span class="hfbt" data-en="Feedback">Feedback</span></a>
+  </div>
+  <div class="hero-inner">
+    <div class="badge glass" data-en="Analysis · Chapters 1–3">Analysis · Kapitel 1–3</div>
+    <h1 class="big">Easy <em>Analysis</em></h1>
+    <p class="lede" data-en="Every important definition written down cleanly, then what it really means, an example to work through and the typical traps.">Jede wichtige Definition sauber aufgeschrieben, danach was sie wirklich bedeutet, ein Beispiel zum Mitrechnen und die typischen Fallen.</p>
+    <div class="cta">
+      <a class="btnlink primary" href="#k1"><span data-en="Get started">Los geht’s</span> ↓</a>
+      <a class="btnlink ghost" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
+    </div>
+    <nav class="dash" aria-label="Übersicht" data-en-aria-label="Overview">
+      <a class="glass" href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span><span class="td" data-en="Notation, operations, maps, countable and uncountable">Schreibweisen, Operationen, Abbildungen, abzählbar und überabzählbar</span></a>
+      <a class="glass" href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span><span class="td" data-en="Supremum, intervals, ℝⁿ, inequalities, complex numbers">Supremum, Intervalle, ℝⁿ, Ungleichungen, komplexe Zahlen</span></a>
+      <a class="glass" href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span><span class="td" data-en="Limits, tools, limsup and liminf, Cauchy">Grenzwerte, Werkzeuge, limsup und liminf, Cauchy</span></a>
+      <a class="glass" href="#monotonie"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="↗ Monotonicity">↗ Monotonie</span><span class="td" data-en="Recipe, five examples and a template to write down">Rezept, fünf Beispiele und eine Vorlage zum Aufschreiben</span></a>
+      <a class="glass" href="#defs"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="§ All definitions">§ Alle Definitionen</span><span class="td" data-en="Every definition by number, at a glance">Jede Definition nach Nummer, auf einen Blick</span></a>
+      <a class="glass fbtile" href="#feedback"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="✉ Feedback">✉ Feedback</span><span class="td" data-en="Mistake, question or wish? Only I can read it.">Fehler, Frage oder Wunsch? Nur ich kann es lesen.</span></a>
+    </nav>
+  </div>
+  <a class="down" href="#k1" data-en="Scroll down to the chapters ↓">Runterscrollen zu den Kapiteln ↓</a>
+</header>
 <div class="shell">
 <nav class="toc" aria-label="Inhalt" data-en-aria-label="Contents">
   <div class="brand"><a href="#top">Easy <span>Analysis</span></a></div>
   <p class="src" data-en="My own explanations for an analysis lecture">Eigene Erklärungen zu einer Analysis-Vorlesung</p>
-  <div class="lang" role="group" aria-label="Sprache" data-en-aria-label="Language"><button type="button" data-lang="de" lang="de" title="Deutsch" aria-pressed="true">DE</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button></div>
+  <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
   <a class="fblink" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
   <ol>
     <li><a class="ch" href="#k1"><span class="num">1</span><span data-en="Set terminology">Mengenterminologie</span></a>
@@ -330,33 +438,18 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
 
 <main>
   <div class="mobilebar" aria-label="Kapitel" data-en-aria-label="Chapters">
-    <div class="lang" role="group" aria-label="Sprache" data-en-aria-label="Language"><button type="button" data-lang="de" lang="de" title="Deutsch" aria-pressed="true">DE</button><button type="button" data-lang="en" lang="en" title="English" aria-pressed="false">EN</button></div><a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1" data-en="1 · Sets">1 · Mengen</a><a href="#k2" data-en="2 · Real numbers">2 · Reelle Zahlen</a><a href="#k3" data-en="3 · Sequences">3 · Folgen</a><a href="#monotonie" data-en="↗ Monotonicity">↗ Monotonie</a><a href="#defs" data-en="§ Definitions">§ Definitionen</a>
+    <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1" data-en="1 · Sets">1 · Mengen</a><a href="#k2" data-en="2 · Real numbers">2 · Reelle Zahlen</a><a href="#k3" data-en="3 · Sequences">3 · Folgen</a><a href="#monotonie" data-en="↗ Monotonicity">↗ Monotonie</a><a href="#defs" data-en="§ Definitions">§ Definitionen</a>
   </div>
 
-  <header class="hero" id="top">
-    <div class="eyebrow" data-en="Analysis · Chapters 1–3">Analysis · Kapitel 1–3</div>
-    <h1 class="big">Easy <em>Analysis</em></h1>
-    <p class="lede" data-en="Every important definition written down cleanly, then what it really means, an example to work through and the typical traps.">Jede wichtige Definition sauber aufgeschrieben, danach was sie wirklich bedeutet, ein Beispiel zum Mitrechnen und die typischen Fallen.</p>
-    <div class="cta">
-      <a class="btnlink primary" href="#k1"><span data-en="Get started">Los geht’s</span> ↓</a>
-      <a class="btnlink ghost" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
-    </div>
-    <nav class="dash" aria-label="Übersicht" data-en-aria-label="Overview">
-      <a href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span><span class="td" data-en="Notation, operations, maps, countable and uncountable">Schreibweisen, Operationen, Abbildungen, abzählbar und überabzählbar</span></a>
-      <a href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span><span class="td" data-en="Supremum, intervals, ℝⁿ, inequalities, complex numbers">Supremum, Intervalle, ℝⁿ, Ungleichungen, komplexe Zahlen</span></a>
-      <a href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span><span class="td" data-en="Limits, tools, limsup and liminf, Cauchy">Grenzwerte, Werkzeuge, limsup und liminf, Cauchy</span></a>
-      <a href="#monotonie"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="↗ Monotonicity">↗ Monotonie</span><span class="td" data-en="Recipe, five examples and a template to write down">Rezept, fünf Beispiele und eine Vorlage zum Aufschreiben</span></a>
-      <a href="#defs"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="§ All definitions">§ Alle Definitionen</span><span class="td" data-en="Every definition by number, at a glance">Jede Definition nach Nummer, auf einen Blick</span></a>
-      <a href="#feedback" class="fbtile"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="✉ Feedback">✉ Feedback</span><span class="td" data-en="Mistake, question or wish? Only I can read it.">Fehler, Frage oder Wunsch? Nur ich kann es lesen.</span></a>
-    </nav>
+
+  <div class="legend"><span class="lt" data-en="How to read this page:">So liest du die Seite:</span>
     <div class="howto">
       <span><i class="sw d"></i><span data-en="Definition or theorem">Definition oder Satz</span></span>
       <span><i class="sw b"></i><span data-en="Example">Beispiel</span></span>
       <span><i class="sw m"></i><span data-en="Remember">Merke</span></span>
       <span><i class="sw r"></i><span data-en="Caution or trap">Achtung oder Falle</span></span>
     </div>
-    <a class="down" href="#k1" data-en="Scroll down to the chapters ↓">Runterscrollen zu den Kapiteln ↓</a>
-  </header>
+  </div>
 
 <div id="content">
 <!-- =================================================================== KAPITEL 1 -->
@@ -1120,7 +1213,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </figure>
   <div class="def"><div class="tag">Lemma 2.13 · Dreiecksungleichung</div>
     <p class="formal"><span class="m">‖<i>x</i> + <i>y</i>‖ ≤ ‖<i>x</i>‖ + ‖<i>y</i>‖</span>. In ℝ: <span class="m">|<i>x</i> + <i>y</i>| ≤ |<i>x</i>| + |<i>y</i>|</span>.</p>
-    <p class="plain"><b>Auf Deutsch:</b> Der direkte Weg ist nie länger als ein Umweg. Beweis in einer Zeile: <span class="m">‖<i>x</i>+<i>y</i>‖² = ‖<i>x</i>‖² + 2⟨<i>x</i>,<i>y</i>⟩ + ‖<i>y</i>‖² ≤ ‖<i>x</i>‖² + 2‖<i>x</i>‖‖<i>y</i>‖ + ‖<i>y</i>‖² = (‖<i>x</i>‖ + ‖<i>y</i>‖)²</span>, wobei im mittleren Schritt Cauchy-Schwarz benutzt wird.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Der direkte Weg ist nie länger als ein Umweg. Beweis in einer Zeile: <span class="m mw">‖<i>x</i>+<i>y</i>‖² = ‖<i>x</i>‖² + 2⟨<i>x</i>,<i>y</i>⟩ + ‖<i>y</i>‖² ≤ ‖<i>x</i>‖² + 2‖<i>x</i>‖‖<i>y</i>‖ + ‖<i>y</i>‖² = (‖<i>x</i>‖ + ‖<i>y</i>‖)²</span>, wobei im mittleren Schritt Cauchy-Schwarz benutzt wird.</p>
   </div>
   <div class="bsp"><span class="lbl">Beispiel und umgekehrte Dreiecksungleichung</span>
     <p><span class="m">|3 + (−5)| = 2 ≤ 3 + 5 = 8</span>. Gleichheit gibt es nur bei gleichem Vorzeichen (<span class="m"><i>xy</i> ≥ 0</span>).<br>Die umgekehrte Dreiecksungleichung <span class="m">|<i>x</i> − <i>y</i>| ≥ ||<i>x</i>| − |<i>y</i>||</span>, folgt so: <span class="m">|<i>x</i>| = |(<i>x</i> − <i>y</i>) + <i>y</i>| ≤ |<i>x</i> − <i>y</i>| + |<i>y</i>|</span>, also <span class="m">|<i>x</i>| − |<i>y</i>| ≤ |<i>x</i> − <i>y</i>|</span>. Mit vertauschten Rollen bekommst du dasselbe für <span class="m">|<i>y</i>| − |<i>x</i>|</span>.</p>
@@ -1153,7 +1246,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Beispiel zum Mitrechnen</span>
     <p><span class="m"><i>z</i><sub>1</sub> = 1 + 2<i>i</i></span>, <span class="m"><i>z</i><sub>2</sub> = 3 − <i>i</i></span>.<br>
     Summe: <span class="m"><i>z</i><sub>1</sub> + <i>z</i><sub>2</sub> = 4 + <i>i</i></span> (komponentenweise).<br>
-    Produkt: <span class="m">(1 + 2<i>i</i>)(3 − <i>i</i>) = 3 − <i>i</i> + 6<i>i</i> − 2<i>i</i>² = 3 + 5<i>i</i> + 2 = 5 + 5<i>i</i></span>.<br>
+    Produkt: <span class="m mw">(1 + 2<i>i</i>)(3 − <i>i</i>) = 3 − <i>i</i> + 6<i>i</i> − 2<i>i</i>² = 3 + 5<i>i</i> + 2 = 5 + 5<i>i</i></span>.<br>
     Mit der Multiplikationsformel: <span class="m"><i>x</i><sub>1</sub><i>x</i><sub>2</sub> − <i>y</i><sub>1</sub><i>y</i><sub>2</sub> = 3 − (−2) = 5</span> und <span class="m"><i>x</i><sub>1</sub><i>y</i><sub>2</sub> + <i>x</i><sub>2</sub><i>y</i><sub>1</sub> = −1 + 6 = 5</span> ✓.</p>
   </div>
   <div class="merke"><span class="lbl">Merke</span><p><span class="m"><i>z</i> · <span class="ol"><i>z</i></span> = (<i>x</i> + <i>iy</i>)(<i>x</i> − <i>iy</i>) = <i>x</i>² + <i>y</i>² = |<i>z</i>|²</span>. Damit teilt man durch komplexe Zahlen: mit dem Konjugierten erweitern, dann ist der Nenner reell. Beispiel: <span class="m">1/(1 + <i>i</i>) = (1 − <i>i</i>)/((1+<i>i</i>)(1−<i>i</i>)) = (1 − <i>i</i>)/2</span>.</p></div>
@@ -2289,7 +2382,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </figure>
   <div class="def"><div class="tag">Lemma 2.13 · Triangle inequality</div>
     <p class="formal"><span class="m">‖<i>x</i> + <i>y</i>‖ ≤ ‖<i>x</i>‖ + ‖<i>y</i>‖</span>. In ℝ: <span class="m">|<i>x</i> + <i>y</i>| ≤ |<i>x</i>| + |<i>y</i>|</span>.</p>
-    <p class="plain"><b>In plain words:</b> The direct route is never longer than a detour. Proof in one line: <span class="m">‖<i>x</i>+<i>y</i>‖² = ‖<i>x</i>‖² + 2⟨<i>x</i>,<i>y</i>⟩ + ‖<i>y</i>‖² ≤ ‖<i>x</i>‖² + 2‖<i>x</i>‖‖<i>y</i>‖ + ‖<i>y</i>‖² = (‖<i>x</i>‖ + ‖<i>y</i>‖)²</span>, where Cauchy–Schwarz is used in the middle step.</p>
+    <p class="plain"><b>In plain words:</b> The direct route is never longer than a detour. Proof in one line: <span class="m mw">‖<i>x</i>+<i>y</i>‖² = ‖<i>x</i>‖² + 2⟨<i>x</i>,<i>y</i>⟩ + ‖<i>y</i>‖² ≤ ‖<i>x</i>‖² + 2‖<i>x</i>‖‖<i>y</i>‖ + ‖<i>y</i>‖² = (‖<i>x</i>‖ + ‖<i>y</i>‖)²</span>, where Cauchy–Schwarz is used in the middle step.</p>
   </div>
   <div class="bsp"><span class="lbl">Example and reverse triangle inequality</span>
     <p><span class="m">|3 + (−5)| = 2 ≤ 3 + 5 = 8</span>. Equality only happens with the same sign (<span class="m"><i>xy</i> ≥ 0</span>).<br>The reverse triangle inequality <span class="m">|<i>x</i> − <i>y</i>| ≥ ||<i>x</i>| − |<i>y</i>||</span> follows like this: <span class="m">|<i>x</i>| = |(<i>x</i> − <i>y</i>) + <i>y</i>| ≤ |<i>x</i> − <i>y</i>| + |<i>y</i>|</span>, so <span class="m">|<i>x</i>| − |<i>y</i>| ≤ |<i>x</i> − <i>y</i>|</span>. Swapping the roles gives the same for <span class="m">|<i>y</i>| − |<i>x</i>|</span>.</p>
@@ -2322,7 +2415,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Example to work through</span>
     <p><span class="m"><i>z</i><sub>1</sub> = 1 + 2<i>i</i></span>, <span class="m"><i>z</i><sub>2</sub> = 3 − <i>i</i></span>.<br>
     Sum: <span class="m"><i>z</i><sub>1</sub> + <i>z</i><sub>2</sub> = 4 + <i>i</i></span> (component by component).<br>
-    Product: <span class="m">(1 + 2<i>i</i>)(3 − <i>i</i>) = 3 − <i>i</i> + 6<i>i</i> − 2<i>i</i>² = 3 + 5<i>i</i> + 2 = 5 + 5<i>i</i></span>.<br>
+    Product: <span class="m mw">(1 + 2<i>i</i>)(3 − <i>i</i>) = 3 − <i>i</i> + 6<i>i</i> − 2<i>i</i>² = 3 + 5<i>i</i> + 2 = 5 + 5<i>i</i></span>.<br>
     With the multiplication formula: <span class="m"><i>x</i><sub>1</sub><i>x</i><sub>2</sub> − <i>y</i><sub>1</sub><i>y</i><sub>2</sub> = 3 − (−2) = 5</span> and <span class="m"><i>x</i><sub>1</sub><i>y</i><sub>2</sub> + <i>x</i><sub>2</sub><i>y</i><sub>1</sub> = −1 + 6 = 5</span> ✓.</p>
   </div>
   <div class="merke"><span class="lbl">Remember</span><p><span class="m"><i>z</i> · <span class="ol"><i>z</i></span> = (<i>x</i> + <i>iy</i>)(<i>x</i> − <i>iy</i>) = <i>x</i>² + <i>y</i>² = |<i>z</i>|²</span>. This is how you divide by complex numbers: multiply numerator and denominator by the conjugate, then the denominator is real. Example: <span class="m">1/(1 + <i>i</i>) = (1 − <i>i</i>)/((1+<i>i</i>)(1−<i>i</i>)) = (1 − <i>i</i>)/2</span>.</p></div>
@@ -2719,6 +2812,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </footer>
 </main>
 </div>
+<div class="langmenu" id="langmenu" role="listbox" aria-label="Sprache" data-en-aria-label="Language" hidden><button type="button" role="option" data-lang="de" lang="de" aria-selected="true"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="ln">Deutsch</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button><button type="button" role="option" data-lang="en" lang="en" aria-selected="false"><svg class="flag" viewBox="0 0 19 10" preserveAspectRatio="none" aria-hidden="true"><rect width="19" height="10" fill="#fff"/><path d="M0 0h19v.7692H0zM0 1.5385h19v.7692H0zM0 3.0769h19v.7692H0zM0 4.6154h19v.7692H0zM0 6.1538h19v.7692H0zM0 7.6923h19v.7692H0zM0 9.2308h19v.7692H0z" fill="#b22234"/><rect width="7.6" height="5.385" fill="#3c3b6e"/></svg><span class="ln">English</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button></div>
 
 <script>
 (function () {
@@ -2892,12 +2986,51 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
       if (anchor) { var a = document.getElementById(anchor); if (a) window.scrollTo({ top: window.scrollY + a.getBoundingClientRect().top - anchorTop, behavior: "instant" }); }
       spy();
     }
-    Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false"); });
+    Array.prototype.forEach.call(menu.querySelectorAll("[data-lang]"), function (b) {
+      var on = b.getAttribute("data-lang") === lang;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      if (on) triggers.forEach(function (t) { t.querySelector(".lflag").innerHTML = b.querySelector(".flag").outerHTML; t.querySelector(".llabel").textContent = b.querySelector(".ln").textContent; });
+    });
     if (save) { try { localStorage.setItem("lang", lang); } catch (e) {} }
   }
-  Array.prototype.forEach.call(document.querySelectorAll(".lang button"), function (b) {
-    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang"), true); });
+  /* Sprach-Dropdown: ein Menü für alle Auslöser, fest positioniert, damit es nicht in einer scrollenden Leiste abgeschnitten wird */
+  var menu = document.getElementById("langmenu");
+  var triggers = Array.prototype.slice.call(document.querySelectorAll(".langbtn"));
+  var opener = null;
+  function place() {
+    if (!opener) return;
+    var r = opener.getBoundingClientRect(), w = menu.offsetWidth, h = menu.offsetHeight;
+    var left = Math.min(Math.max(8, r.left), window.innerWidth - w - 8);
+    var top = r.bottom + 8;
+    if (top + h > window.innerHeight - 8 && r.top - h - 8 > 8) top = r.top - h - 8;
+    menu.style.left = left + "px"; menu.style.top = top + "px";
+  }
+  function closeMenu(refocus) {
+    if (!opener) return;
+    menu.hidden = true; opener.setAttribute("aria-expanded", "false");
+    if (refocus) opener.focus();
+    opener = null;
+  }
+  function openMenu(t) {
+    opener = t; menu.hidden = false; t.setAttribute("aria-expanded", "true"); place();
+    (menu.querySelector('[aria-selected="true"]') || menu.querySelector("button")).focus({ preventScroll: true });
+  }
+  triggers.forEach(function (t) {
+    t.addEventListener("click", function () { if (opener === t) closeMenu(false); else { closeMenu(false); openMenu(t); } });
+    t.addEventListener("keydown", function (e) { if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (opener !== t) openMenu(t); } });
   });
+  Array.prototype.forEach.call(menu.querySelectorAll("[data-lang]"), function (b) {
+    b.addEventListener("click", function () { var t = opener; closeMenu(false); setLang(b.getAttribute("data-lang"), true); if (t) t.focus({ preventScroll: true }); });
+  });
+  menu.addEventListener("keydown", function (e) {
+    var items = Array.prototype.slice.call(menu.querySelectorAll("button")), i = items.indexOf(document.activeElement);
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); items[(i + (e.key === "ArrowDown" ? 1 : items.length - 1)) % items.length].focus(); }
+    else if (e.key === "Escape") { e.preventDefault(); closeMenu(true); }
+    else if (e.key === "Tab") closeMenu(false);
+  });
+  document.addEventListener("pointerdown", function (e) { if (opener && !menu.contains(e.target) && !opener.contains(e.target)) closeMenu(false); });
+  window.addEventListener("scroll", place, { passive: true, capture: true });
+  window.addEventListener("resize", place);
 
   initContent();
   var want = null;
@@ -2908,6 +3041,70 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
 
   window.addEventListener("scroll", spy, { passive: true });
   spy();
+})();
+</script>
+<script>
+/* Flüssig-Chrom: ein Fragment-Shader verbiegt die Koordinaten mehrfach mit Kosinuswellen,
+   die Helligkeit 1/|sin(...)| ergibt die metallischen Lichtkanten. Ohne WebGL bleibt der CSS-Verlauf. */
+(function () {
+  var hero = document.querySelector("header.hero"), cv = hero && hero.querySelector("canvas.chrome");
+  if (!cv) return;
+  var gl = cv.getContext("webgl", { antialias: false, alpha: false, powerPreference: "low-power" });
+  if (!gl) { cv.remove(); return; }
+  var VS = "attribute vec2 p; varying vec2 vUv; void main(){ vUv = p * 0.5 + 0.5; gl_Position = vec4(p, 0.0, 1.0); }";
+  var FS = [
+    "precision highp float;",
+    "uniform float uTime; uniform vec2 uRes; uniform vec2 uMouse; uniform vec3 uBase;",
+    "varying vec2 vUv;",
+    "void main(){",
+    "  vec2 uv = (2.0 * vUv * uRes - uRes) / min(uRes.x, uRes.y);",
+    "  for (float i = 1.0; i < 10.0; i++) {",
+    "    uv.x += 0.3 / i * cos(i * 3.0 * uv.y + uTime + uMouse.x * 3.14159);",
+    "    uv.y += 0.3 / i * cos(i * 3.0 * uv.x + uTime + uMouse.y * 3.14159);",
+    "  }",
+    "  vec2 d = vUv - uMouse; float dist = length(d);",
+    "  uv += (d / (dist + 0.0001)) * sin(10.0 * dist - uTime * 2.0) * 0.03 * exp(-dist * 20.0);",
+    "  vec3 c = uBase / max(abs(sin(uTime - uv.y - uv.x)), 0.001);",
+    "  gl_FragColor = vec4(min(c, vec3(1.0)), 1.0);",
+    "}"].join("\n");
+  function sh(type, src) { var o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; }
+  var vs = sh(gl.VERTEX_SHADER, VS), fs = sh(gl.FRAGMENT_SHADER, FS);
+  if (!vs || !fs) { cv.remove(); return; }
+  var pr = gl.createProgram(); gl.attachShader(pr, vs); gl.attachShader(pr, fs); gl.linkProgram(pr);
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { cv.remove(); return; }
+  gl.useProgram(pr);
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  var loc = gl.getAttribLocation(pr, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  var uTime = gl.getUniformLocation(pr, "uTime"), uRes = gl.getUniformLocation(pr, "uRes"), uMouse = gl.getUniformLocation(pr, "uMouse");
+  gl.uniform3f(gl.getUniformLocation(pr, "uBase"), 0.1, 0.1, 0.115);
+  var still = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var mouse = [0.5, 0.5], target = [0.5, 0.5], t0 = performance.now(), raf = 0, visible = true;
+  function resize() {
+    var k = Math.min(window.devicePixelRatio || 1, 1.5);
+    var w = Math.max(1, Math.round(cv.clientWidth * k)), h = Math.max(1, Math.round(cv.clientHeight * k));
+    if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; gl.viewport(0, 0, w, h); }
+    gl.uniform2f(uRes, w, h);
+  }
+  function draw(now) {
+    raf = 0; resize();
+    mouse[0] += (target[0] - mouse[0]) * 0.04; mouse[1] += (target[1] - mouse[1]) * 0.04;
+    gl.uniform1f(uTime, still.matches ? 4.0 : (now - t0) * 0.0002);
+    gl.uniform2f(uMouse, mouse[0], mouse[1]);
+    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    if (!still.matches) loop();
+  }
+  function loop() { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(draw); }
+  hero.addEventListener("pointermove", function (e) {
+    if (still.matches) return;
+    var r = hero.getBoundingClientRect();
+    target = [(e.clientX - r.left) / r.width, 1 - (e.clientY - r.top) / r.height];
+  });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; loop(); }).observe(hero);
+  document.addEventListener("visibilitychange", loop);
+  window.addEventListener("resize", function () { if (still.matches) requestAnimationFrame(draw); });
+  if (still.addEventListener) still.addEventListener("change", loop);
+  requestAnimationFrame(draw);
 })();
 </script>
 <script>
