@@ -83,6 +83,14 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 [id^="mono-"] { scroll-margin-top: 24px; }
 .toc li.topic { margin-top: 6px; padding-top: 12px; border-top: 1.5px dashed var(--line); }
 .toc li.topic .num { font-size: 16px; }
+[id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 24px; }
+.def .more { padding: 0 16px 12px; margin: 0; font-family: var(--f-display); font-size: 13.5px; font-weight: 700; }
+.def .more a { color: var(--accent); text-decoration: none; }
+.def .more a:hover { text-decoration: underline; }
+.djump { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 10px; }
+.djump a { font-family: var(--f-mono); font-size: 13.5px; font-weight: 600; text-decoration: none; color: var(--accent); background: var(--accent-soft); border: 1.5px solid var(--accent); border-radius: 6px; padding: 3px 9px; font-variant-numeric: tabular-nums; }
+.djump a:hover { background: var(--card); }
+.dnote { font-size: 14.5px; color: var(--muted); }
 .toc a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 .mobilebar { display: none; }
 /* ---------- Main ---------- */
@@ -203,7 +211,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   .mobilebar a { flex: none; text-decoration: none; color: var(--muted); padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); }
   .mobilebar a.on { color: var(--accent); border-color: var(--accent); }
   header.hero { padding-top: 28px; }
-  h3, h4, [id^="mono-"] { scroll-margin-top: 64px; }
+  h3, h4, [id^="mono-"], [id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 64px; }
   section.chapter { scroll-margin-top: 50px; }
   .chnum { font-size: 56px; }
 }
@@ -260,12 +268,18 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
         <a href="#aufgabe-3-3">Übung: Turm von Hanoi</a>
         <a href="#mono-fallen">Typische Fallen</a>
       </div></li>
+    <li class="topic"><a class="ch" href="#defs"><span class="num">§</span>Alle Definitionen</a>
+      <div class="secs">
+        <a href="#defs-k1">Kapitel 1: Mengen</a>
+        <a href="#defs-k2">Kapitel 2: Reelle Zahlen</a>
+        <a href="#defs-k3">Kapitel 3: Folgen</a>
+      </div></li>
   </ol>
 </nav>
 
 <main>
   <div class="mobilebar" aria-label="Kapitel">
-    <a href="#top">Start</a><a href="#k1">1 · Mengen</a><a href="#k2">2 · Reelle Zahlen</a><a href="#k3">3 · Folgen</a><a href="#monotonie">↗ Monotonie</a>
+    <a href="#top">Start</a><a href="#k1">1 · Mengen</a><a href="#k2">2 · Reelle Zahlen</a><a href="#k3">3 · Folgen</a><a href="#monotonie">↗ Monotonie</a><a href="#defs">§ Definitionen</a>
   </div>
 
   <header class="hero" id="top">
@@ -735,7 +749,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     </table></div>
   </div>
   <div class="merke"><span class="lbl">Merke: so zeigt man s = sup(M)</span><p>Immer zwei Schritte. <b>(a)</b> <i>s</i> ist eine obere Schranke: <span class="m"><i>y</i> ≤ <i>s</i></span> für alle <span class="m"><i>y</i> ∈ <i>M</i></span>. <b>(b)</b> Nichts Kleineres funktioniert: Zu jedem <span class="m">ε &gt; 0</span> gibt es ein <span class="m"><i>y</i> ∈ <i>M</i></span> mit <span class="m"><i>y</i> &gt; <i>s</i> − ε</span>.<br>Bei <span class="m"><i>M</i> = {1 − 1/<i>n</i>}</span>: (a) ist klar, und für (b) nimmst du <i>n</i> &gt; 1/ε, dann ist <span class="m">1 − 1/<i>n</i> &gt; 1 − ε</span>.</p></div>
-  <div class="def"><div class="tag">Definition 2.5 und Axiom 2.6 · Vollständigkeit</div>
+  <div class="def" id="vollstaendig"><div class="tag">Definition 2.5 und Axiom 2.6 · Vollständigkeit</div>
     <p class="formal"><b>ℝ ist vollständig:</b> Hat eine Teilmenge von ℝ mindestens ein Element und eine obere Schranke, dann hat sie auch ein Supremum in ℝ. Ein angeordneter Körper mit dieser Eigenschaft heißt vollständig.</p>
     <p class="plain"><b>Auf Deutsch:</b> In ℝ gibt es keine Löcher. Wo eine Menge „hinstrebt“, da gibt es auch eine Zahl.</p>
   </div>
@@ -1258,7 +1272,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Beispiel</span>
     <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. Den Sinus kennen wir kaum, aber er liegt zwischen −1 und 1. Also gilt <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, beide Seiten gehen gegen 0, also <span class="m"><i>w<sub>n</sub></i> → 0</span>. Ein komplizierteres Beispiel funktioniert genauso: Ein riesiger Nenner wie <span class="m">137<i>n</i><sup>17</sup></span> macht den Bruch kleiner als 1/<i>n</i>.</p>
   </div>
-  <div class="def"><div class="tag">Definition 3.7 und Satz 3.8 · Divergenz und Beschränktheit</div>
+  <div class="def" id="def37"><div class="tag">Definition 3.7 und Satz 3.8 · Divergenz und Beschränktheit</div>
     <p class="formal"><span class="m"><i>x<sub>n</sub></i> → +∞</span>, falls es zu jedem <i>C</i> &gt; 0 ein <i>N</i> gibt mit <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>Beschränkt heißt: es gibt <i>K</i> mit <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> für alle <i>n</i>. <b>Jede konvergente Folge ist beschränkt.</b></p>
     <p class="plain"><b>Auf Deutsch:</b> „Gegen unendlich“ heißt, die Folge übersteigt jede Schranke und bleibt darüber. Und konvergente Folgen können nicht ausbrechen: Ab <i>N</i> sind alle Glieder nah am Grenzwert, und davor gibt es nur endlich viele.</p>
   </div>
@@ -1337,6 +1351,113 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <details><summary>Bestimme limsup und liminf von xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Gerade <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Ungerade <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. Also limsup = 1, liminf = −1, die Folge konvergiert nicht.</p></div></details>
     <details><summary>Wahr oder falsch: Jede monotone Folge konvergiert.</summary><div class="ans"><p>Falsch. Es braucht zusätzlich Beschränktheit. Gegenbeispiel: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> ist monoton wachsend und geht gegen +∞.</p></div></details>
     <details><summary>Gegen was konvergiert (n² − 4n) / (2n² + 7)?</summary><div class="ans"><p>Durch <i>n</i>² teilen: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
+  </div>
+</section>
+
+<!-- =================================================================== DEFINITIONEN -->
+<section class="chapter" id="defs">
+  <div class="chhead"><div class="chnum">§</div><div><h2>Alle Definitionen</h2></div></div>
+  <p>Zum Nachschlagen beim Üben: Steht in einer Aufgabe „nach Definition 3.1“, findest du sie hier unter derselben Nummer. Jede Box hat die formale Definition, eine kurze Übersetzung und einen Link zur ausführlichen Erklärung mit Beispielen.</p>
+  <nav class="djump" aria-label="Definition nach Nummer">
+    <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
+    <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-7">3.7</a><a href="#def-3-11">3.11</a>
+  </nav>
+  <p class="dnote">Nummern, die hier fehlen (etwa 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4–3.6, 3.8–3.10, 3.12, 3.13), gehören zu Axiomen, Sätzen und Lemmata. Die stehen in den Kapiteln oben unter derselben Nummer.</p>
+
+  <h3 id="defs-k1"><span class="sn">1</span>Mengenterminologie</h3>
+  <div class="def" id="def-1-1"><div class="tag">Definition 1.1 · Teilmenge</div>
+    <p class="formal"><i>B</i> heißt Teilmenge von <i>A</i>, geschrieben <span class="m"><i>B</i> ⊆ <i>A</i></span>, falls <span class="m"><i>x</i> ∈ <i>A</i></span> für alle <span class="m"><i>x</i> ∈ <i>B</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Alles, was in <i>B</i> steckt, steckt auch in <i>A</i>.</p>
+    <p class="more"><a href="#k1-1">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-1-2"><div class="tag">Definition 1.2 · injektiv, surjektiv, bijektiv</div>
+    <p class="formal">Eine Funktion <span class="m"><i>f</i> : <i>A</i> → <i>B</i></span> heißt<br>
+      <b>injektiv</b>, falls <span class="m">∀<i>x</i>, <i>y</i> ∈ <i>A</i> : <i>x</i> ≠ <i>y</i> ⇒ <i>f</i>(<i>x</i>) ≠ <i>f</i>(<i>y</i>)</span>,<br>
+      <b>surjektiv</b>, falls <span class="m">∀<i>y</i> ∈ <i>B</i> ∃<i>x</i> ∈ <i>A</i> : <i>f</i>(<i>x</i>) = <i>y</i></span>,<br>
+      <b>bijektiv</b>, falls <i>f</i> injektiv und surjektiv ist.<br>
+      Man nennt <i>f</i> dann auch Injektion, Surjektion bzw. Bijektion.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Injektiv: verschiedene Eingaben geben verschiedene Ausgaben. Surjektiv: jedes Element von <i>B</i> wird getroffen. Bijektiv: beides, also eine perfekte Paarung.</p>
+    <p class="more"><a href="#k1-3">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-1-6"><div class="tag">Definition 1.6 · abzählbar</div>
+    <p class="formal">Eine Menge <i>A</i> heißt abzählbar, falls <span class="m">|<i>A</i>| = |ℕ|</span>. Man schreibt <span class="m">|<i>A</i>| = ℵ<sub>0</sub></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Man kann die Elemente als Liste „erstes, zweites, drittes, …“ durchnummerieren, sodass jedes irgendwann drankommt. ℕ, ℤ und ℚ sind abzählbar, ℝ nicht.</p>
+    <p class="more"><a href="#k1-5">Ausführlich mit Beispielen →</a></p>
+  </div>
+
+  <h3 id="defs-k2"><span class="sn">2</span>Reelle Zahlen und Vektoren</h3>
+  <div class="def" id="def-2-1"><div class="tag">Definition 2.1 · Körper, angeordneter Körper</div>
+    <p class="formal">Ein <b>Körper</b> <span class="m">(<i>F</i>, +, ·)</span> ist eine Menge <i>F</i> mit zwei Operationen + und ·, sodass für alle <span class="m"><i>x</i>, <i>y</i>, <i>z</i> ∈ <i>F</i></span> gilt:<br>
+      (1) <span class="m">(<i>x</i>+<i>y</i>)+<i>z</i> = <i>x</i>+(<i>y</i>+<i>z</i>)</span>, (2) <span class="m"><i>x</i>+<i>y</i> = <i>y</i>+<i>x</i></span>, (3) es gibt <span class="m">0 ∈ <i>F</i></span> mit <span class="m"><i>x</i>+0 = <i>x</i></span>, (4) zu jedem <i>x</i> gibt es <i>y</i> mit <span class="m"><i>x</i>+<i>y</i> = 0</span>,<br>
+      (5) <span class="m">(<i>xy</i>)<i>z</i> = <i>x</i>(<i>yz</i>)</span>, (6) <span class="m"><i>xy</i> = <i>yx</i></span>, (7) es gibt <span class="m">1 ∈ <i>F</i></span> mit <span class="m"><i>x</i>·1 = <i>x</i></span>, (8) zu jedem <span class="m"><i>x</i> ≠ 0</span> gibt es <i>y</i> mit <span class="m"><i>xy</i> = 1</span>,<br>
+      (9) <span class="m"><i>x</i>(<i>y</i>+<i>z</i>) = <i>xy</i>+<i>xz</i></span>.<br>
+      Er heißt <b>angeordnet</b>, falls es eine Relation &lt; gibt mit: (1) für jedes <i>x</i> gilt genau eins von <span class="m"><i>x</i> &gt; 0</span>, <span class="m"><i>x</i> &lt; 0</span>, <span class="m"><i>x</i> = 0</span>; (2) <span class="m"><i>x</i>, <i>y</i> &gt; 0 ⇒ <i>x</i>+<i>y</i> &gt; 0</span> und <span class="m"><i>xy</i> &gt; 0</span>; (3) <span class="m"><i>x</i> &gt; <i>y</i> ⇔ <i>x</i>−<i>y</i> &gt; 0</span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Ein Körper ist eine Zahlenwelt, in der man wie in der Schule rechnen kann, inklusive Teilen durch alles außer 0. Angeordnet heißt, man kann zusätzlich sinnvoll „größer“ und „kleiner“ sagen. ℚ und ℝ sind angeordnete Körper, ℂ ist ein Körper ohne Anordnung, ℕ und ℤ sind keine Körper.</p>
+    <p class="more"><a href="#k2-1">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-2"><div class="tag">Definition 2.2 · obere Schranke, nach oben beschränkt</div>
+    <p class="formal">Eine Zahl <i>x</i> heißt obere Schranke von <span class="m"><i>M</i> ⊆ ℝ</span>, falls <span class="m"><i>y</i> ≤ <i>x</i></span> für alle <span class="m"><i>y</i> ∈ <i>M</i></span>. <i>M</i> heißt <b>nach oben beschränkt</b>, falls es eine endliche obere Schranke gibt, sonst <b>nach oben unbeschränkt</b>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Eine obere Schranke ist eine „Decke“, über die kein Element von <i>M</i> hinausragt. Untere Schranke und „nach unten beschränkt“ gehen genauso, nur mit ≥.</p>
+    <p class="more"><a href="#k2-2">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-3"><div class="tag">Definition 2.3 · Maximum</div>
+    <p class="formal"><span class="m"><i>x</i> ∈ ℝ</span> heißt Maximum von <span class="m"><i>M</i> ⊆ ℝ</span>, falls <span class="m"><i>x</i> ∈ <i>M</i></span> und <span class="m"><i>y</i> ≤ <i>x</i></span> für alle <span class="m"><i>y</i> ∈ <i>M</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Das größte Element, und es muss selbst in <i>M</i> liegen. <span class="m">(0, 1)</span> hat zum Beispiel kein Maximum. Das Minimum ist das Gegenstück nach unten.</p>
+    <p class="more"><a href="#maxminsup">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-4"><div class="tag">Definition 2.4 · Supremum</div>
+    <p class="formal"><span class="m"><i>s</i> ∈ ℝ</span> heißt Supremum von <span class="m"><i>M</i> ⊆ ℝ</span>, falls <i>s</i> eine obere Schranke von <i>M</i> ist und <span class="m"><i>s</i> ≤ <i>x</i></span> für jede obere Schranke <i>x</i> von <i>M</i>. Man schreibt <span class="m">sup(<i>M</i>)</span>. Konvention: <span class="m">sup(∅) = −∞</span> und <span class="m">sup(<i>M</i>) = +∞</span>, falls <i>M</i> nach oben unbeschränkt ist.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Die kleinste obere Schranke, also die tiefste Decke, die noch passt. Sie ist eindeutig und muss nicht in <i>M</i> liegen. Das Infimum <span class="m">inf(<i>M</i>)</span> ist die größte untere Schranke (mit <span class="m">inf(∅) = +∞</span>).</p>
+    <p class="more"><a href="#k2-2">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-5"><div class="tag">Definition 2.5 · vollständig</div>
+    <p class="formal">Ein angeordneter Körper heißt vollständig, falls jede nicht leere, nach oben beschränkte Teilmenge ein Supremum besitzt.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Es gibt keine Löcher. ℝ ist vollständig (Axiom 2.6), ℚ nicht, weil zum Beispiel <span class="m">{<i>x</i> ∈ ℚ : <i>x</i>² &lt; 2}</span> kein Supremum in ℚ hat.</p>
+    <p class="more"><a href="#vollstaendig">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-8"><div class="tag">Definition 2.8 · Umgebung</div>
+    <p class="formal">Sei <span class="m"><i>x</i> ∈ ℝ</span>. Ein offenes Intervall <span class="m">(<i>a</i>, <i>b</i>)</span> heißt Umgebung von <i>x</i>, falls <span class="m"><i>x</i> ∈ (<i>a</i>, <i>b</i>)</span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Ein kleines offenes Stück Zahlengerade rund um <i>x</i>.</p>
+    <p class="more"><a href="#k2-3">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-9"><div class="tag">Definition 2.9 · offen</div>
+    <p class="formal"><span class="m"><i>A</i> ⊆ ℝ</span> heißt offen, falls es für jedes <span class="m"><i>x</i> ∈ <i>A</i></span> eine Umgebung <span class="m"><i>I<sub>x</sub></i></span> von <i>x</i> gibt mit <span class="m"><i>I<sub>x</sub></i> ⊆ <i>A</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Jeder Punkt von <i>A</i> hat links und rechts noch etwas „Luft“, die ganz in <i>A</i> liegt. Randpunkte gehören also nicht dazu.</p>
+    <p class="more"><a href="#k2-3">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-2-10"><div class="tag">Definition 2.10 · abgeschlossen</div>
+    <p class="formal"><span class="m"><i>A</i> ⊆ ℝ</span> heißt abgeschlossen, falls <span class="m">ℝ \ <i>A</i></span> offen ist.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Das Komplement ist offen, anschaulich: <i>A</i> enthält seine Randpunkte. Achtung, „nicht offen“ heißt nicht „abgeschlossen“, <span class="m">[<i>a</i>, <i>b</i>)</span> ist keins von beiden.</p>
+    <p class="more"><a href="#k2-3">Ausführlich mit Beispielen →</a></p>
+  </div>
+
+  <h3 id="defs-k3"><span class="sn">3</span>Folgen</h3>
+  <div class="def" id="def-3-1"><div class="tag">Definition 3.1 · Folge</div>
+    <p class="formal">Sei <i>M</i> eine Menge (z. B. <span class="m"><i>M</i> = ℝ</span> oder <span class="m">ℝ<sup><i>n</i></sup></span>). Eine Folge mit Werten in <i>M</i> ist eine Abbildung <span class="m">ℕ<sub>+</sub> → <i>M</i></span> (oder <span class="m">ℕ → <i>M</i></span>). Man schreibt <span class="m"><i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, <i>x</i><sub>3</sub>, …</span> oder <span class="m"><i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, …</span></p>
+    <p class="plain"><b>Auf Deutsch:</b> Eine unendlich lange, durchnummerierte Liste. Sie kann explizit (<span class="m"><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup></span>) oder rekursiv (<span class="m"><i>x</i><sub>0</sub> = 1, <i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span>) gegeben sein.</p>
+    <p class="more"><a href="#k3-1">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-2"><div class="tag">Definition 3.2 · monoton</div>
+    <p class="formal">Eine Folge heißt <b>monoton wachsend</b>, falls <span class="m"><i>x<sub>n</sub></i> ≤ <i>x</i><sub><i>n</i>+1</sub></span> für alle <i>n</i>, und <b>streng monoton wachsend</b>, falls <span class="m"><i>x<sub>n</sub></i> &lt; <i>x</i><sub><i>n</i>+1</sub></span> für alle <i>n</i>. Analog: <b>(streng) monoton fallend</b> mit ≥ bzw. &gt;.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Man vergleicht jedes Glied mit seinem Nachfolger. „Monoton“ erlaubt Stillstand, „streng“ verlangt in jedem Schritt eine echte Änderung.</p>
+    <p class="more"><a href="#monotonie">Ausführlich mit Rezept und Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-3"><div class="tag">Definition 3.3 · Grenzwert</div>
+    <p class="formal">Sei <span class="m">(<i>x<sub>n</sub></i>)</span> eine reelle Folge. <span class="m"><i>x</i> ∈ ℝ</span> heißt Grenzwert (Limes) von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es zu jedem <span class="m">ε &gt; 0</span> ein <i>N</i> gibt, sodass <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>. Man schreibt <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> oder <span class="m"><i>x</i> = lim<sub><i>n</i>→∞</sub> <i>x<sub>n</sub></i></span> und sagt, <span class="m">(<i>x<sub>n</sub></i>)</span> konvergiert gegen <i>x</i>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Egal wie schmal der Streifen um <i>x</i> ist, ab einem Index <i>N</i> liegen alle Folgenglieder darin.</p>
+    <p class="more"><a href="#k3-2">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-7"><div class="tag">Definition 3.7 · gegen ±∞, beschränkte Folge</div>
+    <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> geht gegen <span class="m">+∞</span>, falls es zu jedem <span class="m"><i>C</i> &gt; 0</span> ein <span class="m"><i>N</i> ∈ ℕ</span> gibt mit <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>. <span class="m">(<i>x<sub>n</sub></i>)</span> geht gegen <span class="m">−∞</span>, falls <span class="m">(−<i>x<sub>n</sub></i>)</span> gegen <span class="m">+∞</span> geht.<br>
+      Eine Folge heißt <b>beschränkt</b>, falls die Menge <span class="m">{<i>x<sub>n</sub></i> : <i>n</i> ∈ ℕ}</span> beschränkt ist, d. h. es gibt <span class="m"><i>K</i> &gt; 0</span> mit <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> für alle <i>n</i>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> „Gegen +∞“ heißt, die Folge überholt jede Schranke und bleibt darüber. „Beschränkt“ heißt, alle Glieder passen in einen festen Streifen <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
+    <p class="more"><a href="#def37">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Teilfolge, Häufungspunkt</div>
+    <p class="formal">Ist <span class="m">(<i>x<sub>n</sub></i>)</span> eine reelle Folge und sind <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> natürliche Zahlen, so heißt <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> Teilfolge von <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> heißt <b>Häufungspunkt</b> von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es eine Teilfolge gibt mit <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Eine Teilfolge wählt unendlich viele Glieder aus und behält die Reihenfolge. Ein Häufungspunkt ist ein Wert, dem die Folge immer wieder beliebig nahe kommt. <span class="m">(−1)<sup><i>n</i></sup></span> hat die Häufungspunkte 1 und −1.</p>
+    <p class="more"><a href="#k3-5">Ausführlich mit Beispielen →</a></p>
   </div>
 </section>
 
@@ -1448,7 +1569,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     for (var j = 0; j < targets.length; j++) { var t = targets[j].getBoundingClientRect().top; if (t < 140 && t > best) { best = t; cur = j; } }
     links.forEach(function (a, j) { a.classList.toggle("on", j === cur && window.scrollY > 200); });
     var ch = "top", chBest = -Infinity;
-    [["k1", "k1"], ["k2", "k2"], ["k3", "k3"], ["monotonie", "monotonie"], ["k3-2", "k3"]].forEach(function (p) { var t = document.getElementById(p[0]).getBoundingClientRect().top; if (t < 120 && t > chBest) { chBest = t; ch = p[1]; } });
+    [["k1", "k1"], ["k2", "k2"], ["k3", "k3"], ["monotonie", "monotonie"], ["k3-2", "k3"], ["defs", "defs"]].forEach(function (p) { var t = document.getElementById(p[0]).getBoundingClientRect().top; if (t < 120 && t > chBest) { chBest = t; ch = p[1]; } });
     mlinks.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + ch); });
   }
   window.addEventListener("scroll", spy, { passive: true });
