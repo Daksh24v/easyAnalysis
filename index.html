@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Geist+Mono:wght@400;600&family=STIX+Two+Text:ital@0;1&display=swap">
+<script>try { var th = localStorage.getItem("theme"); if (th === "dark" || th === "light") { document.documentElement.setAttribute("data-theme", th); document.documentElement.classList.toggle("dark", th === "dark"); } } catch (e) {}</script>
 <style>
 /* Layout: eine annotierte Lernseite. Kästchenpapier-Grund, schmale Lesespalte, links ein Inhaltsverzeichnis wie Register-Reiter. */
 :root {
@@ -393,6 +394,22 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 .dash { width: 100%; margin: 0 auto; }
 .dash a { align-items: center; justify-content: center; text-align: center; padding: 18px 16px; }
 @media (max-width: 520px) { .dash a { padding: 15px 10px; } .hero h1.big { margin-bottom: 32px; } }
+
+/* Hell/Dunkel-Umschalter mit Kreis-Übergang */
+.toc .tools { display: flex; align-items: center; gap: 8px; margin: -8px 0 14px; }
+.toc .tools .langbtn { margin: 0; }
+.themebtn { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 34px; height: 34px; padding: 0; border-radius: 999px; cursor: pointer;
+  color: var(--ink-strong); background: color-mix(in srgb, var(--card) 70%, transparent); border: 1.5px solid var(--line); transition: border-color .15s; }
+.themebtn:hover { border-color: var(--accent); }
+.themebtn svg { width: 18px; height: 18px; display: none; }
+.themebtn svg.on { display: block; animation: theme-icon .33s ease-out; }
+.hero .themebtn { color: var(--h-fg); background: var(--h-glass); border: 1px solid var(--h-border); }
+.hero .themebtn:hover { background: var(--h-glass-hover); border-color: var(--h-border-hover); }
+.mobilebar .themebtn { width: 31px; height: 31px; }
+@keyframes theme-icon { from { opacity: 0; transform: scale(0.55) rotate(var(--rot, 25deg)); } to { opacity: 1; transform: scale(1) rotate(0); } }
+.themebtn svg.moon { --rot: -25deg; }
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+@media (prefers-reduced-motion: reduce) { .themebtn svg.on { animation: none; } }
 </style>
 
 <header class="hero" id="top">
@@ -401,6 +418,7 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
   <div class="hero-top">
     <a class="hbrand" href="#top">Easy <span>Analysis</span></a>
     <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <button type="button" class="themebtn" aria-label="Hell oder dunkel umschalten" data-en-aria-label="Switch theme"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
     <a class="hfb glass" href="#feedback">✉ <span class="hfbt" data-en="Feedback">Feedback</span></a>
   </div>
   <div class="hero-inner">
@@ -420,7 +438,7 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 <nav class="toc" aria-label="Inhalt" data-en-aria-label="Contents">
   <div class="brand"><a href="#top">Easy <span>Analysis</span></a></div>
   <p class="src" data-en="My own explanations for an analysis lecture">Eigene Erklärungen zu einer Analysis-Vorlesung</p>
-  <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <div class="tools"><button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><button type="button" class="themebtn" aria-label="Hell oder dunkel umschalten" data-en-aria-label="Switch theme"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button></div>
   <a class="fblink" href="#feedback">✉ <span data-en="Give feedback">Feedback geben</span></a>
   <ol>
     <li><a class="ch" href="#k1"><span class="num">1</span><span data-en="Set terminology">Mengenterminologie</span></a>
@@ -476,7 +494,7 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 
 <main>
   <div class="mobilebar" aria-label="Kapitel" data-en-aria-label="Chapters">
-    <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1" data-en="1 · Sets">1 · Mengen</a><a href="#k2" data-en="2 · Real numbers">2 · Reelle Zahlen</a><a href="#k3" data-en="3 · Sequences">3 · Folgen</a><a href="#monotonie" data-en="↗ Monotonicity">↗ Monotonie</a><a href="#defs" data-en="§ Definitions">§ Definitionen</a>
+    <button type="button" class="langbtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="langmenu" aria-label="Sprache: Deutsch" data-en-aria-label="Language: English"><span class="lflag"><svg class="flag" viewBox="0 0 5 3" aria-hidden="true"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg></span><span class="llabel">Deutsch</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><button type="button" class="themebtn" aria-label="Hell oder dunkel umschalten" data-en-aria-label="Switch theme"><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button><a href="#top">Start</a><a href="#feedback">✉ Feedback</a><a href="#k1" data-en="1 · Sets">1 · Mengen</a><a href="#k2" data-en="2 · Real numbers">2 · Reelle Zahlen</a><a href="#k3" data-en="3 · Sequences">3 · Folgen</a><a href="#monotonie" data-en="↗ Monotonicity">↗ Monotonie</a><a href="#defs" data-en="§ Definitions">§ Definitionen</a>
   </div>
 
 
@@ -3079,6 +3097,43 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 
   window.addEventListener("scroll", spy, { passive: true });
   spy();
+})();
+</script>
+<script>
+/* Hell/Dunkel: Wahl in localStorage "theme", ohne Wahl gilt die Systemeinstellung. Mit View Transitions wächst das neue Design als Kreis aus dem Knopf. */
+(function () {
+  var root = document.documentElement, sys = window.matchMedia("(prefers-color-scheme: dark)");
+  var btns = Array.prototype.slice.call(document.querySelectorAll(".themebtn"));
+  function isDark() { var t = root.getAttribute("data-theme"); return t ? t === "dark" : sys.matches; }
+  function icons() {
+    var d = isDark();
+    btns.forEach(function (b) {
+      b.querySelector(".sun").classList.toggle("on", d);
+      b.querySelector(".moon").classList.toggle("on", !d);
+      b.setAttribute("aria-pressed", d ? "true" : "false");
+    });
+  }
+  function apply(dark) {
+    root.setAttribute("data-theme", dark ? "dark" : "light");
+    root.classList.toggle("dark", dark);
+    try { localStorage.setItem("theme", dark ? "dark" : "light"); } catch (e) {}
+    icons();
+  }
+  btns.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var next = !isDark();
+      var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!document.startViewTransition || still) { apply(next); return; }
+      var r = b.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+      var max = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+      document.startViewTransition(function () { apply(next); }).ready.then(function () {
+        root.animate({ clipPath: ["circle(0px at " + x + "px " + y + "px)", "circle(" + max + "px at " + x + "px " + y + "px)"] },
+          { duration: 700, easing: "ease-in-out", pseudoElement: "::view-transition-new(root)" });
+      }).catch(function () {});
+    });
+  });
+  if (sys.addEventListener) sys.addEventListener("change", icons);
+  icons();
 })();
 </script>
 <script>
