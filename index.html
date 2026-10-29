@@ -315,20 +315,13 @@ a.btnlink.ghost { color: var(--accent); background: var(--card); }
 .hero a.btnlink.primary { background: #fafafa; border-color: #fafafa; color: #09090b; box-shadow: 0 8px 30px -8px rgba(255, 255, 255, 0.45); }
 .hero a.btnlink.ghost { color: #fafafa; border: 1px solid rgba(255, 255, 255, 0.22); background: rgba(255, 255, 255, 0.07); }
 a.btnlink:hover { transform: translateY(-1px); }
-.dash { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; max-width: 900px; }
-.dash a { display: flex; flex-direction: column; gap: 4px; padding: 15px 17px 16px; border-radius: var(--radius); color: var(--h-fg); text-decoration: none; transition: border-color .15s, transform .15s, background-color .15s; }
-.dash a:hover { border-color: var(--h-border-hover); background: var(--h-glass-hover); transform: translateY(-2px); }
-.dash .ti { font-family: var(--f-mono); font-size: 11.5px; color: var(--h-accent); letter-spacing: 0.08em; text-transform: uppercase; }
-.dash .tt { font-weight: 800; font-size: 17px; line-height: 1.2; }
-.dash .td { font-family: var(--f-body); font-size: 14px; color: #c4c4cc; line-height: 1.4; }
-.dash a.fbtile { background: linear-gradient(var(--accent-soft), var(--accent-soft)), var(--h-glass); border-color: var(--h-border-hover); }
 .hero .down { font-size: 13.5px; color: var(--h-muted); text-decoration: none; align-self: center; margin-top: 18px; }
 .hero .down:hover { color: var(--h-accent); }
 .hero a:focus-visible, .hero button:focus-visible { outline: 2px solid var(--h-accent); outline-offset: 2px; }
 .legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; font-family: var(--f-display); font-size: 13.5px; color: var(--muted); background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius); padding: 12px 16px; box-shadow: var(--shadow); }
 .legend .lt { font-weight: 700; color: var(--ink); }
 .legend .howto { display: contents; }
-@media (prefers-reduced-motion: reduce) { .dash a, a.btnlink { transition: none; } .dash a:hover, a.btnlink:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { a.btnlink { transition: none; } a.btnlink:hover { transform: none; } }
 
 /* Sprachwahl als Dropdown */
 .langbtn { display: inline-flex; align-items: center; gap: 8px; flex: none; font-family: var(--f-display); font-size: 14px; font-weight: 600; color: var(--ink);
@@ -359,16 +352,12 @@ a.btnlink:hover { transform: translateY(-1px); }
   header.hero { margin: 0; border-radius: 0 0 26px 26px; min-height: 100vh; min-height: 100svh;
     padding: max(14px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 22px max(16px, env(safe-area-inset-left, 0px)); }
   .hero-inner { padding-top: 36px; }
-  .dash { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .shell { padding-block: 0 72px; }
   .mobilebar { background: color-mix(in srgb, var(--paper) 82%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); align-items: center; }
   .mobilebar .langbtn { padding: 4px 8px 4px 10px; font-size: 13.5px; }
   .legend { margin-top: 20px; }
 }
 @media (max-width: 520px) {
-  .dash { gap: 9px; }
-  .dash a { padding: 12px 13px; border-radius: 14px; }
-  .dash .td { font-size: 13.5px; }
   .hero .cta { margin-bottom: 28px; }
   .hero-top a.hfb .hfbt { display: none; }
   .mobilebar .langbtn .llabel { display: none; }
@@ -391,9 +380,7 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 /* Startseite schlicht: nur Titel in der Mitte, darunter Kacheln mit Überschrift */
 .hero-inner { align-items: center; text-align: center; }
 .hero h1.big { max-width: none; margin: 0 0 44px; }
-.dash { width: 100%; margin: 0 auto; }
-.dash a { align-items: center; justify-content: center; text-align: center; padding: 18px 16px; }
-@media (max-width: 520px) { .dash a { padding: 15px 10px; } .hero h1.big { margin-bottom: 32px; } }
+@media (max-width: 520px) { .hero h1.big { margin-bottom: 32px; } }
 
 /* Hell/Dunkel-Umschalter mit Kreis-Übergang */
 .toc .tools { display: flex; align-items: center; gap: 8px; margin: -8px 0 14px; }
@@ -410,6 +397,46 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
 .themebtn svg.moon { --rot: -25deg; }
 ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 @media (prefers-reduced-motion: reduce) { .themebtn svg.on { animation: none; } }
+
+/* Startseiten-Karten mit Glanz und Holofolie (nach GlareCard) */
+.cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; width: 100%; max-width: 1120px; margin: 0 auto; }
+a.glare { --m-x: 50%; --m-y: 50%; --r-x: 0deg; --r-y: 0deg; --bg-x: 50%; --bg-y: 50%; --duration: 300ms; --opacity: 0; --easing: ease; --gc-r: 22px;
+  position: relative; isolation: isolate; display: block; aspect-ratio: 17 / 21; perspective: 600px; text-decoration: none; color: #faf9f5; contain: layout style; }
+.gc-in { position: absolute; inset: 0; display: grid; border-radius: var(--gc-r); overflow: hidden; border: 1px solid var(--gc-border);
+  background: var(--gc-bg); box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.55);
+  transform: rotateY(var(--r-x)) rotateX(var(--r-y)); transform-origin: center; transition: transform var(--duration) var(--easing); will-change: transform; }
+.gc-in > * { grid-area: 1 / 1; }
+a.glare:hover { --opacity: 0.6; --easing: linear; }
+.gc-art { display: flex; align-items: center; justify-content: center; padding: 16% 12% 38%; color: var(--h-accent);
+  background: radial-gradient(120% 80% at 50% 25%, var(--gc-tint) 0%, transparent 70%); }
+.gc-art svg { width: 100%; height: auto; overflow: visible; }
+.gc-art .l { fill: none; stroke: rgba(250, 249, 245, 0.55); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.gc-art .d { fill: rgba(250, 249, 245, 0.8); }
+.gc-txt { align-self: end; display: flex; flex-direction: column; gap: 3px; padding: 0 14px 14px; text-align: left; font-family: var(--f-display); position: relative; z-index: 1; }
+.gc-txt .ti { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--h-accent); }
+.gc-txt .tt { font-weight: 700; font-size: 16px; line-height: 1.15; color: #faf9f5; text-wrap: balance; }
+.gc-glare { pointer-events: none; mix-blend-mode: soft-light; opacity: var(--opacity); transition: opacity var(--duration) var(--easing);
+  background: radial-gradient(farthest-corner circle at var(--m-x) var(--m-y), rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.65) 20%, rgba(255, 255, 255, 0) 90%); }
+.gc-foil { --step: 5%; pointer-events: none; position: relative; mix-blend-mode: color-dodge; opacity: var(--opacity); transition: opacity var(--duration) var(--easing);
+  --rainbow: repeating-linear-gradient(0deg, rgb(255, 119, 115) calc(var(--step) * 1), rgb(255, 237, 95) calc(var(--step) * 2), rgb(168, 255, 95) calc(var(--step) * 3), rgb(131, 255, 247) calc(var(--step) * 4), rgb(120, 148, 255) calc(var(--step) * 5), rgb(216, 117, 255) calc(var(--step) * 6), rgb(255, 119, 115) calc(var(--step) * 7)) 0% var(--bg-y) / 200% 700% no-repeat;
+  --diagonal: repeating-linear-gradient(128deg, #1a1915 0%, hsl(30, 12%, 60%) 3.8%, hsl(30, 12%, 60%) 4.5%, hsl(30, 12%, 60%) 5.2%, #1a1915 10%, #1a1915 12%) var(--bg-x) var(--bg-y) / 300% no-repeat;
+  --shade: radial-gradient(farthest-corner circle at var(--m-x) var(--m-y), rgba(255, 255, 255, 0.1) 12%, rgba(255, 255, 255, 0.15) 20%, rgba(255, 255, 255, 0.25) 120%) var(--bg-x) var(--bg-y) / 300% no-repeat;
+  background: var(--rainbow), var(--diagonal), var(--shade); background-blend-mode: hue, hue, overlay; }
+.gc-foil::after { content: ""; position: absolute; inset: 0; background: inherit; mix-blend-mode: exclusion;
+  background-size: 200% 400%, 800%, 200%; background-position: 0% var(--bg-y), calc(var(--bg-x) * -1) calc(var(--bg-y) * -1), var(--bg-x) var(--bg-y); background-blend-mode: hue, hard-light; }
+a.glare:focus-visible { outline: none; }
+a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offset: 3px; }
+:root { --gc-bg: #28261b; --gc-border: rgba(61, 57, 41, 0.35); --gc-tint: rgba(201, 100, 66, 0.28); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --gc-bg: #1a1915; --gc-border: #3e3e38; --gc-tint: rgba(217, 119, 87, 0.22); } }
+:root[data-theme="dark"] { --gc-bg: #1a1915; --gc-border: #3e3e38; --gc-tint: rgba(217, 119, 87, 0.22); }
+/* Ohne Maus (Handy): ruhiger, dezenter Glanz oben links */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  a.glare, a.glare:hover { --opacity: 0.35; --m-x: 20%; --m-y: 10%; }
+  .gc-foil { display: none; }
+  .gc-in { transition: none; transform: none; }
+}
+@media (max-width: 1100px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 640px; } }
+@media (max-width: 520px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .gc-txt { padding: 0 12px 12px; } .gc-txt .tt { font-size: 15px; } }
 </style>
 
 <header class="hero" id="top">
@@ -423,13 +450,13 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
   </div>
   <div class="hero-inner">
     <h1 class="big">Easy <em>Analysis</em></h1>
-    <nav class="dash" aria-label="Übersicht" data-en-aria-label="Overview">
-      <a class="glass" href="#k1"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span></a>
-      <a class="glass" href="#k2"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span></a>
-      <a class="glass" href="#k3"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span></a>
-      <a class="glass" href="#monotonie"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="↗ Monotonicity">↗ Monotonie</span></a>
-      <a class="glass" href="#defs"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="§ All definitions">§ Alle Definitionen</span></a>
-      <a class="glass fbtile" href="#feedback"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="✉ Feedback">✉ Feedback</span></a>
+    <nav class="cards" aria-label="Übersicht" data-en-aria-label="Overview">
+      <a class="glare" href="#k1"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><circle cx="46" cy="45" r="27" class="l"/><circle cx="74" cy="45" r="27" class="l"/><path d="M60 22.4a27 27 0 0 1 0 45.2a27 27 0 0 1 0-45.2Z" fill="currentColor" fill-opacity="0.85" stroke="none"/><circle cx="34" cy="40" r="2.6" class="d"/><circle cx="40" cy="55" r="2.6" class="d"/><circle cx="86" cy="38" r="2.6" class="d"/><circle cx="82" cy="56" r="2.6" class="d"/></svg></span><span class="gc-txt"><span class="ti" data-en="Chapter 1">Kapitel 1</span><span class="tt" data-en="Sets">Mengen</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
+      <a class="glare" href="#k2"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M10 64h100M104 59l6 5-6 5" class="l"/><path d="M22 60v8M42 60v8M62 60v8M82 60v8" class="l" stroke-width="2"/><path d="M22 64L78 20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 20h12v12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="64" r="4" fill="currentColor"/></svg></span><span class="gc-txt"><span class="ti" data-en="Chapter 2">Kapitel 2</span><span class="tt" data-en="Real numbers &amp; vectors">Reelle Zahlen &amp; Vektoren</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
+      <a class="glare" href="#k3"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M8 45h104" class="l" stroke-dasharray="4 5" stroke-width="2"/><circle cx="14" cy="75.0" r="4.2" fill="currentColor"/><circle cx="26" cy="28.9" r="4.0" fill="currentColor"/><circle cx="38" cy="56.2" r="3.7" fill="currentColor"/><circle cx="50" cy="36.4" r="3.5" fill="currentColor"/><circle cx="62" cy="52.0" r="3.2" fill="currentColor"/><circle cx="74" cy="39.0" r="3.0" fill="currentColor"/><circle cx="86" cy="50.2" r="2.7" fill="currentColor"/><circle cx="98" cy="40.4" r="2.5" fill="currentColor"/><circle cx="110" cy="49.2" r="2.2" fill="currentColor"/></svg></span><span class="gc-txt"><span class="ti" data-en="Chapter 3">Kapitel 3</span><span class="tt" data-en="Sequences">Folgen</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
+      <a class="glare" href="#monotonie"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M14 76V62h18V50h18V38h18V26h18V14h18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 76h96" class="l" stroke-width="2"/><circle cx="23" cy="62" r="3.4" class="d"/><circle cx="41" cy="50" r="3.4" class="d"/><circle cx="59" cy="38" r="3.4" class="d"/><circle cx="77" cy="26" r="3.4" class="d"/><circle cx="95" cy="14" r="3.4" class="d"/></svg></span><span class="gc-txt"><span class="ti" data-en="Topic">Thema</span><span class="tt" data-en="Monotonicity">Monotonie</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
+      <a class="glare" href="#defs"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M60 22c-10-7-26-8-40-5v54c14-3 30-2 40 5c10-7 26-8 40-5V17c-14-3-30-2-40 5Z" class="l"/><path d="M60 22v54" class="l" stroke-width="2"/><path d="M28 32h22M28 42h22M28 52h16M70 32h22M70 42h22M70 52h18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="gc-txt"><span class="ti" data-en="Look up">Nachschlagen</span><span class="tt" data-en="All definitions">Alle Definitionen</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
+      <a class="glare" href="#feedback"><span class="gc-in"><span class="gc-art"><svg viewBox="0 0 120 90" aria-hidden="true"><path d="M22 16h76a10 10 0 0 1 10 10v30a10 10 0 0 1-10 10H50L32 80V66H22a10 10 0 0 1-10-10V26a10 10 0 0 1 10-10Z" class="l"/><circle cx="44" cy="41" r="4.5" fill="currentColor"/><circle cx="60" cy="41" r="4.5" fill="currentColor"/><circle cx="76" cy="41" r="4.5" fill="currentColor"/></svg></span><span class="gc-txt"><span class="ti" data-en="Your opinion">Deine Meinung</span><span class="tt" data-en="Feedback">Feedback</span></span><span class="gc-glare" aria-hidden="true"></span><span class="gc-foil" aria-hidden="true"></span></span></a>
     </nav>
   </div>
   <a class="down" href="#k1" data-en="Scroll down to the chapters ↓">Runterscrollen zu den Kapiteln ↓</a>
@@ -3134,6 +3161,36 @@ h2, h3, h4, .quiz .qh, .fb h2 { color: var(--ink-strong); }
   });
   if (sys.addEventListener) sys.addEventListener("change", icons);
   icons();
+})();
+</script>
+<script>
+/* Karten neigen sich zur Maus, Glanz und Folie folgen dem Zeiger */
+(function () {
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)"), still = window.matchMedia("(prefers-reduced-motion: reduce)");
+  Array.prototype.forEach.call(document.querySelectorAll("a.glare"), function (card) {
+    var inside = false;
+    card.addEventListener("pointermove", function (e) {
+      if (!fine.matches || still.matches) return;
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width * 100, py = (e.clientY - r.top) / r.height * 100;
+      card.style.setProperty("--m-x", px + "%");
+      card.style.setProperty("--m-y", py + "%");
+      card.style.setProperty("--r-x", (-(px - 50) / 3.5 * 0.4) + "deg");
+      card.style.setProperty("--r-y", ((py - 50) / 2 * 0.4) + "deg");
+      card.style.setProperty("--bg-x", (50 + px / 4 - 12.5) + "%");
+      card.style.setProperty("--bg-y", (50 + py / 3 - 16.67) + "%");
+    });
+    card.addEventListener("pointerenter", function () {
+      inside = true;
+      setTimeout(function () { if (inside) card.style.setProperty("--duration", "0s"); }, 300);
+    });
+    card.addEventListener("pointerleave", function () {
+      inside = false;
+      card.style.removeProperty("--duration");
+      card.style.setProperty("--r-x", "0deg");
+      card.style.setProperty("--r-y", "0deg");
+    });
+  });
 })();
 </script>
 <script>
