@@ -240,6 +240,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
     <li><a class="ch" href="#k3"><span class="num">3</span>Folgen</a>
       <div class="secs">
         <a href="#k3-1">Was ist eine Folge?</a>
+        <a href="#monotonie">Monotonie</a>
         <a href="#k3-2">Der Grenzwert</a>
         <a href="#k3-3">Werkzeuge für Grenzwerte</a>
         <a href="#k3-4">Monotone Folgen</a>
@@ -1089,7 +1090,84 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Beispiel: explizit oder rekursiv</span>
     <p><b>Explizit:</b> <span class="m"><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup></span>, man kann jedes Glied direkt ausrechnen.<br><b>Rekursiv:</b> <span class="m"><i>x</i><sub>0</sub> = 1, <i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span>, jedes Glied ergibt sich aus dem vorherigen. Beides beschreibt dieselbe Folge 1, 2, 4, 8, …</p>
   </div>
-  <p><b>Monoton wachsend</b> heißt <span class="m"><i>x<sub>n</sub></i> ≤ <i>x</i><sub><i>n</i>+1</sub></span> für alle <i>n</i>; <b>streng</b> monoton wachsend heißt <span class="m"><i>x<sub>n</sub></i> &lt; <i>x</i><sub><i>n</i>+1</sub></span>. Fallend analog. Eine konstante Folge ist monoton wachsend und monoton fallend, aber nicht streng.</p>
+
+  <h4 id="monotonie">Monotonie: wachsend, fallend, streng</h4>
+  <p>Monotonie fragt nur nach der <b>Richtung</b>: Geht die Folge von Glied zu Glied nach oben, nach unten oder mal so, mal so? Ob sie konvergiert, spielt dafür keine Rolle.</p>
+  <div class="def"><div class="tag">Definition 3.2 · Monotonie</div>
+    <p class="formal">Eine reelle Folge <span class="m">(<i>a<sub>n</sub></i>)</span> heißt<br>
+      <b>monoton wachsend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>streng monoton wachsend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>monoton fallend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≤ <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>,<br>
+      <b>streng monoton fallend</b>, falls <span class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>.<br>
+      <b>Monoton</b> heißt: monoton wachsend oder monoton fallend.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Man vergleicht immer nur <b>zwei Nachbarn</b>, das Glied mit seinem Nachfolger. „Monoton wachsend“ erlaubt auch Stillstand (≥), „streng“ verlangt in jedem Schritt eine echte Änderung (&gt;). Und es muss für <b>jedes</b> <i>n</i> gelten, nicht nur für die ersten paar.</p>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Begriff</th><th>Nachbarn: für alle n</th><th>gleichwertig: für alle n &lt; m</th><th>Beispiel</th></tr>
+    <tr><td>monoton wachsend</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> ≤ <i>a<sub>m</sub></i></td><td class="m">1, 1, 2, 2, 3, 3, …</td></tr>
+    <tr><td>streng monoton wachsend</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> &lt; <i>a<sub>m</sub></i></td><td class="m">1, 2, 4, 8, …</td></tr>
+    <tr><td>monoton fallend</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> ≤ <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> ≥ <i>a<sub>m</sub></i></td><td class="m">5, 5, 4, 4, …</td></tr>
+    <tr><td>streng monoton fallend</td><td class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></td><td class="m"><i>a<sub>n</sub></i> &gt; <i>a<sub>m</sub></i></td><td class="m">1, 1/2, 1/3, …</td></tr>
+  </table></div>
+  <p>Die rechte Spalte folgt aus der linken, indem man die Nachbar-Ungleichungen aneinanderhängt: <span class="m"><i>a<sub>n</sub></i> ≤ <i>a</i><sub><i>n</i>+1</sub> ≤ <i>a</i><sub><i>n</i>+2</sub> ≤ … ≤ <i>a<sub>m</sub></i></span>. In Aufgaben benutzt man fast immer die linke Spalte, weil man dort nur zwei Glieder vergleichen muss.</p>
+  <div class="def"><div class="tag">Verneinung · nicht monoton</div>
+    <p class="formal"><span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton wachsend</b>, falls es ein <i>n</i> gibt mit <span class="m"><i>a</i><sub><i>n</i>+1</sub> &lt; <i>a<sub>n</sub></i></span>.<br>
+      <span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton fallend</b>, falls es ein <i>m</i> gibt mit <span class="m"><i>a</i><sub><i>m</i>+1</sub> &gt; <i>a<sub>m</sub></i></span>.<br>
+      <span class="m">(<i>a<sub>n</sub></i>)</span> ist <b>nicht monoton</b>, falls beides zutrifft.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Aus „für alle“ wird beim Verneinen „es gibt ein“. Für „nicht monoton“ reicht also <b>ein</b> Schritt nach unten und <b>ein</b> Schritt nach oben.</p>
+  </div>
+  <div class="merke"><span class="lbl">Merke</span><p><b>Streng monoton ⇒ monoton</b>, aber nicht umgekehrt. Aus &gt; folgt ≥.<br>
+    Eine <b>konstante Folge</b> <span class="m"><i>a<sub>n</sub></i> = <i>c</i></span> ist monoton wachsend <b>und</b> monoton fallend, denn <span class="m"><i>c</i> ≥ <i>c</i></span> und <span class="m"><i>c</i> ≤ <i>c</i></span>. Streng monoton ist sie nicht, denn <span class="m"><i>c</i> &gt; <i>c</i></span> ist falsch.</p></div>
+
+  <div class="merke"><span class="lbl">Rezept: Ist die Folge (streng) monoton?</span><p><b>1. Ein paar Glieder ausrechnen.</b> <span class="m"><i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>, <i>a</i><sub>3</sub>, <i>a</i><sub>4</sub></span> zeigen dir, was du vermuten solltest. Das ist noch kein Beweis.<br>
+    <b>2. Differenz bilden (Standardweg).</b> Rechne <span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i></span> aus, vereinfache so weit wie möglich und bestimme das Vorzeichen für <b>jedes</b> <i>n</i>.<br>
+    &nbsp;&nbsp;&gt; 0 ⇒ streng wachsend, ≥ 0 ⇒ wachsend, &lt; 0 ⇒ streng fallend, ≤ 0 ⇒ fallend.<br>
+    <b>3. Quotient bilden (bei Potenzen und Fakultäten oft schneller).</b> <b>Nur wenn alle Glieder positiv sind:</b> Rechne <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i></span> aus.<br>
+    &nbsp;&nbsp;&gt; 1 ⇒ streng wachsend, ≥ 1 ⇒ wachsend, &lt; 1 ⇒ streng fallend, ≤ 1 ⇒ fallend.<br>
+    <b>4. Rekursive Folge.</b> Wenn nur <span class="m"><i>a</i><sub><i>n</i>+1</sub> = <i>f</i>(<i>a<sub>n</sub></i>)</span> gegeben ist, zeigt man <span class="m"><i>a</i><sub><i>n</i>+1</sub> ≥ <i>a<sub>n</sub></i></span> oft per Induktion. Oder man findet erst eine explizite Formel, wie beim <a href="#aufgabe-3-3">Turm von Hanoi</a>.<br>
+    <b>5. Nicht monoton zeigen.</b> Dafür reichen konkrete Zahlen: ein Schritt nach unten und ein Schritt nach oben, also meist drei aufeinanderfolgende Glieder.</p></div>
+
+  <div class="bsp"><span class="lbl">Beispiel 1: aₙ = 1 − 1/n (n ≥ 1), Differenz</span>
+    <p><b>Glieder:</b> 0, 1/2, 2/3, 3/4, … Vermutung: streng wachsend.<br>
+    <b>Differenz:</b></p>
+    <p class="mb"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = (1 − 1/(<i>n</i>+1)) − (1 − 1/<i>n</i>) = 1/<i>n</i> − 1/(<i>n</i>+1) = ((<i>n</i>+1) − <i>n</i>)/(<i>n</i>(<i>n</i>+1)) = 1/(<i>n</i>(<i>n</i>+1))</p>
+    <p>Zähler 1 und Nenner <span class="m"><i>n</i>(<i>n</i>+1)</span> sind positiv, also ist die Differenz &gt; 0 für alle <i>n</i> ≥ 1. <b>Streng monoton wachsend.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel 2: aₙ = 1/n (n ≥ 1), Differenz</span>
+    <p class="mb"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 1/(<i>n</i>+1) − 1/<i>n</i> = (<i>n</i> − (<i>n</i>+1))/(<i>n</i>(<i>n</i>+1)) = −1/(<i>n</i>(<i>n</i>+1)) &lt; 0</p>
+    <p>Der Zähler ist −1, der Nenner positiv. <b>Streng monoton fallend.</b></p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel 3: aₙ = 2ⁿ, Quotient</span>
+    <p>Alle Glieder sind positiv, also darf man den Quotienten nehmen: <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i> = 2<sup><i>n</i>+1</sup>/2<sup><i>n</i></sup> = 2 &gt; 1</span>. Also <span class="m"><i>a</i><sub><i>n</i>+1</sub> = 2<i>a<sub>n</sub></i> &gt; <i>a<sub>n</sub></i></span>. <b>Streng monoton wachsend.</b> Mit der Differenz geht es auch: <span class="m">2<sup><i>n</i>+1</sup> − 2<sup><i>n</i></sup> = 2<sup><i>n</i></sup> &gt; 0</span>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel 4: aₙ = (−1)ⁿ(1 + 1/n) (n ≥ 1), nicht monoton</span>
+    <p><span class="m"><i>a</i><sub>1</sub> = −2</span>, <span class="m"><i>a</i><sub>2</sub> = 3/2</span>, <span class="m"><i>a</i><sub>3</sub> = −4/3</span>.<br>
+    <span class="m"><i>a</i><sub>2</sub> &gt; <i>a</i><sub>1</sub></span>, also ist die Folge <b>nicht monoton fallend</b>.<br>
+    <span class="m"><i>a</i><sub>3</sub> &lt; <i>a</i><sub>2</sub></span>, also ist sie <b>nicht monoton wachsend</b>.<br>
+    Damit ist sie <b>nicht monoton</b>. Mehr muss man nicht aufschreiben.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel 5: aₙ = 7 (konstant)</span>
+    <p><span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 7 − 7 = 0</span>. Es gilt ≥ 0 und ≤ 0, also <b>monoton wachsend und monoton fallend</b>. Weil die Differenz nie &gt; 0 oder &lt; 0 ist, ist sie <b>nicht streng</b> monoton.</p>
+  </div>
+
+  <div class="def"><div class="tag">Vorlage zum Aufschreiben</div>
+    <p class="formal"><b>Behauptung:</b> Die Folge <span class="m">(<i>a<sub>n</sub></i>)</span> mit <span class="m"><i>a<sub>n</sub></i> = …</span> ist streng monoton wachsend.<br>
+    <b>Beweis:</b> Sei <span class="m"><i>n</i> ∈ ℕ</span> beliebig. Dann gilt<br>
+    &nbsp;&nbsp;<span class="m"><i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = … = … &gt; 0</span>, da … (z. B. Zähler und Nenner positiv).<br>
+    Also ist <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span> für alle <span class="m"><i>n</i> ∈ ℕ</span>, d. h. <span class="m">(<i>a<sub>n</sub></i>)</span> ist streng monoton wachsend. ∎</p>
+    <p class="formal"><b>Behauptung:</b> Die Folge ist nicht monoton.<br>
+    <b>Beweis:</b> Es ist <span class="m"><i>a</i><sub>1</sub> = …</span>, <span class="m"><i>a</i><sub>2</sub> = …</span>, <span class="m"><i>a</i><sub>3</sub> = …</span>. Wegen <span class="m"><i>a</i><sub>2</sub> &gt; <i>a</i><sub>1</sub></span> ist sie nicht monoton fallend, wegen <span class="m"><i>a</i><sub>3</sub> &lt; <i>a</i><sub>2</sub></span> nicht monoton wachsend. ∎</p>
+    <p class="plain"><b>Für fallend:</b> dieselbe Vorlage mit &lt; 0 statt &gt; 0. <b>Für den Quotienten:</b> erst „alle <i>a<sub>n</sub></i> &gt; 0“ hinschreiben, dann <span class="m"><i>a</i><sub><i>n</i>+1</sub>/<i>a<sub>n</sub></i> = … &gt; 1</span>, also <span class="m"><i>a</i><sub><i>n</i>+1</sub> &gt; <i>a<sub>n</sub></i></span>.</p>
+  </div>
+  <div class="falle"><span class="lbl">Typische Fallen</span>
+    <ul class="clean">
+      <li><b>Ein paar Glieder sind kein Beweis für Monotonie.</b> Für „ist monoton“ brauchst du eine Rechnung für alle <i>n</i>. Nur für „ist <b>nicht</b> monoton“ reichen konkrete Zahlen.</li>
+      <li><b>Quotient nur bei positiven Gliedern.</b> Bei <span class="m"><i>a<sub>n</sub></i> = −2<sup><i>n</i></sup></span> ist der Quotient 2 &gt; 1, aber die Folge −1, −2, −4, … <b>fällt</b>. Beim Multiplizieren mit einer negativen Zahl dreht sich die Ungleichung um.</li>
+      <li><b>Monoton heißt nicht konvergent.</b> 2<sup><i>n</i></sup> ist streng wachsend und divergiert. Erst <b>monoton und beschränkt</b> ergibt Konvergenz (<a href="#k3-4">Satz 3.10</a>).</li>
+      <li><b>Auf den Startindex achten.</b> Bei <span class="m">1/<i>n</i></span> beginnt die Folge bei <i>n</i> = 1, sonst teilt man durch 0.</li>
+    </ul>
+  </div>
+
 
   <h4 id="aufgabe-3-3">Beispiel: Aufgabe 3.3 aus der Übung (Turm von Hanoi)</h4>
   <p>Beim Turm von Hanoi sei <span class="m"><i>T<sub>n</sub></i></span> die Anzahl der Züge für einen Turm aus <i>n</i> Scheiben. Es gilt <span class="m"><i>T</i><sub>0</sub> = 0</span> und <span class="m"><i>T</i><sub><i>n</i>+1</sub> = 2<i>T<sub>n</sub></i> + 1</span>: Man versetzt die oberen <i>n</i> Scheiben, dann die größte, dann wieder die <i>n</i> Scheiben darauf.</p>
@@ -1240,6 +1318,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   <div class="bsp"><span class="lbl">Übung</span><p>Für beschränkte Folgen sind diese drei Aussagen gleichwertig: (1) die Folge konvergiert, (2) sie hat genau einen Häufungspunkt, (3) limsup = liminf. Das folgt direkt aus Satz 3.12.</p></div>
 
   <div class="quiz"><div class="qh">Selbst testen</div>
+    <details><summary>Ist aₙ = n² − 4n (n ∈ ℕ) monoton?</summary><div class="ans"><p>Glieder: 0, −3, −4, −3, 0, … Wegen <i>a</i><sub>1</sub> &lt; <i>a</i><sub>0</sub> nicht monoton wachsend, wegen <i>a</i><sub>3</sub> &gt; <i>a</i><sub>2</sub> nicht monoton fallend, also <b>nicht monoton</b>. Die Differenz <i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 2<i>n</i> − 3 zeigt aber: Ab <i>n</i> = 2 ist die Folge streng wachsend.</p></div></details>
     <details><summary>Ab welchem n ist 2⁻ⁿ kleiner als 0.001?</summary><div class="ans"><p>Gesucht ist 2<sup><i>n</i></sup> &gt; 1000. Es ist 2<sup>9</sup> = 512 und 2<sup>10</sup> = 1024, also ab <i>n</i> = 10. Weil 2<sup>−<i>n</i></sup> fällt, bleibt es danach darunter.</p></div></details>
     <details><summary>Zeige mit ε-N: (2n + 1)/n → 2.</summary><div class="ans"><p><span class="m">|(2<i>n</i>+1)/<i>n</i> − 2| = 1/<i>n</i></span>. Zu ε &gt; 0 wähle <i>N</i> &gt; 1/ε, dann ist der Abstand für <i>n</i> ≥ <i>N</i> kleiner als ε.</p></div></details>
     <details><summary>Bestimme limsup und liminf von xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Gerade <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Ungerade <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. Also limsup = 1, liminf = −1, die Folge konvergiert nicht.</p></div></details>
