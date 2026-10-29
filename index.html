@@ -195,6 +195,20 @@ details summary::before { content: "?"; font-family: var(--f-display); font-weig
 details[open] summary::before { content: "✓"; color: var(--green); }
 details .ans { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--line); }
 details .ans p:last-child { margin-bottom: 0; }
+.fb { margin-top: 72px; background: var(--card); border: 1.5px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+.fb h2 { font-family: var(--f-display); font-weight: 800; font-size: 22px; margin: 0 0 4px; }
+.fb .fbnote { font-size: 14.5px; color: var(--muted); margin: 0 0 14px; }
+.fb label { display: block; font-family: var(--f-display); font-weight: 600; font-size: 14px; margin: 12px 0 5px; }
+.fb label .opt { font-weight: 400; color: var(--muted); }
+.fb textarea, .fb input[type=email] { width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: var(--ink); background: var(--paper); border: 1.5px solid var(--line); border-radius: 6px; padding: 9px 11px; }
+.fb textarea { min-height: 120px; resize: vertical; }
+.fb textarea:focus, .fb input[type=email]:focus { outline: none; border-color: var(--accent); }
+.fb .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.fb .fbrow { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+.fb .fbmsg { font-family: var(--f-display); font-size: 14px; }
+.fb .fbmsg.ok { color: var(--green); }
+.fb .fbmsg.err { color: #c0392b; }
+.fb + footer { margin-top: 28px; }
 footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line); font-family: var(--f-display); font-size: 13.5px; color: var(--muted); }
 /* Mobil */
 @media (max-width: 880px) {
@@ -1461,6 +1475,22 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   </div>
 </section>
 
+  <div class="fb" id="feedback">
+    <h2 data-en="Feedback">Feedback</h2>
+    <p class="fbnote" data-en="Found a mistake, something unclear, or a wish? Write it here. Your message is not shown publicly, only I can read it.">Fehler gefunden, etwas unklar oder ein Wunsch? Schreib es hier rein. Deine Nachricht wird nicht öffentlich angezeigt, nur ich kann sie lesen.</p>
+    <form id="fbform" novalidate>
+      <label for="fbtext" data-en="Your feedback">Dein Feedback</label>
+      <textarea id="fbtext" name="message" maxlength="3000" required placeholder="z. B. In Kapitel 2 verstehe ich das Supremum nicht …" data-en-placeholder="e.g. I don't get the supremum in chapter 2 …"></textarea>
+      <label for="fbmail"><span data-en="Email">E-Mail</span> <span class="opt" data-en="(optional, only if you want a reply)">(optional, nur wenn du eine Antwort willst)</span></label>
+      <input id="fbmail" name="email" type="email" maxlength="200" autocomplete="email">
+      <div class="hp" aria-hidden="true"><label for="fbhp">Nicht ausfüllen</label><input id="fbhp" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
+      <div class="fbrow">
+        <button type="submit" class="btn" data-en="Send">Absenden</button>
+        <span class="fbmsg" id="fbmsg" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+  </div>
+
   <footer>
     Eigene Erklärungen und Beispiele zu den Grundlagen der Analysis, Kapitel 1–3. Die Seite ersetzt keine Vorlesung und kein Lehrbuch. Fehler gefunden? Dann bitte melden.<br>
     © 2026 Daksh Verma. Alle Rechte vorbehalten.
@@ -1574,6 +1604,39 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   }
   window.addEventListener("scroll", spy, { passive: true });
   spy();
+})();
+</script>
+<script>
+(function () {
+  // Web3Forms leitet Nachrichten privat per E-Mail weiter; der Schlüssel verrät keine Adresse.
+  var KEY = "WEB3FORMS_KEY_HIER";
+  var box = document.getElementById("feedback");
+  if (!box) return;
+  if (KEY.indexOf("WEB3FORMS") === 0) { box.style.display = "none"; return; }
+  var T = {
+    de: { empty: "Bitte schreib erst etwas.", wait: "Wird gesendet …", ok: "Danke! Dein Feedback ist angekommen.", err: "Senden hat nicht geklappt. Versuch es später noch einmal.", fast: "Moment, das ging zu schnell. Versuch es gleich noch einmal." },
+    en: { empty: "Please write something first.", wait: "Sending …", ok: "Thanks! Your feedback has arrived.", err: "Sending failed. Please try again later.", fast: "Hold on, that was too fast. Please try again in a moment." }
+  };
+  function t(k) { return (T[document.documentElement.lang] || T.de)[k]; }
+  var form = document.getElementById("fbform"), msg = document.getElementById("fbmsg");
+  var shown = Date.now(), lastSent = 0;
+  function say(k, cls) { msg.textContent = t(k); msg.className = "fbmsg " + (cls || ""); }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var text = form.message.value.trim();
+    if (!text) { say("empty", "err"); return; }
+    if (form.botcheck.checked) { say("ok", "ok"); form.reset(); return; }
+    if (Date.now() - shown < 3000 || Date.now() - lastSent < 30000) { say("fast", "err"); return; }
+    var btn = form.querySelector("button");
+    btn.disabled = true; say("wait");
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({ access_key: KEY, subject: "Feedback zur Analysis-Website", from_name: "Analysis-Website", message: text, email: form.email.value.trim() || undefined, sprache: document.documentElement.lang, seite: location.href, botcheck: false })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d.success) { lastSent = Date.now(); form.reset(); say("ok", "ok"); } else say("err", "err");
+    }).catch(function () { say("err", "err"); }).then(function () { btn.disabled = false; });
+  });
 })();
 </script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
