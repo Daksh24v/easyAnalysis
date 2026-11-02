@@ -495,6 +495,8 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
         <a href="#monotonie" data-en="Monotonicity">Monotonie</a>
         <a href="#k3-2" data-en="The limit">Der Grenzwert</a>
         <a href="#k3-3" data-en="Tools for limits">Werkzeuge für Grenzwerte</a>
+        <a href="#satz-3-6" data-en="Theorem 3.6: squeeze">Satz 3.6: Einschließung</a>
+        <a href="#satz-3-9" data-en="Theorem 3.9: limit rules">Satz 3.9: Rechenregeln</a>
         <a href="#k3-4" data-en="Monotone sequences">Monotone Folgen</a>
         <a href="#k3-5" data-en="limsup, liminf &amp; accumulation points">limsup, liminf &amp; Häufungspunkte</a>
         <a href="#k3-6" data-en="Cauchy criterion">Cauchy-Kriterium</a>
@@ -1511,13 +1513,27 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span> folgt <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
   </div>
   <div class="falle"><span class="lbl">Falle</span><p>Aus <b>&lt;</b> wird im Grenzwert nur <b>≤</b>. Ein Beispiel: <span class="m">1/<i>n</i>² &lt; 1/<i>n</i></span> für <i>n</i> ≥ 2, aber beide Grenzwerte sind 0.</p></div>
-  <div class="def"><div class="tag">Satz 3.6 · Einschließung („Sandwich“)</div>
-    <p class="formal">Ist <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> und <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, dann auch <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
+  <h4 id="satz-3-6">Satz 3.6: Einschließung („Sandwich“)</h4>
+  <div class="def"><div class="tag">Satz 3.6 · Einschließungsprinzip</div>
+    <p class="formal">Seien <span class="m">(<i>x<sub>n</sub></i>)</span> und <span class="m">(<i>y<sub>n</sub></i>)</span> Folgen mit <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>. Ist <span class="m">(<i>w<sub>n</sub></i>)</span> eine weitere Folge mit <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>, so gilt auch <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Wenn eine Folge zwischen zwei Folgen eingeklemmt ist, die zum selben Ziel laufen, hat sie keine Wahl und muss mit.</p>
   </div>
-  <div class="bsp"><span class="lbl">Beispiel</span>
-    <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. Den Sinus kennen wir kaum, aber er liegt zwischen −1 und 1. Also gilt <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, beide Seiten gehen gegen 0, also <span class="m"><i>w<sub>n</sub></i> → 0</span>. Ein komplizierteres Beispiel funktioniert genauso: Ein riesiger Nenner wie <span class="m">137<i>n</i><sup>17</sup></span> macht den Bruch kleiner als 1/<i>n</i>.</p>
+  <div class="merke"><span class="lbl">Intuition: zwei Begleiter</span><p>Stell dir zwei Leute vor, die einen Dritten in die Mitte nehmen und zum Bahnhof laufen. Der in der Mitte darf zwischen den beiden hin und her schwanken, so viel er will. Kommen beide Begleiter am Bahnhof an, ist er auch dort. Hier sind <i>x<sub>n</sub></i> und <i>y<sub>n</sub></i> die Begleiter, <i>w<sub>n</sub></i> läuft in der Mitte, und der gemeinsame Grenzwert <i>x</i> ist der Bahnhof. Das Schöne: Du musst vorher <b>nicht</b> wissen, ob <i>w<sub>n</sub></i> überhaupt konvergiert. Der Satz liefert die Konvergenz gleich mit.</p></div>
+  <div class="bsp"><span class="lbl">Warum es stimmt</span>
+    <p>Sei <span class="m">ε &gt; 0</span>. Weil beide Schranken gegen <i>x</i> gehen, gibt es ein <i>N</i>, sodass für alle <span class="m"><i>n</i> ≥ <i>N</i></span> gilt: <span class="m"><i>x</i> − ε &lt; <i>x<sub>n</sub></i></span> und <span class="m"><i>y<sub>n</sub></i> &lt; <i>x</i> + ε</span>. Dann ist für diese <i>n</i></p>
+    <div class="mb"><i>x</i> − ε &lt; <i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i> &lt; <i>x</i> + ε,</div>
+    <p>also <span class="m">|<i>w<sub>n</sub></i> − <i>x</i>| &lt; ε</span>. Das ist genau die Definition von <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
   </div>
+  <div class="merke"><span class="lbl">Rezept: so benutzt du den Satz</span><p><b>1.</b> Schätze <i>w<sub>n</sub></i> nach unten und nach oben durch einfache Folgen ab, deren Grenzwert du kennst (oft 0 und 1/<i>n</i>). <b>2.</b> Zeige, dass beide Schranken <b>denselben</b> Grenzwert haben. <b>3.</b> Folgere mit Satz 3.6, dass <i>w<sub>n</sub></i> auch dorthin geht. Es reicht übrigens, wenn die Ungleichungen ab einem Index gelten, denn endlich viele Anfangsglieder ändern nichts am Grenzwert.</p></div>
+  <div class="bsp"><span class="lbl">Beispiel: sin(n)/n</span>
+    <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. Den Sinus kennen wir kaum, aber er liegt zwischen −1 und 1. Also gilt <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, beide Seiten gehen gegen 0, also <span class="m"><i>w<sub>n</sub></i> → 0</span>. Genauso geht <span class="m">(−1)<sup><i>n</i></sup>/<i>n</i> → 0</span>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel: n/(n² + 1)</span>
+    <p>Der Nenner wird größer, wenn man die 1 weglässt, nicht kleiner. Darum gilt für alle <span class="m"><i>n</i> ≥ 1</span>:</p>
+    <div class="mb">0 ≤ <i>n</i>/(<i>n</i>² + 1) ≤ <i>n</i>/<i>n</i>² = 1/<i>n</i></div>
+    <p>Links steht die konstante Folge 0, rechts <span class="m">1/<i>n</i> → 0</span>. Nach Satz 3.6 folgt <span class="m"><i>n</i>/(<i>n</i>² + 1) → 0</span>. Ein komplizierteres Beispiel funktioniert genauso: Ein riesiger Nenner wie <span class="m">137<i>n</i><sup>17</sup></span> macht den Bruch kleiner als 1/<i>n</i>.</p>
+  </div>
+  <div class="falle"><span class="lbl">Falle</span><p>Beide Schranken müssen gegen <b>denselben</b> Wert gehen. <span class="m">−1 ≤ (−1)<sup><i>n</i></sup> ≤ 1</span> stimmt zwar, aber die Schranken gehen gegen −1 und 1, also sagt der Satz nichts. Und tatsächlich konvergiert <span class="m">(−1)<sup><i>n</i></sup></span> nicht.</p></div>
   <div class="def" id="def37"><div class="tag">Definition 3.7 und Satz 3.8 · Divergenz und Beschränktheit</div>
     <p class="formal"><span class="m"><i>x<sub>n</sub></i> → +∞</span>, falls es zu jedem <i>C</i> &gt; 0 ein <i>N</i> gibt mit <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>Beschränkt heißt: es gibt <i>K</i> mit <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> für alle <i>n</i>. <b>Jede konvergente Folge ist beschränkt.</b></p>
     <p class="plain"><b>Auf Deutsch:</b> „Gegen unendlich“ heißt, die Folge übersteigt jede Schranke und bleibt darüber. Und konvergente Folgen können nicht ausbrechen: Ab <i>N</i> sind alle Glieder nah am Grenzwert, und davor gibt es nur endlich viele.</p>
@@ -1527,10 +1543,26 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p><b><i>x<sub>n</sub></i> = <i>n</i>:</b> Zu <i>C</i> &gt; 0 wähle eine natürliche Zahl <span class="m"><i>N</i> ≥ <i>C</i></span>. Für <i>n</i> ≥ <i>N</i> ist <span class="m"><i>x<sub>n</sub></i> = <i>n</i> ≥ <i>N</i> ≥ <i>C</i></span>.<br>
     <b><i>x<sub>n</sub></i> = <i>n</i>²</b> und <b><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup>:</b> Für <i>n</i> ≥ 1 gilt <span class="m"><i>n</i>² ≥ <i>n</i></span> und <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span>. Dasselbe <i>N</i> wie eben funktioniert also auch hier. Merke dir das Muster: Wer größer ist als eine Folge, die gegen +∞ geht, geht selbst gegen +∞.</p>
   </div>
-  <div class="def"><div class="tag">Satz 3.9 · Rechenregeln</div>
-    <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> folgt <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i><i>y<sub>n</sub></i> → <i>ab</i></span> und, falls <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i>/<i>y<sub>n</sub></i> → <i>a</i>/<i>b</i></span>.</p>
-    <p class="plain"><b>Auf Deutsch:</b> Grenzwerte vertragen sich mit den Grundrechenarten. Du darfst eine komplizierte Folge in einfache Bausteine zerlegen, deren Grenzwerte du kennst.</p>
+  <h4 id="satz-3-9">Satz 3.9: Rechenregeln für Grenzwerte</h4>
+  <div class="def"><div class="tag">Satz 3.9 · Rechenregeln für Grenzwerte</div>
+    <p class="formal">Seien <span class="m">(<i>x<sub>n</sub></i>)</span> und <span class="m">(<i>y<sub>n</sub></i>)</span> Folgen mit <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span>. Dann gilt<br>
+    <span class="m"><i>x<sub>n</sub></i> + <i>y<sub>n</sub></i> → <i>a</i> + <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> − <i>y<sub>n</sub></i> → <i>a</i> − <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> und, falls <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Grenzwerte vertragen sich mit den Grundrechenarten. Du darfst eine komplizierte Folge in einfache Bausteine zerlegen, deren Grenzwerte du kennst, und die Grenzwerte dann genauso verrechnen wie die Folgen selbst.</p>
   </div>
+  <div class="merke"><span class="lbl">Intuition</span><p>Ist <i>x<sub>n</sub></i> fast <i>a</i> und <i>y<sub>n</sub></i> fast <i>b</i>, dann ist <span class="m"><i>x<sub>n</sub></i> + <i>y<sub>n</sub></i></span> fast <span class="m"><i>a</i> + <i>b</i></span>. Die beiden kleinen Fehler addieren sich höchstens: Liegt <i>x<sub>n</sub></i> weniger als ε/2 neben <i>a</i> und <i>y<sub>n</sub></i> weniger als ε/2 neben <i>b</i>, liegt die Summe weniger als ε neben <span class="m"><i>a</i> + <i>b</i></span> (Dreiecksungleichung). Beim Produkt und Quotienten ist die Abschätzung etwas länger, die Idee ist dieselbe.</p></div>
+  <div class="merke"><span class="lbl">Merke: nützliche Folgerungen</span><p><b>Konstante Faktoren:</b> Die konstante Folge <i>c</i>, <i>c</i>, <i>c</i>, … geht gegen <i>c</i>. Mit der Produktregel folgt <span class="m"><i>c</i> · <i>x<sub>n</sub></i> → <i>c</i> · <i>a</i></span>, zum Beispiel <span class="m">3/<i>n</i> = 3 · (1/<i>n</i>) → 0</span>. <b>Potenzen:</b> Mehrfach die Produktregel liefert <span class="m">1/<i>n</i>² = (1/<i>n</i>)(1/<i>n</i>) → 0 · 0 = 0</span> und allgemein <span class="m">1/<i>n</i><sup><i>k</i></sup> → 0</span>. <b>Quotient:</b> Wegen <span class="m"><i>b</i> ≠ 0</span> ist <span class="m"><i>y<sub>n</sub></i> ≠ 0</span> ab einem Index, der Bruch ist also ab dort definiert.</p></div>
+  <div class="bsp"><span class="lbl">Beispiel: (4n² + 3n − 6) / (n + 2)² Schritt für Schritt</span>
+    <p>Benutzen dürfen wir nur <span class="m">1/<i>n</i> → 0</span>, die Rechenregeln und das Einschließungsprinzip.</p>
+    <p><b>Schritt 1, Nenner ausmultiplizieren:</b> <span class="m">(<i>n</i> + 2)² = <i>n</i>² + 4<i>n</i> + 4</span>. Die höchste Potenz im Nenner ist <span class="m"><i>n</i>²</span>.</p>
+    <p><b>Schritt 2, durch <i>n</i>² kürzen</b> (Zähler und Nenner):</p>
+    <div class="mb"><i>a<sub>n</sub></i> = (4<i>n</i>² + 3<i>n</i> − 6) / (<i>n</i>² + 4<i>n</i> + 4) = (4 + 3/<i>n</i> − 6/<i>n</i>²) / (1 + 4/<i>n</i> + 4/<i>n</i>²)</div>
+    <p><b>Schritt 3, Bausteine:</b> <span class="m">1/<i>n</i> → 0</span>, also nach Satz 3.9 (Produkt) <span class="m">1/<i>n</i>² → 0</span> und <span class="m">3/<i>n</i>, 4/<i>n</i>, 6/<i>n</i>², 4/<i>n</i>² → 0</span>.</p>
+    <p><b>Schritt 4, Zähler und Nenner</b> (Summe und Differenz): Zähler <span class="m">→ 4 + 0 − 0 = 4</span>, Nenner <span class="m">→ 1 + 0 + 0 = 1</span>.</p>
+    <p><b>Schritt 5, Quotient:</b> Der Grenzwert des Nenners ist <span class="m">1 ≠ 0</span>, also darf man teilen:</p>
+    <div class="mb"><i>a<sub>n</sub></i> → 4 / 1 = 4</div>
+    <p>Die Faustregel unten bestätigt das: Oben und unten ist der höchste Exponent 2, und die Vorfaktoren sind 4 und 1. Ohne Ausmultiplizieren geht es auch: <span class="m">(<i>n</i> + 2)² = <i>n</i>²(1 + 2/<i>n</i>)²</span>, und <span class="m">(1 + 2/<i>n</i>)² → 1</span>.</p>
+  </div>
+  <div class="merke"><span class="lbl">Merke: so schreibst du es auf</span><p>Nenne bei jedem Schritt die Regel, die du benutzt: „Nach Satz 3.9 (Summe)“, „nach Satz 3.9 (Quotient), da der Grenzwert des Nenners ≠ 0 ist“. Genau das ist mit „Begründen Sie Ihre Rechenschritte“ gemeint.</p></div>
   <div class="bsp"><span class="lbl">Beispiel: der Standard-Trick bei Brüchen</span>
     <p>Bei Polynomen im Zähler und Nenner teilst du durch die höchste Potenz des Nenners:</p>
     <div class="mb">(3<i>n</i>² + <i>n</i>) / (<i>n</i>² + 5) = (3 + 1/<i>n</i>) / (1 + 5/<i>n</i>²) → (3 + 0)/(1 + 0) = 3</div>
@@ -1543,6 +1575,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <div class="mb">(7<i>n</i>² + 2<i>n</i> − 5) / (3<i>n</i><sup>5</sup>) = (7/<i>n</i>³ + 2/<i>n</i><sup>4</sup> − 5/<i>n</i><sup>5</sup>) / 3 → 0/3 = 0</div>
   </div>
   <div class="merke"><span class="lbl">Merke: Faustregel für Polynom-Brüche</span><p>Vergleiche den höchsten Exponenten oben und unten. <b>Unten größer:</b> Grenzwert 0. <b>Gleich:</b> Grenzwert ist der Quotient der Vorfaktoren der höchsten Potenzen (oben 4/7). <b>Oben größer:</b> keine Konvergenz, der Bruch geht gegen +∞ oder −∞. Im Beweis musst du trotzdem kürzen und die Rechenregeln benutzen, die Faustregel sagt dir nur vorher, was herauskommt.</p></div>
+  <div class="falle"><span class="lbl">Falle: nur für konvergente Folgen</span><p>Die Regeln setzen voraus, dass <b>beide</b> Folgen gegen eine reelle Zahl konvergieren. Mit <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> (geht gegen ∞) darfst du sie nicht anwenden: <span class="m"><i>n</i> · (1/<i>n</i>) = 1</span>, aber <span class="m"><i>n</i>² · (1/<i>n</i>) = <i>n</i> → ∞</span>. „∞ · 0“ und „∞/∞“ haben keinen festen Wert, darum vorher kürzen. Und die Umkehrung gilt nicht: <span class="m">(−1)<sup><i>n</i></sup> + (−1)<sup><i>n</i>+1</sup> = 0</span> konvergiert, obwohl keiner der beiden Summanden konvergiert.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone Folgen</h3>
   <div class="def"><div class="tag">Satz 3.10 · monoton + beschränkt ⇒ konvergent</div>
@@ -1628,7 +1661,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <nav class="djump" aria-label="Definition nach Nummer">
     <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
     <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
-    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-7">3.7</a><a href="#def-3-11">3.11</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-9">3.9</a><a href="#def-3-11">3.11</a>
   </nav>
   <p class="dnote">Nummern, die hier fehlen (etwa 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4–3.6, 3.8–3.10, 3.12, 3.13), gehören zu Axiomen, Sätzen und Lemmata. Die stehen in den Kapiteln oben unter derselben Nummer.</p>
 
@@ -1715,11 +1748,21 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>Auf Deutsch:</b> Egal wie schmal der Streifen um <i>x</i> ist, ab einem Index <i>N</i> liegen alle Folgenglieder darin.</p>
     <p class="more"><a href="#k3-2">Ausführlich mit Beispielen →</a></p>
   </div>
+  <div class="def" id="def-3-6"><div class="tag">Satz 3.6 · Einschließungsprinzip („Sandwich“)</div>
+    <p class="formal">Gilt <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i> und <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, so gilt auch <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Eingeklemmt zwischen zwei Folgen mit demselben Ziel muss die mittlere Folge mit. Beide Schranken brauchen denselben Grenzwert.</p>
+    <p class="more"><a href="#satz-3-6">Ausführlich mit Beispielen →</a></p>
+  </div>
   <div class="def" id="def-3-7"><div class="tag">Definition 3.7 · gegen ±∞, beschränkte Folge</div>
     <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> geht gegen <span class="m">+∞</span>, falls es zu jedem <span class="m"><i>C</i> &gt; 0</span> ein <span class="m"><i>N</i> ∈ ℕ</span> gibt mit <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>. <span class="m">(<i>x<sub>n</sub></i>)</span> geht gegen <span class="m">−∞</span>, falls <span class="m">(−<i>x<sub>n</sub></i>)</span> gegen <span class="m">+∞</span> geht.<br>
       Eine Folge heißt <b>beschränkt</b>, falls die Menge <span class="m">{<i>x<sub>n</sub></i> : <i>n</i> ∈ ℕ}</span> beschränkt ist, d. h. es gibt <span class="m"><i>K</i> &gt; 0</span> mit <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> für alle <i>n</i>.</p>
     <p class="plain"><b>Auf Deutsch:</b> „Gegen +∞“ heißt, die Folge überholt jede Schranke und bleibt darüber. „Beschränkt“ heißt, alle Glieder passen in einen festen Streifen <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
     <p class="more"><a href="#def37">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-9"><div class="tag">Satz 3.9 · Rechenregeln für Grenzwerte</div>
+    <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> folgt <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> und, falls <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Grenzwerte darf man wie die Folgen selbst addieren, multiplizieren und teilen, solange beide Folgen konvergieren (und beim Teilen der Grenzwert unten nicht 0 ist).</p>
+    <p class="more"><a href="#satz-3-9">Ausführlich mit Beispiel Schritt für Schritt →</a></p>
   </div>
   <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Teilfolge, Häufungspunkt</div>
     <p class="formal">Ist <span class="m">(<i>x<sub>n</sub></i>)</span> eine reelle Folge und sind <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> natürliche Zahlen, so heißt <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> Teilfolge von <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> heißt <b>Häufungspunkt</b> von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es eine Teilfolge gibt mit <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
@@ -2706,13 +2749,27 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span>, then <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
   </div>
   <div class="falle"><span class="lbl">Pitfall</span><p>In the limit <b>&lt;</b> only becomes <b>≤</b>. An example: <span class="m">1/<i>n</i>² &lt; 1/<i>n</i></span> for <i>n</i> ≥ 2, but both limits are 0.</p></div>
-  <div class="def"><div class="tag">Theorem 3.6 · Squeeze theorem (“sandwich”)</div>
-    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, then also <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
+  <h4 id="satz-3-6">Theorem 3.6: Squeeze theorem (“sandwich”)</h4>
+  <div class="def"><div class="tag">Theorem 3.6 · Squeeze theorem</div>
+    <p class="formal">Let <span class="m">(<i>x<sub>n</sub></i>)</span> and <span class="m">(<i>y<sub>n</sub></i>)</span> be sequences with <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>. If <span class="m">(<i>w<sub>n</sub></i>)</span> is another sequence with <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, then also <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
     <p class="plain"><b>In plain words:</b> If a sequence is squeezed between two sequences that head for the same target, it has no choice and must go along.</p>
   </div>
-  <div class="bsp"><span class="lbl">Example</span>
-    <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. We hardly know the sine, but it lies between −1 and 1. So <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, both sides go to 0, hence <span class="m"><i>w<sub>n</sub></i> → 0</span>. A more complicated example works the same way: a huge denominator like <span class="m">137<i>n</i><sup>17</sup></span> makes the fraction smaller than 1/<i>n</i>.</p>
+  <div class="merke"><span class="lbl">Intuition: two companions</span><p>Picture two people walking a third person between them to the station. The one in the middle may sway back and forth as much as they like. Once both companions arrive at the station, so does the one in the middle. Here <i>x<sub>n</sub></i> and <i>y<sub>n</sub></i> are the companions, <i>w<sub>n</sub></i> walks in the middle, and the common limit <i>x</i> is the station. The nice part: you do <b>not</b> need to know beforehand whether <i>w<sub>n</sub></i> converges at all. The theorem gives you the convergence for free.</p></div>
+  <div class="bsp"><span class="lbl">Why it holds</span>
+    <p>Let <span class="m">ε &gt; 0</span>. Since both bounds go to <i>x</i>, there is an <i>N</i> such that for all <span class="m"><i>n</i> ≥ <i>N</i></span>: <span class="m"><i>x</i> − ε &lt; <i>x<sub>n</sub></i></span> and <span class="m"><i>y<sub>n</sub></i> &lt; <i>x</i> + ε</span>. Then for these <i>n</i></p>
+    <div class="mb"><i>x</i> − ε &lt; <i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i> &lt; <i>x</i> + ε,</div>
+    <p>so <span class="m">|<i>w<sub>n</sub></i> − <i>x</i>| &lt; ε</span>. That is exactly the definition of <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
   </div>
+  <div class="merke"><span class="lbl">Recipe: how to use the theorem</span><p><b>1.</b> Bound <i>w<sub>n</sub></i> from below and from above by simple sequences whose limits you know (often 0 and 1/<i>n</i>). <b>2.</b> Show that both bounds have the <b>same</b> limit. <b>3.</b> Conclude with Theorem 3.6 that <i>w<sub>n</sub></i> goes there too. By the way, it is enough if the inequalities hold from some index on, since finitely many initial terms do not change the limit.</p></div>
+  <div class="bsp"><span class="lbl">Example: sin(n)/n</span>
+    <p><span class="m"><i>w<sub>n</sub></i> = sin(<i>n</i>)/<i>n</i></span>. We hardly know the sine, but it lies between −1 and 1. So <span class="m">−1/<i>n</i> ≤ <i>w<sub>n</sub></i> ≤ 1/<i>n</i></span>, both sides go to 0, hence <span class="m"><i>w<sub>n</sub></i> → 0</span>. In the same way <span class="m">(−1)<sup><i>n</i></sup>/<i>n</i> → 0</span>.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: n/(n² + 1)</span>
+    <p>Dropping the 1 makes the denominator smaller, so the fraction larger. Hence for all <span class="m"><i>n</i> ≥ 1</span>:</p>
+    <div class="mb">0 ≤ <i>n</i>/(<i>n</i>² + 1) ≤ <i>n</i>/<i>n</i>² = 1/<i>n</i></div>
+    <p>On the left is the constant sequence 0, on the right <span class="m">1/<i>n</i> → 0</span>. By Theorem 3.6, <span class="m"><i>n</i>/(<i>n</i>² + 1) → 0</span>. A more complicated example works the same way: a huge denominator like <span class="m">137<i>n</i><sup>17</sup></span> makes the fraction smaller than 1/<i>n</i>.</p>
+  </div>
+  <div class="falle"><span class="lbl">Pitfall</span><p>Both bounds must go to the <b>same</b> value. <span class="m">−1 ≤ (−1)<sup><i>n</i></sup> ≤ 1</span> is true, but the bounds go to −1 and 1, so the theorem says nothing. And indeed <span class="m">(−1)<sup><i>n</i></sup></span> does not converge.</p></div>
   <div class="def" id="def37"><div class="tag">Definition 3.7 and Theorem 3.8 · Divergence and boundedness</div>
     <p class="formal"><span class="m"><i>x<sub>n</sub></i> → +∞</span> if for every <i>C</i> &gt; 0 there is an <i>N</i> with <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>Bounded means: there is a <i>K</i> with <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> for all <i>n</i>. <b>Every convergent sequence is bounded.</b></p>
     <p class="plain"><b>In plain words:</b> “Towards infinity” means the sequence exceeds every bound and stays above it. And convergent sequences cannot break out: from <i>N</i> on, all terms are close to the limit, and before that there are only finitely many.</p>
@@ -2722,10 +2779,26 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p><b><i>x<sub>n</sub></i> = <i>n</i>:</b> Given <i>C</i> &gt; 0, choose a natural number <span class="m"><i>N</i> ≥ <i>C</i></span>. For <i>n</i> ≥ <i>N</i> we get <span class="m"><i>x<sub>n</sub></i> = <i>n</i> ≥ <i>N</i> ≥ <i>C</i></span>.<br>
     <b><i>x<sub>n</sub></i> = <i>n</i>²</b> and <b><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup>:</b> For <i>n</i> ≥ 1 we have <span class="m"><i>n</i>² ≥ <i>n</i></span> and <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span>. So the same <i>N</i> works here too. Remember the pattern: anything larger than a sequence going to +∞ goes to +∞ itself.</p>
   </div>
-  <div class="def"><div class="tag">Theorem 3.9 · Limit rules</div>
-    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span>, then <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i><i>y<sub>n</sub></i> → <i>ab</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i>/<i>y<sub>n</sub></i> → <i>a</i>/<i>b</i></span>.</p>
-    <p class="plain"><b>In plain words:</b> Limits get along with the basic arithmetic operations. You may split a complicated sequence into simple building blocks whose limits you know.</p>
+  <h4 id="satz-3-9">Theorem 3.9: Rules for limits</h4>
+  <div class="def"><div class="tag">Theorem 3.9 · Rules for limits</div>
+    <p class="formal">Let <span class="m">(<i>x<sub>n</sub></i>)</span> and <span class="m">(<i>y<sub>n</sub></i>)</span> be sequences with <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span>. Then<br>
+    <span class="m"><i>x<sub>n</sub></i> + <i>y<sub>n</sub></i> → <i>a</i> + <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> − <i>y<sub>n</sub></i> → <i>a</i> − <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Limits get along with the basic arithmetic operations. You may split a complicated sequence into simple building blocks whose limits you know, and then combine the limits exactly the way the sequences are combined.</p>
   </div>
+  <div class="merke"><span class="lbl">Intuition</span><p>If <i>x<sub>n</sub></i> is almost <i>a</i> and <i>y<sub>n</sub></i> is almost <i>b</i>, then <span class="m"><i>x<sub>n</sub></i> + <i>y<sub>n</sub></i></span> is almost <span class="m"><i>a</i> + <i>b</i></span>. The two small errors add up at most: if <i>x<sub>n</sub></i> is less than ε/2 away from <i>a</i> and <i>y<sub>n</sub></i> less than ε/2 away from <i>b</i>, the sum is less than ε away from <span class="m"><i>a</i> + <i>b</i></span> (triangle inequality). For products and quotients the estimate is a bit longer, the idea is the same.</p></div>
+  <div class="merke"><span class="lbl">Remember: useful consequences</span><p><b>Constant factors:</b> The constant sequence <i>c</i>, <i>c</i>, <i>c</i>, … goes to <i>c</i>. The product rule gives <span class="m"><i>c</i> · <i>x<sub>n</sub></i> → <i>c</i> · <i>a</i></span>, for example <span class="m">3/<i>n</i> = 3 · (1/<i>n</i>) → 0</span>. <b>Powers:</b> Using the product rule repeatedly gives <span class="m">1/<i>n</i>² = (1/<i>n</i>)(1/<i>n</i>) → 0 · 0 = 0</span> and in general <span class="m">1/<i>n</i><sup><i>k</i></sup> → 0</span>. <b>Quotient:</b> Since <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>y<sub>n</sub></i> ≠ 0</span> from some index on, so the fraction is defined from there.</p></div>
+  <div class="bsp"><span class="lbl">Example: (4n² + 3n − 6) / (n + 2)² step by step</span>
+    <p>We may only use <span class="m">1/<i>n</i> → 0</span>, the limit rules and the squeeze theorem.</p>
+    <p><b>Step 1, expand the denominator:</b> <span class="m">(<i>n</i> + 2)² = <i>n</i>² + 4<i>n</i> + 4</span>. The highest power in the denominator is <span class="m"><i>n</i>²</span>.</p>
+    <p><b>Step 2, divide by <i>n</i>²</b> (numerator and denominator):</p>
+    <div class="mb"><i>a<sub>n</sub></i> = (4<i>n</i>² + 3<i>n</i> − 6) / (<i>n</i>² + 4<i>n</i> + 4) = (4 + 3/<i>n</i> − 6/<i>n</i>²) / (1 + 4/<i>n</i> + 4/<i>n</i>²)</div>
+    <p><b>Step 3, building blocks:</b> <span class="m">1/<i>n</i> → 0</span>, so by Theorem 3.9 (product) <span class="m">1/<i>n</i>² → 0</span> and <span class="m">3/<i>n</i>, 4/<i>n</i>, 6/<i>n</i>², 4/<i>n</i>² → 0</span>.</p>
+    <p><b>Step 4, numerator and denominator</b> (sum and difference): numerator <span class="m">→ 4 + 0 − 0 = 4</span>, denominator <span class="m">→ 1 + 0 + 0 = 1</span>.</p>
+    <p><b>Step 5, quotient:</b> The limit of the denominator is <span class="m">1 ≠ 0</span>, so we may divide:</p>
+    <div class="mb"><i>a<sub>n</sub></i> → 4 / 1 = 4</div>
+    <p>The rule of thumb below confirms it: the highest exponent is 2 on top and bottom, and the coefficients are 4 and 1. It also works without expanding: <span class="m">(<i>n</i> + 2)² = <i>n</i>²(1 + 2/<i>n</i>)²</span>, and <span class="m">(1 + 2/<i>n</i>)² → 1</span>.</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember: how to write it down</span><p>Name the rule you use at every step: “by Theorem 3.9 (sum)”, “by Theorem 3.9 (quotient), since the limit of the denominator is ≠ 0”. That is exactly what “justify your steps” means.</p></div>
   <div class="bsp"><span class="lbl">Example: the standard trick for fractions</span>
     <p>With polynomials in the numerator and denominator, divide by the highest power of the denominator:</p>
     <div class="mb">(3<i>n</i>² + <i>n</i>) / (<i>n</i>² + 5) = (3 + 1/<i>n</i>) / (1 + 5/<i>n</i>²) → (3 + 0)/(1 + 0) = 3</div>
@@ -2738,6 +2811,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <div class="mb">(7<i>n</i>² + 2<i>n</i> − 5) / (3<i>n</i><sup>5</sup>) = (7/<i>n</i>³ + 2/<i>n</i><sup>4</sup> − 5/<i>n</i><sup>5</sup>) / 3 → 0/3 = 0</div>
   </div>
   <div class="merke"><span class="lbl">Remember: rule of thumb for polynomial fractions</span><p>Compare the highest exponent on top and bottom. <b>Bottom larger:</b> the limit is 0. <b>Equal:</b> the limit is the ratio of the coefficients of the highest powers (4/7 above). <b>Top larger:</b> no convergence, the fraction goes to +∞ or −∞. In a proof you still have to cancel and use the limit rules; the rule of thumb only tells you in advance what comes out.</p></div>
+  <div class="falle"><span class="lbl">Pitfall: only for convergent sequences</span><p>The rules require that <b>both</b> sequences converge to a real number. With <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> (goes to ∞) you may not use them: <span class="m"><i>n</i> · (1/<i>n</i>) = 1</span>, but <span class="m"><i>n</i>² · (1/<i>n</i>) = <i>n</i> → ∞</span>. “∞ · 0” and “∞/∞” have no fixed value, so cancel first. And the converse fails: <span class="m">(−1)<sup><i>n</i></sup> + (−1)<sup><i>n</i>+1</sup> = 0</span> converges although neither summand converges.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone sequences</h3>
   <div class="def"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
@@ -2823,7 +2897,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <nav class="djump" aria-label="Definition by number">
     <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
     <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
-    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-7">3.7</a><a href="#def-3-11">3.11</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-9">3.9</a><a href="#def-3-11">3.11</a>
   </nav>
   <p class="dnote">Numbers missing here (such as 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4–3.6, 3.8–3.10, 3.12, 3.13) belong to axioms, theorems and lemmas. You will find them in the chapters above under the same number.</p>
 
@@ -2910,11 +2984,21 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>In plain words:</b> No matter how narrow the strip around <i>x</i> is, from some index <i>N</i> on all terms of the sequence lie inside it.</p>
     <p class="more"><a href="#k3-2">In detail with examples →</a></p>
   </div>
+  <div class="def" id="def-3-6"><div class="tag">Theorem 3.6 · Squeeze theorem (“sandwich”)</div>
+    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i> and <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, then also <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> Squeezed between two sequences with the same target, the middle sequence has to go along. Both bounds need the same limit.</p>
+    <p class="more"><a href="#satz-3-6">In detail with examples →</a></p>
+  </div>
   <div class="def" id="def-3-7"><div class="tag">Definition 3.7 · towards ±∞, bounded sequence</div>
     <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> goes to <span class="m">+∞</span> if for every <span class="m"><i>C</i> &gt; 0</span> there is an <span class="m"><i>N</i> ∈ ℕ</span> with <span class="m"><i>x<sub>n</sub></i> ≥ <i>C</i></span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>. <span class="m">(<i>x<sub>n</sub></i>)</span> goes to <span class="m">−∞</span> if <span class="m">(−<i>x<sub>n</sub></i>)</span> goes to <span class="m">+∞</span>.<br>
       A sequence is called <b>bounded</b> if the set <span class="m">{<i>x<sub>n</sub></i> : <i>n</i> ∈ ℕ}</span> is bounded, i.e. there is <span class="m"><i>K</i> &gt; 0</span> with <span class="m">|<i>x<sub>n</sub></i>| ≤ <i>K</i></span> for all <i>n</i>.</p>
     <p class="plain"><b>In plain words:</b> “Towards +∞” means the sequence overtakes every bound and stays above it. “Bounded” means all terms fit into a fixed strip <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
     <p class="more"><a href="#def37">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-9"><div class="tag">Theorem 3.9 · Rules for limits</div>
+    <p class="formal">From <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> it follows that <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> You may add, multiply and divide limits just like the sequences themselves, as long as both sequences converge (and, when dividing, the limit at the bottom is not 0).</p>
+    <p class="more"><a href="#satz-3-9">In detail with a step-by-step example →</a></p>
   </div>
   <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Subsequence, accumulation point</div>
     <p class="formal">If <span class="m">(<i>x<sub>n</sub></i>)</span> is a real sequence and <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> are natural numbers, then <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> is called a subsequence of <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> is called an <b>accumulation point</b> of <span class="m">(<i>x<sub>n</sub></i>)</span> if there is a subsequence with <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
