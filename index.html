@@ -110,7 +110,7 @@ nav.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); ali
 [id^="mono-"] { scroll-margin-top: 24px; }
 .toc li.topic { margin-top: 6px; padding-top: 12px; border-top: 1.5px dashed var(--line); }
 .toc li.topic .num { font-size: 16px; }
-[id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 24px; }
+[id^="def-"], [id^="satz-"], #vollstaendig, #def37 { scroll-margin-top: 24px; }
 .def .more { padding: 0 16px 12px; margin: 0; font-family: var(--f-display); font-size: 13.5px; font-weight: 700; }
 .def .more a { color: var(--accent); text-decoration: none; }
 .def .more a:hover { text-decoration: underline; }
@@ -256,7 +256,7 @@ footer { margin-top: 72px; padding-top: 20px; border-top: 1.5px solid var(--line
   }
   .mobilebar a { flex: none; text-decoration: none; color: var(--muted); padding: 5px 11px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); }
   .mobilebar a.on { color: var(--accent); border-color: var(--accent); }
-  h3, h4, [id^="mono-"], [id^="def-"], #vollstaendig, #def37 { scroll-margin-top: 64px; }
+  h3, h4, [id^="mono-"], [id^="def-"], [id^="satz-"], #vollstaendig, #def37 { scroll-margin-top: 64px; }
   section.chapter { scroll-margin-top: 50px; }
   .chnum { font-size: 56px; }
   #feedback { scroll-margin-top: 64px; }
@@ -1503,13 +1503,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   </div>
   <div class="falle"><span class="lbl">Falle: das N aus dem Beweis muss nicht das kleinste sein</span><p>Der Beweis in b) liefert für ε = 10<sup>−6</sup> das Ergebnis <span class="m"><i>N</i> &gt; 1 000 000</span>, obwohl schon <i>N</i> = 20 reicht. Das ist kein Fehler. Für Konvergenz braucht man nur <b>irgendein</b> <i>N</i>, das funktioniert. Wenn die Aufgabe nach dem <b>kleinsten</b> <i>N</i> fragt, musst du genau rechnen statt grob abschätzen.</p></div>
 
-  <div class="def"><div class="tag">Satz 3.4 · Eindeutigkeit</div>
+  <div class="def" id="satz-3-4"><div class="tag">Satz 3.4 · Eindeutigkeit</div>
     <p class="formal">Jede reelle Folge hat höchstens einen Grenzwert.</p>
     <p class="plain"><b>Auf Deutsch:</b> Wäre <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, dann wäre <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> für jedes ε. Ein fester Abstand, der kleiner als jede positive Zahl ist, muss 0 sein.</p>
   </div>
 
   <h3 id="k3-3"><span class="sn">3.3</span>Werkzeuge für Grenzwerte</h3>
-  <div class="def"><div class="tag">Lemma 3.5 · Ungleichungen bleiben erhalten</div>
+  <div class="def" id="satz-3-5"><div class="tag">Lemma 3.5 · Ungleichungen bleiben erhalten</div>
     <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span> folgt <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
   </div>
   <div class="falle"><span class="lbl">Falle</span><p>Aus <b>&lt;</b> wird im Grenzwert nur <b>≤</b>. Ein Beispiel: <span class="m">1/<i>n</i>² &lt; 1/<i>n</i></span> für <i>n</i> ≥ 2, aber beide Grenzwerte sind 0.</p></div>
@@ -1578,7 +1578,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="falle"><span class="lbl">Falle: nur für konvergente Folgen</span><p>Die Regeln setzen voraus, dass <b>beide</b> Folgen gegen eine reelle Zahl konvergieren. Mit <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> (geht gegen ∞) darfst du sie nicht anwenden: <span class="m"><i>n</i> · (1/<i>n</i>) = 1</span>, aber <span class="m"><i>n</i>² · (1/<i>n</i>) = <i>n</i> → ∞</span>. „∞ · 0“ und „∞/∞“ haben keinen festen Wert, darum vorher kürzen. Und die Umkehrung gilt nicht: <span class="m">(−1)<sup><i>n</i></sup> + (−1)<sup><i>n</i>+1</sup> = 0</span> konvergiert, obwohl keiner der beiden Summanden konvergiert.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone Folgen</h3>
-  <div class="def"><div class="tag">Satz 3.10 · monoton + beschränkt ⇒ konvergent</div>
+  <div class="def" id="satz-3-10"><div class="tag">Satz 3.10 · monoton + beschränkt ⇒ konvergent</div>
     <p class="formal">Jede monoton wachsende, beschränkte Folge konvergiert, und zwar gegen <span class="m">sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Monoton fallend und beschränkt konvergiert gegen das Infimum.</p>
     <p class="plain"><b>Auf Deutsch:</b> Wer immer nur nach oben geht, aber eine Decke hat, muss irgendwo zur Ruhe kommen, nämlich genau unter der tiefsten Decke, dem Supremum. Hier wird die Vollständigkeit von ℝ benutzt: In ℚ würde der Satz nicht gelten.</p>
   </div>
@@ -1618,7 +1618,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <svg id="lsplot" viewBox="0 0 640 260" role="img" aria-label="Folge (−1)^n (1 + 1/n) mit den Kurven sup und inf der Schwänze"></svg>
     <figcaption>Die Folge <span class="m"><i>x<sub>n</sub></i> = (−1)<sup><i>n</i></sup>(1 + 1/<i>n</i>)</span> springt zwischen oben und unten. Die blaue Treppe ist <span class="m">sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span>, sie fällt gegen limsup = 1. Die rote Treppe ist das Schwanz-Infimum, sie steigt gegen liminf = −1. Häufungspunkte sind genau +1 und −1.</figcaption>
   </figure>
-  <div class="def"><div class="tag">Satz 3.12 · Bolzano-Weierstraß</div>
+  <div class="def" id="satz-3-12"><div class="tag">Satz 3.12 · Bolzano-Weierstraß</div>
     <p class="formal">Für eine beschränkte Folge sind limsup und liminf der größte bzw. kleinste Häufungspunkt. Außerdem gilt: <span class="m"><i>x<sub>n</sub></i> → <i>x</i> ⇔ liminf <i>x<sub>n</sub></i> = limsup <i>x<sub>n</sub></i> = <i>x</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Alle Häufungspunkte liegen zwischen liminf und limsup, und die beiden Ränder sind selbst Häufungspunkte. Die Folge konvergiert genau dann, wenn oben und unten zusammenfallen, also wenn es nur einen Häufungspunkt gibt.</p>
   </div>
@@ -1632,7 +1632,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   </div>
 
   <h3 id="k3-6"><span class="sn">3.6</span>Das Cauchy-Kriterium</h3>
-  <div class="def"><div class="tag">Satz 3.13 · Cauchy-Kriterium</div>
+  <div class="def" id="satz-3-13"><div class="tag">Satz 3.13 · Cauchy-Kriterium</div>
     <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> konvergiert genau dann, wenn es zu jedem ε &gt; 0 ein <i>N</i> gibt mit <span class="m">|<i>x<sub>n</sub></i> − <i>x<sub>m</sub></i>| &lt; ε</span> für alle <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Die Folgenglieder kommen <b>sich gegenseitig</b> beliebig nah. Das Besondere: In der Bedingung kommt der Grenzwert gar nicht vor. Du kannst also beweisen, dass eine Folge konvergiert, ohne zu wissen, wogegen.</p>
   </div>
@@ -1657,13 +1657,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
 <!-- =================================================================== DEFINITIONEN -->
 <section class="chapter" id="defs">
   <div class="chhead"><div class="chnum">§</div><div><h2>Alle Definitionen</h2></div></div>
-  <p>Zum Nachschlagen beim Üben: Steht in einer Aufgabe „nach Definition 3.1“, findest du sie hier unter derselben Nummer. Jede Box hat die formale Definition, eine kurze Übersetzung und einen Link zur ausführlichen Erklärung mit Beispielen.</p>
+  <p>Zum Nachschlagen beim Üben: Steht in einer Aufgabe „nach Definition 3.1“, findest du sie hier unter derselben Nummer, in Kapitel 3 auch jeden Satz („nach Satz 3.9“). Jede Box hat die formale Definition, eine kurze Übersetzung und einen Link zur ausführlichen Erklärung mit Beispielen.</p>
   <nav class="djump" aria-label="Definition nach Nummer">
     <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
     <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
-    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-9">3.9</a><a href="#def-3-11">3.11</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-4">3.4</a><a href="#def-3-5">3.5</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-8">3.8</a><a href="#def-3-9">3.9</a><a href="#def-3-10">3.10</a><a href="#def-3-11">3.11</a><a href="#def-3-12">3.12</a><a href="#def-3-13">3.13</a>
   </nav>
-  <p class="dnote">Nummern, die hier fehlen (etwa 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4, 3.5, 3.8, 3.10, 3.12, 3.13), gehören zu Axiomen, Sätzen und Lemmata. Die stehen in den Kapiteln oben unter derselben Nummer.</p>
+  <p class="dnote">Kapitel 3 ist komplett, mit allen Sätzen und Lemmata. Nummern aus Kapitel 1 und 2, die hier fehlen (1.3–1.5, 2.6, 2.7, 2.11–2.14), gehören zu Axiomen und Sätzen. Die stehen in den Kapiteln oben unter derselben Nummer.</p>
 
   <h3 id="defs-k1"><span class="sn">1</span>Mengenterminologie</h3>
   <div class="def" id="def-1-1"><div class="tag">Definition 1.1 · Teilmenge</div>
@@ -1748,6 +1748,15 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>Auf Deutsch:</b> Egal wie schmal der Streifen um <i>x</i> ist, ab einem Index <i>N</i> liegen alle Folgenglieder darin.</p>
     <p class="more"><a href="#k3-2">Ausführlich mit Beispielen →</a></p>
   </div>
+  <div class="def" id="def-3-4"><div class="tag">Satz 3.4 · Eindeutigkeit des Grenzwerts</div>
+    <p class="formal">Jede reelle Folge hat höchstens einen Grenzwert.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Wäre <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, dann wäre <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> für jedes ε. Ein fester Abstand, der kleiner als jede positive Zahl ist, muss 0 sein.</p>
+    <p class="more"><a href="#satz-3-4">Ausführlich →</a></p>
+  </div>
+  <div class="def" id="def-3-5"><div class="tag">Lemma 3.5 · Ungleichungen bleiben erhalten</div>
+    <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span> folgt <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
+    <p class="more"><a href="#satz-3-5">Ausführlich mit Falle →</a></p>
+  </div>
   <div class="def" id="def-3-6"><div class="tag">Satz 3.6 · Einschließungsprinzip („Sandwich“)</div>
     <p class="formal">Gilt <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i> und <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, so gilt auch <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Eingeklemmt zwischen zwei Folgen mit demselben Ziel muss die mittlere Folge mit. Beide Schranken brauchen denselben Grenzwert.</p>
@@ -1759,15 +1768,35 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>Auf Deutsch:</b> „Gegen +∞“ heißt, die Folge überholt jede Schranke und bleibt darüber. „Beschränkt“ heißt, alle Glieder passen in einen festen Streifen <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
     <p class="more"><a href="#def37">Ausführlich mit Beispielen →</a></p>
   </div>
+  <div class="def" id="def-3-8"><div class="tag">Satz 3.8 · konvergent ⇒ beschränkt</div>
+    <p class="formal">Jede konvergente Folge ist beschränkt.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Ab einem <i>N</i> liegen alle Glieder nah am Grenzwert, davor gibt es nur endlich viele. Also passt alles in einen festen Streifen. Umgekehrt gilt es nicht: <span class="m">(−1)<sup><i>n</i></sup></span> ist beschränkt, konvergiert aber nicht.</p>
+    <p class="more"><a href="#def37">Ausführlich mit Beispielen →</a></p>
+  </div>
   <div class="def" id="def-3-9"><div class="tag">Satz 3.9 · Rechenregeln für Grenzwerte</div>
     <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> folgt <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> und, falls <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Grenzwerte darf man wie die Folgen selbst addieren, multiplizieren und teilen, solange beide Folgen konvergieren (und beim Teilen der Grenzwert unten nicht 0 ist).</p>
     <p class="more"><a href="#satz-3-9">Ausführlich mit Beispiel Schritt für Schritt →</a></p>
   </div>
+  <div class="def" id="def-3-10"><div class="tag">Satz 3.10 · monoton + beschränkt ⇒ konvergent</div>
+    <p class="formal">Jede monoton wachsende, beschränkte Folge konvergiert, und zwar gegen <span class="m">sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Monoton fallend und beschränkt konvergiert gegen das Infimum.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Wer immer nur nach oben geht, aber eine Decke hat, muss irgendwo zur Ruhe kommen, nämlich genau unter der tiefsten Decke, dem Supremum. Hier wird die Vollständigkeit von ℝ benutzt: In ℚ würde der Satz nicht gelten.</p>
+    <p class="more"><a href="#satz-3-10">Ausführlich mit Beispielen →</a></p>
+  </div>
   <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Teilfolge, Häufungspunkt</div>
     <p class="formal">Ist <span class="m">(<i>x<sub>n</sub></i>)</span> eine reelle Folge und sind <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> natürliche Zahlen, so heißt <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> Teilfolge von <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> heißt <b>Häufungspunkt</b> von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es eine Teilfolge gibt mit <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Eine Teilfolge wählt unendlich viele Glieder aus und behält die Reihenfolge. Ein Häufungspunkt ist ein Wert, dem die Folge immer wieder beliebig nahe kommt. <span class="m">(−1)<sup><i>n</i></sup></span> hat die Häufungspunkte 1 und −1.</p>
     <p class="more"><a href="#k3-5">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-12"><div class="tag">Satz 3.12 · Bolzano-Weierstraß</div>
+    <p class="formal">Für eine beschränkte Folge sind limsup und liminf der größte bzw. kleinste Häufungspunkt. Außerdem gilt: <span class="m"><i>x<sub>n</sub></i> → <i>x</i> ⇔ liminf <i>x<sub>n</sub></i> = limsup <i>x<sub>n</sub></i> = <i>x</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Alle Häufungspunkte liegen zwischen liminf und limsup, und die beiden Ränder sind selbst Häufungspunkte. Die Folge konvergiert genau dann, wenn oben und unten zusammenfallen, also wenn es nur einen Häufungspunkt gibt.</p>
+    <p class="more"><a href="#satz-3-12">Ausführlich mit Beispielen →</a></p>
+  </div>
+  <div class="def" id="def-3-13"><div class="tag">Satz 3.13 · Cauchy-Kriterium</div>
+    <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> konvergiert genau dann, wenn es zu jedem ε &gt; 0 ein <i>N</i> gibt mit <span class="m">|<i>x<sub>n</sub></i> − <i>x<sub>m</sub></i>| &lt; ε</span> für alle <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>.</p>
+    <p class="plain"><b>Auf Deutsch:</b> Die Folgenglieder kommen <b>sich gegenseitig</b> beliebig nah. Das Besondere: In der Bedingung kommt der Grenzwert gar nicht vor. Du kannst also beweisen, dass eine Folge konvergiert, ohne zu wissen, wogegen.</p>
+    <p class="more"><a href="#satz-3-13">Ausführlich →</a></p>
   </div>
 </section>
 
@@ -2739,13 +2768,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   </div>
   <div class="falle"><span class="lbl">Pitfall: the N from the proof need not be the smallest</span><p>For ε = 10<sup>−6</sup> the proof in b) gives <span class="m"><i>N</i> &gt; 1 000 000</span>, although <i>N</i> = 20 is already enough. That is not a mistake. For convergence you only need <b>some</b> <i>N</i> that works. If the exercise asks for the <b>smallest</b> <i>N</i>, you have to compute exactly instead of estimating roughly.</p></div>
 
-  <div class="def"><div class="tag">Theorem 3.4 · Uniqueness</div>
+  <div class="def" id="satz-3-4"><div class="tag">Theorem 3.4 · Uniqueness</div>
     <p class="formal">Every real sequence has at most one limit.</p>
     <p class="plain"><b>In plain words:</b> If <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, then <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> for every ε. A fixed distance that is smaller than every positive number has to be 0.</p>
   </div>
 
   <h3 id="k3-3"><span class="sn">3.3</span>Tools for limits</h3>
-  <div class="def"><div class="tag">Lemma 3.5 · Inequalities are preserved</div>
+  <div class="def" id="satz-3-5"><div class="tag">Lemma 3.5 · Inequalities are preserved</div>
     <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span>, then <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
   </div>
   <div class="falle"><span class="lbl">Pitfall</span><p>In the limit <b>&lt;</b> only becomes <b>≤</b>. An example: <span class="m">1/<i>n</i>² &lt; 1/<i>n</i></span> for <i>n</i> ≥ 2, but both limits are 0.</p></div>
@@ -2814,7 +2843,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="falle"><span class="lbl">Pitfall: only for convergent sequences</span><p>The rules require that <b>both</b> sequences converge to a real number. With <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> (goes to ∞) you may not use them: <span class="m"><i>n</i> · (1/<i>n</i>) = 1</span>, but <span class="m"><i>n</i>² · (1/<i>n</i>) = <i>n</i> → ∞</span>. “∞ · 0” and “∞/∞” have no fixed value, so cancel first. And the converse fails: <span class="m">(−1)<sup><i>n</i></sup> + (−1)<sup><i>n</i>+1</sup> = 0</span> converges although neither summand converges.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone sequences</h3>
-  <div class="def"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
+  <div class="def" id="satz-3-10"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
     <p class="formal">Every monotonically increasing, bounded sequence converges, namely to <span class="m">sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Monotonically decreasing and bounded converges to the infimum.</p>
     <p class="plain"><b>In plain words:</b> Whoever only ever goes up but has a ceiling must come to rest somewhere, namely right under the lowest ceiling, the supremum. This uses the completeness of ℝ: in ℚ the theorem would not hold.</p>
   </div>
@@ -2854,7 +2883,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <svg id="lsplot" viewBox="0 0 640 260" role="img" aria-label="Sequence (−1)^n (1 + 1/n) with the curves of sup and inf of the tails"></svg>
     <figcaption>The sequence <span class="m"><i>x<sub>n</sub></i> = (−1)<sup><i>n</i></sup>(1 + 1/<i>n</i>)</span> jumps between top and bottom. The blue staircase is <span class="m">sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span>; it falls towards limsup = 1. The red staircase is the tail infimum; it rises towards liminf = −1. The accumulation points are exactly +1 and −1.</figcaption>
   </figure>
-  <div class="def"><div class="tag">Theorem 3.12 · Bolzano–Weierstrass</div>
+  <div class="def" id="satz-3-12"><div class="tag">Theorem 3.12 · Bolzano–Weierstrass</div>
     <p class="formal">For a bounded sequence, limsup and liminf are the largest and smallest accumulation point. Moreover: <span class="m"><i>x<sub>n</sub></i> → <i>x</i> ⇔ liminf <i>x<sub>n</sub></i> = limsup <i>x<sub>n</sub></i> = <i>x</i></span>.</p>
     <p class="plain"><b>In plain words:</b> All accumulation points lie between liminf and limsup, and these two edges are accumulation points themselves. The sequence converges exactly when top and bottom coincide, i.e. when there is only one accumulation point.</p>
   </div>
@@ -2868,7 +2897,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   </div>
 
   <h3 id="k3-6"><span class="sn">3.6</span>The Cauchy criterion</h3>
-  <div class="def"><div class="tag">Theorem 3.13 · Cauchy criterion</div>
+  <div class="def" id="satz-3-13"><div class="tag">Theorem 3.13 · Cauchy criterion</div>
     <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> converges if and only if for every ε &gt; 0 there is an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x<sub>m</sub></i>| &lt; ε</span> for all <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>.</p>
     <p class="plain"><b>In plain words:</b> The terms of the sequence get arbitrarily close <b>to each other</b>. The special thing: the limit does not appear in the condition at all. So you can prove that a sequence converges without knowing what it converges to.</p>
   </div>
@@ -2893,13 +2922,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
 <!-- =================================================================== DEFINITIONS -->
 <section class="chapter" id="defs">
   <div class="chhead"><div class="chnum">§</div><div><h2>All definitions</h2></div></div>
-  <p>For looking things up while practising: if an exercise says “by Definition 3.1”, you will find it here under the same number. Every box has the formal definition, a short translation into plain words and a link to the detailed explanation with examples.</p>
+  <p>For looking things up while practising: if an exercise says “by Definition 3.1”, you will find it here under the same number, and in chapter 3 every theorem too (“by Theorem 3.9”). Every box has the formal definition, a short translation into plain words and a link to the detailed explanation with examples.</p>
   <nav class="djump" aria-label="Definition by number">
     <a href="#def-1-1">1.1</a><a href="#def-1-2">1.2</a><a href="#def-1-6">1.6</a>
     <a href="#def-2-1">2.1</a><a href="#def-2-2">2.2</a><a href="#def-2-3">2.3</a><a href="#def-2-4">2.4</a><a href="#def-2-5">2.5</a><a href="#def-2-8">2.8</a><a href="#def-2-9">2.9</a><a href="#def-2-10">2.10</a>
-    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-9">3.9</a><a href="#def-3-11">3.11</a>
+    <a href="#def-3-1">3.1</a><a href="#def-3-2">3.2</a><a href="#def-3-3">3.3</a><a href="#def-3-4">3.4</a><a href="#def-3-5">3.5</a><a href="#def-3-6">3.6</a><a href="#def-3-7">3.7</a><a href="#def-3-8">3.8</a><a href="#def-3-9">3.9</a><a href="#def-3-10">3.10</a><a href="#def-3-11">3.11</a><a href="#def-3-12">3.12</a><a href="#def-3-13">3.13</a>
   </nav>
-  <p class="dnote">Numbers missing here (such as 1.3–1.5, 2.6, 2.7, 2.11–2.14, 3.4, 3.5, 3.8, 3.10, 3.12, 3.13) belong to axioms, theorems and lemmas. You will find them in the chapters above under the same number.</p>
+  <p class="dnote">Chapter 3 is complete, including all theorems and lemmas. Numbers from chapters 1 and 2 missing here (1.3–1.5, 2.6, 2.7, 2.11–2.14) belong to axioms and theorems. You will find them in the chapters above under the same number.</p>
 
   <h3 id="defs-k1"><span class="sn">1</span>Set terminology</h3>
   <div class="def" id="def-1-1"><div class="tag">Definition 1.1 · Subset</div>
@@ -2984,6 +3013,15 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>In plain words:</b> No matter how narrow the strip around <i>x</i> is, from some index <i>N</i> on all terms of the sequence lie inside it.</p>
     <p class="more"><a href="#k3-2">In detail with examples →</a></p>
   </div>
+  <div class="def" id="def-3-4"><div class="tag">Theorem 3.4 · Uniqueness of the limit</div>
+    <p class="formal">Every real sequence has at most one limit.</p>
+    <p class="plain"><b>In plain words:</b> If <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, then <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> for every ε. A fixed distance that is smaller than every positive number has to be 0.</p>
+    <p class="more"><a href="#satz-3-4">In detail →</a></p>
+  </div>
+  <div class="def" id="def-3-5"><div class="tag">Lemma 3.5 · Inequalities are preserved</div>
+    <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span>, then <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
+    <p class="more"><a href="#satz-3-5">In detail with pitfall →</a></p>
+  </div>
   <div class="def" id="def-3-6"><div class="tag">Theorem 3.6 · Squeeze theorem (“sandwich”)</div>
     <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>w<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i> and <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>, <span class="m"><i>y<sub>n</sub></i> → <i>x</i></span>, then also <span class="m"><i>w<sub>n</sub></i> → <i>x</i></span>.</p>
     <p class="plain"><b>In plain words:</b> Squeezed between two sequences with the same target, the middle sequence has to go along. Both bounds need the same limit.</p>
@@ -2995,15 +3033,35 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>In plain words:</b> “Towards +∞” means the sequence overtakes every bound and stays above it. “Bounded” means all terms fit into a fixed strip <span class="m">[−<i>K</i>, <i>K</i>]</span>.</p>
     <p class="more"><a href="#def37">In detail with examples →</a></p>
   </div>
+  <div class="def" id="def-3-8"><div class="tag">Theorem 3.8 · convergent ⇒ bounded</div>
+    <p class="formal">Every convergent sequence is bounded.</p>
+    <p class="plain"><b>In plain words:</b> From some <i>N</i> on, all terms are close to the limit, and before that there are only finitely many. So everything fits into a fixed strip. The converse fails: <span class="m">(−1)<sup><i>n</i></sup></span> is bounded but does not converge.</p>
+    <p class="more"><a href="#def37">In detail with examples →</a></p>
+  </div>
   <div class="def" id="def-3-9"><div class="tag">Theorem 3.9 · Rules for limits</div>
     <p class="formal">From <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> it follows that <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i> · <i>y<sub>n</sub></i> → <i>a</i> · <i>b</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i> / <i>y<sub>n</sub></i> → <i>a</i> / <i>b</i></span>.</p>
     <p class="plain"><b>In plain words:</b> You may add, multiply and divide limits just like the sequences themselves, as long as both sequences converge (and, when dividing, the limit at the bottom is not 0).</p>
     <p class="more"><a href="#satz-3-9">In detail with a step-by-step example →</a></p>
   </div>
+  <div class="def" id="def-3-10"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
+    <p class="formal">Every monotonically increasing, bounded sequence converges, namely to <span class="m">sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Monotonically decreasing and bounded converges to the infimum.</p>
+    <p class="plain"><b>In plain words:</b> Whoever only ever goes up but has a ceiling must come to rest somewhere, namely right under the lowest ceiling, the supremum. This uses the completeness of ℝ: in ℚ the theorem would not hold.</p>
+    <p class="more"><a href="#satz-3-10">In detail with examples →</a></p>
+  </div>
   <div class="def" id="def-3-11"><div class="tag">Definition 3.11 · Subsequence, accumulation point</div>
     <p class="formal">If <span class="m">(<i>x<sub>n</sub></i>)</span> is a real sequence and <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> are natural numbers, then <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> is called a subsequence of <span class="m">(<i>x<sub>n</sub></i>)</span>. <i>x</i> is called an <b>accumulation point</b> of <span class="m">(<i>x<sub>n</sub></i>)</span> if there is a subsequence with <span class="m">lim<sub><i>k</i>→∞</sub> <i>x</i><sub><i>n<sub>k</sub></i></sub> = <i>x</i></span>.</p>
     <p class="plain"><b>In plain words:</b> A subsequence picks infinitely many terms and keeps their order. An accumulation point is a value the sequence keeps coming arbitrarily close to again and again. <span class="m">(−1)<sup><i>n</i></sup></span> has the accumulation points 1 and −1.</p>
     <p class="more"><a href="#k3-5">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-12"><div class="tag">Theorem 3.12 · Bolzano–Weierstrass</div>
+    <p class="formal">For a bounded sequence, limsup and liminf are the largest and smallest accumulation point. Moreover: <span class="m"><i>x<sub>n</sub></i> → <i>x</i> ⇔ liminf <i>x<sub>n</sub></i> = limsup <i>x<sub>n</sub></i> = <i>x</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> All accumulation points lie between liminf and limsup, and these two edges are accumulation points themselves. The sequence converges exactly when top and bottom coincide, i.e. when there is only one accumulation point.</p>
+    <p class="more"><a href="#satz-3-12">In detail with examples →</a></p>
+  </div>
+  <div class="def" id="def-3-13"><div class="tag">Theorem 3.13 · Cauchy criterion</div>
+    <p class="formal"><span class="m">(<i>x<sub>n</sub></i>)</span> converges if and only if for every ε &gt; 0 there is an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x<sub>m</sub></i>| &lt; ε</span> for all <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>.</p>
+    <p class="plain"><b>In plain words:</b> The terms of the sequence get arbitrarily close <b>to each other</b>. The special thing: the limit does not appear in the condition at all. So you can prove that a sequence converges without knowing what it converges to.</p>
+    <p class="more"><a href="#satz-3-13">In detail →</a></p>
   </div>
 </section>
 
