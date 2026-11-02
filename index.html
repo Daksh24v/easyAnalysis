@@ -1477,6 +1477,11 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="bsp"><span class="lbl">Beispiel: (−1)ⁿ hat keinen Grenzwert</span>
     <p>Die Folge springt −1, 1, −1, 1, … Wähle ε = 1. Für jeden Kandidaten <i>x</i> ist der Abstand zu 1 oder der zu −1 mindestens 1, denn die beiden Punkte liegen 2 auseinander. Also liegen unendlich viele Glieder außerhalb des Streifens, das Spiel ist für ε = 1 verloren.</p>
   </div>
+  <div class="bsp"><span class="lbl">Beispiel: Nachkommastellen abschneiden</span>
+    <p>Sei <i>x</i> ∈ [0, 1] mit Dezimaldarstellung <span class="m"><i>x</i> = 0,<i>d</i><sub>1</sub><i>d</i><sub>2</sub><i>d</i><sub>3</sub>…</span> Schneide nach <i>n</i> Stellen ab: <span class="m"><i>x<sub>n</sub></i> = 0,<i>d</i><sub>1</sub>…<i>d<sub>n</sub></i></span>. Der Rest, der fehlt, ist kleiner als eine Einheit in der <i>n</i>-ten Stelle:</p>
+    <div class="mb">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ 10<sup>−<i>N</i></sup> &nbsp;für alle <i>n</i> ≥ <i>N</i>.</div>
+    <p>Zu ε &gt; 0 wählst du <i>N</i> so groß, dass <span class="m">10<sup>−<i>N</i></sup> &lt; ε</span>. Also <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>. So rechnet auch ein Computer: Jede reelle Zahl ist Grenzwert ihrer endlichen Dezimalnäherungen.</p>
+  </div>
   <h4 id="aufgabe-3-4">Beispiel: Aufgabe 3.4 aus der Übung</h4>
   <p>Hier wird genau das Muster von eben benutzt: Abstand ausrechnen, dann <i>N</i> passend wählen. Der Hinweis „zu jedem <span class="m"><i>r</i> ∈ ℝ</span> gibt es ein <span class="m"><i>N</i> ∈ ℕ</span> mit <span class="m"><i>N</i> &gt; <i>r</i></span>“ sorgt dafür, dass das gewählte <i>N</i> auch existiert.</p>
   <div class="bsp"><span class="lbl">a) xₙ = (2n + 1)/(n + 1) → 2</span>
@@ -1518,6 +1523,10 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>Auf Deutsch:</b> „Gegen unendlich“ heißt, die Folge übersteigt jede Schranke und bleibt darüber. Und konvergente Folgen können nicht ausbrechen: Ab <i>N</i> sind alle Glieder nah am Grenzwert, und davor gibt es nur endlich viele.</p>
   </div>
   <div class="falle"><span class="lbl">Falle</span><p>Umgekehrt gilt es nicht: <span class="m">(−1)<sup><i>n</i></sup></span> ist beschränkt, konvergiert aber nicht. Und „unbeschränkt“ heißt nicht automatisch „geht gegen ∞“: 0, 1, 0, 2, 0, 3, … ist unbeschränkt, geht aber nicht gegen ∞, weil immer wieder 0 kommt.</p></div>
+  <div class="bsp"><span class="lbl">Beispiel: n, n² und 2ⁿ gehen gegen +∞</span>
+    <p><b><i>x<sub>n</sub></i> = <i>n</i>:</b> Zu <i>C</i> &gt; 0 wähle eine natürliche Zahl <span class="m"><i>N</i> ≥ <i>C</i></span>. Für <i>n</i> ≥ <i>N</i> ist <span class="m"><i>x<sub>n</sub></i> = <i>n</i> ≥ <i>N</i> ≥ <i>C</i></span>.<br>
+    <b><i>x<sub>n</sub></i> = <i>n</i>²</b> und <b><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup>:</b> Für <i>n</i> ≥ 1 gilt <span class="m"><i>n</i>² ≥ <i>n</i></span> und <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span>. Dasselbe <i>N</i> wie eben funktioniert also auch hier. Merke dir das Muster: Wer größer ist als eine Folge, die gegen +∞ geht, geht selbst gegen +∞.</p>
+  </div>
   <div class="def"><div class="tag">Satz 3.9 · Rechenregeln</div>
     <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span> folgt <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i><i>y<sub>n</sub></i> → <i>ab</i></span> und, falls <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i>/<i>y<sub>n</sub></i> → <i>a</i>/<i>b</i></span>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Grenzwerte vertragen sich mit den Grundrechenarten. Du darfst eine komplizierte Folge in einfache Bausteine zerlegen, deren Grenzwerte du kennst.</p>
@@ -1527,6 +1536,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <div class="mb">(3<i>n</i>² + <i>n</i>) / (<i>n</i>² + 5) = (3 + 1/<i>n</i>) / (1 + 5/<i>n</i>²) → (3 + 0)/(1 + 0) = 3</div>
     <p>Erst nach dem Kürzen sind die Rechenregeln anwendbar, denn vorher gehen Zähler und Nenner beide gegen ∞, und „∞/∞“ ist kein Grenzwert.</p>
   </div>
+  <div class="bsp"><span class="lbl">Beispiel: zwei weitere Brüche</span>
+    <p><b>Gleicher Grad oben und unten:</b></p>
+    <div class="mb">(4<i>n</i>² + 5<i>n</i>) / (7<i>n</i>² + 2<i>n</i> − 1) = (4 + 5/<i>n</i>) / (7 + 2/<i>n</i> − 1/<i>n</i>²) → 4/7</div>
+    <p><b>Nenner hat höheren Grad:</b> Durch <i>n</i><sup>5</sup> teilen:</p>
+    <div class="mb">(7<i>n</i>² + 2<i>n</i> − 5) / (3<i>n</i><sup>5</sup>) = (7/<i>n</i>³ + 2/<i>n</i><sup>4</sup> − 5/<i>n</i><sup>5</sup>) / 3 → 0/3 = 0</div>
+  </div>
+  <div class="merke"><span class="lbl">Merke: Faustregel für Polynom-Brüche</span><p>Vergleiche den höchsten Exponenten oben und unten. <b>Unten größer:</b> Grenzwert 0. <b>Gleich:</b> Grenzwert ist der Quotient der Vorfaktoren der höchsten Potenzen (oben 4/7). <b>Oben größer:</b> keine Konvergenz, der Bruch geht gegen +∞ oder −∞. Im Beweis musst du trotzdem kürzen und die Rechenregeln benutzen, die Faustregel sagt dir nur vorher, was herauskommt.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone Folgen</h3>
   <div class="def"><div class="tag">Satz 3.10 · monoton + beschränkt ⇒ konvergent</div>
@@ -1542,6 +1558,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p>Startest du unter 1, wächst die Folge monoton und ist durch 1 beschränkt. Startest du über 1, fällt sie monoton und ist durch 1 nach unten beschränkt. In beiden Fällen konvergiert sie nach Satz 3.10. Den Grenzwert <i>x</i> findest du, indem du in der Rekursion <span class="m"><i>x<sub>n</sub></i></span> und <span class="m"><i>x</i><sub><i>n</i>+1</sub></span> durch <i>x</i> ersetzt: <span class="m"><i>x</i> = √<i>x</i></span>, also <i>x</i> = 0 oder <i>x</i> = 1. Da die Folge bei <i>x</i>₁ = 0.2 wächst, kann es nicht 0 sein, also 1.</p>
   </div>
   <div class="merke"><span class="lbl">Merke</span><p>Der Trick „Grenzwert in die Rekursion einsetzen“ funktioniert <b>nur, wenn du vorher weißt, dass die Folge konvergiert</b>. Bei <span class="m"><i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span> liefert er <i>x</i> = 2<i>x</i>, also <i>x</i> = 0, obwohl 1, 2, 4, 8, … gegen ∞ geht.</p></div>
+  <div class="merke"><span class="lbl">Merke: auch ohne Decke gilt lim = sup</span><p>Ist <i>x<sub>n</sub></i> monoton wachsend, aber <b>nach oben unbeschränkt</b>, dann gibt es zu jedem <i>C</i> &gt; 0 ein <i>N</i> mit <span class="m"><i>x<sub>N</sub></i> &gt; <i>C</i></span>, und wegen der Monotonie gilt <span class="m"><i>x<sub>n</sub></i> ≥ <i>x<sub>N</sub></i> &gt; <i>C</i></span> für alle <i>n</i> ≥ <i>N</i>. Also <span class="m"><i>x<sub>n</sub></i> → +∞ = sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. Eine monotone Folge konvergiert also immer, nur eben manchmal uneigentlich gegen ±∞.</p></div>
   <h4>Exkurs: das Collatz-Problem</h4>
   <p>Ob eine rekursive Folge konvergiert, kann extrem schwer sein. Die Regel: Ist <i>x<sub>n</sub></i> gerade, halbiere; ist sie ungerade (und nicht 1), rechne <span class="m">3<i>x<sub>n</sub></i> + 1</span>; bei 1 bleibst du stehen. Die Vermutung, dass man von jedem Start aus bei 1 landet, ist seit 1937 unbewiesen. Probier es aus:</p>
   <figure>
@@ -1556,6 +1573,9 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="def"><div class="tag">Definition 3.11 · Teilfolge und Häufungspunkt</div>
     <p class="formal">Für Indizes <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span> heißt <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> Teilfolge. <i>x</i> heißt Häufungspunkt von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es eine Teilfolge gibt, die gegen <i>x</i> konvergiert.</p>
     <p class="plain"><b>Auf Deutsch:</b> Eine Teilfolge entsteht, wenn du unendlich viele Glieder auswählst und die Reihenfolge beibehältst. Ein Häufungspunkt ist ein Ort, an den die Folge immer wieder zurückkommt, unendlich oft beliebig nah.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel: (−1)ⁿ hat zwei Häufungspunkte</span>
+    <p>Typische Teilfolgen sind <span class="m">(<i>x</i><sub>2<i>n</i></sub>)</span>, also jedes zweite Glied, oder <span class="m">(<i>x</i><sub>2<sup><i>n</i></sup></sub>)</span>. Bei <span class="m"><i>x<sub>n</sub></i> = (−1)<sup><i>n</i></sup></span> ist <span class="m"><i>x</i><sub>2<i>n</i></sub> = 1 → 1</span> und <span class="m"><i>x</i><sub>2<i>n</i>+1</sub> = −1 → −1</span>. Also sind 1 und −1 Häufungspunkte, obwohl die Folge selbst nicht konvergiert.</p>
   </div>
   <div class="def"><div class="tag">limsup und liminf</div>
     <p class="formal"><span class="m"><span class="ol"><i>x</i></span><sub><i>n</i></sub> = sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> ist monoton fallend, <span class="m"><u><i>x</i></u><sub><i>n</i></sub> = inf<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> ist monoton wachsend.<br><span class="m">limsup <i>x<sub>n</sub></i> = lim <span class="ol"><i>x</i></span><sub><i>n</i></sub></span>, &nbsp; <span class="m">liminf <i>x<sub>n</sub></i> = lim <u><i>x</i></u><sub><i>n</i></sub></span>.</p>
@@ -1572,6 +1592,10 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="merke"><span class="lbl">Folgerung: das ist der Satz, den man meistens zitiert</span><p><b>Jede beschränkte reelle Folge hat eine konvergente Teilfolge.</b> Denn der limsup ist ein Häufungspunkt, und dazu gibt es per Definition eine Teilfolge, die gegen ihn konvergiert.</p></div>
   <div class="bsp"><span class="lbl">Beispiel</span>
     <p>Die Folge <span class="m">0, 1/2, 1, 0, 1/4, 1/2, 3/4, 1, 0, 1/8, 2/8, …, 1, …</span> läuft in immer feineren Schritten von 0 nach 1. Jede Zahl in [0, 1] wird immer wieder beliebig genau angenähert. Darum ist die Menge der Häufungspunkte das ganze Intervall [0, 1], mit liminf = 0 und limsup = 1. Eine Folge kann also unendlich viele Häufungspunkte haben.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Beispiel: noch mehr Häufungspunkte</span>
+    <p>Die Folge <span class="m">1, &nbsp;1, 1/2, &nbsp;1, 1/2, 1/3, &nbsp;1, 1/2, 1/3, 1/4, &nbsp;…</span> zählt immer wieder von vorn bis zu einem Stammbruch mehr. Jede Zahl <span class="m">1/<i>k</i></span> kommt darin unendlich oft vor. Nimmst du genau diese Stellen, bekommst du die konstante Teilfolge <span class="m">1/<i>k</i>, 1/<i>k</i>, …</span>, also ist jedes <span class="m">1/<i>k</i></span> ein Häufungspunkt. Dazu kommt 0: Die Teilfolge <span class="m">1, 1/2, 1/3, 1/4, …</span> (aus jeder Runde das letzte Glied) geht gegen 0, obwohl 0 selbst nie vorkommt.</p>
+    <p>Auch <span class="m"><i>x<sub>n</sub></i> = sin(<i>n</i>)</span> hat unendlich viele Häufungspunkte, sogar jede Zahl in [−1, 1]. Das zu beweisen ist allerdings deutlich schwerer.</p>
   </div>
 
   <h3 id="k3-6"><span class="sn">3.6</span>Das Cauchy-Kriterium</h3>
@@ -1592,6 +1616,8 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <details><summary>Bestimme limsup und liminf von xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Gerade <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Ungerade <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. Also limsup = 1, liminf = −1, die Folge konvergiert nicht.</p></div></details>
     <details><summary>Wahr oder falsch: Jede monotone Folge konvergiert.</summary><div class="ans"><p>Falsch. Es braucht zusätzlich Beschränktheit. Gegenbeispiel: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> ist monoton wachsend und geht gegen +∞.</p></div></details>
     <details><summary>Gegen was konvergiert (n² − 4n) / (2n² + 7)?</summary><div class="ans"><p>Durch <i>n</i>² teilen: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
+    <details><summary>Gegen was konvergiert (5n³ − n) / (2n⁴ + 1)?</summary><div class="ans"><p>Unten steht der höhere Grad. Durch <i>n</i><sup>4</sup> teilen: <span class="m">(5/<i>n</i> − 1/<i>n</i>³)/(2 + 1/<i>n</i><sup>4</sup>) → 0/2 = 0</span>.</p></div></details>
+    <details><summary>Welche Häufungspunkte hat xₙ = (−1)ⁿ · n? Widerspricht das Bolzano-Weierstraß?</summary><div class="ans"><p>Keine. Die geraden Glieder gehen gegen +∞, die ungeraden gegen −∞, keine Teilfolge konvergiert gegen eine reelle Zahl. Das ist kein Widerspruch, denn Bolzano-Weierstraß gilt nur für <b>beschränkte</b> Folgen.</p></div></details>
   </div>
 </section>
 
@@ -2646,6 +2672,11 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="bsp"><span class="lbl">Example: (−1)ⁿ has no limit</span>
     <p>The sequence jumps −1, 1, −1, 1, … Choose ε = 1. For every candidate <i>x</i>, the distance to 1 or the distance to −1 is at least 1, because the two points are 2 apart. So infinitely many terms lie outside the strip; the game is lost for ε = 1.</p>
   </div>
+  <div class="bsp"><span class="lbl">Example: cutting off decimal places</span>
+    <p>Let <i>x</i> ∈ [0, 1] with decimal expansion <span class="m"><i>x</i> = 0.<i>d</i><sub>1</sub><i>d</i><sub>2</sub><i>d</i><sub>3</sub>…</span> Cut off after <i>n</i> digits: <span class="m"><i>x<sub>n</sub></i> = 0.<i>d</i><sub>1</sub>…<i>d<sub>n</sub></i></span>. The missing rest is smaller than one unit in the <i>n</i>-th digit:</p>
+    <div class="mb">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ 10<sup>−<i>N</i></sup> &nbsp;for all <i>n</i> ≥ <i>N</i>.</div>
+    <p>Given ε &gt; 0, choose <i>N</i> so large that <span class="m">10<sup>−<i>N</i></sup> &lt; ε</span>. So <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span>. This is how a computer thinks too: every real number is the limit of its finite decimal approximations.</p>
+  </div>
   <h4 id="aufgabe-3-4">Example: Exercise 3.4 from the problem sheet</h4>
   <p>Here exactly the pattern from above is used: compute the distance, then choose <i>N</i> to fit. The hint “for every <span class="m"><i>r</i> ∈ ℝ</span> there is an <span class="m"><i>N</i> ∈ ℕ</span> with <span class="m"><i>N</i> &gt; <i>r</i></span>” makes sure that the chosen <i>N</i> actually exists.</p>
   <div class="bsp"><span class="lbl">a) xₙ = (2n + 1)/(n + 1) → 2</span>
@@ -2687,6 +2718,10 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>In plain words:</b> “Towards infinity” means the sequence exceeds every bound and stays above it. And convergent sequences cannot break out: from <i>N</i> on, all terms are close to the limit, and before that there are only finitely many.</p>
   </div>
   <div class="falle"><span class="lbl">Pitfall</span><p>The converse does not hold: <span class="m">(−1)<sup><i>n</i></sup></span> is bounded, but does not converge. And “unbounded” does not automatically mean “goes to ∞”: 0, 1, 0, 2, 0, 3, … is unbounded, but does not go to ∞, because 0 keeps coming back.</p></div>
+  <div class="bsp"><span class="lbl">Example: n, n² and 2ⁿ go to +∞</span>
+    <p><b><i>x<sub>n</sub></i> = <i>n</i>:</b> Given <i>C</i> &gt; 0, choose a natural number <span class="m"><i>N</i> ≥ <i>C</i></span>. For <i>n</i> ≥ <i>N</i> we get <span class="m"><i>x<sub>n</sub></i> = <i>n</i> ≥ <i>N</i> ≥ <i>C</i></span>.<br>
+    <b><i>x<sub>n</sub></i> = <i>n</i>²</b> and <b><i>x<sub>n</sub></i> = 2<sup><i>n</i></sup>:</b> For <i>n</i> ≥ 1 we have <span class="m"><i>n</i>² ≥ <i>n</i></span> and <span class="m">2<sup><i>n</i></sup> &gt; <i>n</i></span>. So the same <i>N</i> works here too. Remember the pattern: anything larger than a sequence going to +∞ goes to +∞ itself.</p>
+  </div>
   <div class="def"><div class="tag">Theorem 3.9 · Limit rules</div>
     <p class="formal">If <span class="m"><i>x<sub>n</sub></i> → <i>a</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>b</i></span>, then <span class="m"><i>x<sub>n</sub></i> ± <i>y<sub>n</sub></i> → <i>a</i> ± <i>b</i></span>, <span class="m"><i>x<sub>n</sub></i><i>y<sub>n</sub></i> → <i>ab</i></span> and, if <span class="m"><i>b</i> ≠ 0</span>, <span class="m"><i>x<sub>n</sub></i>/<i>y<sub>n</sub></i> → <i>a</i>/<i>b</i></span>.</p>
     <p class="plain"><b>In plain words:</b> Limits get along with the basic arithmetic operations. You may split a complicated sequence into simple building blocks whose limits you know.</p>
@@ -2696,6 +2731,13 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <div class="mb">(3<i>n</i>² + <i>n</i>) / (<i>n</i>² + 5) = (3 + 1/<i>n</i>) / (1 + 5/<i>n</i>²) → (3 + 0)/(1 + 0) = 3</div>
     <p>The limit rules only apply after cancelling, because before that numerator and denominator both go to ∞, and “∞/∞” is not a limit.</p>
   </div>
+  <div class="bsp"><span class="lbl">Example: two more fractions</span>
+    <p><b>Same degree on top and bottom:</b></p>
+    <div class="mb">(4<i>n</i>² + 5<i>n</i>) / (7<i>n</i>² + 2<i>n</i> − 1) = (4 + 5/<i>n</i>) / (7 + 2/<i>n</i> − 1/<i>n</i>²) → 4/7</div>
+    <p><b>Denominator has higher degree:</b> divide by <i>n</i><sup>5</sup>:</p>
+    <div class="mb">(7<i>n</i>² + 2<i>n</i> − 5) / (3<i>n</i><sup>5</sup>) = (7/<i>n</i>³ + 2/<i>n</i><sup>4</sup> − 5/<i>n</i><sup>5</sup>) / 3 → 0/3 = 0</div>
+  </div>
+  <div class="merke"><span class="lbl">Remember: rule of thumb for polynomial fractions</span><p>Compare the highest exponent on top and bottom. <b>Bottom larger:</b> the limit is 0. <b>Equal:</b> the limit is the ratio of the coefficients of the highest powers (4/7 above). <b>Top larger:</b> no convergence, the fraction goes to +∞ or −∞. In a proof you still have to cancel and use the limit rules; the rule of thumb only tells you in advance what comes out.</p></div>
 
   <h3 id="k3-4"><span class="sn">3.4</span>Monotone sequences</h3>
   <div class="def"><div class="tag">Theorem 3.10 · monotone + bounded ⇒ convergent</div>
@@ -2711,6 +2753,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p>If you start below 1, the sequence increases monotonically and is bounded by 1. If you start above 1, it decreases monotonically and is bounded below by 1. In both cases it converges by Theorem 3.10. You find the limit <i>x</i> by replacing <span class="m"><i>x<sub>n</sub></i></span> and <span class="m"><i>x</i><sub><i>n</i>+1</sub></span> in the recursion by <i>x</i>: <span class="m"><i>x</i> = √<i>x</i></span>, so <i>x</i> = 0 or <i>x</i> = 1. Since the sequence increases for <i>x</i>₁ = 0.2, it cannot be 0, so it is 1.</p>
   </div>
   <div class="merke"><span class="lbl">Remember</span><p>The trick “plug the limit into the recursion” works <b>only if you already know that the sequence converges</b>. For <span class="m"><i>x</i><sub><i>n</i>+1</sub> = 2<i>x<sub>n</sub></i></span> it gives <i>x</i> = 2<i>x</i>, so <i>x</i> = 0, even though 1, 2, 4, 8, … goes to ∞.</p></div>
+  <div class="merke"><span class="lbl">Remember: lim = sup even without a ceiling</span><p>If <i>x<sub>n</sub></i> is monotonically increasing but <b>unbounded above</b>, then for every <i>C</i> &gt; 0 there is an <i>N</i> with <span class="m"><i>x<sub>N</sub></i> &gt; <i>C</i></span>, and by monotonicity <span class="m"><i>x<sub>n</sub></i> ≥ <i>x<sub>N</sub></i> &gt; <i>C</i></span> for all <i>n</i> ≥ <i>N</i>. So <span class="m"><i>x<sub>n</sub></i> → +∞ = sup<sub><i>n</i></sub> <i>x<sub>n</sub></i></span>. A monotone sequence therefore always has a limit, sometimes just an improper one, ±∞.</p></div>
   <h4>Side trip: the Collatz problem</h4>
   <p>Whether a recursive sequence converges can be extremely hard to tell. The rule: if <i>x<sub>n</sub></i> is even, halve it; if it is odd (and not 1), compute <span class="m">3<i>x<sub>n</sub></i> + 1</span>; at 1 you stop. The conjecture that you land at 1 from every starting value has been unproven since 1937. Try it out:</p>
   <figure>
@@ -2725,6 +2768,9 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="def"><div class="tag">Definition 3.11 · Subsequence and accumulation point</div>
     <p class="formal">For indices <span class="m"><i>n</i><sub>1</sub> &lt; <i>n</i><sub>2</sub> &lt; <i>n</i><sub>3</sub> &lt; …</span>, <span class="m">(<i>x</i><sub><i>n<sub>k</sub></i></sub>)<sub><i>k</i></sub></span> is called a subsequence. <i>x</i> is called an accumulation point of <span class="m">(<i>x<sub>n</sub></i>)</span> if there is a subsequence that converges to <i>x</i>.</p>
     <p class="plain"><b>In plain words:</b> A subsequence is what you get when you pick infinitely many terms and keep their order. An accumulation point is a place the sequence keeps coming back to, infinitely often and arbitrarily close.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: (−1)ⁿ has two accumulation points</span>
+    <p>Typical subsequences are <span class="m">(<i>x</i><sub>2<i>n</i></sub>)</span>, every second term, or <span class="m">(<i>x</i><sub>2<sup><i>n</i></sup></sub>)</span>. For <span class="m"><i>x<sub>n</sub></i> = (−1)<sup><i>n</i></sup></span> we get <span class="m"><i>x</i><sub>2<i>n</i></sub> = 1 → 1</span> and <span class="m"><i>x</i><sub>2<i>n</i>+1</sub> = −1 → −1</span>. So 1 and −1 are accumulation points, even though the sequence itself does not converge.</p>
   </div>
   <div class="def"><div class="tag">limsup and liminf</div>
     <p class="formal"><span class="m"><span class="ol"><i>x</i></span><sub><i>n</i></sub> = sup<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> is monotonically decreasing, <span class="m"><u><i>x</i></u><sub><i>n</i></sub> = inf<sub><i>k</i>≥<i>n</i></sub> <i>x<sub>k</sub></i></span> is monotonically increasing.<br><span class="m">limsup <i>x<sub>n</sub></i> = lim <span class="ol"><i>x</i></span><sub><i>n</i></sub></span>, &nbsp; <span class="m">liminf <i>x<sub>n</sub></i> = lim <u><i>x</i></u><sub><i>n</i></sub></span>.</p>
@@ -2741,6 +2787,10 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="merke"><span class="lbl">Corollary: this is the theorem people usually quote</span><p><b>Every bounded real sequence has a convergent subsequence.</b> Because the limsup is an accumulation point, and by definition there is a subsequence converging to it.</p></div>
   <div class="bsp"><span class="lbl">Example</span>
     <p>The sequence <span class="m">0, 1/2, 1, 0, 1/4, 1/2, 3/4, 1, 0, 1/8, 2/8, …, 1, …</span> runs from 0 to 1 in ever finer steps. Every number in [0, 1] is approximated arbitrarily well again and again. That is why the set of accumulation points is the whole interval [0, 1], with liminf = 0 and limsup = 1. So a sequence can have infinitely many accumulation points.</p>
+  </div>
+  <div class="bsp"><span class="lbl">Example: even more accumulation points</span>
+    <p>The sequence <span class="m">1, &nbsp;1, 1/2, &nbsp;1, 1/2, 1/3, &nbsp;1, 1/2, 1/3, 1/4, &nbsp;…</span> keeps counting from the start, one unit fraction further each round. Every number <span class="m">1/<i>k</i></span> appears in it infinitely often. Picking exactly those positions gives the constant subsequence <span class="m">1/<i>k</i>, 1/<i>k</i>, …</span>, so every <span class="m">1/<i>k</i></span> is an accumulation point. And 0 is one too: the subsequence <span class="m">1, 1/2, 1/3, 1/4, …</span> (the last term of each round) goes to 0, although 0 itself never appears.</p>
+    <p><span class="m"><i>x<sub>n</sub></i> = sin(<i>n</i>)</span> also has infinitely many accumulation points, in fact every number in [−1, 1]. Proving that is a lot harder, though.</p>
   </div>
 
   <h3 id="k3-6"><span class="sn">3.6</span>The Cauchy criterion</h3>
@@ -2761,6 +2811,8 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <details><summary>Find limsup and liminf of xₙ = (−1)ⁿ + 1/n.</summary><div class="ans"><p>Even <i>n</i>: <span class="m">1 + 1/<i>n</i> → 1</span>. Odd <i>n</i>: <span class="m">−1 + 1/<i>n</i> → −1</span>. So limsup = 1, liminf = −1, and the sequence does not converge.</p></div></details>
     <details><summary>True or false: every monotone sequence converges.</summary><div class="ans"><p>False. It also needs to be bounded. Counterexample: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span> is monotonically increasing and goes to +∞.</p></div></details>
     <details><summary>What does (n² − 4n) / (2n² + 7) converge to?</summary><div class="ans"><p>Divide by <i>n</i>²: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
+    <details><summary>What does (5n³ − n) / (2n⁴ + 1) converge to?</summary><div class="ans"><p>The bottom has the higher degree. Divide by <i>n</i><sup>4</sup>: <span class="m">(5/<i>n</i> − 1/<i>n</i>³)/(2 + 1/<i>n</i><sup>4</sup>) → 0/2 = 0</span>.</p></div></details>
+    <details><summary>Which accumulation points does xₙ = (−1)ⁿ · n have? Does that contradict Bolzano–Weierstrass?</summary><div class="ans"><p>None. The even terms go to +∞, the odd ones to −∞, so no subsequence converges to a real number. That is no contradiction, because Bolzano–Weierstrass only applies to <b>bounded</b> sequences.</p></div></details>
   </div>
 </section>
 
