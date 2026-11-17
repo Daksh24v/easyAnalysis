@@ -506,6 +506,8 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
         <a href="#k3-1" data-en="What is a sequence?">Was ist eine Folge?</a>
         <a href="#monotonie" data-en="Monotonicity">Monotonie</a>
         <a href="#k3-2" data-en="The limit">Der Grenzwert</a>
+        <a href="#aequivalent" data-en="Equivalent formulations">Gleichwertige Formulierungen</a>
+        <a href="#divergenz-zeigen" data-en="Showing non-convergence">Nicht-Konvergenz zeigen</a>
         <a href="#k3-3" data-en="Tools for limits">Werkzeuge für Grenzwerte</a>
         <a href="#satz-3-6" data-en="Theorem 3.6: squeeze">Satz 3.6: Einschließung</a>
         <a href="#satz-3-9" data-en="Theorem 3.9: limit rules">Satz 3.9: Rechenregeln</a>
@@ -513,6 +515,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
         <a href="#k3-4" data-en="Monotone sequences">Monotone Folgen</a>
         <a href="#k3-5" data-en="limsup, liminf &amp; accumulation points">limsup, liminf &amp; Häufungspunkte</a>
         <a href="#k3-6" data-en="Cauchy criterion">Cauchy-Kriterium</a>
+        <a href="#rezept-konvergenz" data-en="Recipe: which tool?">Rezept: welches Werkzeug?</a>
       </div></li>
     <li><a class="ch" href="#k4"><span class="num">4</span><span data-en="Series">Reihen</span></a>
       <div class="secs">
@@ -1535,6 +1538,48 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>Auf Deutsch:</b> Wäre <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, dann wäre <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> für jedes ε. Ein fester Abstand, der kleiner als jede positive Zahl ist, muss 0 sein.</p>
   </div>
 
+  <h4 id="aequivalent">Gleichwertige Formulierungen (Aufgabe 4.4 aus der Übung)</h4>
+  <p>In Beweisen kommt am Ende oft nicht genau <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> heraus, sondern <span class="m">≤ ε</span>, <span class="m">2ε</span> oder <span class="m">17ε</span>. Das ist kein Problem: Weil ε <b>beliebig</b> ist, darfst du die Voraussetzung mit einem anderen positiven Wert benutzen, z. B. mit <span class="m">ε/2</span> oder <span class="m">ε/17</span>. Alle diese Varianten sind gleichwertig zu Definition 3.3.</p>
+  <div class="tw"><table>
+    <tr><th>Variante</th><th>Warum gleichwertig</th></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span></td><td>„&lt;“ gibt immer „≤“. Umgekehrt: mit <span class="m">ε/2</span> anwenden, dann <span class="m">≤ ε/2 &lt; ε</span>.</td></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; <i>c</i>ε</span>, <span class="m"><i>c</i> &gt; 0</span> fest</td><td>Mit <span class="m">ε/<i>c</i></span> anwenden, dann steht da <span class="m">&lt; <i>c</i> · ε/<i>c</i> = ε</span>.</td></tr>
+    <tr><td><span class="m"><i>n</i> &gt; <i>N</i></span> statt <span class="m"><i>n</i> ≥ <i>N</i></span></td><td>Aus „für alle <span class="m"><i>n</i> ≥ <i>N</i></span>“ folgt „für alle <span class="m"><i>n</i> &gt; <i>N</i></span>“. Umgekehrt nimmst du <span class="m"><i>N</i> + 1</span> statt <i>N</i>.</td></tr>
+    <tr><td>nur <span class="m">ε = 1/<i>k</i></span> mit <span class="m"><i>k</i> ∈ ℕ<sub>+</sub></span></td><td>Zu jedem ε &gt; 0 gibt es ein <span class="m"><i>k</i> &gt; 1/ε</span>, also <span class="m">1/<i>k</i> &lt; ε</span>.</td></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| → 0</span></td><td>Das ist wörtlich dieselbe Bedingung, denn <span class="m">||<i>x<sub>n</sub></i> − <i>x</i>| − 0| = |<i>x<sub>n</sub></i> − <i>x</i>|</span>. Konvergenz heißt also: Der Abstand ist eine Nullfolge.</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">Aufgabe 4.4 kurz aufgeschrieben</span>
+    <p>(D) sei Definition 3.3, (i) die Variante mit <span class="m">≤ ε</span>, (ii) die Variante mit <span class="m">&lt; 17ε</span>.</p>
+    <p><b>(D) ⇒ (i):</b> Aus <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> folgt <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span>, gleiches <i>N</i>.<br>
+    <b>(i) ⇒ (D):</b> Sei ε &gt; 0. (i) für <span class="m">ε/2 &gt; 0</span> liefert ein <i>N</i> mit <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε/2 &lt; ε</span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>
+    <b>(D) ⇒ (ii):</b> Wegen ε &gt; 0 ist <span class="m">ε &lt; 17ε</span>, also <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε &lt; 17ε</span>, gleiches <i>N</i>.<br>
+    <b>(ii) ⇒ (D):</b> Sei ε &gt; 0. (ii) für <span class="m">ε/17 &gt; 0</span> liefert ein <i>N</i> mit <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; 17 · ε/17 = ε</span>. ∎</p>
+  </div>
+  <div class="merke"><span class="lbl">Merke</span><p>Das Skript nutzt den Trick selbst: Im Beweis von Satz 3.4 steht am Ende <span class="m">2ε</span>, im Beweis von Satz 3.9 wird mit <span class="m">ε/2</span> gearbeitet. Eine <b>feste</b> Konstante vor dem ε ist immer erlaubt.</p></div>
+  <div class="falle"><span class="lbl">Falle: nur feste Konstanten sind erlaubt</span><p>Die Bedingung „zu jedem ε &gt; 0 gibt es <i>N</i> mit <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; <i>n</i>ε</span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>“ ist <b>nicht</b> gleichwertig. Gegenbeispiel: <span class="m"><i>x<sub>n</sub></i> = 1</span>, <span class="m"><i>x</i> = 0</span>. Für <span class="m"><i>N</i> &gt; 1/ε</span> ist <span class="m"><i>n</i>ε ≥ <i>N</i>ε &gt; 1 = |<i>x<sub>n</sub></i> − 0|</span>, die Bedingung gilt also. Trotzdem konvergiert die konstante Folge 1 nicht gegen 0.</p></div>
+
+  <h4 id="divergenz-zeigen">Nicht-Konvergenz zeigen: die Definition verneinen</h4>
+  <p>Um zu zeigen, dass <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> <b>nicht</b> gilt, verneinst du Definition 3.3. Dabei wird jedes ∀ zu ∃, jedes ∃ zu ∀, und die Ungleichung am Ende dreht sich um. Die Reihenfolge der Quantoren bleibt gleich.</p>
+  <div class="tw"><table>
+    <tr><th></th><th>Formel</th></tr>
+    <tr><td><span class="m"><i>x<sub>n</sub></i> → <i>x</i></span></td><td><span class="m">∀ε &gt; 0 ∃<i>N</i> ∀<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span></td></tr>
+    <tr><td><span class="m">¬(<i>x<sub>n</sub></i> → <i>x</i>)</span></td><td><span class="m">∃ε &gt; 0 ∀<i>N</i> ∃<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − <i>x</i>| ≥ ε</span></td></tr>
+  </table></div>
+  <p class="plain"><b>Auf Deutsch:</b> Es gibt <b>einen</b> festen Streifen, aus dem die Folge immer wieder herausspringt: Egal wie weit hinten du anfängst, später kommt noch ein Glied außerhalb. Eine Folge heißt <b>divergent</b>, wenn das für <b>jedes</b> <span class="m"><i>x</i> ∈ ℝ</span> gilt.</p>
+  <div class="bsp"><span class="lbl">Beispiel: 1/n konvergiert nicht gegen 0,1</span>
+    <p>Wähle <span class="m">ε = 0,05</span>. Sei <i>N</i> beliebig. Nimm <span class="m"><i>n</i> = max(<i>N</i>, 20)</span>. Dann ist <span class="m"><i>n</i> ≥ <i>N</i></span> und <span class="m">1/<i>n</i> ≤ 1/20 = 0,05</span>, also</p>
+    <div class="mb">|1/<i>n</i> − 0,1| = 0,1 − 1/<i>n</i> ≥ 0,05 = ε.</div>
+    <p>Damit ist die Verneinung erfüllt. (Natürlich: Der Grenzwert ist 0, und nach Satz 3.4 gibt es nur einen.)</p>
+  </div>
+  <div class="merke"><span class="lbl">Merke: zwei schnelle Wege zu „divergent“</span><p><b>1. Unbeschränkt:</b> Nach Satz 3.8 ist jede konvergente Folge beschränkt. Umgekehrt gelesen: unbeschränkt ⇒ divergent. Beispiel: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span>.<br>
+  <b>2. Zwei Teilfolgen mit verschiedenen Grenzwerten:</b> Bei einer konvergenten Folge konvergiert jede Teilfolge gegen denselben Grenzwert (Beweis von Satz 3.12, „⇒“). Beispiel: <span class="m">(−1)<sup><i>n</i></sup> + 1/<i>n</i></span>, gerade Glieder → 1, ungerade → −1.</p></div>
+
+  <h4 id="konvergenz-fallen">Typische Denkfehler bei Konvergenz</h4>
+  <div class="falle"><span class="lbl">„Die Glieder kommen immer näher“ reicht nicht</span><p>Bei <span class="m"><i>x<sub>n</sub></i> = 1/<i>n</i></span> wird der Abstand zu −1 in jedem Schritt kleiner: <span class="m">|1/<i>n</i> − (−1)| = 1 + 1/<i>n</i></span>. Trotzdem ist der Grenzwert 0 und nicht −1. Der Abstand muss nicht nur schrumpfen, sondern <b>unter jedes ε</b> fallen.</p></div>
+  <div class="falle"><span class="lbl">Reihenfolge der Quantoren beachten</span><p>Die Reihenfolge ist <span class="m">∀ε ∃<i>N</i> ∀<i>n</i></span>: Erst kommt ε, dann wählst du <i>N</i>, und erst danach läuft <i>n</i>. „Wähle <span class="m"><i>N</i> = <i>n</i></span>“ ergibt keinen Sinn, weil <i>n</i> beim Wählen noch gar nicht feststeht.</p></div>
+  <div class="falle"><span class="lbl">Kleine Schritte heißen nicht konvergent</span><p>Bei <span class="m"><i>x<sub>n</sub></i> = √<i>n</i></span> ist <span class="m">√(<i>n</i>+1) − √<i>n</i> = 1/(√(<i>n</i>+1) + √<i>n</i>) → 0</span>. Die Schritte werden also beliebig klein, aber <span class="m">√<i>n</i> → +∞</span>. Das Cauchy-Kriterium (Satz 3.13) verlangt kleine Abstände zwischen <b>allen</b> <span class="m"><i>x<sub>m</sub></i>, <i>x<sub>n</sub></i></span> mit <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>, nicht nur zwischen Nachbarn.</p></div>
+  <div class="merke"><span class="lbl">Merke: endlich viele Glieder sind egal</span><p>Ändert oder streicht man endlich viele Glieder, ändert sich weder die Konvergenz noch der Grenzwert. Man wählt <i>N</i> einfach größer als den letzten geänderten Index. Deshalb sagt man auch: „für fast alle <i>n</i>“ = für alle bis auf endlich viele.</p></div>
+
   <h3 id="k3-3"><span class="sn">3.3</span>Werkzeuge für Grenzwerte</h3>
   <div class="def" id="satz-3-5"><div class="tag">Lemma 3.5 · Ungleichungen bleiben erhalten</div>
     <p class="formal">Aus <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> für alle <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> und <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span> folgt <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
@@ -1680,6 +1725,20 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="merke"><span class="lbl">Merke: so hängt alles zusammen</span><p>Der Beweis von „Cauchy ⇒ konvergent“ benutzt Bolzano-Weierstraß, und der benutzt die Vollständigkeit von ℝ. In ℚ geht das schief: Die Dezimalnäherungen 1, 1.4, 1.41, 1.414, … von √2 sind eine Cauchy-Folge rationaler Zahlen, aber ihr Grenzwert ist nicht rational. Das Loch in ℚ aus Kapitel 2 taucht hier wieder auf.</p></div>
   <div class="bsp"><span class="lbl">Übung</span><p>Für beschränkte Folgen sind diese drei Aussagen gleichwertig: (1) die Folge konvergiert, (2) sie hat genau einen Häufungspunkt, (3) limsup = liminf. Das folgt direkt aus Satz 3.12.</p></div>
 
+  <h4 id="rezept-konvergenz">Rezept: Konvergiert die Folge? Welches Werkzeug?</h4>
+  <p>Ein Überblick über Kapitel 3. Zuerst die Folge ansehen und einen Grenzwert raten (ein paar Glieder ausrechnen hilft), dann das passende Werkzeug wählen:</p>
+  <div class="tw"><table>
+    <tr><th>Die Folge sieht so aus …</th><th>Werkzeug</th></tr>
+    <tr><td>einfach, und der Beweis soll „mit der Definition“ sein</td><td>ε-<i>N</i> direkt (Def. 3.3)<br><span style="color:var(--muted)">z. B.</span> <span class="m">(2<i>n</i>+1)/(<i>n</i>+1) → 2</span></td></tr>
+    <tr><td>Bruch aus Polynomen</td><td>durch die höchste Potenz im Nenner teilen, dann Satz 3.9<br><span style="color:var(--muted)">z. B.</span> <span class="m">(<i>n</i>² − 4<i>n</i>)/(2<i>n</i>² + 7) → 1/2</span></td></tr>
+    <tr><td>Differenz von Wurzeln</td><td>mit der Summe erweitern (3. binomische Formel), dann Satz 3.9 oder 3.6<br><span style="color:var(--muted)">z. B.</span> <span class="m">√(<i>n</i>+1) − √<i>n</i></span> <span class="m">= 1/(√(<i>n</i>+1) + √<i>n</i>)</span> <span class="m">→ 0</span></td></tr>
+    <tr><td>beschränkter Faktor mal Nullfolge</td><td>Einschließung (Satz 3.6)<br><span style="color:var(--muted)">z. B.</span> <span class="m">0 ≤ |sin(<i>n</i>)/<i>n</i>| ≤ 1/<i>n</i></span></td></tr>
+    <tr><td>rekursiv definiert</td><td>monoton + beschränkt (Satz 3.10), dann Grenzwert aus der Rekursion<br><span style="color:var(--muted)">z. B.</span> <span class="m"><i>x</i><sub><i>n</i>+1</sub> = √<i>x<sub>n</sub></i> → 1</span></td></tr>
+    <tr><td>kein Kandidat für den Grenzwert in Sicht</td><td>Cauchy-Kriterium (Satz 3.13)<br><span style="color:var(--muted)">z. B.</span> Partialsummen von Reihen</td></tr>
+    <tr><td>Verdacht auf Divergenz</td><td>unbeschränkt (Satz 3.8) oder zwei Teilfolgen mit verschiedenen Grenzwerten (Satz 3.12)<br><span style="color:var(--muted)">z. B.</span> <span class="m"><i>n</i></span>, <span class="m">(−1)<sup><i>n</i></sup></span></td></tr>
+  </table></div>
+  <div class="falle"><span class="lbl">Falle</span><p>Satz 3.9 darfst du erst anwenden, wenn die einzelnen Teile konvergieren. <span class="m"><i>n</i> · (1/<i>n</i>)</span> ist „∞ · 0“, da sagt Satz 3.9 nichts. Erst umformen (<span class="m">= 1</span>), dann den Grenzwert bilden.</p></div>
+
   <div class="quiz"><div class="qh">Selbst testen</div>
     <details><summary>Ist aₙ = n² − 4n (n ∈ ℕ) monoton?</summary><div class="ans"><p>Glieder: 0, −3, −4, −3, 0, … Wegen <i>a</i><sub>1</sub> &lt; <i>a</i><sub>0</sub> nicht monoton wachsend, wegen <i>a</i><sub>3</sub> &gt; <i>a</i><sub>2</sub> nicht monoton fallend, also <b>nicht monoton</b>. Die Differenz <i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 2<i>n</i> − 3 zeigt aber: Ab <i>n</i> = 2 ist die Folge streng wachsend.</p></div></details>
     <details><summary>Ab welchem n ist 2⁻ⁿ kleiner als 0.001?</summary><div class="ans"><p>Gesucht ist 2<sup><i>n</i></sup> &gt; 1000. Es ist 2<sup>9</sup> = 512 und 2<sup>10</sup> = 1024, also ab <i>n</i> = 10. Weil 2<sup>−<i>n</i></sup> fällt, bleibt es danach darunter.</p></div></details>
@@ -1689,6 +1748,9 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <details><summary>Gegen was konvergiert (n² − 4n) / (2n² + 7)?</summary><div class="ans"><p>Durch <i>n</i>² teilen: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
     <details><summary>Gegen was konvergiert (5n³ − n) / (2n⁴ + 1)?</summary><div class="ans"><p>Unten steht der höhere Grad. Durch <i>n</i><sup>4</sup> teilen: <span class="m">(5/<i>n</i> − 1/<i>n</i>³)/(2 + 1/<i>n</i><sup>4</sup>) → 0/2 = 0</span>.</p></div></details>
     <details><summary>Welche Häufungspunkte hat xₙ = (−1)ⁿ · n? Widerspricht das Bolzano-Weierstraß?</summary><div class="ans"><p>Keine. Die geraden Glieder gehen gegen +∞, die ungeraden gegen −∞, keine Teilfolge konvergiert gegen eine reelle Zahl. Das ist kein Widerspruch, denn Bolzano-Weierstraß gilt nur für <b>beschränkte</b> Folgen.</p></div></details>
+    <details><summary>Verneine: xₙ → 3.</summary><div class="ans"><p><span class="m">∃ε &gt; 0 ∀<i>N</i> ∃<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − 3| ≥ ε</span>. Also: Es gibt einen festen Abstand ε, den die Folge immer wieder (unendlich oft) erreicht oder überschreitet.</p></div></details>
+    <details><summary>Reicht es, |xₙ − x| ≤ 5ε für alle n ≥ N zu zeigen?</summary><div class="ans"><p>Ja. Wende das Argument mit <span class="m">ε/5</span> statt ε an, dann steht da <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span>, und das ist nach Aufgabe 4.4 gleichwertig zu Definition 3.3. Wichtig ist nur, dass die 5 fest ist und nicht von <i>n</i> abhängt.</p></div></details>
+    <details><summary>Konvergiert 1, 0, 1/2, 0, 1/3, 0, 1/4, …?</summary><div class="ans"><p>Ja, gegen 0. Die Folge ist nicht monoton, aber das braucht man nicht. Es gilt <span class="m">|<i>x<sub>n</sub></i>| ≤ 2/<i>n</i></span> für alle <span class="m"><i>n</i> ≥ 1</span> (die Glieder an ungeraden Stellen <span class="m"><i>n</i> = 2<i>k</i> − 1</span> sind <span class="m">1/<i>k</i> = 2/(<i>n</i> + 1)</span>), also nach Satz 3.6 <span class="m"><i>x<sub>n</sub></i> → 0</span>.</p></div></details>
   </div>
 </section>
 
@@ -2035,6 +2097,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="formal">Sei <span class="m">(<i>x<sub>n</sub></i>)</span> eine reelle Folge. <span class="m"><i>x</i> ∈ ℝ</span> heißt Grenzwert (Limes) von <span class="m">(<i>x<sub>n</sub></i>)</span>, falls es zu jedem <span class="m">ε &gt; 0</span> ein <i>N</i> gibt, sodass <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> für alle <span class="m"><i>n</i> ≥ <i>N</i></span>. Man schreibt <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> oder <span class="m"><i>x</i> = lim<sub><i>n</i>→∞</sub> <i>x<sub>n</sub></i></span> und sagt, <span class="m">(<i>x<sub>n</sub></i>)</span> konvergiert gegen <i>x</i>.</p>
     <p class="plain"><b>Auf Deutsch:</b> Egal wie schmal der Streifen um <i>x</i> ist, ab einem Index <i>N</i> liegen alle Folgenglieder darin.</p>
     <p class="more"><a href="#k3-2">Ausführlich mit Beispielen →</a></p>
+    <p class="more"><a href="#aequivalent">Gleichwertige Formulierungen und Verneinung →</a></p>
   </div>
   <div class="def" id="def-3-4"><div class="tag">Satz 3.4 · Eindeutigkeit des Grenzwerts</div>
     <p class="formal">Jede reelle Folge hat höchstens einen Grenzwert.</p>
@@ -3128,6 +3191,48 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="plain"><b>In plain words:</b> If <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>x<sub>n</sub></i> → <i>y</i></span>, then <span class="m">|<i>x</i> − <i>y</i>| ≤ |<i>x</i> − <i>x<sub>n</sub></i>| + |<i>x<sub>n</sub></i> − <i>y</i>| &lt; 2ε</span> for every ε. A fixed distance that is smaller than every positive number has to be 0.</p>
   </div>
 
+  <h4 id="aequivalent">Equivalent formulations (Exercise 4.4 from the problem sheet)</h4>
+  <p>In proofs you often do not end up with exactly <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span>, but with <span class="m">≤ ε</span>, <span class="m">2ε</span> or <span class="m">17ε</span>. That is fine: because ε is <b>arbitrary</b>, you may use the assumption with a different positive value, e.g. <span class="m">ε/2</span> or <span class="m">ε/17</span>. All of these variants are equivalent to Definition 3.3.</p>
+  <div class="tw"><table>
+    <tr><th>Variant</th><th>Why it is equivalent</th></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span></td><td>“&lt;” always gives “≤”. Conversely: apply it with <span class="m">ε/2</span>, then <span class="m">≤ ε/2 &lt; ε</span>.</td></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; <i>c</i>ε</span>, <span class="m"><i>c</i> &gt; 0</span> fixed</td><td>Apply it with <span class="m">ε/<i>c</i></span>, then you get <span class="m">&lt; <i>c</i> · ε/<i>c</i> = ε</span>.</td></tr>
+    <tr><td><span class="m"><i>n</i> &gt; <i>N</i></span> instead of <span class="m"><i>n</i> ≥ <i>N</i></span></td><td>“For all <span class="m"><i>n</i> ≥ <i>N</i></span>” implies “for all <span class="m"><i>n</i> &gt; <i>N</i></span>”. Conversely, use <span class="m"><i>N</i> + 1</span> instead of <i>N</i>.</td></tr>
+    <tr><td>only <span class="m">ε = 1/<i>k</i></span> with <span class="m"><i>k</i> ∈ ℕ<sub>+</sub></span></td><td>For every ε &gt; 0 there is a <span class="m"><i>k</i> &gt; 1/ε</span>, so <span class="m">1/<i>k</i> &lt; ε</span>.</td></tr>
+    <tr><td><span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| → 0</span></td><td>This is literally the same condition, since <span class="m">||<i>x<sub>n</sub></i> − <i>x</i>| − 0| = |<i>x<sub>n</sub></i> − <i>x</i>|</span>. So convergence means: the distance is a null sequence.</td></tr>
+  </table></div>
+  <div class="bsp"><span class="lbl">Exercise 4.4 written up briefly</span>
+    <p>Let (D) be Definition 3.3, (i) the variant with <span class="m">≤ ε</span>, (ii) the variant with <span class="m">&lt; 17ε</span>.</p>
+    <p><b>(D) ⇒ (i):</b> <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> implies <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span>, same <i>N</i>.<br>
+    <b>(i) ⇒ (D):</b> Let ε &gt; 0. (i) for <span class="m">ε/2 &gt; 0</span> gives an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε/2 &lt; ε</span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>.<br>
+    <b>(D) ⇒ (ii):</b> Since ε &gt; 0 we have <span class="m">ε &lt; 17ε</span>, so <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε &lt; 17ε</span>, same <i>N</i>.<br>
+    <b>(ii) ⇒ (D):</b> Let ε &gt; 0. (ii) for <span class="m">ε/17 &gt; 0</span> gives an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; 17 · ε/17 = ε</span>. ∎</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember</span><p>The lecture notes use this trick themselves: the proof of Theorem 3.4 ends with <span class="m">2ε</span>, and the proof of Theorem 3.9 works with <span class="m">ε/2</span>. A <b>fixed</b> constant in front of ε is always allowed.</p></div>
+  <div class="falle"><span class="lbl">Pitfall: only fixed constants are allowed</span><p>The condition “for every ε &gt; 0 there is an <i>N</i> with <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; <i>n</i>ε</span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>” is <b>not</b> equivalent. Counterexample: <span class="m"><i>x<sub>n</sub></i> = 1</span>, <span class="m"><i>x</i> = 0</span>. For <span class="m"><i>N</i> &gt; 1/ε</span> we get <span class="m"><i>n</i>ε ≥ <i>N</i>ε &gt; 1 = |<i>x<sub>n</sub></i> − 0|</span>, so the condition holds. Yet the constant sequence 1 does not converge to 0.</p></div>
+
+  <h4 id="divergenz-zeigen">Showing non-convergence: negating the definition</h4>
+  <p>To show that <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> does <b>not</b> hold, negate Definition 3.3. Every ∀ becomes ∃, every ∃ becomes ∀, and the inequality at the end flips. The order of the quantifiers stays the same.</p>
+  <div class="tw"><table>
+    <tr><th></th><th>Formula</th></tr>
+    <tr><td><span class="m"><i>x<sub>n</sub></i> → <i>x</i></span></td><td><span class="m">∀ε &gt; 0 ∃<i>N</i> ∀<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span></td></tr>
+    <tr><td><span class="m">¬(<i>x<sub>n</sub></i> → <i>x</i>)</span></td><td><span class="m">∃ε &gt; 0 ∀<i>N</i> ∃<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − <i>x</i>| ≥ ε</span></td></tr>
+  </table></div>
+  <p class="plain"><b>In plain words:</b> There is <b>one</b> fixed strip that the sequence keeps jumping out of: no matter how far along you start, some later term lies outside. A sequence is called <b>divergent</b> if this holds for <b>every</b> <span class="m"><i>x</i> ∈ ℝ</span>.</p>
+  <div class="bsp"><span class="lbl">Example: 1/n does not converge to 0.1</span>
+    <p>Choose <span class="m">ε = 0.05</span>. Let <i>N</i> be arbitrary. Take <span class="m"><i>n</i> = max(<i>N</i>, 20)</span>. Then <span class="m"><i>n</i> ≥ <i>N</i></span> and <span class="m">1/<i>n</i> ≤ 1/20 = 0.05</span>, so</p>
+    <div class="mb">|1/<i>n</i> − 0.1| = 0.1 − 1/<i>n</i> ≥ 0.05 = ε.</div>
+    <p>So the negation holds. (Of course: the limit is 0, and by Theorem 3.4 there is only one.)</p>
+  </div>
+  <div class="merke"><span class="lbl">Remember: two quick routes to “divergent”</span><p><b>1. Unbounded:</b> By Theorem 3.8 every convergent sequence is bounded. Read backwards: unbounded ⇒ divergent. Example: <span class="m"><i>x<sub>n</sub></i> = <i>n</i></span>.<br>
+  <b>2. Two subsequences with different limits:</b> For a convergent sequence every subsequence converges to the same limit (proof of Theorem 3.12, “⇒”). Example: <span class="m">(−1)<sup><i>n</i></sup> + 1/<i>n</i></span>, even terms → 1, odd terms → −1.</p></div>
+
+  <h4 id="konvergenz-fallen">Common mistakes about convergence</h4>
+  <div class="falle"><span class="lbl">“The terms keep getting closer” is not enough</span><p>For <span class="m"><i>x<sub>n</sub></i> = 1/<i>n</i></span> the distance to −1 shrinks in every step: <span class="m">|1/<i>n</i> − (−1)| = 1 + 1/<i>n</i></span>. Still, the limit is 0, not −1. The distance must not just shrink, it must drop <b>below every ε</b>.</p></div>
+  <div class="falle"><span class="lbl">Mind the order of the quantifiers</span><p>The order is <span class="m">∀ε ∃<i>N</i> ∀<i>n</i></span>: first ε is given, then you choose <i>N</i>, and only after that does <i>n</i> run. “Choose <span class="m"><i>N</i> = <i>n</i></span>” makes no sense, because <i>n</i> is not fixed yet when you choose.</p></div>
+  <div class="falle"><span class="lbl">Small steps do not mean convergent</span><p>For <span class="m"><i>x<sub>n</sub></i> = √<i>n</i></span> we have <span class="m">√(<i>n</i>+1) − √<i>n</i> = 1/(√(<i>n</i>+1) + √<i>n</i>) → 0</span>. So the steps get arbitrarily small, but <span class="m">√<i>n</i> → +∞</span>. The Cauchy criterion (Theorem 3.13) needs small distances between <b>all</b> <span class="m"><i>x<sub>m</sub></i>, <i>x<sub>n</sub></i></span> with <span class="m"><i>m</i>, <i>n</i> &gt; <i>N</i></span>, not just between neighbours.</p></div>
+  <div class="merke"><span class="lbl">Remember: finitely many terms do not matter</span><p>Changing or deleting finitely many terms changes neither convergence nor the limit. You just choose <i>N</i> larger than the last changed index. That is why people say “for almost all <i>n</i>” = for all but finitely many.</p></div>
+
   <h3 id="k3-3"><span class="sn">3.3</span>Tools for limits</h3>
   <div class="def" id="satz-3-5"><div class="tag">Lemma 3.5 · Inequalities are preserved</div>
     <p class="formal">If <span class="m"><i>x<sub>n</sub></i> ≤ <i>y<sub>n</sub></i></span> for all <i>n</i>, <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> and <span class="m"><i>y<sub>n</sub></i> → <i>y</i></span>, then <span class="m"><i>x</i> ≤ <i>y</i></span>.</p>
@@ -3273,6 +3378,20 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
   <div class="merke"><span class="lbl">Remember: how it all fits together</span><p>The proof of “Cauchy ⇒ convergent” uses Bolzano–Weierstrass, and that uses the completeness of ℝ. In ℚ it goes wrong: the decimal approximations 1, 1.4, 1.41, 1.414, … of √2 are a Cauchy sequence of rational numbers, but their limit is not rational. The hole in ℚ from chapter 2 shows up again here.</p></div>
   <div class="bsp"><span class="lbl">Exercise</span><p>For bounded sequences these three statements are equivalent: (1) the sequence converges, (2) it has exactly one accumulation point, (3) limsup = liminf. This follows directly from Theorem 3.12.</p></div>
 
+  <h4 id="rezept-konvergenz">Recipe: does the sequence converge? Which tool?</h4>
+  <p>An overview of chapter 3. First look at the sequence and guess a limit (computing a few terms helps), then pick the matching tool:</p>
+  <div class="tw"><table>
+    <tr><th>The sequence looks like …</th><th>Tool</th></tr>
+    <tr><td>simple, and the proof should be “by definition”</td><td>ε-<i>N</i> directly (Def. 3.3)<br><span style="color:var(--muted)">e.g.</span> <span class="m">(2<i>n</i>+1)/(<i>n</i>+1) → 2</span></td></tr>
+    <tr><td>a fraction of polynomials</td><td>divide by the highest power in the denominator, then Theorem 3.9<br><span style="color:var(--muted)">e.g.</span> <span class="m">(<i>n</i>² − 4<i>n</i>)/(2<i>n</i>² + 7) → 1/2</span></td></tr>
+    <tr><td>a difference of square roots</td><td>multiply by the sum (difference of squares), then Theorem 3.9 or 3.6<br><span style="color:var(--muted)">e.g.</span> <span class="m">√(<i>n</i>+1) − √<i>n</i></span> <span class="m">= 1/(√(<i>n</i>+1) + √<i>n</i>)</span> <span class="m">→ 0</span></td></tr>
+    <tr><td>a bounded factor times a null sequence</td><td>squeeze (Theorem 3.6)<br><span style="color:var(--muted)">e.g.</span> <span class="m">0 ≤ |sin(<i>n</i>)/<i>n</i>| ≤ 1/<i>n</i></span></td></tr>
+    <tr><td>recursively defined</td><td>monotone + bounded (Theorem 3.10), then the limit from the recursion<br><span style="color:var(--muted)">e.g.</span> <span class="m"><i>x</i><sub><i>n</i>+1</sub> = √<i>x<sub>n</sub></i> → 1</span></td></tr>
+    <tr><td>no candidate for the limit in sight</td><td>Cauchy criterion (Theorem 3.13)<br><span style="color:var(--muted)">e.g.</span> partial sums of series</td></tr>
+    <tr><td>you suspect divergence</td><td>unbounded (Theorem 3.8) or two subsequences with different limits (Theorem 3.12)<br><span style="color:var(--muted)">e.g.</span> <span class="m"><i>n</i></span>, <span class="m">(−1)<sup><i>n</i></sup></span></td></tr>
+  </table></div>
+  <div class="falle"><span class="lbl">Pitfall</span><p>You may only use Theorem 3.9 once the individual parts converge. <span class="m"><i>n</i> · (1/<i>n</i>)</span> is “∞ · 0”, and Theorem 3.9 says nothing about that. Simplify first (<span class="m">= 1</span>), then take the limit.</p></div>
+
   <div class="quiz"><div class="qh">Test yourself</div>
     <details><summary>Is aₙ = n² − 4n (n ∈ ℕ) monotone?</summary><div class="ans"><p>Terms: 0, −3, −4, −3, 0, … Since <i>a</i><sub>1</sub> &lt; <i>a</i><sub>0</sub> it is not monotonically increasing, since <i>a</i><sub>3</sub> &gt; <i>a</i><sub>2</sub> not monotonically decreasing, so <b>not monotone</b>. But the difference <i>a</i><sub><i>n</i>+1</sub> − <i>a<sub>n</sub></i> = 2<i>n</i> − 3 shows: from <i>n</i> = 2 on the sequence is strictly increasing.</p></div></details>
     <details><summary>From which n on is 2⁻ⁿ smaller than 0.001?</summary><div class="ans"><p>We need 2<sup><i>n</i></sup> &gt; 1000. We have 2<sup>9</sup> = 512 and 2<sup>10</sup> = 1024, so from <i>n</i> = 10 on. Since 2<sup>−<i>n</i></sup> decreases, it stays below afterwards.</p></div></details>
@@ -3282,6 +3401,9 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <details><summary>What does (n² − 4n) / (2n² + 7) converge to?</summary><div class="ans"><p>Divide by <i>n</i>²: <span class="m">(1 − 4/<i>n</i>)/(2 + 7/<i>n</i>²) → 1/2</span>.</p></div></details>
     <details><summary>What does (5n³ − n) / (2n⁴ + 1) converge to?</summary><div class="ans"><p>The bottom has the higher degree. Divide by <i>n</i><sup>4</sup>: <span class="m">(5/<i>n</i> − 1/<i>n</i>³)/(2 + 1/<i>n</i><sup>4</sup>) → 0/2 = 0</span>.</p></div></details>
     <details><summary>Which accumulation points does xₙ = (−1)ⁿ · n have? Does that contradict Bolzano–Weierstrass?</summary><div class="ans"><p>None. The even terms go to +∞, the odd ones to −∞, so no subsequence converges to a real number. That is no contradiction, because Bolzano–Weierstrass only applies to <b>bounded</b> sequences.</p></div></details>
+    <details><summary>Negate: xₙ → 3.</summary><div class="ans"><p><span class="m">∃ε &gt; 0 ∀<i>N</i> ∃<i>n</i> ≥ <i>N</i>: |<i>x<sub>n</sub></i> − 3| ≥ ε</span>. So: there is a fixed distance ε that the sequence reaches or exceeds again and again (infinitely often).</p></div></details>
+    <details><summary>Is it enough to show |xₙ − x| ≤ 5ε for all n ≥ N?</summary><div class="ans"><p>Yes. Run the argument with <span class="m">ε/5</span> instead of ε, then you get <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| ≤ ε</span>, which by Exercise 4.4 is equivalent to Definition 3.3. All that matters is that the 5 is fixed and does not depend on <i>n</i>.</p></div></details>
+    <details><summary>Does 1, 0, 1/2, 0, 1/3, 0, 1/4, … converge?</summary><div class="ans"><p>Yes, to 0. The sequence is not monotone, but that is not needed. We have <span class="m">|<i>x<sub>n</sub></i>| ≤ 2/<i>n</i></span> for all <span class="m"><i>n</i> ≥ 1</span> (the terms at odd positions <span class="m"><i>n</i> = 2<i>k</i> − 1</span> are <span class="m">1/<i>k</i> = 2/(<i>n</i> + 1)</span>), so <span class="m"><i>x<sub>n</sub></i> → 0</span> by Theorem 3.6.</p></div></details>
   </div>
 </section>
 
@@ -3628,6 +3750,7 @@ a.glare:focus-visible .gc-in { outline: 2px solid var(--h-accent); outline-offse
     <p class="formal">Let <span class="m">(<i>x<sub>n</sub></i>)</span> be a real sequence. <span class="m"><i>x</i> ∈ ℝ</span> is called the limit of <span class="m">(<i>x<sub>n</sub></i>)</span> if for every <span class="m">ε &gt; 0</span> there is an <i>N</i> such that <span class="m">|<i>x<sub>n</sub></i> − <i>x</i>| &lt; ε</span> for all <span class="m"><i>n</i> ≥ <i>N</i></span>. One writes <span class="m"><i>x<sub>n</sub></i> → <i>x</i></span> or <span class="m"><i>x</i> = lim<sub><i>n</i>→∞</sub> <i>x<sub>n</sub></i></span> and says <span class="m">(<i>x<sub>n</sub></i>)</span> converges to <i>x</i>.</p>
     <p class="plain"><b>In plain words:</b> No matter how narrow the strip around <i>x</i> is, from some index <i>N</i> on all terms of the sequence lie inside it.</p>
     <p class="more"><a href="#k3-2">In detail with examples →</a></p>
+    <p class="more"><a href="#aequivalent">Equivalent formulations and negation →</a></p>
   </div>
   <div class="def" id="def-3-4"><div class="tag">Theorem 3.4 · Uniqueness of the limit</div>
     <p class="formal">Every real sequence has at most one limit.</p>
